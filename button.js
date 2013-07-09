@@ -6,14 +6,28 @@
 		_create: function() {
 
 			var $node = $( this.element );
-			if( $node.is( 'a' ) ) {
 
-				$node.attr( 'role', 'button' );
+			var offscreenText = $node.children( '.vui-offscreen' ).text();
+			var title = $node.prop( 'title' );
+			var hasTitle = title !== undefined && title.length > 0;
+			if( offscreenText.length > 0 && !hasTitle ) {
+				$node.prop( 'title', offscreenText );
+			}
 
-				if( $node.hasClass( 'vui-disabled' ) ) {
-					$node.attr( 'aria-disabled', 'true' );
-				}
+			if( !$node.is( 'a' ) ) {
+				return;
+			}
 
+			$node.attr( 'role', 'button' )
+				.attr( 'tabindex', '0' )
+				.bind( 'keypress', function( e ) {
+					if( e.keyCode === 13 ) {
+						$( this ).trigger('click');
+					}
+				} );
+
+			if( $node.hasClass( 'vui-disabled' ) ) {
+				$node.attr( 'aria-disabled', 'true' );
 			}
 
 		},
