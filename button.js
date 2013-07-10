@@ -32,10 +32,6 @@
 
 		},
 
-		destroy: function() {
-			//console.log('destroy');
-		},
-
 		getText: function() {
 
 			var $node = $( this.element );
@@ -63,6 +59,32 @@
 			}
 
 			return isEnabled;
+
+		},
+
+		processingEnd: function() {
+
+			var text = this.element.data( 'originalText' ) || this.getText();
+
+			this.setText( text );
+			this.setIsEnabled( true );
+
+			return this;
+
+		},
+
+		processingStart: function() {
+
+			this.setIsEnabled( false );
+
+			this.element.data( 'originalText', this.getText() );
+
+			var processingText = this.element.attr( 'data-processing-text' );
+			if( processingText !== undefined && processingText.length > 0 ) {
+				this.setText( processingText );
+			}
+
+			return this;
 
 		},
 
