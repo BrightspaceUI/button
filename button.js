@@ -130,9 +130,8 @@
 
 			this.element.contents().filter( function() {
 					return this.nodeType === 3;
-				} ).last().each( function() {
-					this.data = text;
-				} );
+				} ).remove();
+			this.element.append( document.createTextNode( text ) );
 
 		}
 
