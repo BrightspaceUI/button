@@ -18,15 +18,17 @@
 				return;
 			}
 
+			var isDisabled = $node.hasClass( 'vui-disabled' );
+
 			$node.attr( 'role', 'button' )
-				.attr( 'tabindex', '0' )
+				.prop( 'tabIndex', isDisabled ? -1 : 0 )
 				.bind( 'keypress', function( e ) {
 					if( e.keyCode === 13 ) {
 						$( this ).trigger('click');
 					}
 				} );
 
-			if( $node.hasClass( 'vui-disabled' ) ) {
+			if( isDisabled ) {
 				$node.attr( 'aria-disabled', 'true' );
 			}
 
@@ -94,7 +96,8 @@
 			if( $node.is( 'a' ) ) {
 
 				$node.toggleClass( 'vui-disabled', !isEnabled )
-					.attr( 'aria-disabled', isEnabled ? 'false' : 'true' );
+					.attr( 'aria-disabled', isEnabled ? 'false' : 'true' )
+					.prop( 'tabIndex', isEnabled ? 0 : -1 );
 
 			} else {
 				if( isEnabled ) {
