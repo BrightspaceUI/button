@@ -1,7 +1,5 @@
 ﻿$( function() { 
-	$.widget( 'vui.vui_button', { 
-
-		options: {},
+	$.widget( 'vui.vui_button', {
 
 		_create: function() {
 
@@ -10,7 +8,9 @@
 			var offscreenText = $node.children( '.vui-offscreen' ).text();
 			var title = $node.prop( 'title' );
 			var hasTitle = title !== undefined && title.length > 0;
+
 			if( offscreenText.length > 0 && !hasTitle ) {
+				this.element.data( 'autoUpdateTitleWithText', true );
 				$node.prop( 'title', offscreenText );
 			}
 
@@ -32,7 +32,23 @@
 
 		},
 
-		_setOption: function( key, value ) {
+		destroy: function() {
+			//console.log('destroy');
+		},
+
+		getText: function() {
+
+			var $node = $( this.element );
+
+			var text;
+			if( $node.is( 'input' ) ) {
+				text = $node.val().trim();
+				return text;
+			}
+
+			text = $node.text().trim();
+			return text;
+
 		},
 
 		isEnabled: function() {
@@ -67,6 +83,31 @@
 			}
 
 			return this;
+
+		},
+
+		setText: function( text ) {
+
+			if( this.element.data( 'autoUpdateTitleWithText' ) ) {
+				this.element.prop( 'title', text );
+			}
+
+			if( this.element.is( 'input' ) ) {
+				this.element.val( text );
+				return;
+			}
+
+			var offscreen = this.element.children( '.vui-offscreen' );
+			if( offscreen.length === 1 ) {
+				$( offscreen[0] ).text( text );
+				return;
+			}
+
+			this.element.contents().filter( function() {
+					return this.nodeType === 3;
+				} ).last().each( function() {
+					this.data = text;
+				} );
 
 		}
 
