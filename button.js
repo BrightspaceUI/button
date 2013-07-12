@@ -1,4 +1,5 @@
-﻿$( function() { 
+﻿(function() {
+
 	$.widget( 'vui.vui_button', {
 
 		_create: function() {
@@ -144,4 +145,4 @@
 			}
 		);
 
-} );
+} )();
