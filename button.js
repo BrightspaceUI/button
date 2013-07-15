@@ -1,4 +1,4 @@
-﻿(function() {
+﻿(function( $ ) {
 
 	$.widget( 'vui.vui_button', {
 
@@ -145,4 +145,4 @@
 			}
 		);
 
-} )();
+} )( window.jQuery );
