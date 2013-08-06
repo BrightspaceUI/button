@@ -25,7 +25,7 @@
 				.prop( 'tabIndex', isDisabled ? -1 : 0 )
 				.bind( 'keypress', function( e ) {
 					if( e.keyCode === 13 ) {
-						$( this ).trigger('click');
+						$node.trigger('click');
 					}
 				} );
 
