@@ -1,6 +1,8 @@
 /*jslint browser: true*/
 
-(function( $, vui ) {
+(function( vui, $ ) {
+
+	$ = vui.$;
 
 	$.widget( 'vui.vui_button', {
 
@@ -147,4 +149,4 @@
 			}
 		);
 
-} )( window.jQuery, window.vui );
+} )( window.vui );
