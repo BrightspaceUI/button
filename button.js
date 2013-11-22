@@ -6,7 +6,7 @@
 	// we're in a CommonJS environment; otherwise we'll just fail out
 	if( vui === undefined ) {
 		if( typeof require === 'function' ) {
-			vui = require('../../vui');
+			module.exports = vui = require('../../vui');
 		} else {
 			throw new Error('load vui first');
 		}
