@@ -2,6 +2,16 @@
 
 (function( $, vui ) {
 
+	// Check if the provided vui global is defined, otherwise try to require it if
+	// we're in a CommonJS environment; otherwise we'll just fail out
+	if( vui === undefined ) {
+		if( typeof require === 'function' ) {
+			vui = require('../../vui');
+		} else {
+			throw new Error('load vui first');
+		}
+	}
+
 	$.widget( 'vui.vui_button', {
 
 		_create: function() {
