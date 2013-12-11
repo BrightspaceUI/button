@@ -9,11 +9,23 @@
 	font-size: inherit;
 	line-height: normal;
 	margin: 0;
+	min-height: 16px;
 	padding: 5px 10px;
 	text-align: center;
 	vertical-align: middle;
 	white-space: nowrap;
 	.disallow-user-select;
+}
+button.vui-button,
+input.vui-button {
+	min-height: 28px;
+}
+button.vui-button::-moz-focus-inner,
+input.vui-button::-moz-focus-inner { 
+	border: 0; 
+	padding: 0; 
+	margin-top: -2px; 
+	margin-bottom: -2px; 
 }
 
 .vui-button,
