@@ -55,6 +55,20 @@
 
 		},
 
+		_destroy: function () {
+
+			var $node = $( this.element );
+
+			if( !$node.is( 'a' ) ) {
+				return;
+			}
+
+			$node.removeAttr( 'role' )
+				.removeAttr( 'aria-disabled' )
+				.removeAttr( 'tabIndex' );
+
+		},
+
 		getText: function() {
 
 			var $node = $( this.element );
