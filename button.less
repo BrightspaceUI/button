@@ -1,88 +1,84 @@
 @import '../../core/core';
-
-.vui-button {
-	border-radius: 3px;
-	border: 1px solid transparent;
-	cursor: pointer;
-	display: inline-block;
-	font-family: inherit;
-	font-size: inherit;
-	line-height: normal;
-	margin: 0;
-	min-height: 16px;
-	padding: 5px 10px;
-	text-align: center;
-	user-select: none;
-	vertical-align: middle;
-	white-space: nowrap;
+ .vui-button {
+    border-radius: 3px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: inline-block;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: normal;
+    margin: 0;
+    min-height: 16px;
+    padding: 5px 10px;
+    text-align: center;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
 }
 button.vui-button,
 input.vui-button {
-	min-height: 28px;
+    min-height: 28px;
 }
 .vui-button:after {
-	content: " ";
-	width: 0px;
+    content: " ";
+    width: 0px;
 }
 button.vui-button::-moz-focus-inner,
 input.vui-button::-moz-focus-inner {
-	border: 0;
-	padding: 0;
+    border: 0;
+    padding: 0;
 }
-
 .vui-button,
 .vui-button:visited,
 .vui-button:hover,
 .vui-button:focus,
 .vui-button:link {
-	color: #000000;
-	outline: none;
-	text-decoration: none;
+    color: #000000;
+    outline: none;
+    text-decoration: none;
 }
-
 .vui-button,
 .vui-button.vui-disabled:hover,
 .vui-button.vui-disabled:focus,
 .vui-button[disabled]:hover,
 .vui-button[disabled]:focus {
-	border-color: #cccccc;
-	box-shadow: 0 1px 0 0 #ffffff inset;
-	color: #000000;
-	.gradient-vertical( #f8f8f8, #f2f2f2 );
+    border-color: #cccccc;
+    box-shadow: 0 1px 0 0 #ffffff inset;
+    color: #000000;
+    .gradient-vertical(#f8f8f8, #f2f2f2);
 }
-
 .vui-button:hover,
 .vui-button:focus {
-	.gradient-vertical( #fdfdfd, #fafafa );
+    .gradient-vertical(#FDFDFD, #FAFAFA);
+    border: 1px solid #AEAEAE;
+    -moz-box-shadow: inset 0px 2px 0px 0px #FFFFFF;
+    box-shadow: inset 0px 2px 0px 0px #FFFFFF;
 }
-
 .vui-button-primary,
 .vui-button-primary.vui-disabled:hover,
 .vui-button-primary.vui-disabled:focus,
 .vui-button-primary[disabled]:hover,
 .vui-button-primary[disabled]:focus {
-	.gradient-vertical( #3292aa, #017795 );
-	border-color: #017795;
-	box-shadow: 0 1px 0 0 #479db3 inset;
-	color: #ffffff;
+    .gradient-vertical(#3292aa, #017795);
+    border-color: #017795;
+    box-shadow: 0 1px 0 0 #479db3 inset;
+    color: #ffffff;
 }
-
 .vui-button-primary:hover,
 .vui-button-primary:focus {
-	.gradient-vertical( #33a3c0, #038eb2 );
-	border-color: #038eb2;
+    .gradient-vertical(#33a3c0, #038eb2);
+    border-color: #038eb2;
+    box-shadow: none;
 }
-
 .vui-button-primary,
 .vui-button-primary:visited,
 .vui-button-primary:hover,
 .vui-button-primary:focus,
 .vui-button-primary:link {
-	color: #ffffff;
+    color: #ffffff;
 }
-
 .vui-button.vui-disabled,
 .vui-button[disabled] {
-	opacity: 0.5;
-	cursor: default;
+    opacity: 0.5;
+    cursor: default;
 }
