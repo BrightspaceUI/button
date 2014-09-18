@@ -20,7 +20,7 @@ input.vui-button {
 }
 .vui-button:after {
   content: " ";
-  width: 0px;
+  width: 0;
 }
 button.vui-button::-moz-focus-inner,
 input.vui-button::-moz-focus-inner {
@@ -55,7 +55,7 @@ input.vui-button::-moz-focus-inner {
 .vui-button:focus {
   background: linear-gradient(to bottom, #fdfdfd 0%, #fafafa 100%);
   border: 1px solid #AEAEAE;
-  box-shadow: inset 0px 2px 0px 0px #FFFFFF;
+  box-shadow: inset 0 2px 0 0 #FFFFFF;
 }
 .vui-button-primary,
 .vui-button-primary.vui-disabled:hover,

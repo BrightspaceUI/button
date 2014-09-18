@@ -1,12 +1,21 @@
 var gulp = require( 'gulp' ),
 	vui = require( 'vui-helpers' );
 
+var lintOpts = { 
+	"adjoining-classes": false,
+ 	'unqualified-attributes': false
+};
+
 gulp.task( 'clean', function() {
-	return vui.clean( [ 'dist/**/*', 'lib', 'output' ] );
+	return vui.clean( [ 'dist/**/*', 'lib' ] );
 } );
 
 gulp.task( 'css', function () {
-	return vui.makeCss( 'src/**/*.style', 'dist/' );
+	return vui.makeCss( 
+		'src/**/*.style',
+		'dist/', 
+		{ 'lintOpts' : lintOpts }
+	);
 } );
 
 gulp.task( 'less', function () {
