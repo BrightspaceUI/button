@@ -1,0 +1,15 @@
+@import 'button.less';
+
+.vui-button {
+	.vui-button();
+}
+
+.vui-button-primary {
+	.vui-buttonPrimary();
+}
+
+.vui-button.vui-disabled,
+.vui-button[disabled] {
+	opacity: 0.5;
+	cursor: default;
+}
