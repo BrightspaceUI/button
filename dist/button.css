@@ -46,8 +46,13 @@ input.vui-button::-moz-focus-inner {
   color: #000000;
   background: linear-gradient(to bottom, #f8f8f8 0%, #f2f2f2 100%);
 }
+.vui-button.vui-disabled,
+.vui-button[disabled] {
+  opacity: 0.5;
+  cursor: default;
+}
 .vui-button:hover,
-.vui-buttonfocus {
+.vui-button:focus {
   background: linear-gradient(to bottom, #fdfdfd 0%, #fafafa 100%);
   border: 1px solid #AEAEAE;
   box-shadow: inset 0px 2px 0px 0px #FFFFFF;
@@ -63,7 +68,7 @@ input.vui-button::-moz-focus-inner {
   color: #ffffff;
 }
 .vui-button-primary:hover,
-.vui-button-primaryfocus {
+.vui-button-primary:focus {
   background: linear-gradient(to bottom, #33a3c0 0%, #038eb2 100%);
   border-color: #038eb2;
   box-shadow: none;
@@ -74,9 +79,4 @@ input.vui-button::-moz-focus-inner {
 .vui-button-primary:focus,
 .vui-button-primary:link {
   color: #ffffff;
-}
-.vui-button.vui-disabled,
-.vui-button[disabled] {
-  opacity: 0.5;
-  cursor: default;
 }
