@@ -9,6 +9,7 @@
     "url": "ssh://git@git.dev.d2l:7999/val/button.git"
   },
   "devDependencies": {
+    "gradient-stylist": "git+ssh://git@git.dev.d2l:7999/val/gradient.git",    
     "vui-helpers": "git+ssh://git@git.dev.d2l:7999/val/helpers.git",
     "gulp": "^3.8.8"
   }

@@ -1,4 +1,5 @@
 { 
 	"adjoining-classes": false,
- 	"unqualified-attributes": false
+ 	"unqualified-attributes": false,
+ 	"gradients" : false
 }
