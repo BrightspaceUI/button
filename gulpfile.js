@@ -31,8 +31,8 @@ gulp.task( 'default', [ 'clean' ], function() {
 
 gulp.task( 'test', function () {
 	return vui.test(
-			'test/unit/karma.conf.js',
-			'test/unit/**/*Spec.js',
+			'test/karma.conf.js',
+			'test/**/*Spec.js',
 			'dist/**/*.css'
 		);
 } );

@@ -3,7 +3,7 @@ module.exports = function( config ) {
 
 	config.set( {
 		autoWatch: false,
-		basePath: '../../',
+		basePath: '../',
 		browsers: ['PhantomJS', 'Firefox', 'Chrome'],
 		exclude: [],
 		frameworks: ['jasmine'],
