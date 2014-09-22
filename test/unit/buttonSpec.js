@@ -1,7 +1,7 @@
 ( function() {
 	'use strict';
 
-	var checkElementDimensions = function( elemConstructor ) {
+	var verifyElementDimensions = function( elemConstructor ) {
 		var styles;
 		var elem;
 
@@ -93,7 +93,7 @@
 		}
 
 		describe ( 'anchor', function() {
-			checkElementDimensions( 
+			verifyElementDimensions(
 				function() {
 					var anc = createVUIButton( 'a' );
 					anc.innerHTML = "test";
@@ -102,7 +102,7 @@
 			);
 
 			describe( 'vui-disabled', function() {
-				checkElementDimensions( 
+				verifyElementDimensions(
 					function() {
 						var dis = createVUIButton( 'a' );
 						dis.classList.add( 'vui-disabled' );
@@ -115,7 +115,7 @@
 
 
 		describe ( 'button', function() {
-			checkElementDimensions( 
+			verifyElementDimensions(
 				function() {
 					var btn = createVUIButton( 'button' );
 					btn.innerHTML = "test";
@@ -124,7 +124,7 @@
 			);
 
 			describe( 'vui-disabled', function() {
-				checkElementDimensions( 
+				verifyElementDimensions(
 					function() {
 						var dis = createVUIButton( 'button' );
 						dis.classList.add( 'vui-disabled' );
@@ -137,7 +137,7 @@
 
 
 		describe ( 'input', function() {
-			checkElementDimensions( 
+			verifyElementDimensions(
 				function() {
 					var inp = createVUIButton( 'input' );
 					inp.setAttribute("type", "button");
@@ -147,7 +147,7 @@
 			);
 
 			describe( 'vui-disabled', function() {
-				checkElementDimensions( 
+				verifyElementDimensions(
 					function() {
 						var dis = createVUIButton( 'input' );
 						dis.setAttribute("type", "button");
