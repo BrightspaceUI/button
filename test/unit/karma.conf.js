@@ -5,12 +5,6 @@ module.exports = function( config ) {
 		autoWatch: false,
 		basePath: '../../',
 		browsers: ['PhantomJS', 'Firefox', 'Chrome'],
-		coverageReporter: {
-			reporters: [
-				{ type: 'html', dir: 'output/test/coverage/' },
-				{ type: 'cobertura', dir: 'output/test/coverage/' }
-			]
-		},
 		exclude: [],
 		frameworks: ['jasmine'],
 		junitReporter : {
