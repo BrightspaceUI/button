@@ -3,6 +3,7 @@
   "description": "Valence.UI button control",
   "version": "0.0.0",
   "author": "D2L Incorporated",
+  "license": "Apache-2.0",
   "private": "true",
   "repository": {
     "type": "git",
