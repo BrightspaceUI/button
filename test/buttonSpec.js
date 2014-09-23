@@ -90,7 +90,7 @@
 			var vuib = document.createElement( tag );
 			vuib.className = 'vui-button';
 			return vuib;
-		}
+		};
 
 		describe ( 'anchor', function() {
 			verifyElementDimensions(
@@ -105,7 +105,7 @@
 				verifyElementDimensions(
 					function() {
 						var dis = createVUIButton( 'a' );
-						dis.classList.add( 'vui-disabled' );
+						dis.className += " vui-disabled";
 						dis.innerHTML = "test";
 						return dis;
 					}
@@ -123,11 +123,11 @@
 				}
 			);
 
-			describe( 'vui-disabled', function() {
+			describe( 'disabled = true', function() {
 				verifyElementDimensions(
 					function() {
 						var dis = createVUIButton( 'button' );
-						dis.classList.add( 'vui-disabled' );
+						dis.setAttribute("disabled", "true");
 						dis.innerHTML = "test";
 						return dis;
 					}
@@ -146,12 +146,12 @@
 				}
 			);
 
-			describe( 'vui-disabled', function() {
+			describe( 'disabled = true', function() {
 				verifyElementDimensions(
 					function() {
 						var dis = createVUIButton( 'input' );
 						dis.setAttribute("type", "button");
-						dis.classList.add( 'vui-disabled' );
+						dis.setAttribute("disabled", "true");
 						dis.setAttribute("value", "test");
 						return dis;
 					}
