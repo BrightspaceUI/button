@@ -1,0 +1,8 @@
+.gitattributes
+.gitignore
+.npmignore
+node_modules
+output
+src
+test
+gulpfile.js
