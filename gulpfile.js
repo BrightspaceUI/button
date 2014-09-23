@@ -1,9 +1,9 @@
 var gulp = require( 'gulp' ),
 	vui = require( 'vui-helpers' );
 
-
-gulp.task( 'clean', function() {
-	return vui.clean( [ 'dist/**/*', 'lib', 'output' ] );
+gulp.task( 'clean', function( cb ) {
+	vui.clean( [ 'dist/**/*', 'lib', 'output' ] )
+		.then( function() { cb(); } );
 } );
 
 gulp.task( 'css', [ 'less-dependencies' ], function () {
