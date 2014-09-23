@@ -8,18 +8,17 @@ module.exports = function( config ) {
 		exclude: [],
 		frameworks: ['jasmine'],
 		junitReporter : {
-			outputFile: 'output/test/unit.xml',
+			outputFile: 'test/output/unit.xml',
 			suite: 'unit'
 		},
 		plugins : [
 			'karma-chrome-launcher',
-			'karma-coverage',
 			'karma-jasmine',
 			'karma-junit-reporter',
 			'karma-firefox-launcher',
 			'karma-phantomjs-launcher',
 			'karma-script-launcher'
 		],
-		reporters: ['progress','junit','coverage']
+		reporters: ['progress','junit']
 	} );
 };
