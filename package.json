@@ -1,7 +1,7 @@
 {
   "name": "vui-button",
   "description": "Valence.UI LESS mixins and CSS for applying button styles",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "D2L Incorporated",
   "license": "Apache-2.0",
   "repository": {
