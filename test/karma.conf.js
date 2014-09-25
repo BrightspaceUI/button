@@ -4,7 +4,7 @@ module.exports = function( config ) {
 	config.set( {
 		autoWatch: false,
 		basePath: '../',
-		browsers: ['PhantomJS', 'Firefox', 'Chrome'],
+		browsers: ['PhantomJS'],
 		exclude: [],
 		frameworks: ['jasmine'],
 		junitReporter : {

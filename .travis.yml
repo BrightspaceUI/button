@@ -8,7 +8,6 @@ before_install:
 - npm config set _auth $NODEJITSU_AUTH
 script:
 - gulp
-- gulp test
 env:
   global:
   - NODEJITSU_REGISTRY=https://d2l.registry.nodejitsu.com
