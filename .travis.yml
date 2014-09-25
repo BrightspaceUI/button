@@ -3,6 +3,13 @@ node_js:
 - '0.10'
 before_install:
 - export COMMIT_SHA=`git log -1 --pretty=format:%H`
+- npm config set always-auth true
+- npm config set registry $NODEJITSU_REGISTRY
+- npm config set _auth $NODEJITSU_AUTH
 script:
 - gulp
 - gulp test
+env:
+  global:
+  - NODEJITSU_REGISTRY=https://d2l.registry.nodejitsu.com
+  - secure: cjyskUuRGgyb53nDXZtbqCcH3ZYFSxvZ6UQ+vNmDJz1FvjywADysnlblIh0Z0SnsZnYHXL6y9ruT8O27qXP6P7nXQSmh6F9Km2Nf68lSFYGGw/vjgMFZkV7MGRvnO73DLXXHifGTHVY7cSG+YS4XOHjNClbxgIRA4nofCpbYA0o=
