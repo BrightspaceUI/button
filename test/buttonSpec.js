@@ -16,7 +16,9 @@
 		} );
 
 		it( 'has correct inner height', function() {
-			expect( elem.clientHeight ).toBe( 26 );
+			expect( elem.clientHeight ).toBeOnAgent(
+				{ default: { default: 27, Windows: 26 } }
+			);
 		} );
 
 		it( 'has correct margins' , function() {
@@ -93,6 +95,7 @@
 		};
 
 		describe ( 'anchor', function() {
+
 			verifyElementDimensions(
 				function() {
 					var anc = createVUIButton( 'a' );
