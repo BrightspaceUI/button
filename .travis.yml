@@ -4,4 +4,5 @@ node_js:
 before_install:
 - export COMMIT_SHA=`git log -1 --pretty=format:%H`
 script:
-- gulp && gulp test
+- gulp
+- gulp test
