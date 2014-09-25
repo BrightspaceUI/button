@@ -12,7 +12,9 @@
 		});
 
 		it( 'has correct outer height', function() {
-			expect( elem.offsetHeight ).toBe( 28 );
+			expect( elem.offsetHeight ).toBeOnAgent(
+				{ default: { default: 29, Windows: 28 } }
+			);
 		} );
 
 		it( 'has correct inner height', function() {
@@ -37,19 +39,25 @@
 		it( 'responds to font change Arial 13', function() {
 			document.body.style.fontFamily="Arial";
 			document.body.style.fontSize="13px";
-			expect( elem.offsetHeight ).toBe( 28 );
+			expect( elem.offsetHeight ).toBeOnAgent(
+				{ default: { default: 29, Windows: 28 } }
+			);
 		} );
 
 		it( 'responds to font change Arial 15', function() {
 			document.body.style.fontFamily="Arial";
 			document.body.style.fontSize="15px";
-			expect( elem.offsetHeight ).toBeOnBrowser( { 'default' : 29, 'Firefox' : 31 } );
+			expect( elem.offsetHeight ).toBeOnAgent(
+				{ default: { default: 32, Windows: 29 } }
+			);
 		} );
 
 		it( 'responds to font change Arial 17', function() {
 			document.body.style.fontFamily="Arial";
 			document.body.style.fontSize="17px";
-			expect( elem.offsetHeight ).toBeOnBrowser( { 'default' : 32, 'Firefox' : 33 } );
+			expect( elem.offsetHeight ).toBeOnAgent(
+				{ default: { default: 34, Windows: 32 } }
+			);
 		} );
 
 		it( 'responds to font change Verdana 11', function() {
@@ -61,7 +69,9 @@
 		it( 'responds to font change Verdana 13', function() {
 			document.body.style.fontFamily="Verdana";
 			document.body.style.fontSize="13px";
-			expect( elem.offsetHeight ).toBeOnBrowser( { 'default' : 28, 'Firefox' : 29 } );
+			expect( elem.offsetHeight ).toBeOnAgent(
+				{ default: { default: 29, Windows: 28 } }
+			);
 		} );
 
 		it( 'responds to font change Verdana 15', function() {
@@ -73,7 +83,9 @@
 		it( 'responds to font change Verdana 17', function() {
 			document.body.style.fontFamily="Verdana";
 			document.body.style.fontSize="17px";
-			expect( elem.offsetHeight ).toBeOnBrowser( { 'default' : 32, 'Firefox' : 34, 'Chrome' : 33 } );
+			expect( elem.offsetHeight ).toBeOnAgent(
+				{ default: { default: 33, Windows: 32 } }
+			);
 		} );
 
 		afterEach( function() {
