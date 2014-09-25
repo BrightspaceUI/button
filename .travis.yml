@@ -6,7 +6,6 @@ before_install:
 - npm config set always-auth true
 - npm config set registry $NODEJITSU_REGISTRY
 - npm config set _auth $NODEJITSU_AUTH
-before_script: gulp
 env:
   global:
   - NODEJITSU_REGISTRY=https://d2l.registry.nodejitsu.com
