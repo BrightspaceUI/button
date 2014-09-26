@@ -6,13 +6,9 @@ before_install:
 - npm config set always-auth true
 - npm config set registry $NODEJITSU_REGISTRY
 - npm config set _auth $NODEJITSU_AUTH
+after_success:
+- npm publish
 env:
   global:
   - NODEJITSU_REGISTRY=https://d2l.registry.nodejitsu.com
   - secure: cjyskUuRGgyb53nDXZtbqCcH3ZYFSxvZ6UQ+vNmDJz1FvjywADysnlblIh0Z0SnsZnYHXL6y9ruT8O27qXP6P7nXQSmh6F9Km2Nf68lSFYGGw/vjgMFZkV7MGRvnO73DLXXHifGTHVY7cSG+YS4XOHjNClbxgIRA4nofCpbYA0o=
-deploy:
-  provider: nodejitsu
-  email: dave.lockhart@d2l.com
-  skip_cleanup: true
-  api_key:
-    secure: wZbDRrgw+fWWcYbu1JHktr88ZjwnzP0jT0r+Tq/FNDRpE7GPoBUzI36LBub2HO4f6C11YqYKirxYgiNF0Vd7lPFr8LJt9I7TqQNGqsOxrXQXaQaj3gSWlseCMg95HhPWiK6eGv8QIdfuI+lFXAHu8A9HkYlR99QPUSN6ea7xYck=
