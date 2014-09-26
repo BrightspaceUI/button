@@ -8,7 +8,7 @@ module.exports = function( config ) {
 		exclude: [],
 		frameworks: ['jasmine'],
 		junitReporter : {
-			outputFile: 'output/test/unit.xml',
+			outputFile: 'test/output/unit.xml',
 			suite: 'unit'
 		},
 		plugins : [

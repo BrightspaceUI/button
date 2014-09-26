@@ -3,7 +3,5 @@
 .npmignore
 .travis.yml
 node_modules
-output
-src
 test
 gulpfile.js

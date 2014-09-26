@@ -1,7 +1,7 @@
 {
   "name": "vui-button",
   "description": "Valence.UI LESS mixins and CSS for applying button styles",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "D2L Incorporated",
   "license": "Apache-2.0",
   "repository": {
@@ -11,9 +11,11 @@
   "scripts": {
     "test": "gulp && gulp test"
   },
+  "dependencies": {
+    "vui-gradient": "^0.0.1"
+  },
   "devDependencies": {
     "gulp": "^3.8.8",
-    "vui-helpers": "^0.0.7",
-    "vui-gradient": "^0.0.0"
+    "vui-helpers": "^0.1.1"
   }
 }
