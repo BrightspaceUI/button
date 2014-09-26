@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/dlockhart/vui-button.svg?branch=master)](https://travis-ci.org/dlockhart/vui-button)
+
 #VUI Button
 
 This library contains a series of LESS mixins and CSS which can be used to
