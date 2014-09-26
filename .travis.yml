@@ -7,7 +7,9 @@ before_install:
 - npm config set registry $NODEJITSU_REGISTRY
 - npm config set _auth $NODEJITSU_AUTH
 - npm config set email dave.lockhart@d2l.com
-after_success: '[ "$TRAVIS_TAG" = "true" ] && npm publish'
+after_success:
+- echo $TRAVIS_TAG
+- '[ "$TRAVIS_TAG" != "" ] && npm publish'
 env:
   global:
   - NODEJITSU_REGISTRY=https://d2l.registry.nodejitsu.com
