@@ -11,7 +11,9 @@ env:
   - NODEJITSU_REGISTRY=https://d2l.registry.nodejitsu.com
   - secure: cjyskUuRGgyb53nDXZtbqCcH3ZYFSxvZ6UQ+vNmDJz1FvjywADysnlblIh0Z0SnsZnYHXL6y9ruT8O27qXP6P7nXQSmh6F9Km2Nf68lSFYGGw/vjgMFZkV7MGRvnO73DLXXHifGTHVY7cSG+YS4XOHjNClbxgIRA4nofCpbYA0o=
 deploy:
-  provider: nodejitsu
-  user: d2l-travis-deploy
+  provider: npm
+  email: dave.lockhart@d2l.com
   api_key:
-    secure: s2ZNiyjJFJw7zPpR6NyR5T5NBM6DYvp4SKmQfhbxAimu37WT7YtjGedXAS8hW44Zt3YJerm30IY4eE/UoqBU8XAjFuKNNRmVELaIS0caqgQCJ1atRYCioeaUmT8OPWuZtdPl2twWJfNArIpjHhoMK8rjGZK+5EbEqNynC154U+I=
+    secure: wZbDRrgw+fWWcYbu1JHktr88ZjwnzP0jT0r+Tq/FNDRpE7GPoBUzI36LBub2HO4f6C11YqYKirxYgiNF0Vd7lPFr8LJt9I7TqQNGqsOxrXQXaQaj3gSWlseCMg95HhPWiK6eGv8QIdfuI+lFXAHu8A9HkYlR99QPUSN6ea7xYck=
+  on:
+    all_branches: true
