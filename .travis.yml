@@ -6,6 +6,7 @@ before_install:
 - npm config set always-auth true
 - npm config set registry $NODEJITSU_REGISTRY
 - npm config set _auth $NODEJITSU_AUTH
+- npm config set email dave.lockhart@d2l.com
 after_success:
 - npm publish
 env:
