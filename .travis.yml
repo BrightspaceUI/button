@@ -8,7 +8,6 @@ before_install:
 - npm config set _auth $NODEJITSU_AUTH
 - npm config set email dave.lockhart@d2l.com
 after_success:
-- echo $TRAVIS_TAG
 - '[ "$TRAVIS_TAG" != "" ] && npm publish'
 env:
   global:
