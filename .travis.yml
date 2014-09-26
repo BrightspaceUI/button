@@ -13,5 +13,6 @@ env:
 deploy:
   provider: nodejitsu
   email: dave.lockhart@d2l.com
+  skip_cleanup: true
   api_key:
     secure: wZbDRrgw+fWWcYbu1JHktr88ZjwnzP0jT0r+Tq/FNDRpE7GPoBUzI36LBub2HO4f6C11YqYKirxYgiNF0Vd7lPFr8LJt9I7TqQNGqsOxrXQXaQaj3gSWlseCMg95HhPWiK6eGv8QIdfuI+lFXAHu8A9HkYlR99QPUSN6ea7xYck=
