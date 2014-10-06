@@ -34,6 +34,7 @@ An element may also be made primary using the `vui-buttonPrimary` mixin:
 button.primary {
   .vui-buttonPrimary();
 }
+```
 
 ##CSS
 
