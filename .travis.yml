@@ -3,6 +3,7 @@ node_js:
 - '0.10'
 before_install:
 - export COMMIT_SHA=`git log -1 --pretty=format:%H`
+- npm config set always-auth true
 - npm config set _auth $NPM_AUTH
 - npm config set email $NPM_EMAIL
 after_success:
