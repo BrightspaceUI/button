@@ -5,13 +5,8 @@ before_install:
 - export COMMIT_SHA=`git log -1 --pretty=format:%H`
 deploy:
   provider: npm
-  email: $NPM_EMAIL
-  api_key: $NPM_AUTH
-  skip_cleanup: true
+  email: dave.lockhart@d2l.com
+  api_key:
+    secure: xN+pqworCkoAvhw6PFEynUeGw3jj1lidusGfQ5B/gk+aTgLgjhFjA5LxSHu10flhH6IbtZP49nUUadPBylZFhabhZvLdqouFFWORjxQvpKA5P2tjD5LkIBSUXCZRX/7ys8sxV2M9AYukL6dJDPAa0sRUjg8rK3HPUk5c+IO+mqc=
   on:
-    all_branches: true
     tags: true
-env:
-  global:
-    - NPM_EMAIL=dave.lockhart@d2l.com
-    - secure: r7VbkCi4MFHQqE409cOuoYce2csTXqsEdd2gl3LjDitgLWzBHMmhXXY7A9iMnZEax28KvdSRDYKUB6xEm6+6L7CsTDgmsu5qla7v9/vjCd68ljriwO+wrRvtXuq5ICyQ+jTO/wWMd4dO4QnA3u9+yP+wAeyJMvUhhNnFFEVHO2A=
