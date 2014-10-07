@@ -9,4 +9,5 @@ deploy:
   api_key:
     secure: xN+pqworCkoAvhw6PFEynUeGw3jj1lidusGfQ5B/gk+aTgLgjhFjA5LxSHu10flhH6IbtZP49nUUadPBylZFhabhZvLdqouFFWORjxQvpKA5P2tjD5LkIBSUXCZRX/7ys8sxV2M9AYukL6dJDPAa0sRUjg8rK3HPUk5c+IO+mqc=
   on:
+    all_branches: true
     tags: true
