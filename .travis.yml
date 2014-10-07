@@ -3,5 +3,11 @@ node_js:
 - '0.10'
 before_install:
 - export COMMIT_SHA=`git log -1 --pretty=format:%H`
+- npm config set _auth $NPM_AUTH
+- npm config set email $NPM_EMAIL
 after_success:
-- '[ "$TRAVIS_TAG" != "" ] && npm publish'
+- ! '[ "$TRAVIS_TAG" != "" ] && npm publish'
+env:
+  global:
+    - NPM_EMAIL=dave.lockhart@d2l.com
+    - secure: r7VbkCi4MFHQqE409cOuoYce2csTXqsEdd2gl3LjDitgLWzBHMmhXXY7A9iMnZEax28KvdSRDYKUB6xEm6+6L7CsTDgmsu5qla7v9/vjCd68ljriwO+wrRvtXuq5ICyQ+jTO/wWMd4dO4QnA3u9+yP+wAeyJMvUhhNnFFEVHO2A=
