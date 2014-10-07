@@ -5,7 +5,7 @@ deploy:
   provider: npm
   email: dave.lockhart@d2l.com
   api_key:
-    secure: kzh96nvIqAX82BdiPWwY94D+jdprdX8+ucvbezKWjnntXePzatxO3XhHRbTYaIHP0YNBw2rzW4uprSohe3njrl1gvXe1qp8w5kUCHj9HA06lB08m6+3zhrCLhpMzEg8LNa7QZT2sIf8APphzhod4HxC84wAtoZx7alXYlRofMgU=
+    secure: Anj5ZqT0Ucku9n2ie9ujpgR0ulGlRpUSX8HoO7vhaxTpHXBL1QvgBN7KD2kqUZcLe/iHVd8WuWr6/U8KasEce6i6DKt+Iag7mAnvdzO9ooQI7pUYoF3XNA4K+hcRraxeej8hyUY9jDUi9l7isjhvOOHHA+vW/Wl6E/9lZj5rano=
   on:
-    all_branches: true
     tags: true
+    all_branches: true
