@@ -3,6 +3,7 @@ node_js:
 - '0.10'
 before_install:
 - export COMMIT_SHA=`git log -1 --pretty=format:%H`
+- npm config set always-auth true
 deploy:
   provider: npm
   email: dave.lockhart@d2l.com
