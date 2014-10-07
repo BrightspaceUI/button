@@ -3,11 +3,13 @@ node_js:
 - '0.10'
 before_install:
 - export COMMIT_SHA=`git log -1 --pretty=format:%H`
-- npm config set always-auth true
-- npm config set _auth $NPM_AUTH
-- npm config set email $NPM_EMAIL
-after_success:
-- ! '[ "$TRAVIS_TAG" != "" ] && npm publish'
+deploy:
+  provider: npm
+  email: $NPM_EMAIL
+  api_key: $NPM_AUTH
+  skip_cleanup: true
+  on:
+    tags: true
 env:
   global:
     - NPM_EMAIL=dave.lockhart@d2l.com
