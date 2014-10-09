@@ -24,10 +24,7 @@
 		} );
 
 		it( 'has correct margins' , function() {
-			expect( elem ).toHaveTopMargin( '0px' );
-			expect( elem ).toHaveBottomMargin( '0px' );
-			expect( elem ).toHaveLeftMargin( '0px' );
-			expect( elem ).toHaveRightMargin( '0px' );
+			expect( elem ).toHaveMargin( '0px' );
 		} );
 
 		it( 'responds to font change Arial 11', function() {
@@ -48,7 +45,7 @@
 			document.body.style.fontFamily="Arial";
 			document.body.style.fontSize="15px";
 			expect( elem.offsetHeight ).toBeOnAgent(
-				{ default: { default: 32, Windows: 29 } }
+				{ default: { default: 32, Windows: 29 }, Firefox: { default: 31 } }
 			);
 		} );
 
@@ -56,7 +53,7 @@
 			document.body.style.fontFamily="Arial";
 			document.body.style.fontSize="17px";
 			expect( elem.offsetHeight ).toBeOnAgent(
-				{ default: { default: 34, Windows: 32 } }
+				{ default: { default: 34, Windows: 32 }, Firefox: { default: 33 } }
 			);
 		} );
 
@@ -70,7 +67,7 @@
 			document.body.style.fontFamily="Verdana";
 			document.body.style.fontSize="13px";
 			expect( elem.offsetHeight ).toBeOnAgent(
-				{ default: { default: 29, Windows: 28 } }
+				{ default: { default: 29, Windows: 28 }, Firefox: { default: 29 } }
 			);
 		} );
 
@@ -84,7 +81,7 @@
 			document.body.style.fontFamily="Verdana";
 			document.body.style.fontSize="17px";
 			expect( elem.offsetHeight ).toBeOnAgent(
-				{ default: { default: 33, Windows: 32 } }
+				{ default: { default: 33, Windows: 32 }, Firefox: { default: 34 }, Chrome: { default: 33 } }
 			);
 		} );
 
