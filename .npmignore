@@ -1,6 +1,7 @@
 .gitattributes
 .gitignore
 .npmignore
+.editorconfig
 .travis.yml
 node_modules
 test
