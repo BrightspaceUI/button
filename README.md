@@ -68,6 +68,12 @@ To test using Karma:
 gulp test
 ```
 
+## Contributing
+
+### Code Style
+
+This repository is configured with [EditorConfig](http://editorconfig.org) rules and contributions should make use of them. See the valence-ui [Code Style wiki page](https://github.com/Desire2Learn-Valence/valence-ui-helpers/wiki/Code-Style) for details.
+
 [npm-url]: https://npmjs.org/package/vui-button
 [npm-image]: https://badge.fury.io/js/vui-button.png
 [ci-image]: https://travis-ci.org/Desire2Learn-Valence/valence-ui-button.svg?branch=master
