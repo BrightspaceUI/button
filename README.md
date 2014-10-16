@@ -1,4 +1,6 @@
-#VUI Button [![NPM version][npm-image]][npm-url] [![Build status][ci-image]][ci-url]
+#VUI Button
+[![NPM version][npm-image]][npm-url]
+[![Build status][ci-image]][ci-url]
 
 This library contains a series of LESS mixins and CSS which can be used to
 style buttons.
