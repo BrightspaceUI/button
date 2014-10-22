@@ -21,20 +21,20 @@ Import the library into your LESS file:
 
 ##LESS Mixins
 
-To apply button styling to an element, apply the `vui-button` mixin to the CSS
+To apply button styling to an element, apply the `#vui.button` mixin to the CSS
 selector in your LESS file:
 
 ```css
 button {
-  .vui-button();
+  #vui.button();
 }
 ```
 
-An element may also be made primary using the `vui-buttonPrimary` mixin:
+An element may also be made primary using the `#vui.button.primary` mixin:
 
 ```css
 button.primary {
-  .vui-buttonPrimary();
+  #vui.button.primary();
 }
 ```
 
@@ -45,7 +45,7 @@ your application's CSS. Then apply the `vui-button` and `vui-button-primary`
 CSS classes to your button elements.
 
 ```html
-<button class="vui-button-primary">Save</button>
+<button class="vui-button vui-primary">Save</button>
 <button class="vui-button">Cancel</button>
 ```
 
