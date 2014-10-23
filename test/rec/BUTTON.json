@@ -1,5 +1,5 @@
 {
- "vui-button": {
+ "className=vui-button": {
   "disabled=false": {
    "background-color": "rgba(0, 0, 0, 0)",
    "background-image": "-webkit-linear-gradient(top, rgb(248, 248, 248) 0%, rgb(242, 242, 242) 100%)",

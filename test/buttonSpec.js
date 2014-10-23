@@ -108,7 +108,7 @@
 			return vuib;
 		};
 
-		describe ( 'anchor', function() {
+		xdescribe ( 'anchor', function() {
 
 			verifyElementDimensions(
 				function() {
