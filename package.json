@@ -17,7 +17,8 @@
   "devDependencies": {
     "del": "^0.1.3",
     "gulp": "^3.8.8",
-    "vui-helpers": "^0.3.0"
+    "vui-helpers": "^0.3.0",
+    "vui-karma-jasmine-tester": "0.0.6"
   },
   "keywords": [
     "d2l",

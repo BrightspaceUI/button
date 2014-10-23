@@ -1,6 +1,7 @@
 var gulp = require( 'gulp' ),
 	del = require( 'del' ),
-	vui = require( 'vui-helpers' );
+	vui = require( 'vui-helpers' ),
+	tester = require('vui-karma-jasmine-tester');
 
 gulp.task( 'clean', function( cb ) {
 	del([ 'button.css' ], cb);
@@ -19,10 +20,19 @@ gulp.task( 'default', [ 'clean' ], function() {
 } );
 
 gulp.task( 'test', function () {
-	return vui.test( {
+	return tester.test( {
 		files: [
 			'test/**/*Spec.js',
 			'button.css'
 		]
-	} ) ;
+	} );
+} );
+
+gulp.task( 'ergen', function () {
+	return tester.test( {
+		files: [
+			'test/**/*Spec.js',
+			'button.css'
+		]
+	}, true );
 } );
