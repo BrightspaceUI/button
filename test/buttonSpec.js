@@ -103,29 +103,6 @@
 			return vuib;
 		};
 
-		describe ( 'anchor', function() {
-
-			verifyElementDimensions(
-				function() {
-					var anc = createVUIButton( 'a' );
-					anc.innerHTML = "test";
-					return anc;
-				}
-			);
-
-			describe( 'vui-disabled', function() {
-				verifyElementDimensions(
-					function() {
-						var dis = createVUIButton( 'a' );
-						dis.className += " vui-disabled";
-						dis.innerHTML = "test";
-						return dis;
-					}
-				);
-			} );
-		} );
-
-
 		describe ( 'button', function() {
 			verifyElementDimensions(
 				function() {
