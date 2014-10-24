@@ -14,7 +14,7 @@ var verifyElementDimensions = function( elemConstructor ) {
 
 		if( d2l.vui.differs.isUserAgentOS("Linux") ) {
 			exceptions = {
-				"width" : "37px",
+				"width" : "47px",
 				"-webkit-perspective-origin" : "23px 14px",
 				"-webkit-transform-origin" : "23px 14px"
 			};
