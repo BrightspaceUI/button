@@ -20,17 +20,28 @@ gulp.task( 'default', [ 'clean' ], function() {
 } );
 
 gulp.task( 'test', function () {
-	return tester.test( {
-		files: [
-			'test/**/*Spec.js',
-			'button.css'
-		]
-	} );
+	return (function() {
+		vui.test( {
+			files: [
+				'test/helper-tests.js',
+				'test/**/*Spec.js',
+				'button.css'
+			]
+		});
+		tester.test( {
+			files: [
+				'test/tester-tests.js',
+				'test/**/*Spec.js',
+				'button.css'
+			]
+		});
+	})();
 } );
 
 gulp.task( 'ergen', function () {
 	return tester.test( {
 		files: [
+			'test/tester-tests.js',
 			'test/**/*Spec.js',
 			'button.css'
 		]
