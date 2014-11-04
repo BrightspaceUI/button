@@ -2,7 +2,7 @@ var verifyElementDimensions = function( elemConstructor ) {
 	var elem;
 
 	beforeEach( function () {
-		jasmine.addMatchers(d2l.jasmine.matchers);
+		jasmine.addMatchers( vui.jasmine.dom.matchers );
 		elem = elemConstructor();
 		document.body.appendChild(elem);
 	});
