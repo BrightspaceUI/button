@@ -4,5 +4,5 @@
 
 [npm-url]: https://npmjs.org/package/vui-button
 [npm-image]: https://badge.fury.io/js/vui-button.png
-[ci-image]: https://travis-ci.org/Desire2Learn-Valence/valence-ui-button.svg?branch=master
-[ci-url]: https://travis-ci.org/Desire2Learn-Valence/valence-ui-button
+[ci-image]: https://travis-ci.org/Brightspace/valence-ui-button.svg?branch=master
+[ci-url]: https://travis-ci.org/Brightspace/valence-ui-button
