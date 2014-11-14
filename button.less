@@ -1,9 +1,48 @@
 @import 'node_modules/vui-gradient/gradient';
 
+@vui-button-color: #000000;
+@vui-button-backgroundColorStart: #f8f8f8;
+@vui-button-backgroundColorStart-focus: #fdfdfd;
+@vui-button-backgroundColorEnd: #f2f2f2;
+@vui-button-backgroundColorEnd-focus: #fafafa;
+@vui-button-borderRadius: 3px;
+@vui-button-borderColor: #cccccc;
+@vui-button-borderColor-focus: #aeaeae;
+@vui-button-borderStyle: solid;
+@vui-button-borderWidth: 1px;
+@vui-button-boxShadow: 0 1px 0 0 #ffffff inset;
+@vui-button-boxShadow-focus: 0 2px 0 0 #ffffff inset;
+
+@vui-primaryButton-color: #ffffff;
+@vui-primaryButton-borderColor: #017795;
+@vui-primaryButton-borderColor-focus: #038eb2;
+@vui-primaryButton-backgroundColorStart: #3292aa;
+@vui-primaryButton-backgroundColorStart-focus: #017795;
+@vui-primaryButton-backgroundColorEnd: #33a3c0;
+@vui-primaryButton-backgroundColorEnd-focus: #038eb2;
+@vui-primaryButton-boxShadow: 0 1px 0 0 #479db3 inset;
+@vui-primaryButton-boxShadow-focus: none;
+
 #vui {
-	.button() {
-		border-radius: 3px;
-		border: 1px solid transparent;
+	.button(
+			@color: @vui-button-color,
+			@backgroundColorStart: @vui-button-backgroundColorStart,
+			@backgroundColorEnd: @vui-button-backgroundColorEnd,
+			@backgroundColorStart-focus: @vui-button-backgroundColorStart-focus,
+			@backgroundColorEnd-focus: @vui-button-backgroundColorEnd-focus,
+			@borderWidth: @vui-button-borderWidth,
+			@borderColor: @vui-button-borderColor,
+			@borderColor-focus: @vui-button-borderColor-focus,
+			@borderStyle: @vui-button-borderStyle,
+			@borderRadius: @vui-button-borderRadius,
+			@boxShadow: @vui-button-boxShadow,
+			@boxShadow-focus: @vui-button-boxShadow-focus
+		) {
+		border-radius: @borderRadius;
+		border:
+			@borderWidth
+			@borderStyle
+			@borderColor;
 		cursor: pointer;
 		display: inline-block;
 		font-family: inherit;
@@ -36,10 +75,10 @@
 		&.vui-disabled:focus,
 		&[disabled]:hover,
 		&[disabled]:focus {
-			#vui.gradient-vertical( #f8f8f8, #f2f2f2 );
-			border-color: #cccccc;
-			box-shadow: 0 1px 0 0 #ffffff inset;
-			color: #000000;
+			#vui.gradient-vertical( @backgroundColorStart, @backgroundColorEnd );
+			border-color: @borderColor;
+			box-shadow: @boxShadow;
+			color: @color;
 			outline: none;
 			text-decoration: none;
 		}
@@ -52,39 +91,50 @@
 
 		&:hover,
 		&:focus {
-			#vui.gradient-vertical( #fdfdfd, #fafafa );
-			border: 1px solid #AEAEAE;
-			box-shadow: inset 0 2px 0 0 #FFFFFF;
+			#vui.gradient-vertical( @backgroundColorStart-focus, @backgroundColorEnd-focus );
+			border:
+				@borderWidth
+				@borderStyle
+				@borderColor-focus;
+			box-shadow: @boxShadow-focus;
 		}
-
-
 
 	}
 
 	.button {
-		.primary() {
+		.primary(
+				@color: @vui-primaryButton-color,
+				@backgroundColorStart: @vui-primaryButton-backgroundColorStart,
+				@backgroundColorStart-focus: @vui-primaryButton-backgroundColorStart-focus,
+				@backgroundColorEnd: @vui-primaryButton-backgroundColorEnd,
+				@backgroundColorEnd-focus: @vui-primaryButton-backgroundColorEnd-focus,
+				@borderColor: @vui-primaryButton-borderColor,
+				@borderColor-focus: @vui-primaryButton-borderColor-focus,
+				@boxShadow: @vui-primaryButton-boxShadow,
+				@boxShadow-focus: @vui-primaryButton-boxShadow-focus
+			) {
 			&,
 			&.vui-disabled:hover,
 			&.vui-disabled:focus,
 			&[disabled]:hover,
 			&[disabled]:focus {
-				#vui.gradient-vertical( #3292aa, #017795 );
-				border-color: #017795;
-				box-shadow: 0 1px 0 0 #479db3 inset;
-				color: #ffffff;
+				#vui.gradient-vertical( @backgroundColorStart, @backgroundColorEnd );
+				border-color: @borderColor;
+				box-shadow: @boxShadow;
+				color: @color;
 			}
 
 			&:hover,
 			&:focus {
-				#vui.gradient-vertical( #33a3c0, #038eb2 );
-				border-color: #038eb2;
-				box-shadow: none;
-				color: #ffffff;
+				#vui.gradient-vertical( @backgroundColorStart-focus, @backgroundColorEnd-focus );
+				border-color: @borderColor-focus;
+				box-shadow: @boxShadow-focus;
+				color: @color;
 			}
 
 			&:link,
 			&:visited {
-				color: #ffffff;
+				color: @color;
 			}
 		}
 	}
