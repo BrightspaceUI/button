@@ -1,7 +1,7 @@
 {
   "name": "vui-button",
   "description": "LESS mixins and CSS for applying button styles",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "author": "D2L Corporation",
   "license": "Apache-2.0",
   "repository": {
@@ -12,7 +12,7 @@
     "test": "gulp && gulp test"
   },
   "dependencies": {
-    "vui-gradient": "^0.1.0"
+    "vui-gradient": "^0.1.2"
   },
   "devDependencies": {
     "del": "^0.1.3",
