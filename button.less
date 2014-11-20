@@ -24,7 +24,7 @@
 @vui-primaryButton-boxShadow-focus: none;
 
 #vui {
-	.button(
+	.Button(
 			@color: @vui-button-color,
 			@backgroundColorStart: @vui-button-backgroundColorStart,
 			@backgroundColorEnd: @vui-button-backgroundColorEnd,
@@ -75,7 +75,7 @@
 		&.vui-disabled:focus,
 		&[disabled]:hover,
 		&[disabled]:focus {
-			#vui.gradient-vertical( @backgroundColorStart, @backgroundColorEnd );
+			#vui.gradientVertical( @backgroundColorStart, @backgroundColorEnd );
 			border-color: @borderColor;
 			box-shadow: @boxShadow;
 			color: @color;
@@ -91,7 +91,7 @@
 
 		&:hover,
 		&:focus {
-			#vui.gradient-vertical( @backgroundColorStart-focus, @backgroundColorEnd-focus );
+			#vui.gradientVertical( @backgroundColorStart-focus, @backgroundColorEnd-focus );
 			border:
 				@borderWidth
 				@borderStyle
@@ -101,7 +101,7 @@
 
 	}
 
-	.button {
+	.Button {
 		.primary(
 				@color: @vui-primaryButton-color,
 				@backgroundColorStart: @vui-primaryButton-backgroundColorStart,
@@ -118,7 +118,7 @@
 			&.vui-disabled:focus,
 			&[disabled]:hover,
 			&[disabled]:focus {
-				#vui.gradient-vertical( @backgroundColorStart, @backgroundColorEnd );
+				#vui.gradientVertical( @backgroundColorStart, @backgroundColorEnd );
 				border-color: @borderColor;
 				box-shadow: @boxShadow;
 				color: @color;
@@ -126,7 +126,7 @@
 
 			&:hover,
 			&:focus {
-				#vui.gradient-vertical( @backgroundColorStart-focus, @backgroundColorEnd-focus );
+				#vui.gradientVertical( @backgroundColorStart-focus, @backgroundColorEnd-focus );
 				border-color: @borderColor-focus;
 				box-shadow: @boxShadow-focus;
 				color: @color;
