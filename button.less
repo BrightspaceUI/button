@@ -7,11 +7,12 @@
 @vui-button-backgroundColorEnd-focus: #fafafa;
 @vui-button-borderRadius: 3px;
 @vui-button-borderColor: #cccccc;
-@vui-button-borderColor-focus: #aeaeae;
+@vui-button-borderColor-focus: #94ccda;
 @vui-button-borderStyle: solid;
 @vui-button-borderWidth: 1px;
 @vui-button-boxShadow: 0 1px 0 0 #ffffff inset;
-@vui-button-boxShadow-focus: 0 2px 0 0 #ffffff inset;
+@vui-button-boxShadow-focus: 0 0 1px 0 #f2f2f2 inset, 0 0 3px 1px #94ccda;
+@vui-button-outline-width-focus: 0;
 
 @vui-primaryButton-color: #ffffff;
 @vui-primaryButton-borderColor: #017795;
@@ -21,7 +22,8 @@
 @vui-primaryButton-backgroundColorEnd: #017795;
 @vui-primaryButton-backgroundColorEnd-focus: #038eb2;
 @vui-primaryButton-boxShadow: 0 1px 0 0 #479db3 inset;
-@vui-primaryButton-boxShadow-focus: none;
+@vui-primaryButton-boxShadow-focus: 0 0 1px 0 #f2f2f2 inset, 0 0 3px 1px #94ccda;
+@vui-primaryButton-outline-width-focus: 0;
 
 #vui {
 	.Button(
@@ -36,7 +38,8 @@
 			@borderStyle: @vui-button-borderStyle,
 			@borderRadius: @vui-button-borderRadius,
 			@boxShadow: @vui-button-boxShadow,
-			@boxShadow-focus: @vui-button-boxShadow-focus
+			@boxShadow-focus: @vui-button-boxShadow-focus,
+			@outlineWidth-focus: @vui-button-outline-width-focus
 		) {
 		border-radius: @borderRadius;
 		border:
@@ -98,6 +101,7 @@
 				@borderStyle
 				@borderColor-focus;
 			box-shadow: @boxShadow-focus;
+			outline-width: @outlineWidth-focus;
 		}
 
 	}
@@ -112,7 +116,8 @@
 				@borderColor: @vui-primaryButton-borderColor,
 				@borderColor-focus: @vui-primaryButton-borderColor-focus,
 				@boxShadow: @vui-primaryButton-boxShadow,
-				@boxShadow-focus: @vui-primaryButton-boxShadow-focus
+				@boxShadow-focus: @vui-primaryButton-boxShadow-focus,
+				@outlineWidth-focus: @vui-primaryButton-outline-width-focus
 			) {
 			&,
 			&.vui-disabled:hover,
@@ -131,6 +136,7 @@
 				border-color: @borderColor-focus;
 				box-shadow: @boxShadow-focus;
 				color: @color;
+				outline-width: @outlineWidth-focus;
 			}
 
 			&:link,
