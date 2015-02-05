@@ -72,8 +72,6 @@
 
 		&,
 		&:visited,
-		&:hover,
-		&:focus,
 		&:link,
 		&.vui-disabled:hover,
 		&.vui-disabled:focus,
@@ -96,6 +94,10 @@
 		&:hover,
 		&:focus {
 			#vui.gradientVertical( @backgroundColorStart-focus, @backgroundColorEnd-focus );
+		}
+		
+		&:focus {
+			
 			border:
 				@borderWidth
 				@borderStyle
@@ -133,6 +135,9 @@
 			&:hover,
 			&:focus {
 				#vui.gradientVertical( @backgroundColorStart-focus, @backgroundColorEnd-focus );
+			}
+			
+			&:focus {				
 				border-color: @borderColor-focus;
 				box-shadow: @boxShadow-focus;
 				color: @color;
