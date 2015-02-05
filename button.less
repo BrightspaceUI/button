@@ -7,21 +7,26 @@
 @vui-button-backgroundColorEnd-focus: #fafafa;
 @vui-button-borderRadius: 3px;
 @vui-button-borderColor: #cccccc;
-@vui-button-borderColor-focus: #aeaeae;
+@vui-button-borderColor-focus: #94ccda;
+@vui-button-borderColor-hover: #aeaeae;
 @vui-button-borderStyle: solid;
 @vui-button-borderWidth: 1px;
 @vui-button-boxShadow: 0 1px 0 0 #ffffff inset;
-@vui-button-boxShadow-focus: 0 2px 0 0 #ffffff inset;
+@vui-button-boxShadow-focus: 0 0 1px 0 #f2f2f2 inset, 0 0 3px 1px #94ccda;
+@vui-button-boxShadow-hover: 0 2px 0 0 #ffffff inset;
+@vui-button-outline-width-focus: 0;
 
 @vui-primaryButton-color: #ffffff;
 @vui-primaryButton-borderColor: #017795;
 @vui-primaryButton-borderColor-focus: #038eb2;
+@vui-primaryButton-borderColor-hover: #038eb2;
 @vui-primaryButton-backgroundColorStart: #3292aa;
 @vui-primaryButton-backgroundColorStart-focus: #33a3c0;
 @vui-primaryButton-backgroundColorEnd: #017795;
 @vui-primaryButton-backgroundColorEnd-focus: #038eb2;
-@vui-primaryButton-boxShadow: 0 1px 0 0 #479db3 inset;
-@vui-primaryButton-boxShadow-focus: none;
+@vui-primaryButton-boxShadow: none;
+@vui-primaryButton-boxShadow-focus: 0 1px 0 0 #479db3 inset, 0 0 3px 1px #94ccda;
+@vui-primaryButton-outline-width-focus: 0;
 
 #vui {
 	.Button(
@@ -33,10 +38,13 @@
 			@borderWidth: @vui-button-borderWidth,
 			@borderColor: @vui-button-borderColor,
 			@borderColor-focus: @vui-button-borderColor-focus,
+			@borderColor-hover: @vui-button-borderColor-hover,
 			@borderStyle: @vui-button-borderStyle,
 			@borderRadius: @vui-button-borderRadius,
 			@boxShadow: @vui-button-boxShadow,
-			@boxShadow-focus: @vui-button-boxShadow-focus
+			@boxShadow-focus: @vui-button-boxShadow-focus,
+			@boxShadow-hover: @vui-button-boxShadow-hover,
+			@outlineWidth-focus: @vui-button-outline-width-focus
 		) {
 		border-radius: @borderRadius;
 		border:
@@ -69,8 +77,6 @@
 
 		&,
 		&:visited,
-		&:hover,
-		&:focus,
 		&:link,
 		&.vui-disabled:hover,
 		&.vui-disabled:focus,
@@ -90,14 +96,27 @@
 			cursor: default;
 		}
 
+		&:hover {
+			border:
+				@borderWidth
+				@borderStyle
+				@borderColor-hover;
+			box-shadow: @boxShadow-hover;
+			
+		}
 		&:hover,
 		&:focus {
 			#vui.gradientVertical( @backgroundColorStart-focus, @backgroundColorEnd-focus );
+		}
+		
+		&:focus {
+			
 			border:
 				@borderWidth
 				@borderStyle
 				@borderColor-focus;
 			box-shadow: @boxShadow-focus;
+			outline-width: @outlineWidth-focus;
 		}
 
 	}
@@ -111,8 +130,10 @@
 				@backgroundColorEnd-focus: @vui-primaryButton-backgroundColorEnd-focus,
 				@borderColor: @vui-primaryButton-borderColor,
 				@borderColor-focus: @vui-primaryButton-borderColor-focus,
+				@borderColor-hover: @vui-primaryButton-borderColor-hover,
 				@boxShadow: @vui-primaryButton-boxShadow,
-				@boxShadow-focus: @vui-primaryButton-boxShadow-focus
+				@boxShadow-focus: @vui-primaryButton-boxShadow-focus,
+				@outlineWidth-focus: @vui-primaryButton-outline-width-focus
 			) {
 			&,
 			&.vui-disabled:hover,
@@ -125,9 +146,17 @@
 				color: @color;
 			}
 
+			&:hover {
+				box-shadow: @boxShadow;
+				border-color: @borderColor-hover;
+			}
+			
 			&:hover,
 			&:focus {
 				#vui.gradientVertical( @backgroundColorStart-focus, @backgroundColorEnd-focus );
+			}
+			
+			&:focus {				
 				border-color: @borderColor-focus;
 				box-shadow: @boxShadow-focus;
 				color: @color;
