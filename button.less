@@ -14,7 +14,6 @@
 @vui-button-boxShadow: 0 1px 0 0 #ffffff inset;
 @vui-button-boxShadow-focus: 0 0 1px 0 #f2f2f2 inset, 0 0 3px 1px #94ccda;
 @vui-button-boxShadow-hover: 0 2px 0 0 #ffffff inset;
-@vui-button-outline-width-focus: 0;
 
 @vui-primaryButton-color: #ffffff;
 @vui-primaryButton-borderColor: #017795;
@@ -26,7 +25,6 @@
 @vui-primaryButton-backgroundColorEnd-focus: #038eb2;
 @vui-primaryButton-boxShadow: none;
 @vui-primaryButton-boxShadow-focus: 0 1px 0 0 #479db3 inset, 0 0 3px 1px #94ccda;
-@vui-primaryButton-outline-width-focus: 0;
 
 #vui {
 	.Button(
@@ -43,8 +41,7 @@
 			@borderRadius: @vui-button-borderRadius,
 			@boxShadow: @vui-button-boxShadow,
 			@boxShadow-focus: @vui-button-boxShadow-focus,
-			@boxShadow-hover: @vui-button-boxShadow-hover,
-			@outlineWidth-focus: @vui-button-outline-width-focus
+			@boxShadow-hover: @vui-button-boxShadow-hover
 		) {
 		border-radius: @borderRadius;
 		border:
@@ -78,6 +75,8 @@
 		&,
 		&:visited,
 		&:link,
+		&:hover,
+		&:focus,
 		&.vui-disabled:hover,
 		&.vui-disabled:focus,
 		&[disabled]:hover,
@@ -97,26 +96,20 @@
 		}
 
 		&:hover {
-			border:
-				@borderWidth
-				@borderStyle
-				@borderColor-hover;
+			border-color: @borderColor-hover;
 			box-shadow: @boxShadow-hover;
-			
 		}
+
+		&:focus {
+			border-color: @borderColor-focus;
+			box-shadow: @boxShadow-focus;
+		}
+
 		&:hover,
 		&:focus {
 			#vui.gradientVertical( @backgroundColorStart-focus, @backgroundColorEnd-focus );
-		}
-		
-		&:focus {
-			
-			border:
-				@borderWidth
-				@borderStyle
-				@borderColor-focus;
-			box-shadow: @boxShadow-focus;
-			outline-width: @outlineWidth-focus;
+			border-width: @borderWidth;
+			border-style: @borderStyle;
 		}
 
 	}
@@ -132,8 +125,7 @@
 				@borderColor-focus: @vui-primaryButton-borderColor-focus,
 				@borderColor-hover: @vui-primaryButton-borderColor-hover,
 				@boxShadow: @vui-primaryButton-boxShadow,
-				@boxShadow-focus: @vui-primaryButton-boxShadow-focus,
-				@outlineWidth-focus: @vui-primaryButton-outline-width-focus
+				@boxShadow-focus: @vui-primaryButton-boxShadow-focus
 			) {
 			&,
 			&.vui-disabled:hover,
@@ -150,13 +142,13 @@
 				box-shadow: @boxShadow;
 				border-color: @borderColor-hover;
 			}
-			
+
 			&:hover,
 			&:focus {
 				#vui.gradientVertical( @backgroundColorStart-focus, @backgroundColorEnd-focus );
 			}
-			
-			&:focus {				
+
+			&:focus {
 				border-color: @borderColor-focus;
 				box-shadow: @boxShadow-focus;
 				color: @color;
