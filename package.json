@@ -1,7 +1,7 @@
 {
   "name": "vui-button",
   "description": "LESS mixins and CSS for applying button styles",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "author": "D2L Corporation",
   "license": "Apache-2.0",
   "repository": {
