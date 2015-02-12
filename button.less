@@ -96,25 +96,20 @@
 		}
 
 		&:hover {
-			border:
-				@borderWidth
-				@borderStyle
-				@borderColor-hover;
+			border-color: @borderColor-hover;
 			box-shadow: @boxShadow-hover;
-			
 		}
+
+		&:focus {
+			border-color: @borderColor-focus;
+			box-shadow: @boxShadow-focus;
+		}
+
 		&:hover,
 		&:focus {
 			#vui.gradientVertical( @backgroundColorStart-focus, @backgroundColorEnd-focus );
-		}
-		
-		&:focus {
-			
-			border:
-				@borderWidth
-				@borderStyle
-				@borderColor-focus;
-			box-shadow: @boxShadow-focus;
+			border-width: @borderWidth;
+			border-style: @borderStyle;
 		}
 
 	}
