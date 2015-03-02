@@ -6,7 +6,7 @@
 [npm-url]: https://www.npmjs.org/package/vui-button
 [npm-image]: https://img.shields.io/npm/v/vui-button.svg
 [ci-url]: https://travis-ci.org/Brightspace/valence-ui-button
-[ci-image]: https://img.shields.io/travis-ci/Brightspace/valence-ui-button.svg
+[ci-image]: https://travis-ci.org/Brightspace/valence-ui-button.svg?branch=master
 [dependencies-url]: https://david-dm.org/brightspace/valence-ui-button
 [dependencies-image]: https://img.shields.io/david/Brightspace/valence-ui-button.svg
 
