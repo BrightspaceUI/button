@@ -11,6 +11,7 @@
     "build:sass": "node-sass --output-style expanded button.css.scss button.css",
     "build": "npm run build:sass && npm run build:less && npm run build:autoprefix",
     "postbuild": "npm run lint:css",
+    "pretest": "npm run build",
     "test": "karma start karma.conf.js"
   },
   "repository": {
