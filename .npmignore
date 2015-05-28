@@ -4,6 +4,8 @@
 .editorconfig
 .travis.yml
 node_modules
+karma.conf.js
 test
 button.css.less
-gulpfile.js
+button.css.scss
+button-less.css
