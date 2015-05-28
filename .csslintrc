@@ -1,5 +1,1 @@
-{ 
-	"adjoining-classes": false,
- 	"unqualified-attributes": false,
- 	"gradients" : false
-}
+--ignore=adjoining-classes,unqualified-attributes,gradients

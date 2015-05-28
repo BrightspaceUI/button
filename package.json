@@ -1,29 +1,43 @@
 {
   "name": "vui-button",
-  "description": "LESS mixins and CSS for applying button styles",
-  "version": "0.5.3",
-  "author": "D2L Corporation",
-  "license": "Apache-2.0",
+  "version": "0.5.4",
+  "description": "Mixins and CSS for applying button styles",
+  "scripts": {
+    "clean": "rimraf button.css && rimraf button-less.css",
+    "lint:css": "csslint button.css",
+    "prebuild": "npm run clean",
+    "build:autoprefix": "postcss --use autoprefixer button.css -o button.css",
+    "build:less": "lessc button.css.less > button-less.css",
+    "build:sass": "node-sass --output-style expanded button.css.scss button.css",
+    "build": "npm run build:sass && npm run build:less && npm run build:autoprefix",
+    "postbuild": "npm run lint:css",
+    "test": "karma start karma.conf.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Brightspace/valence-ui-button.git"
-  },
-  "scripts": {
-    "test": "gulp && gulp test"
-  },
-  "dependencies": {
-    "vui-gradient": "^0.2.0"
-  },
-  "devDependencies": {
-    "del": "^0.1.3",
-    "gulp": "^3.8.8",
-    "run-sequence": "^1.0.1",
-    "vui-helpers": "^0.5.1",
-    "vui-karma-jasmine-tester": "0.1.0"
   },
   "keywords": [
     "d2l",
     "valence-ui",
     "vui"
-  ]
+  ],
+  "author": "D2L Corporation",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "vui-gradient": "^0.2.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^5.2.0",
+    "csslint": "^0.10.0",
+    "jasmine-dom-matchers": "^0.1.0",
+    "karma": "^0.12.32",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-jasmine": "^0.3.5",
+    "karma-cli": "0.0.4",
+    "less": "^2.5.1",
+    "node-sass": "^3.1.1",
+    "postcss-cli": "^1.3.1",
+    "rimraf": "^2.3.4"
+  }
 }

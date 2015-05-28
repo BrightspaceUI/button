@@ -10,7 +10,7 @@
 [dependencies-url]: https://david-dm.org/brightspace/valence-ui-button
 [dependencies-image]: https://img.shields.io/david/Brightspace/valence-ui-button.svg
 
-The **vui-button** library contains Less mixins and CSS that you can use to style buttons.
+The **vui-button** library contains mixins and CSS that you can use to style buttons.
 
 For further information on this component and other VUI components, see the docs at [ui.valence.d2l.com](http://ui.valence.d2l.com/).
 
