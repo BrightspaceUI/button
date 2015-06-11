@@ -1,6 +1,6 @@
 {
   "name": "vui-button",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Mixins and CSS for applying button styles",
   "scripts": {
     "clean": "rimraf *.css",
@@ -13,7 +13,10 @@
     "build:sass:css": "node-sass --output-style expanded button.css.scss button.css && npm run build:sass:autoprefix",
     "postbuild:sass:css": "csslint button.css",
     "pretest": "npm run build",
-    "test": "karma start karma.conf.js"
+    "test": "npm run diff:assert && karma start karma.conf.js",
+    "prediff:assert": "npm run diff:create",
+    "diff:assert": "assertnodiff --file1 ./test/diff/less-scss-diff --file2 ./test/diff/less-scss-diff-new",
+    "diff:create": "createpatch --file1 button-less.css --file2 button.css -o ./test/diff/less-scss-diff-new"
   },
   "repository": {
     "type": "git",
@@ -32,6 +35,7 @@
   "devDependencies": {
     "autoprefixer": "^5.2.0",
     "csslint": "^0.10.0",
+    "diff-cli": "git://github.com/Brightspace/diff-cli.git#v0.0.1",
     "jasmine-dom-matchers": "^0.1.0",
     "karma": "^0.12.32",
     "karma-phantomjs-launcher": "^0.1.4",
