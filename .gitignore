@@ -1,4 +1,5 @@
 node_modules
+test/output
+test/diff/less-scss-diff-new
 button.css
 button-less.css
-test/output
