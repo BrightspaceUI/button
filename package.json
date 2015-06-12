@@ -1,6 +1,6 @@
 {
   "name": "vui-button",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Mixins and CSS for applying button styles",
   "scripts": {
     "clean": "rimraf *.css",

@@ -3,6 +3,7 @@
 .npmignore
 .editorconfig
 .travis.yml
+.csslintrc
 node_modules
 karma.conf.js
 test
