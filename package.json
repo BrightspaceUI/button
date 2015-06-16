@@ -1,22 +1,14 @@
 {
   "name": "vui-button",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "description": "Mixins and CSS for applying button styles",
   "scripts": {
     "clean": "rimraf *.css",
     "prebuild": "npm run clean",
-    "build": "npm run build:sass:css && npm run build:less:css",
-    "build:less:autoprefix": "postcss --use autoprefixer button-less.css -o button-less.css",
-    "build:less:css": "lessc button.css.less > button-less.css && npm run build:less:autoprefix",
-    "postbuild:less:css": "csslint button-less.css",
-    "build:sass:autoprefix": "postcss --use autoprefixer button.css -o button.css",
-    "build:sass:css": "node-sass --output-style expanded button.css.scss button.css && npm run build:sass:autoprefix",
-    "postbuild:sass:css": "csslint button.css",
+    "build:autoprefix": "postcss --use autoprefixer button.css -o button.css",
+    "build": "node-sass --output-style expanded button.css.scss button.css && npm run build:autoprefix",
     "pretest": "npm run build",
-    "test": "npm run diff:assert && karma start karma.conf.js",
-    "prediff:assert": "npm run diff:create",
-    "diff:assert": "assertnodiff --file1 ./test/diff/less-scss-diff --file2 ./test/diff/less-scss-diff-new",
-    "diff:create": "createpatch --file1 button-less.css --file2 button.css -o ./test/diff/less-scss-diff-new"
+    "test": "csslint button.css && karma start karma.conf.js"
   },
   "repository": {
     "type": "git",
@@ -30,18 +22,16 @@
   "author": "D2L Corporation",
   "license": "Apache-2.0",
   "dependencies": {
-    "vui-gradient": "^0.2.3"
+    "vui-gradient": "^0.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^5.2.0",
     "csslint": "^0.10.0",
-    "diff-cli": "git://github.com/Brightspace/diff-cli.git#v0.0.1",
     "jasmine-dom-matchers": "^0.1.0",
     "karma": "^0.12.32",
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-jasmine": "^0.3.5",
     "karma-cli": "0.0.4",
-    "less": "^2.5.1",
     "node-sass": "^3.1.1",
     "postcss-cli": "^1.3.1",
     "rimraf": "^2.3.4"
