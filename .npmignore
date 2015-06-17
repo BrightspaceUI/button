@@ -7,6 +7,4 @@
 node_modules
 karma.conf.js
 test
-button.css.less
 button.css.scss
-button-less.css
