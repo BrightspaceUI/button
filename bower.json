@@ -1,0 +1,19 @@
+{
+  "name": "vui-button",
+  "main": "button.scss",
+  "license": "Apache-2.0",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "test",
+    ".csslintrc",
+    ".editorconfig",
+    ".npmignore",
+    ".travis.yml",
+    "button.css.scss",
+    "karma.conf.js"
+  ],
+  "dependencies": {
+    "vui-gradient": "~0.3.0"
+  }
+}
