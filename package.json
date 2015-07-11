@@ -22,9 +22,11 @@
   ],
   "author": "D2L Corporation",
   "license": "Apache-2.0",
+  "dependencies": {
+    "bower": "^1.4.1"
+  },
   "devDependencies": {
     "autoprefixer": "^5.2.0",
-    "bower": "^1.4.1",
     "csslint": "^0.10.0",
     "jasmine-dom-matchers": "^0.1.0",
     "karma": "^0.12.32",
