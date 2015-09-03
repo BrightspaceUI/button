@@ -8,12 +8,14 @@
     "test",
     ".csslintrc",
     ".editorconfig",
+    ".gitignore",
     ".npmignore",
     ".travis.yml",
     "button.css.scss",
-    "karma.conf.js"
+    "karma.conf.js",
+    "package.json"
   ],
   "dependencies": {
-    "vui-gradient": "~0.3.0"
+    "vui-gradient": "~0.3.1"
   }
 }
