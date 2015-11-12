@@ -6,7 +6,7 @@ deploy:
   provider: npm
   email: d2ltravisdeploy@d2l.com
   api_key:
-    secure: Anj5ZqT0Ucku9n2ie9ujpgR0ulGlRpUSX8HoO7vhaxTpHXBL1QvgBN7KD2kqUZcLe/iHVd8WuWr6/U8KasEce6i6DKt+Iag7mAnvdzO9ooQI7pUYoF3XNA4K+hcRraxeej8hyUY9jDUi9l7isjhvOOHHA+vW/Wl6E/9lZj5rano=
+    secure: WGEuoW637XOPrLRk4UF/BC65RpaLwAXDKtCBXW2aMOm7o6Ncv/CvLLkAIoUvG4cjMSOOkOt3oI3T63Dz7w5eNlzn14u5RcT3OsIZDwfNdS1nnASL+kOW48X4MDNZa2FEKR9//LQN38RqnNf30jeTQV/shYiqlLK1fa034kguqFI=
   on:
     tags: true
-    all_branches: true
+    repo: Brightspace/valence-ui-button
