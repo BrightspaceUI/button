@@ -4,8 +4,7 @@
 	describe( 'vui-button', function() {
 
 		beforeEach( function() {
-			document.body.style.fontFamily="Arial";
-			document.body.style.fontSize="13px";
+			document.documentElement.style.fontSize="20px";
 		} );
 
 		var createVUIButton = function( tag ) {
