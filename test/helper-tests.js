@@ -9,13 +9,13 @@ var verifyElementDimensions = function( elemConstructor ) {
 
 	it( 'has correct outer height', function() {
 		expect( elem.offsetHeight ).toBeOnAgent(
-			{ default: { default: 40, Windows: 40 } }
+			{ default: { default: 42, Windows: 42 } }
 		);
 	} );
 
 	it( 'has correct inner height', function() {
 		expect( elem.clientHeight ).toBeOnAgent(
-			{ default: { default: 38, Windows: 38 } }
+			{ default: { default: 40, Windows: 40 } }
 		);
 	} );
 
@@ -26,7 +26,7 @@ var verifyElementDimensions = function( elemConstructor ) {
 	it( 'responds to font change Arial 11', function() {
 		document.body.style.fontFamily="Arial";
 		document.body.style.fontSize="11px";
-		expect( elem.offsetHeight ).toBe( 40 );
+		expect( elem.offsetHeight ).toBe( 42 );
 	} );
 
 	afterEach( function() {
