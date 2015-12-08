@@ -17,6 +17,7 @@
 		);
 
 	border-radius: px-to-rem(6px, $vui-base-fontSize);
+	box-sizing: border-box;
 	cursor: pointer;
 	display: inline-block;
 	min-height: px-to-rem(24px, $vui-base-fontSize);
