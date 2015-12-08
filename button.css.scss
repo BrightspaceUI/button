@@ -4,7 +4,6 @@
 	@include vui-button;
 }
 
-.vui-button.vui-primary,
-.vui-button.vui-button-primary {
+.vui-button-primary {
 	@include vui-button-primary;
 }
