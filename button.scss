@@ -1,174 +1,100 @@
-@import 'bower_components/vui-gradient/gradient.scss';
+@import 'bower_components/vui-colors/colors.scss';
+@import 'bower_components/vui-typography/typography.scss';
 
-$vui-button-color: #000000 !default;
-$vui-button-backgroundColorStart: #f8f8f8 !default;
-$vui-button-backgroundColorStart-focus: #fdfdfd !default;
-$vui-button-backgroundColorEnd: #f2f2f2 !default;
-$vui-button-backgroundColorEnd-focus: #fafafa !default;
-$vui-button-borderRadius: 3px !default;
-$vui-button-borderColor: #cccccc !default;
-$vui-button-borderColor-focus: #94ccda !default;
-$vui-button-borderColor-hover: #aeaeae !default;
-$vui-button-borderStyle: solid !default;
-$vui-button-borderWidth: 1px !default;
-$vui-button-boxShadow: 0 1px 0 0 #ffffff inset !default;
-$vui-button-boxShadow-focus: 0 0 1px 0 #f2f2f2 inset, 0 0 3px 1px #94ccda !default;
-$vui-button-boxShadow-hover: 0 2px 0 0 #ffffff inset !default;
-
-$vui-primaryButton-color: #ffffff !default;
-$vui-primaryButton-borderColor: #017795 !default;
-$vui-primaryButton-borderColor-focus: #038eb2 !default;
-$vui-primaryButton-borderColor-hover: #038eb2 !default;
-$vui-primaryButton-backgroundColorStart: #3292aa !default;
-$vui-primaryButton-backgroundColorStart-focus: #33a3c0 !default;
-$vui-primaryButton-backgroundColorEnd: #017795 !default;
-$vui-primaryButton-backgroundColorEnd-focus: #038eb2 !default;
-$vui-primaryButton-boxShadow: none !default;
-$vui-primaryButton-boxShadow-focus: 0 1px 0 0 #479db3 inset, 0 0 3px 1px #94ccda !default;
-
-@mixin vui-button(
-		$color: $vui-button-color,
-		$backgroundColorStart: $vui-button-backgroundColorStart,
-		$backgroundColorEnd: $vui-button-backgroundColorEnd,
-		$backgroundColorStart-focus: $vui-button-backgroundColorStart-focus,
-		$backgroundColorEnd-focus: $vui-button-backgroundColorEnd-focus,
-		$borderWidth: $vui-button-borderWidth,
-		$borderColor: $vui-button-borderColor,
-		$borderColor-focus: $vui-button-borderColor-focus,
-		$borderColor-hover: $vui-button-borderColor-hover,
-		$borderStyle: $vui-button-borderStyle,
-		$borderRadius: $vui-button-borderRadius,
-		$boxShadow: $vui-button-boxShadow,
-		$boxShadow-focus: $vui-button-boxShadow-focus,
-		$boxShadow-hover: $vui-button-boxShadow-hover
+@mixin _vui-button(
+		$color,
+		$background,
+		$borderColor,
+		$hoverBackground,
+		$hoverBorderColor,
+		$focusBackground,
+		$focusBorderColor
 	) {
 
-		border-radius: $borderRadius;
-		border:
-			$borderWidth
-			$borderStyle
-			$borderColor;
-		cursor: pointer;
-		display: inline-block;
-		font-family: inherit;
-		font-size: inherit;
-		line-height: normal;
-		margin: 0;
-		min-height: 28px;
-		padding: 5px 10px;
-		text-align: center;
-		user-select: none;
-		vertical-align: middle;
-		white-space: nowrap;
-		width: auto;
+	@include vui-typography-small-text(
+			$fontWeight: 700, 
+			$margin: 0
+		);
 
-		&:after {
-			content: " ";
-			width: 0;
-		}
+	border-radius: px-to-rem(6px, $vui-base-fontSize);
+	cursor: pointer;
+	display: inline-block;
+	min-height: px-to-rem(24px, $vui-base-fontSize);
+	padding: px-to-rem(10px, $vui-base-fontSize) px-to-rem(30px, $vui-base-fontSize);
+	text-align: center;
+	user-select: none;
+	vertical-align: middle;
+	white-space: nowrap;
+	width: auto;
 
-		&::-moz-focus-inner {
-			border: 0;
-			padding: 0;
-		}
+	&,
+	&:visited,
+	&:link,
+	&:hover,
+	&:focus,
+	&.vui-disabled:hover,
+	&.vui-disabled:focus,
+	&[disabled]:hover,
+	&[disabled]:focus {
+		background: $background;
+		border: 1px solid $borderColor;
+		color: $color;
+		outline: none;
+		text-decoration: none;
+	}
 
-		&,
-		&:visited,
-		&:link,
-		&:hover,
-		&:focus,
-		&.vui-disabled:hover,
-		&.vui-disabled:focus,
-		&[disabled]:hover,
-		&[disabled]:focus {
-			@include gradient-vertical(
-					$backgroundColorStart,
-					$backgroundColorEnd
-				);
-			border-color: $borderColor;
-			box-shadow: $boxShadow;
-			color: $color;
-			outline: none;
-			text-decoration: none;
-		}
+	&:after {
+		content: " ";
+		width: 0;
+	}
 
-		&.vui-disabled,
-		&[disabled] {
-			opacity: 0.5;
-			cursor: default;
-		}
+	&::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
 
-		&:hover {
-			border-color: $borderColor-hover;
-			box-shadow: $boxShadow-hover;
-		}
+	&.vui-disabled,
+	&[disabled] {
+		opacity: 0.5;
+		cursor: default;
+	}
 
-		&:focus {
-			border-color: $borderColor-focus;
-			box-shadow: $boxShadow-focus;
-		}
+	&:hover {
+		border-color: $hoverBorderColor;
+		background: $hoverBackground;
+	}
 
-		&:hover,
-		&:focus {
-			@include gradient-vertical(
-					$backgroundColorStart-focus,
-					$backgroundColorEnd-focus
-				);
-			border-width: $borderWidth;
-			border-style: $borderStyle;
-		}
+	&:focus {
+		border-color: $focusBorderColor;
+		background: $focusBackground;
+	}
 
 }
 
-@mixin vui-button-primary(
-		$color: $vui-primaryButton-color,
-		$backgroundColorStart: $vui-primaryButton-backgroundColorStart,
-		$backgroundColorStart-focus: $vui-primaryButton-backgroundColorStart-focus,
-		$backgroundColorEnd: $vui-primaryButton-backgroundColorEnd,
-		$backgroundColorEnd-focus: $vui-primaryButton-backgroundColorEnd-focus,
-		$borderColor: $vui-primaryButton-borderColor,
-		$borderColor-focus: $vui-primaryButton-borderColor-focus,
-		$borderColor-hover: $vui-primaryButton-borderColor-hover,
-		$boxShadow: $vui-primaryButton-boxShadow,
-		$boxShadow-focus: $vui-primaryButton-boxShadow-focus
-	) {
+@mixin vui-button() {
 
-		&,
-		&.vui-disabled:hover,
-		&.vui-disabled:focus,
-		&[disabled]:hover,
-		&[disabled]:focus {
-			@include gradient-vertical(
-					$backgroundColorStart,
-					$backgroundColorEnd
-				);
-			border-color: $borderColor;
-			box-shadow: $boxShadow;
-			color: $color;
-		}
+	@include _vui-button(
+			$color: $vui-color-ferrite,
+			$background: $vui-color-trixon,
+			$borderColor: $vui-color-titanius,
+			$hoverBackground: $vui-color-buttonic,
+			$hoverBorderColor: $vui-color-pressicus,
+			$focusBackground: $vui-color-titanius,
+			$focusBorderColor: $vui-color-pressicus
+		);
 
-		&:hover {
-			box-shadow: $boxShadow;
-			border-color: $borderColor-hover;
-		}
+}
 
-		&:hover,
-		&:focus {
-			@include gradient-vertical(
-					$backgroundColorStart-focus,
-					$backgroundColorEnd-focus
-				);
-		}
+@mixin vui-button-primary() {
 
-		&:focus {
-			border-color: $borderColor-focus;
-			box-shadow: $boxShadow-focus;
-			color: $color;
-		}
-
-		&:link,
-		&:visited {
-			color: $color;
-		}
+	@include _vui-button(
+			$color: $vui-color-white,
+			$background: $vui-color-celestine,
+			$borderColor: $vui-color-celestuba,
+			$hoverBackground: $vui-color-celestine,
+			$hoverBorderColor: $vui-color-celestine,
+			$focusBackground: $vui-color-celestuba,
+			$focusBorderColor: $vui-color-celestuba
+		);
 
 }

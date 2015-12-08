@@ -1,1 +1,1 @@
---ignore=adjoining-classes,unqualified-attributes,gradients
+--ignore=adjoining-classes,unqualified-attributes,gradients,import

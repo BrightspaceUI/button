@@ -15,6 +15,7 @@
     "package.json"
   ],
   "dependencies": {
-    "vui-gradient": "~0.3.2"
+    "vui-colors": "^0.1.0",
+    "vui-typography": "^1.0.11"
   }
 }
