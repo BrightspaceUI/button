@@ -20,8 +20,8 @@
 	box-sizing: border-box;
 	cursor: pointer;
 	display: inline-block;
-	min-height: px-to-rem(24px, $vui-base-fontSize);
-	padding: px-to-rem(10px, $vui-base-fontSize) px-to-rem(30px, $vui-base-fontSize);
+	min-height: px-to-rem(24px, $vui-base-fontSize) + px-to-rem(18px, $vui-base-fontSize);
+	padding: px-to-rem(10px, $vui-base-fontSize) px-to-rem(30px, $vui-base-fontSize) px-to-rem(6px, $vui-base-fontSize) px-to-rem(30px, $vui-base-fontSize);
 	text-align: center;
 	user-select: none;
 	vertical-align: middle;
