@@ -16,12 +16,19 @@
 			$margin: 0
 		);
 
+	$border-width: px-to-rem(1px, $vui-base-fontSize);
+	$padding-top: px-to-rem(9px, $vui-base-fontSize);
+	$padding-right: px-to-rem(30px, $vui-base-fontSize);
+	$padding-bottom: px-to-rem(7px, $vui-base-fontSize);
+	$padding-left: px-to-rem(30px, $vui-base-fontSize);
+	$icon-height: px-to-rem(24px, $vui-base-fontSize);
+
 	border-radius: px-to-rem(6px, $vui-base-fontSize);
 	box-sizing: border-box;
 	cursor: pointer;
 	display: inline-block;
-	min-height: px-to-rem(24px, $vui-base-fontSize) + px-to-rem(18px, $vui-base-fontSize);
-	padding: px-to-rem(9px, $vui-base-fontSize) px-to-rem(30px, $vui-base-fontSize) px-to-rem(7px, $vui-base-fontSize) px-to-rem(30px, $vui-base-fontSize);
+	min-height: $icon-height + $padding-top + $padding-bottom + ( $border-width * 2 );
+	padding: $padding-top $padding-right $padding-bottom $padding-left;
 	text-align: center;
 	user-select: none;
 	vertical-align: middle;
