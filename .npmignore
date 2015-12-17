@@ -5,7 +5,5 @@
 .travis.yml
 .csslintrc
 node_modules
-karma.conf.js
 bower_components
 test
-button.css.scss

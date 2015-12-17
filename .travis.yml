@@ -1,6 +1,10 @@
 language: node_js
 node_js:
-- '0.12'
+- 4.1.1
+before_script:
+- gem install percy-cli
+after_success:
+- '[ "$TRAVIS_SECURE_ENV_VARS" = "true" ] && npm run perceptual-diff'
 sudo: false
 deploy:
   provider: npm
@@ -10,3 +14,6 @@ deploy:
   on:
     tags: true
     repo: Brightspace/valence-ui-button
+env:
+  global:
+    secure: DLla5yS0KINkxAGk5xBcBShCpuW5BybW4CSPcBOrjQTmAryc45kIJudiimggZRpAjSsDAsIE/5bTrRbYdadzrq7ytsi4RoC0nZUli2TTCtx/j0F1wAAl6kVfK2njRrWPbqFl+8vp8kzyPqW+7esAy0xuoNqAGAAD5wK+5noZv3Y=

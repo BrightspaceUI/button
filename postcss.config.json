@@ -1,0 +1,8 @@
+{
+	"use": ["autoprefixer"],
+	"input": "button.css",
+	"output": "button.css",
+	"autoprefixer": {
+		"browsers": "Last 4 versions, Firefox ESR, IE >= 9, Safari >= 6"
+	}
+}
