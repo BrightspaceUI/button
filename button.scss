@@ -1,5 +1,6 @@
 @import 'bower_components/vui-colors/colors.scss';
 @import 'bower_components/vui-typography/typography.scss';
+@import 'bower_components/vui-typography/px-to-base-rem.scss';
 
 @mixin _vui-button(
 		$color,
@@ -12,23 +13,16 @@
 	) {
 
 	@include vui-typography-small-text(
-			$fontWeight: 700, 
+			$fontWeight: 700,
 			$margin: 0
 		);
 
-	$border-width: px-to-rem(1px, $vui-base-fontSize);
-	$padding-top: px-to-rem(8px, $vui-base-fontSize);
-	$padding-right: px-to-rem(30px, $vui-base-fontSize);
-	$padding-bottom: px-to-rem(8px, $vui-base-fontSize);
-	$padding-left: px-to-rem(30px, $vui-base-fontSize);
-	$icon-height: px-to-rem(24px, $vui-base-fontSize);
-
-	border-radius: px-to-rem(6px, $vui-base-fontSize);
+	border-radius: px-to-base-rem(6);
 	box-sizing: border-box;
 	cursor: pointer;
 	display: inline-block;
-	min-height: $icon-height + $padding-top + $padding-bottom + ( $border-width * 2 );
-	padding: $padding-top $padding-right $padding-bottom $padding-left;
+	min-height: calc(2rem + 2px);
+	padding: px-to-base-rem(10) px-to-base-rem(30);
 	text-align: center;
 	user-select: none;
 	vertical-align: middle;
