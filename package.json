@@ -1,15 +1,17 @@
 {
   "name": "vui-button",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Mixins and CSS for applying button styles",
   "scripts": {
-    "clean": "rimraf *.css",
+    "autoprefix": "postcss -c postcss.config.json",
+    "clean": "rimraf *.css && rimraf ./test/*.css",
     "prebuild": "npm run clean",
-    "build:autoprefix": "postcss --use autoprefixer button.css -o button.css",
-    "build": "node-sass --output-style expanded button.css.scss button.css && npm run build:autoprefix",
+    "build": "node-sass --output-style expanded button.css.scss button.css",
+    "postbuild": "npm run autoprefix && cpy button.css ./test",
+    "perceptual-diff": "percy snapshot test/",
     "postinstall": "bower install",
     "pretest": "npm run build",
-    "test": "csslint button.css && karma start karma.conf.js"
+    "test": "csslint button.css"
   },
   "repository": {
     "type": "git",
@@ -26,15 +28,11 @@
     "bower": "^1.4.1"
   },
   "devDependencies": {
-    "autoprefixer": "^5.2.0",
+    "autoprefixer": "^6.1.2",
+    "cpy": "^3.4.1",
     "csslint": "^0.10.0",
-    "jasmine-dom-matchers": "^0.1.0",
-    "karma": "^0.12.32",
-    "karma-cli": "0.0.4",
-    "karma-jasmine": "^0.3.5",
-    "karma-phantomjs-launcher": "^0.1.4",
-    "node-sass": "^3.1.1",
-    "postcss-cli": "^1.3.1",
-    "rimraf": "^2.3.4"
+    "node-sass": "^3.4.2",
+    "postcss-cli": "^2.3.2",
+    "rimraf": "^2.4.4"
   }
 }
