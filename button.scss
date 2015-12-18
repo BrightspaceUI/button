@@ -7,9 +7,7 @@
 		$background,
 		$borderColor,
 		$hoverBackground,
-		$hoverBorderColor,
-		$focusBackground,
-		$focusBorderColor
+		$hoverBorderColor
 	) {
 
 	@include vui-typography-small-text(
@@ -38,7 +36,7 @@
 	&.vui-disabled:focus,
 	&[disabled]:hover,
 	&[disabled]:focus {
-		background: $background;
+		background-color: $background;
 		border: 1px solid $borderColor;
 		color: $color;
 		outline: none;
@@ -61,14 +59,10 @@
 		cursor: default;
 	}
 
-	&:hover {
-		border-color: $hoverBorderColor;
-		background: $hoverBackground;
-	}
-
+	&:hover,
 	&:focus {
-		border-color: $focusBorderColor;
-		background: $focusBackground;
+		border-color: $hoverBorderColor;
+		background-color: $hoverBackground;
 	}
 
 }
@@ -77,12 +71,10 @@
 
 	@include _vui-button(
 			$color: $vui-color-ferrite,
-			$background: $vui-color-trixon,
+			$background: $vui-color-woolonardo,
 			$borderColor: $vui-color-titanius,
-			$hoverBackground: $vui-color-buttonic,
-			$hoverBorderColor: $vui-color-pressicus,
-			$focusBackground: $vui-color-titanius,
-			$focusBorderColor: $vui-color-pressicus
+			$hoverBackground: $vui-color-gypsum,
+			$hoverBorderColor: $vui-color-titanius
 		);
 
 }
@@ -93,10 +85,8 @@
 			$color: $vui-color-white,
 			$background: $vui-color-celestine,
 			$borderColor: $vui-color-celestuba,
-			$hoverBackground: $vui-color-celestine,
-			$hoverBorderColor: $vui-color-celestine,
-			$focusBackground: $vui-color-celestuba,
-			$focusBorderColor: $vui-color-celestuba
+			$hoverBackground: $vui-color-celestuba,
+			$hoverBorderColor: $vui-color-celestuba
 		);
 
 }
