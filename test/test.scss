@@ -1,0 +1,13 @@
+@import '../button.scss';
+@import '../button.css.scss';
+
+.on {
+	input[type="button"],
+	button {
+		@include vui-button();
+	}
+
+	.primary {
+		@include vui-button-primary();
+	}
+}

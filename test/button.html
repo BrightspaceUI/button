@@ -3,7 +3,7 @@
 	<head>
 		<title>Button Sample</title>
 		<link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="button.css" />
+		<link rel="stylesheet" type="text/css" href="test.css" />
 		<style>
 		html {
 			font-size: 20px;
@@ -17,11 +17,31 @@
 		</style>
 	</head>
 	<body>
-		<div class="container">
-			<span>Input Element (Normal)</span>
+		<div class="container on">
+			<h2>Mixins</h2>
+			<span>Button Element (Normal)</span>
 			<p>
-				<input type="button" class="vui-button" value="Button" />
+				<button>Button</button>
 			</p>
+			<span>Button Element (Normal, Focused)</span>
+			<p>
+				<button>Button</button>
+			</p>
+			<span>Button Element (Normal, Disabled)</span>
+			<p>
+				<button disabled>Button</button>
+			</p>
+			<span>Button Element (Primary)</span>
+			<p>
+				<button class="primary">Button</button>
+			</p>
+			<span>Button Element (Primary, Disabled)</span>
+			<p>
+				<button class="primary" disabled>Button</button>
+			</p>
+		</div>
+		<div class="container">
+			<h2>Class Names</h2>
 			<span>Button Element (Normal)</span>
 			<p>
 				<button class="vui-button">Button</button>
@@ -37,10 +57,6 @@
 			<span>Anchor Element (Normal)</span>
 			<p>
 				<a class="vui-button">Button</a>
-			</p>
-			<span>Input Element (Primary)</span>
-			<p>
-				<input type="button" class="vui-button-primary" value="Button" />
 			</p>
 			<span>Button Element (Primary)</span>
 			<p>
