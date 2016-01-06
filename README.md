@@ -31,7 +31,7 @@ bower install vui-button
 **Buttons:**
 
 ```scss
-button.primary {
+button {
 	@include vui-button;
 }
 
