@@ -1,6 +1,6 @@
 {
   "name": "vui-button",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Mixins and CSS for applying button styles",
   "scripts": {
     "autoprefix": "postcss -c postcss.config.json",
