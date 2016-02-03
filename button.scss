@@ -1,6 +1,5 @@
 @import 'bower_components/vui-colors/colors.scss';
 @import 'bower_components/vui-typography/small-text.scss';
-@import 'bower_components/vui-typography/px-to-base-rem.scss';
 
 @mixin _vui-button(
 		$color,
@@ -15,12 +14,12 @@
 			$margin: 0
 		);
 
-	border-radius: px-to-base-rem(6);
+	border-radius: 0.3rem;
 	box-sizing: border-box;
 	cursor: pointer;
 	display: inline-block;
 	min-height: calc(2rem + 2px);
-	padding: px-to-base-rem(10) px-to-base-rem(30);
+	padding: 0.5rem 1.5rem;
 	text-align: center;
 	user-select: none;
 	vertical-align: middle;
