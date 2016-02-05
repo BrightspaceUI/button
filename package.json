@@ -29,7 +29,8 @@
   "author": "D2L Corporation",
   "license": "Apache-2.0",
   "dependencies": {
-    "bower": "^1.4.1"
+    "bower": "^1.4.1",
+    "vui-typography": "^2.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.1.2",
