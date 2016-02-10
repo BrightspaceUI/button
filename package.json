@@ -11,9 +11,10 @@
     "build:sass": "node-sass --output-style expanded button.css.scss button.css",
     "postbuild:sass": "npm run autoprefix",
     "prebuild": "npm run clean",
-    "build": "npm run build:sass && npm run build:sass:test",
+    "build": "npm run build:sass && npm run build:sass:test && npm run screenshot",
     "perceptual-diff": "percy snapshot test/",
     "postinstall": "bower install",
+    "screenshot": "phantomjs ./test/screenshot.js",
     "pretest": "npm run build",
     "test": "csslint button.css"
   },
@@ -35,6 +36,7 @@
     "autoprefixer": "^6.3.2",
     "csslint": "^0.10.0",
     "node-sass": "^3.4.2",
+    "phantomjs-prebuilt": "^2.1.4",
     "postcss-cli": "^2.5.0",
     "rimraf": "^2.5.1"
   }

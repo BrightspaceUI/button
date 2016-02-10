@@ -4,45 +4,72 @@
 [![Build status][ci-image]][ci-url]
 [![Dependency Status][dependencies-image]][dependencies-url]
 
-This component contains Sass mixins and CSS that you can use to style buttons.
+This component contains [Sass mixins](http://sass-lang.com/) and CSS which can be used to style HTML buttons elements.
+
+![screenshot of button component](/screenshot.png?raw=true)
+
+For further information on this and other VUI components, see the docs at [ui.valence.d2l.com](http://ui.valence.d2l.com/).
 
 ## Installation
 
-Install from NPM:
-```shell
-npm install vui-button
-```
-
-Install from Bower:
+`vui-button` can be installed from [Bower][bower-url]:
 ```shell
 bower install vui-button
 ```
 
-## Usage
+Or alternatively from [NPM][npm-url]:
+```shell
+npm install vui-button
+```
 
-**Import the mixins:**
+Depending on which installation method you choose, use that path when doing the SASS import:
 
 ```scss
-@import 'bower_components/vui-button/button.scss'; // or...
-
+@import 'bower_components/vui-button/button.scss';
+// or...
 @import "node_modules/vui-button/button.scss";
 ```
 
-**Buttons:**
+## Usage
+
+You can use either the `<button>` or `<input>` HTML elements:
+
+```html
+<button>Button Element</button>
+<input type="button" value="Input Element" />
+```
+
+SCSS:
 
 ```scss
-button {
-	@include vui-button;
-}
-
-button.primary {
-	@include vui-button-primary;
+button,
+input[type="button"] {
+	@include vui-button();
 }
 ```
 
-For further information on this component and other VUI components, see the docs at [ui.valence.d2l.com](http://ui.valence.d2l.com/).
+**Primary** buttons should use a CSS class:
 
-#### Coding styles
+```html
+<button class="primary">Primary Button</button>
+```
+
+SCSS:
+
+```scss
+button.primary {
+	@include vui-button-primary();
+}
+```
+
+For disabled buttons, use the `disabled` attribute:
+
+```html
+<button disabled>Disabled Button</button>
+```
+
+## Coding styles
+
 See the [VUI Best Practices & Style Guide](https://github.com/Brightspace/valence-ui-docs/wiki/Best-Practices-&-Style-Guide) for information on VUI naming conventions, plus information about the [EditorConfig](http://editorconfig.org) rules used in this repo.
 
 [bower-url]: http://bower.io/search/?q=vui-button
