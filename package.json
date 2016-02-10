@@ -29,14 +29,13 @@
   "author": "D2L Corporation",
   "license": "Apache-2.0",
   "dependencies": {
-    "bower": "^1.4.1"
+    "bower": "^1.7.7"
   },
   "devDependencies": {
-    "autoprefixer": "^6.1.2",
-    "cpy": "^3.4.1",
+    "autoprefixer": "^6.3.2",
     "csslint": "^0.10.0",
     "node-sass": "^3.4.2",
-    "postcss-cli": "^2.3.2",
-    "rimraf": "^2.4.4"
+    "postcss-cli": "^2.5.0",
+    "rimraf": "^2.5.1"
   }
 }
