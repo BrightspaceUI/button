@@ -59,7 +59,8 @@
 	}
 
 	&:hover,
-	&:focus {
+	&:focus,
+	&.vui-button-focus {
 		border-color: $hoverBorderColor;
 		background-color: $hoverBackground;
 	}
