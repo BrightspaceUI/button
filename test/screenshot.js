@@ -5,7 +5,6 @@ page.open('./test/button.html', function() {
 		return document.querySelector(".screenshot")
 			.getBoundingClientRect();
 	});
-	console.log(clipRect.top, clipRect.left, clipRect.width, clipRect.height);
 	page.clipRect = {
 		top:    clipRect.top,
 		left:   clipRect.left,
