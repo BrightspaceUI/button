@@ -1,10 +1,10 @@
+**Looking for SASS-based `vui-button`?** It's [over here](/tree/sass).
+
 # vui-button
 [![Bower version][bower-image]][bower-url]
-[![NPM version][npm-image]][npm-url]
 [![Build status][ci-image]][ci-url]
-[![Dependency Status][dependencies-image]][dependencies-url]
 
-This component contains [Sass mixins](http://sass-lang.com/) and CSS which can be used to style HTML buttons elements.
+A Valence UI, [Polymer](https://www.polymer-project.org/1.0/)-based web component button element.
 
 ![screenshot of button component](/screenshot.png?raw=true)
 
@@ -17,56 +17,38 @@ For further information on this and other VUI components, see the docs at [ui.va
 bower install vui-button
 ```
 
-Or alternatively from [NPM][npm-url]:
-```shell
-npm install vui-button
-```
-
-Depending on which installation method you choose, use that path when doing the SASS import:
-
-```scss
-@import 'bower_components/vui-button/button.scss';
-// or...
-@import "node_modules/vui-button/button.scss";
-```
-
 ## Usage
 
-You can use either the `<button>` or `<input>` HTML elements:
+Include the [webcomponents.js](http://webcomponents.org/polyfills/) "lite" polyfill (for browsers who don't natively support web components), then import `button.html`:
 
 ```html
-<button>Button Element</button>
-<input type="button" value="Input Element" />
+<head>
+	<script src="https://s.brightspace.com/lib/webcomponentsjs/0.7.21/webcomponents-lite.min.js"></script>
+	<link rel="import" href="../vui-button/button.html">
+</head>
 ```
 
-SCSS:
-
-```scss
-button,
-input[type="button"] {
-	@include vui-button();
-}
-```
-
-**Primary** buttons should use a CSS class:
+The native `<button>` element can now be extended to be a `vui-button`:
 
 ```html
-<button class="primary">Primary Button</button>
+<button is="vui-buttom">Button Element</button>
 ```
 
-SCSS:
-
-```scss
-button.primary {
-	@include vui-button-primary();
-}
-```
-
-For disabled buttons, use the `disabled` attribute:
+Buttons can be made **primary**:
 
 ```html
-<button disabled>Disabled Button</button>
+<button is="vui-button" primary>Primary Button</button>
 ```
+
+And can be **disabled**:
+
+```html
+<button is="vui-button" disabled>Disabled Button</button>
+```
+
+### Usage in Production
+
+In production, it's recommended to use a build tool like [Vulcanize](https://github.com/Polymer/vulcanize) to combine all your web components into a single import file. [More from the Polymer Docs: Optimize for Production](https://www.polymer-project.org/1.0/tools/optimize-for-production.html)...
 
 ## Coding styles
 
@@ -74,8 +56,6 @@ See the [VUI Best Practices & Style Guide](https://github.com/Brightspace/valenc
 
 [bower-url]: http://bower.io/search/?q=vui-button
 [bower-image]: https://img.shields.io/bower/v/vui-button.svg
-[npm-url]: https://www.npmjs.org/package/vui-button
-[npm-image]: https://img.shields.io/npm/v/vui-button.svg
 [ci-url]: https://travis-ci.org/Brightspace/valence-ui-button
 [ci-image]: https://travis-ci.org/Brightspace/valence-ui-button.svg?branch=master
 [dependencies-url]: https://david-dm.org/brightspace/valence-ui-button

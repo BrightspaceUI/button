@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Button Snapshot</title>
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+		<script src="https://s.brightspace.com/lib/webcomponentsjs/0.7.21/webcomponents-lite.min.js"></script>
+		<link rel="import" href="button.html.ignore">
+		<style>
+		@import 'https://fonts.googleapis.com/css?family=Lato:700,400,300';
+		html {
+			font-size: 20px;
+		}
+		body {
+			font-family: 'Lato', sans-serif;
+			margin: 1rem;
+		}
+		table {
+			max-width: 1000px;
+		}
+		td, th {
+			padding: 0.5rem;
+			white-space: nowrap;
+		}
+		td {
+			text-align: center;
+		}
+		</style>
+	</head>
+	<body unresolved>
+		<table>
+			<thead>
+				<tr>
+					<th></th>
+					<th>Enabled</th>
+					<th>Disabled</th>
+					<th>Focus</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Normal</td>
+					<td><button is="vui-button">Button</button></td>
+					<td><button is="vui-button" disabled>Button</button></td>
+					<td><button is="vui-button" class="vui-button-focus">Button</button></td>
+				</tr>
+				<tr>
+					<td>Primary</td>
+					<td><button is="vui-button" primary>Button</button></td>
+					<td><button is="vui-button" primary disabled>Button</button></td>
+					<td><button is="vui-button" primary class="vui-button-focus">Button</button></td>
+				</tr>
+			</tbody>
+		</table>
+		<p class="screenshot" style="display:none;">
+			<button is="vui-button" primary>Primary Button</button>&nbsp;
+			<button is="vui-button">Normal Button</button>&nbsp;
+			<button is="vui-button" disabled>Disabled Button</button>
+		</p>
+	</body>
+</html>

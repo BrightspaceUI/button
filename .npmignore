@@ -1,9 +1,0 @@
-.gitattributes
-.gitignore
-.npmignore
-.editorconfig
-.travis.yml
-.csslintrc
-node_modules
-bower_components
-test

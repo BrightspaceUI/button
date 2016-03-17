@@ -1,4 +1,2 @@
 bower_components
-node_modules
-test/test.css
-button.css
+test/perceptual/button.html.ignore

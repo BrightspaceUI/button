@@ -1,108 +1,82 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 	<head>
-		<title>Button Sample</title>
-		<link rel="stylesheet" type="text/css" href="test.css" />
+		<meta charset="UTF-8">
+		<title>vui-button basic tests</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+		<script src="../../web-component-tester/browser.js"></script>
+		<script src="../../iron-test-helpers/mock-interactions.js"></script>
+		<link rel="import" href="../button.html">
 	</head>
 	<body>
-		<table>
-			<thead>
-				<tr>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th>Enabled</th>
-					<th>Disabled</th>
-					<th>Focus</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr class="on">
-					<td>Normal</td>
-					<td>Button</td>
-					<td>Mixin</td>
-					<td><button>Button</button></td>
-					<td><button disabled>Button</button></td>
-					<td><button class="vui-button-focus">Button</button></td>
-				</tr>
-				<tr>
-					<td>Normal</td>
-					<td>Button</td>
-					<td>Class</td>
-					<td><button class="vui-button">Button</button></td>
-					<td><button class="vui-button" disabled>Button</button></td>
-					<td><button class="vui-button vui-button-focus">Button</button></td>
-				</tr>
-				<tr class="on">
-					<td>Normal</td>
-					<td>Input</td>
-					<td>Mixin</td>
-					<td><input type="button" value="Button" /></td>
-					<td><input type="button" value="Button" disabled /></td>
-					<td><input type="button" value="Button" class="vui-button-focus" /></td>
-				</tr>
-				<tr>
-					<td>Normal</td>
-					<td>Input</td>
-					<td>Class</td>
-					<td><input type="button" value="Button" class="vui-button" /></td>
-					<td><input type="button" value="Button" class="vui-button" disabled /></td>
-					<td><input type="button" value="Button" class="vui-button vui-button-focus" /></td>
-				</tr>
-				<tr>
-					<td>Normal</td>
-					<td>Anchor</td>
-					<td>Class</td>
-					<td><a class="vui-button">Button</a></td>
-					<td><a class="vui-button" disabled>Button</a></td>
-					<td><a class="vui-button vui-button-focus">Button</a></td>
-				</tr>
-				<tr class="on">
-					<td>Primary</td>
-					<td>Button</td>
-					<td>Mixin</td>
-					<td><button class="primary">Button</button></td>
-					<td><button class="primary" disabled>Button</button></td>
-					<td><button class="primary vui-button-focus">Button</button></td>
-				</tr>
-				<tr>
-					<td>Primary</td>
-					<td>Button</td>
-					<td>Class</td>
-					<td><button class="vui-button-primary">Button</button></td>
-					<td><button class="vui-button-primary" disabled>Button</button></td>
-					<td><button class="vui-button-primary vui-button-focus">Button</button></td>
-				</tr>
-				<tr class="on">
-					<td>Primary</td>
-					<td>Input</td>
-					<td>Mixin</td>
-					<td><input type="button" value="Button" class="primary" /></td>
-					<td><input type="button" value="Button" class="primary" disabled /></td>
-					<td><input type="button" value="Button" class="primary vui-button-focus" /></td>
-				</tr>
-				<tr>
-					<td>Primary</td>
-					<td>Input</td>
-					<td>Class</td>
-					<td><input type="button" value="Button" class="vui-button-primary" /></td>
-					<td><input type="button" value="Button" class="vui-button-primary" disabled /></td>
-					<td><input type="button" value="Button" class="vui-button-primary vui-button-focus" /></td>
-				</tr>
-				<tr>
-					<td>Primary</td>
-					<td>Anchor</td>
-					<td>Class</td>
-					<td><a class="vui-button-primary">Button</a></td>
-					<td><a class="vui-button-primary" disabled>Button</a></td>
-					<td><a class="vui-button-primary vui-button-focus">Button</a></td>
-				</tr>
-			</tbody>
-		</table>
-		<p class="screenshot on" style="display:inline-block;">
-			<button class="primary">Primary Button</button>&nbsp;
-			<button>Normal Button</button>&nbsp;
-			<button disabled>Disabled Button</button>
-		</p>
+		<test-fixture id="NormalButton">
+			<template>
+				<button is="vui-button">Button</button>
+			</template>
+		</test-fixture>
+		<test-fixture id="PrimaryButton">
+			<template>
+				<button is="vui-button" primary>Button</button>
+			</template>
+		</test-fixture>
+		<script>
+		describe('<vui-button>', function() {
+
+			var button;
+
+			describe('normal', function() {
+
+				beforeEach(function() {
+					button = fixture('NormalButton');
+				});
+
+				it('should execute onclick when clicked', function(done) {
+					button.addEventListener('click', function() {
+						done();
+					});
+					MockInteractions.tap(button);
+				});
+
+				it('should default "primary" to false when unset', function() {
+					expect(button.primary).to.be.false;
+				});
+
+				it('should reflect primary attribute to property', function() {
+					button.setAttribute('primary', '');
+					expect(button.primary).to.be.true;
+				});
+
+				it('should add primary attribute when property is true', function() {
+					button.primary = true;
+					expect(button.hasAttribute('primary')).to.be.true;
+				});
+
+			});
+
+			describe('primary', function() {
+
+				beforeEach(function() {
+					button = fixture('PrimaryButton');
+				});
+
+				it('should set primary property when attribute is present', function() {
+					expect(button.primary).to.be.true;
+				});
+
+				it('should reflect primary property when when attribute is removed', function() {
+					button.removeAttribute('primary');
+					expect(button.primary).to.be.false;
+				});
+
+				it('should remove primary attribute when property is false', function() {
+					button.primary = false;
+					expect(button.hasAttribute('primary')).to.be.false;
+				});
+
+			});
+
+		});
+		</script>
 	</body>
 </html>
