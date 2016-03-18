@@ -1,19 +1,19 @@
 language: node_js
-node_js:
-- 5.6
+node_js: stable
 before_script:
 - gem install percy-cli
+script:
+- polylint
+- wct --skip-plugin local
 after_success:
 - '[ "$TRAVIS_SECURE_ENV_VARS" = "true" ] && npm run perceptual-diff'
 sudo: false
-deploy:
-  provider: npm
-  email: d2ltravisdeploy@d2l.com
-  api_key:
-    secure: WGEuoW637XOPrLRk4UF/BC65RpaLwAXDKtCBXW2aMOm7o6Ncv/CvLLkAIoUvG4cjMSOOkOt3oI3T63Dz7w5eNlzn14u5RcT3OsIZDwfNdS1nnASL+kOW48X4MDNZa2FEKR9//LQN38RqnNf30jeTQV/shYiqlLK1fa034kguqFI=
-  on:
-    tags: true
-    repo: Brightspace/valence-ui-button
+addons:
+  sauce_connect:
+    username:
+      secure: "Uk89EP7nT0jMY33LnfMc2UkFXYQSYsAvF+40j626AFwnX/oHmrnc69XbyMBslBNH2EhtNxGEM1Bi2/6YNNG+iCbKig2fbHr35lA3V7iZoqW5TAfJHCmqj/bAn8p3EZ9lU0Ak8wdodgKyq+p0j0zKj7SHXCgGzPwLzheLQ8/f6XA="
+    access_key:
+      secure: "KFg1MjF1NYuXm3UFe7wWypSWCC/egRclfhMXy9Iwjwib9c+Bl4rOW+xWgfm9A16FYLe84++NcXqYet+qBykZTPTKSA39c+1Wa00awr2AuoMWY6VzeorTIlOUVZf/AQ6efY+WGp4WJf1hRje8B65e2qEgofVy3ZHBx7OlG32kpbg="
 env:
   global:
     secure: DLla5yS0KINkxAGk5xBcBShCpuW5BybW4CSPcBOrjQTmAryc45kIJudiimggZRpAjSsDAsIE/5bTrRbYdadzrq7ytsi4RoC0nZUli2TTCtx/j0F1wAAl6kVfK2njRrWPbqFl+8vp8kzyPqW+7esAy0xuoNqAGAAD5wK+5noZv3Y=

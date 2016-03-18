@@ -1,0 +1,73 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../vui-colors/colors.html">
+<dom-module id="vui-button">
+	<template>
+		<style include="vui-colors"></style>
+		<style>
+			:host {
+				border-width: 1px;
+				border-style: solid;
+				border-radius: 0.3rem;
+				box-sizing: border-box;
+				cursor: pointer;
+				display: inline-block;
+				font-family: inherit;
+				font-size: 0.7rem;
+				font-weight: 700;
+				letter-spacing: 0.02rem;
+				line-height: 1rem;
+				margin: 0;
+				min-height: -webkit-calc(2rem + 2px);
+				min-height: calc(2rem + 2px);
+				outline: none;
+				padding: 0.5rem 1.5rem;
+				text-align: center;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				vertical-align: middle;
+				white-space: nowrap;
+				width: auto;
+				@apply(--vui-button);
+			}
+			:host, :host([disabled]:hover), :host([disabled]:focus) {
+				background-color: var(--vui-color-woolonardo);
+				border-color: var(--vui-color-titanius);
+				color: var(--vui-color-ferrite);
+			}
+			:host(:hover), :host(:focus), :host(.vui-button-focus) {
+				background-color: var(--vui-color-gypsum);
+				@apply(--vui-button-hover);
+			}
+			:host([disabled]) {
+				opacity: 0.5;
+				cursor: default;
+			}
+			:host([primary]), :host([primary][disabled]:hover), :host([primary][disabled]:focus) {
+				background-color: var(--vui-color-celestine);
+				border-color: var(--vui-color-celestuba);
+				color: var(--vui-color-white);
+				@apply(--vui-button-primary);
+			}
+			:host([primary]:hover), :host([primary]:focus), :host([primary].vui-button-focus) {
+				background-color: var(--vui-color-celestuba);
+				@apply(--vui-button-primary-hover);
+			}
+		</style>
+		<content></content>
+	</template>
+	<script>
+		Polymer({
+			is: 'vui-button',
+			extends: 'button',
+			properties: {
+				primary: {
+					type: Boolean,
+					reflectToAttribute: true,
+					value: false
+				}
+			}
+		});
+	</script>
+</dom-module>

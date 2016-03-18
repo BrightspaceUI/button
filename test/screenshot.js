@@ -1,9 +1,10 @@
 var page = require('webpage').create();
 page.viewportSize = {width: 1000, height: 1000};
-page.open('./test/button.html', function() {
+page.open('./test/perceptual/button.html', function() {
 	var clipRect = page.evaluate(function () {
-		return document.querySelector(".screenshot")
-			.getBoundingClientRect();
+		var screenshot = document.querySelector(".screenshot");
+		screenshot.style.display = 'inline-block';
+		return screenshot.getBoundingClientRect();
 	});
 	page.clipRect = {
 		top:    clipRect.top,

@@ -1,43 +1,31 @@
 {
   "name": "vui-button",
-  "version": "1.2.1",
-  "description": "Mixins and CSS for applying button styles",
+  "version": "2.0.0",
+  "description": "Web component button element",
+  "private": true,
   "scripts": {
-    "autoprefix": "postcss -c postcss.config.json",
-    "autoprefix:test": "postcss -c ./test/postcss.config.json",
-    "clean": "rimraf *.css && rimraf ./test/*.css",
-    "build:sass:test": "node-sass --output-style expanded ./test/test.scss ./test/test.css",
-    "postbuild:sass:test": "npm run autoprefix:test",
-    "build:sass": "node-sass --output-style expanded button.css.scss button.css",
-    "postbuild:sass": "npm run autoprefix",
-    "prebuild": "npm run clean",
-    "build": "npm run build:sass && npm run build:sass:test && npm run screenshot",
-    "perceptual-diff": "percy snapshot test/",
+    "prebuild": "cpy button.html ./bower_components/temp",
+    "build": "vulcanize ./bower_components/temp/button.html > ./test/perceptual/button.html.ignore",
+    "postbuild": "rimraf ./bower_components/temp",
+    "preperceptual-diff": "npm run build",
+    "perceptual-diff": "percy snapshot test/perceptual --enable_javascript",
     "postinstall": "bower install",
     "screenshot": "phantomjs ./test/screenshot.js",
-    "pretest": "npm run build",
-    "test": "csslint button.css"
+    "test": "polylint && wct --skip-plugin sauce"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/Brightspace/valence-ui-button.git"
   },
-  "keywords": [
-    "d2l",
-    "valence-ui",
-    "vui"
-  ],
   "author": "D2L Corporation",
   "license": "Apache-2.0",
-  "dependencies": {
-    "bower": "^1.7.7"
-  },
   "devDependencies": {
-    "autoprefixer": "^6.3.2",
-    "csslint": "^0.10.0",
-    "node-sass": "^3.4.2",
+    "bower": "^1.7.7",
+    "cpy-cli": "^1.0.0",
     "phantomjs-prebuilt": "^2.1.4",
-    "postcss-cli": "^2.5.0",
-    "rimraf": "^2.5.1"
+    "polylint": "^2.10.0",
+    "rimraf": "^2.5.2",
+    "vulcanize": "^1.14.7",
+    "web-component-tester": "^4.2.2"
   }
 }
