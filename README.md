@@ -1,4 +1,4 @@
-**Looking for SASS-based `vui-button`?** It's [over here](/Brightspace/valence-ui-button/tree/sass).
+**Looking for SASS-based `vui-button`?** It's [over here](https://github.com/Brightspace/valence-ui-button/tree/sass).
 
 # vui-button
 [![Bower version][bower-image]][bower-url]
