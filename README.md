@@ -6,7 +6,7 @@
 
 A Valence UI, [Polymer](https://www.polymer-project.org/1.0/)-based web component button element.
 
-![screenshot of button component](/screenshot.png?raw=true)
+![screenshot of button component](/screenshots/screenshot.png?raw=true)
 
 For further information on this and other VUI components, see the docs at [ui.valence.d2l.com](http://ui.valence.d2l.com/).
 
