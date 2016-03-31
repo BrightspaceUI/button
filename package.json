@@ -10,7 +10,7 @@
     "preperceptual-diff": "npm run build",
     "perceptual-diff": "percy snapshot test/perceptual --enable_javascript",
     "postinstall": "bower install",
-    "screenshot": "phantomjs ./test/screenshot.js",
+    "screenshot": "phantomjs ./screenshots/build.js",
     "test": "polylint && wct --skip-plugin sauce"
   },
   "repository": {
