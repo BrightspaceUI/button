@@ -4,7 +4,6 @@ before_script:
 - gem install percy-cli
 script:
 - polylint
-- wct --skip-plugin local
 after_success:
 - '[ "$TRAVIS_SECURE_ENV_VARS" = "true" ] && npm run perceptual-diff'
 sudo: false
