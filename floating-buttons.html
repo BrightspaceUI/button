@@ -1,0 +1,138 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../vui-colors/colors.html">
+<dom-module id="vui-floating-buttons">
+
+	<template>
+
+		<style include="vui-colors">
+			:host {
+				box-sizing: border-box;
+				display: block;
+			}
+			:host > .container {
+				border-top: 1px solid transparent;
+				display: block;
+				margin: 0 auto;
+				width: 100%;
+			}
+			:host > .container.floating {
+				animation: vui-floating-buttons-animation 500ms ease-out;
+				background-color: var(--vui-color-white);
+				background-color: rgba(255, 255, 255, 0.88);
+				border-top-color: var(--vui-color-titanius);
+				bottom: 0;
+				box-shadow: 0 -2px 4px rgba(86, 90, 92, .2);
+				left: 0;
+				position: fixed;
+				right: 0;
+				z-index: 999;
+			}
+			:host > .container > div {
+				padding: 0.75rem 0;
+				position: relative;
+			}
+			:host > .container ::content button {
+				margin-right: 0.75rem;
+			}
+			:host-context([dir="rtl"]) .container ::content button {
+				margin-left: 0.75rem;
+				margin-right: 0;
+			}
+
+			@keyframes vui-floating-buttons-animation {
+				0% {
+					border-color: transparent;
+					background-color: transparent;
+					transform: translate(0,10px);
+				}
+				100% {
+					border-top-color: var(--vui-color-titanius);
+					background-color: rgba(255, 255, 255, 0.88);
+					transform: translate(0,0);
+				}
+			}
+		</style>
+
+		<div class="container">
+			<div><content select="button"></content></div>
+		</div>
+		<div class="spacer"></div>
+
+	</template>
+
+	<script>
+		Polymer({
+			is: 'vui-floating-buttons',
+
+			_container: null,
+			_spacer: null,
+
+			attached: function() {
+				window.addEventListener('resize', this._reposition.bind(this));
+				window.addEventListener('scroll', this._reposition.bind(this));
+				this._reposition();
+			},
+
+			detached: function() {
+				window.removeEventListener('resize', this._reposition);
+				window.removeEventListener('scroll', this._reposition);
+			},
+
+			ready: function() {
+				this._container = Polymer.dom(this.root).querySelector('.container');
+				this._spacer = Polymer.dom(this.root).querySelector('.spacer');
+
+				var prevDocumentHeight = document.body.offsetHeight;
+				setInterval(function() {
+					var documentHeight = document.body.offsetHeight;
+					if (prevDocumentHeight !== documentHeight) {
+						this._reposition();
+					}
+					prevDocumentHeight = documentHeight;
+				}.bind(this), 100);
+			},
+
+			isFloating: function() {
+				return this._container.classList.contains('floating');
+			},
+
+			_reposition: function() {
+
+				var containerRect = this._container.getBoundingClientRect();
+				this._spacer.style.height = containerRect.height + 'px';
+
+				var spacerRect = this._spacer.getBoundingClientRect();
+
+				var containerTop;
+				var isFloating = this._container.classList.contains('floating');
+				if (isFloating) {
+					containerTop = spacerRect.top + document.body.scrollTop;
+				} else {
+					containerTop = containerRect.top + document.body.scrollTop;
+				}
+
+				var viewBottom = document.body.scrollTop + window.innerHeight;
+
+				var innerContainer = this._container.querySelector('div');
+
+				if ((containerTop + containerRect.height) <= viewBottom) {
+					this._container.classList.remove('floating');
+					innerContainer.style.left = 0 + 'px';
+					innerContainer.style.right = 0 + 'px';
+					this._spacer.style.display = 'none';
+				} else {
+					this._container.classList.add('floating');
+					this._spacer.style.display = 'block';
+					if (isFloating) {
+						innerContainer.style.left = spacerRect.left + 'px';
+						innerContainer.style.right = spacerRect.right + 'px';
+					} else {
+						innerContainer.style.left = containerRect.left + 'px';
+						innerContainer.style.right = containerRect.right + 'px';
+					}
+				}
+			}
+		});
+	</script>
+
+</dom-module>

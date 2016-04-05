@@ -4,7 +4,7 @@
   "description": "Web component button element",
   "private": true,
   "scripts": {
-    "prebuild": "cpy button.html ./bower_components/temp",
+    "prebuild": "cpy *.html ./bower_components/temp",
     "build": "vulcanize ./bower_components/temp/button.html > ./test/perceptual/button.html.ignore",
     "postbuild": "rimraf ./bower_components/temp",
     "preperceptual-diff": "npm run build",
