@@ -1,0 +1,114 @@
+<html>
+<head>
+	<title>Polymer Floating Buttons</title>
+	<script src="https://s.brightspace.com/lib/webcomponentsjs/0.7.21/webcomponents.min.js"></script>
+	<script>
+		window.Polymer = window.Polymer || {};
+		window.Polymer.dom = 'shadow';
+	</script>
+	<link rel="import" href="../button.html">
+	<link rel="import" href="../floating-buttons.html">
+	<style is="custom-style">
+		@import 'https://fonts.googleapis.com/css?family=Lato:400,300';
+		html {
+			color: white;
+			font-family: 'Lato', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+			font-weight: 300;
+			font-size: 20px;
+		}
+		body {
+			margin: 0 auto;
+			width: 80%;
+		}
+		.content {
+			background-color: #006fbf;
+			padding: 10px;
+		}
+		.content > button {
+			margin-bottom: 0.5rem;
+		}
+	</style>
+</head>
+<body>
+	<div class="content">
+
+		<button is="vui-button" onclick="removeFloatingButtons();">Remove Floating Buttons</button>
+		<button is="vui-button" onclick="appendFloatingButtons();">Append Floating Buttons</button>
+		<button is="vui-button" onclick="appendButton();">Append New Button</button>
+		<button is="vui-button" onclick="removeButton();">Remove Last Button</button>
+		<button is="vui-button" onclick="changeButtonText();">Change Button Text</button>
+		<button is="vui-button" onclick="insertContentAbove();">Insert Content</button>
+		<button is="vui-button" onclick="removeContentAbove();">Remove Content</button>
+
+		<p>I love beer!</p>
+
+	</div>
+
+	<vui-floating-buttons id="wc_buttons">
+		<button is="vui-button" onclick="makeMoreBeer();">Make more Beer!</button>
+	</vui-floating-buttons>
+
+	<script>
+
+		var page_buttonCount = 0;
+		var page_floatingButtons;
+
+		function appendFloatingButtons() {
+			document.body.appendChild(page_floatingButtons);
+		}
+
+		function removeFloatingButtons() {
+			var floatingButtons = document.getElementById('wc_buttons');
+			page_floatingButtons = floatingButtons;
+			floatingButtons.parentNode.removeChild(floatingButtons);
+		}
+
+		function changeButtonText() {
+			var buttons = document.querySelectorAll('#wc_buttons button');
+			for(var i=0; i<buttons.length; i++) {
+				buttons[i].textContent = 'Powdered Toastman';
+			}
+		}
+
+		function appendButton() {
+			var floatingButtons = document.getElementById('wc_buttons');
+
+			page_buttonCount += 1;
+
+			var newButton = document.createElement('button','vui-button');
+			newButton.textContent = 'Beer ' + page_buttonCount;
+			newButton.addEventListener('click', function() {
+				console.log('you clicked ' + this.textContent);
+			});
+
+			//floatingButtons.appendChild(newButton);
+			Polymer.dom(floatingButtons).appendChild(newButton);
+		}
+
+		function removeButton() {
+			var floatingButtons = document.getElementById('wc_buttons');
+
+			Polymer.dom(floatingButtons).removeChild(
+				Polymer.dom(floatingButtons).lastChild
+			);
+		}
+
+		function insertContentAbove() {
+			var newContent = document.createElement('p');
+			newContent.textContent = 'I love beer!';
+			document.body.querySelector('div').appendChild(newContent);
+		}
+
+		function removeContentAbove() {
+			document.body.querySelector('div').removeChild(
+				document.body.querySelector('div').lastChild
+			);
+		}
+
+		function makeMoreBeer() {
+			appendButton();
+		}
+
+	</script>
+</body>
+</html>

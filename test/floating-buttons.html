@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>vui-floating-buttons basic tests</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+		<script src="../../web-component-tester/browser.js"></script>
+		<link rel="import" href="../floating-buttons.html">
+	</head>
+	<body>
+		<test-fixture id="vui-floating-buttons-fixture">
+			<template>
+				<vui-floating-buttons>
+					<button is="vui-button">Make more Beer!</button>
+				</vui-floating-buttons>
+			</template>
+		</test-fixture>
+
+		<script>
+
+		describe('<vui-floating-buttons>', function() {
+
+			var floatingButtons;
+
+			beforeEach(function() {
+				floatingButtons = fixture('vui-floating-buttons-fixture');
+			});
+
+			it('does not float buttons above fold', function() {
+				expect(floatingButtons.isFloating()).to.be.false;
+			});
+
+			it('floats when bottons move below the fold', function() {
+
+				var content = document.createElement('div');
+				floatingButtons.parentNode.insertBefore(content, floatingButtons);
+
+				content.style.height = '10000px';
+				floatingButtons._reposition();
+
+				expect(floatingButtons.isFloating()).to.be.true;
+
+			});
+
+			it('does not float when buttons move above the fold', function() {
+
+				var content = document.createElement('div');
+				floatingButtons.parentNode.insertBefore(content, floatingButtons);
+
+				content.style.height = '10000px';
+				floatingButtons._reposition();
+
+				content.style.height = '100px';
+				floatingButtons._reposition();
+
+				expect(floatingButtons.isFloating()).to.be.false;
+
+			});
+
+			it('repositions as a result of resize event', function() {
+
+				var content = document.createElement('div');
+				floatingButtons.parentNode.insertBefore(content, floatingButtons);
+
+				content.style.height = '10000px';
+				window.dispatchEvent(new Event('resize'));
+
+				expect(floatingButtons.isFloating()).to.be.true;
+
+			});
+
+			it('repositions as a result of scroll event', function() {
+
+				var content = document.createElement('div');
+				floatingButtons.parentNode.insertBefore(content, floatingButtons);
+
+				content.style.height = '10000px';
+				window.dispatchEvent(new Event('scroll'));
+
+				expect(floatingButtons.isFloating()).to.be.true;
+
+			});
+
+			it('distributes its children', function() {
+				var buttons = floatingButtons.getContentChildren();
+				expect(buttons.length).to.equal(1);
+				expect(buttons[0]).to.equal(floatingButtons.querySelector('button'));
+			});
+
+		});
+
+		</script>
+		<script>
+			a11ySuite('vui-floating-buttons-fixture');
+		</script>
+	</body>
+</html>

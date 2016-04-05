@@ -21,6 +21,8 @@ bower install vui-button
 
 Include the [webcomponents.js](http://webcomponents.org/polyfills/) "lite" polyfill (for browsers who don't natively support web components), then import `button.html`:
 
+### Button
+
 ```html
 <head>
 	<script src="https://s.brightspace.com/lib/webcomponentsjs/0.7.21/webcomponents-lite.min.js"></script>
@@ -31,7 +33,7 @@ Include the [webcomponents.js](http://webcomponents.org/polyfills/) "lite" polyf
 The native `<button>` element can now be extended to be a `vui-button`:
 
 ```html
-<button is="vui-buttom">Button Element</button>
+<button is="vui-button">Button Element</button>
 ```
 
 Buttons can be made **primary**:
@@ -44,6 +46,30 @@ And can be **disabled**:
 
 ```html
 <button is="vui-button" disabled>Disabled Button</button>
+```
+
+### Floating Workflow Buttons
+
+Floating workflow buttons behavior can be added by using the `vui-floating-buttons` web component.  When the normal position of the workflow buttons is below the bottom edge of the view-port, they'll dock at the bottom edge.  When the normal position becomes visible, they'll undock.
+
+```html
+<head>
+	<script src="https://s.brightspace.com/lib/webcomponentsjs/0.7.21/webcomponents-lite.min.js"></script>
+	<link rel="import" href="../vui-button/button.html">
+	<link rel="import" href="../vui-button/floating-buttons.html">
+</head>
+```
+
+Include the `vui-floating-buttons` container at the bottom of the page, and add your workflow `button` elements:
+
+```html
+<body>
+	...
+	<vui-floating-buttons>
+		<button is="vui-button" primary>Save</button>
+		<button is="vui-button">Cancel</button>
+	</vui-floating-buttons>
+</body>
 ```
 
 ### Usage in Production
