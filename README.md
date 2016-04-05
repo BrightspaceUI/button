@@ -50,7 +50,7 @@ And can be **disabled**:
 
 ### Floating Workflow Buttons
 
-Floating workflow buttons behavior can be added by using the `vui-floating-buttons` web component.
+Floating workflow buttons behavior can be added by using the `vui-floating-buttons` web component.  When the normal position of the workflow buttons is below the bottom edge of the view-port, they'll dock at the bottom edge.  When the normal position becomes visible, they'll undock.
 
 ```html
 <head>
