@@ -60,7 +60,7 @@ Floating workflow buttons behavior can be added by using the `vui-floating-butto
 </head>
 ```
 
-Include the `vui-floating-buttons` container at the bottom of the page, and add your workflow buttons:
+Include the `vui-floating-buttons` container at the bottom of the page, and add your workflow `button` elements:
 
 ```html
 <body>
