@@ -15,8 +15,10 @@
 				margin: 0 auto;
 				width: 100%;
 			}
+
 			.container.floating {
 				animation: vui-floating-buttons-animation 500ms ease-out;
+				-webkit-animation: vui-floating-buttons-animation 500ms ease-out;
 				background-color: var(--vui-color-white);
 				background-color: rgba(255, 255, 255, 0.88);
 				border-top-color: var(--vui-color-titanius);
@@ -49,6 +51,18 @@
 					border-top-color: var(--vui-color-titanius);
 					background-color: rgba(255, 255, 255, 0.88);
 					transform: translate(0,0);
+				}
+			}
+			@-webkit-keyframes vui-floating-buttons-animation {
+				0% {
+					border-color: transparent;
+					background-color: transparent;
+					-webkit-transform: translate(0,10px);
+				}
+				100% {
+					border-top-color: var(--vui-color-titanius);
+					background-color: rgba(255, 255, 255, 0.88);
+					-webkit-transform: translate(0,0);
 				}
 			}
 		</style>
