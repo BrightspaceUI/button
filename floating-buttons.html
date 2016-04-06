@@ -9,14 +9,14 @@
 				box-sizing: border-box;
 				display: block;
 			}
-			.container {
+			.vui-floating-buttons-container {
 				border-top: 1px solid transparent;
 				display: block;
 				margin: 0 auto;
 				width: 100%;
 			}
 
-			.container.floating {
+			.vui-floating-buttons-container.vui-floating-buttons-floating {
 				animation: vui-floating-buttons-animation 500ms ease-out;
 				-webkit-animation: vui-floating-buttons-animation 500ms ease-out;
 				background-color: var(--vui-color-white);
@@ -29,14 +29,14 @@
 				right: 0;
 				z-index: 999;
 			}
-			.container > div {
+			.vui-floating-buttons-container > div {
 				padding: 0.75rem 0;
 				position: relative;
 			}
-			.container ::content button {
+			.vui-floating-buttons-container ::content button {
 				margin-right: 0.75rem;
 			}
-			:host-context([dir="rtl"]) .container ::content button {
+			:host-context([dir="rtl"]) .vui-floating-buttons-container ::content button {
 				margin-left: 0.75rem;
 				margin-right: 0;
 			}
@@ -67,10 +67,10 @@
 			}
 		</style>
 
-		<div class="container">
+		<div class="vui-floating-buttons-container">
 			<div><content></content></div>
 		</div>
-		<div class="spacer"></div>
+		<div class="vui-floating-buttons-spacer"></div>
 
 	</template>
 
@@ -95,8 +95,8 @@
 			},
 
 			ready: function() {
-				this._container = Polymer.dom(this.root).querySelector('.container');
-				this._spacer = Polymer.dom(this.root).querySelector('.spacer');
+				this._container = this.$$('.vui-floating-buttons-container');
+				this._spacer = this.$$('.vui-floating-buttons-spacer');
 
 				var prevDocumentHeight = document.body.offsetHeight;
 				setInterval(function() {
@@ -109,7 +109,7 @@
 			},
 
 			isFloating: function() {
-				return this._container.classList.contains('floating');
+				return this._container.classList.contains('vui-floating-buttons-floating');
 			},
 
 			_reposition: function() {
@@ -120,7 +120,7 @@
 				var spacerRect = this._spacer.getBoundingClientRect();
 
 				var containerTop;
-				var isFloating = this._container.classList.contains('floating');
+				var isFloating = this._container.classList.contains('vui-floating-buttons-floating');
 				if (isFloating) {
 					containerTop = spacerRect.top + document.body.scrollTop;
 				} else {
@@ -133,7 +133,7 @@
 
 				if ((containerTop + containerRect.height) <= viewBottom) {
 
-					this._container.classList.remove('floating');
+					this._container.classList.remove('vui-floating-buttons-floating');
 					if (!this._isRTL) {
 						innerContainer.style.left = 0 + 'px';
 					} else {
@@ -144,7 +144,7 @@
 
 				} else {
 
-					this._container.classList.add('floating');
+					this._container.classList.add('vui-floating-buttons-floating');
 					this._spacer.style.display = 'block';
 
 					var updateWithRect = isFloating ? spacerRect : containerRect;
