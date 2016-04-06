@@ -1,6 +1,6 @@
 {
   "name": "vui-button",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Web component button element",
   "private": true,
   "scripts": {
