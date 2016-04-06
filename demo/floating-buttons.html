@@ -3,8 +3,8 @@
 	<title>Polymer Floating Buttons</title>
 	<script src="https://s.brightspace.com/lib/webcomponentsjs/0.7.21/webcomponents.min.js"></script>
 	<script>
-		window.Polymer = window.Polymer || {};
-		window.Polymer.dom = 'shadow';
+		//window.Polymer = window.Polymer || {};
+		//window.Polymer.dom = 'shadow';
 	</script>
 	<link rel="import" href="../button.html">
 	<link rel="import" href="../floating-buttons.html">
@@ -34,6 +34,7 @@
 
 		<button is="vui-button" onclick="removeFloatingButtons();">Remove Floating Buttons</button>
 		<button is="vui-button" onclick="appendFloatingButtons();">Append Floating Buttons</button>
+		<button is="vui-button" onclick="toggleRTL();">Toggle RTL</button>
 		<button is="vui-button" onclick="appendButton();">Append New Button</button>
 		<button is="vui-button" onclick="removeButton();">Remove Last Button</button>
 		<button is="vui-button" onclick="changeButtonText();">Change Button Text</button>
@@ -61,6 +62,18 @@
 			var floatingButtons = document.getElementById('wc_buttons');
 			page_floatingButtons = floatingButtons;
 			floatingButtons.parentNode.removeChild(floatingButtons);
+		}
+
+		function toggleRTL() {
+			var isRTL = (document.dir === 'rtl');
+			if (isRTL) {
+				document.dir = 'ltr';
+			} else {
+				document.dir = 'rtl';
+			}
+			// necessary to reattach since vui-floating-buttons caches RTL state
+			removeFloatingButtons();
+			appendFloatingButtons();
 		}
 
 		function changeButtonText() {
