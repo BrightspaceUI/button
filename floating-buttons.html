@@ -9,13 +9,13 @@
 				box-sizing: border-box;
 				display: block;
 			}
-			:host > .container {
+			.container {
 				border-top: 1px solid transparent;
 				display: block;
 				margin: 0 auto;
 				width: 100%;
 			}
-			:host > .container.floating {
+			.container.floating {
 				animation: vui-floating-buttons-animation 500ms ease-out;
 				background-color: var(--vui-color-white);
 				background-color: rgba(255, 255, 255, 0.88);
@@ -27,11 +27,11 @@
 				right: 0;
 				z-index: 999;
 			}
-			:host > .container > div {
+			.container > div {
 				padding: 0.75rem 0;
 				position: relative;
 			}
-			:host > .container ::content button {
+			.container ::content button {
 				margin-right: 0.75rem;
 			}
 			:host-context([dir="rtl"]) .container ::content button {
