@@ -95,8 +95,8 @@
 			},
 
 			ready: function() {
-				this._container = Polymer.dom(this.root).querySelector('.vui-floating-buttons-container');
-				this._spacer = Polymer.dom(this.root).querySelector('.vui-floating-buttons-spacer');
+				this._container = this.$$('.vui-floating-buttons-container');
+				this._spacer = this.$$('.vui-floating-buttons-spacer');
 
 				var prevDocumentHeight = document.body.offsetHeight;
 				setInterval(function() {
