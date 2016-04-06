@@ -9,14 +9,16 @@
 				box-sizing: border-box;
 				display: block;
 			}
-			:host > .container {
+			.container {
 				border-top: 1px solid transparent;
 				display: block;
 				margin: 0 auto;
 				width: 100%;
 			}
-			:host > .container.floating {
+
+			.container.floating {
 				animation: vui-floating-buttons-animation 500ms ease-out;
+				-webkit-animation: vui-floating-buttons-animation 500ms ease-out;
 				background-color: var(--vui-color-white);
 				background-color: rgba(255, 255, 255, 0.88);
 				border-top-color: var(--vui-color-titanius);
@@ -27,11 +29,11 @@
 				right: 0;
 				z-index: 999;
 			}
-			:host > .container > div {
+			.container > div {
 				padding: 0.75rem 0;
 				position: relative;
 			}
-			:host > .container ::content button {
+			.container ::content button {
 				margin-right: 0.75rem;
 			}
 			:host-context([dir="rtl"]) .container ::content button {
@@ -51,10 +53,22 @@
 					transform: translate(0,0);
 				}
 			}
+			@-webkit-keyframes vui-floating-buttons-animation {
+				0% {
+					border-color: transparent;
+					background-color: transparent;
+					-webkit-transform: translate(0,10px);
+				}
+				100% {
+					border-top-color: var(--vui-color-titanius);
+					background-color: rgba(255, 255, 255, 0.88);
+					-webkit-transform: translate(0,0);
+				}
+			}
 		</style>
 
 		<div class="container">
-			<div><content select="button"></content></div>
+			<div><content></content></div>
 		</div>
 		<div class="spacer"></div>
 
@@ -65,11 +79,13 @@
 			is: 'vui-floating-buttons',
 
 			_container: null,
+			_isRTL: false,
 			_spacer: null,
 
 			attached: function() {
 				window.addEventListener('resize', this._reposition.bind(this));
 				window.addEventListener('scroll', this._reposition.bind(this));
+				this._isRTL = (getComputedStyle(this._container).direction === 'rtl');
 				this._reposition();
 			},
 
@@ -116,20 +132,29 @@
 				var innerContainer = this._container.querySelector('div');
 
 				if ((containerTop + containerRect.height) <= viewBottom) {
+
 					this._container.classList.remove('floating');
-					innerContainer.style.left = 0 + 'px';
-					innerContainer.style.right = 0 + 'px';
+					if (!this._isRTL) {
+						innerContainer.style.left = 0 + 'px';
+					} else {
+						innerContainer.style.right = 0 + 'px';
+					}
+
 					this._spacer.style.display = 'none';
+
 				} else {
+
 					this._container.classList.add('floating');
 					this._spacer.style.display = 'block';
-					if (isFloating) {
-						innerContainer.style.left = spacerRect.left + 'px';
-						innerContainer.style.right = spacerRect.right + 'px';
+
+					var updateWithRect = isFloating ? spacerRect : containerRect;
+					if (!this._isRTL) {
+						innerContainer.style.left = updateWithRect.left + 'px';
 					} else {
-						innerContainer.style.left = containerRect.left + 'px';
-						innerContainer.style.right = containerRect.right + 'px';
+						innerContainer.style.right = updateWithRect.left + 'px';
 					}
+					innerContainer.style.width = updateWithRect.width + 'px';
+
 				}
 			}
 		});
