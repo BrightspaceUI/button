@@ -1,10 +1,13 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../vui-colors/colors.html">
+<link rel="import" href="button-style.html">
+
 <dom-module id="vui-floating-buttons">
 
 	<template>
-
-		<style include="vui-colors">
+		<style include="vui-colors"></style>
+		<style include="vui-button-style"></style>
+		<style>
 			:host {
 				box-sizing: border-box;
 				display: block;
@@ -15,7 +18,6 @@
 				margin: 0 auto;
 				width: 100%;
 			}
-
 			.vui-floating-buttons-container.vui-floating-buttons-floating {
 				animation: vui-floating-buttons-animation 500ms ease-out;
 				-webkit-animation: vui-floating-buttons-animation 500ms ease-out;
@@ -34,10 +36,10 @@
 				position: relative;
 			}
 			.vui-floating-buttons-container ::content button {
-				margin-right: 0.75rem;
+				margin-right: var(--vui-button-spacing);
 			}
 			:host-context([dir="rtl"]) .vui-floating-buttons-container ::content button {
-				margin-left: 0.75rem;
+				margin-left: var(--vui-button-spacing);
 				margin-right: 0;
 			}
 
