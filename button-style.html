@@ -6,6 +6,13 @@
 			:root {
 				--vui-button-spacing: 0.75rem;
 			}
+			.vui-button-spacing {
+				margin-right: var(--vui-button-spacing);
+			}
+			[dir='rtl'] .vui-button-spacing {
+				margin-left: var(--vui-button-spacing);
+				margin-right: 0;
+			}
 		</style>
 	</template>
 </dom-module>
