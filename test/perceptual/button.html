@@ -57,5 +57,19 @@
 			<button is="vui-button">Normal Button</button>&nbsp;
 			<button is="vui-button" disabled>Disabled Button</button>
 		</p>
+		<p id="loading">Loading</p>
+		<p id="wcnotready">WC Not Ready</p>
+		<p id="loaded" style="display:none;">Loaded</p>
+		<p id="wcready" style="display:none;">WC Ready</p>
+		<script>
+		window.addEventListener('load', function() {
+			document.getElementById('loading').style.display = 'none';
+			document.getElementById('loaded').style.display = 'block';
+		});
+		window.addEventListener('WebComponentsReady', function() {
+			document.getElementById('wcnotready').style.display = 'none';
+			document.getElementById('wcready').style.display = 'block';
+		});
+		</script>
 	</body>
 </html>
