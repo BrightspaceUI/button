@@ -10,9 +10,9 @@ sudo: false
 addons:
   sauce_connect:
     username:
-      secure: "DIyMRPX30LXS79iLqPiXUw597gUiPdxCFED1S02ZgFgFyH2w/MvFlWh3M80kLespyM8g/h2KuBoxMtHDHqhB8LQy8Cr+RJdq8LxhwRAAAQX4oTbrvVODS62m8zMUhbl0d8EuCVW2+kDkIEemOPKCRim9XgaFbCuXrEwtTocrTSo="
+      secure: "UY9DQ7X3kuNXsmm/PqNvigMEqFdEIkIimJ9FP6y/4cE+eVfdxCB0Y3r8m2tw4++zU6p5xD1TK84haaOsGSb7Y0pEYISdUnRiZ8epiJq9fhu3E8WyvCOERMdp5fNaOxtBCYZdFdMPPMq9AD5yatmVgFP8i8zbB+7n+HxbsOPujrQ="
     access_key:
-      secure: "ca3LzyTtiYEaejlPRt+50LpeZ0c3bIytW/EhDE57VKWiGRHpYaybJAdW5WQaYV19j9ZrOCGOOyZXldKCRhw0OEfNikc1MliHxXapArPrnSU7qUm23f2Bi1sI8UdGqZsS3N66JN1NS2HeoSTZJcq/ZzkSNJt/JgwPKA+PyOdIY0Y="
+      secure: "YZrQF4IFxPiBLCvGywNoe+dgvjqozqsWVqNnqnE3ez99OWRk/7LH29Gj81/HASJlhMuLBBC0qG2OLekuKQuozn/tSy4nvVzrXjjbs3mlAKrOWPWC+cZVINusUBBoMu0L4zxixxVebh179dLT+/vzD/UXyqlDEPBlnZqVMP7eDTQ="
 env:
   global:
     secure: DLla5yS0KINkxAGk5xBcBShCpuW5BybW4CSPcBOrjQTmAryc45kIJudiimggZRpAjSsDAsIE/5bTrRbYdadzrq7ytsi4RoC0nZUli2TTCtx/j0F1wAAl6kVfK2njRrWPbqFl+8vp8kzyPqW+7esAy0xuoNqAGAAD5wK+5noZv3Y=
