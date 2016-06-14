@@ -2,29 +2,29 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>vui-floating-buttons basic tests</title>
+		<title>d2l-floating-buttons basic tests</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 		<script src="../../web-component-tester/browser.js"></script>
-		<link rel="import" href="../floating-buttons.html">
+		<link rel="import" href="../d2l-floating-buttons.html">
 	</head>
 	<body>
-		<test-fixture id="vui-floating-buttons-fixture">
+		<test-fixture id="d2l-floating-buttons-fixture">
 			<template>
-				<vui-floating-buttons>
-					<button is="vui-button">Make more Beer!</button>
-				</vui-floating-buttons>
+				<d2l-floating-buttons>
+					<button is="d2l-button">Make more Beer!</button>
+				</d2l-floating-buttons>
 			</template>
 		</test-fixture>
 
 		<script>
 
-		describe('<vui-floating-buttons>', function() {
+		describe('<d2l-floating-buttons>', function() {
 
 			var floatingButtons;
 
 			beforeEach(function() {
-				floatingButtons = fixture('vui-floating-buttons-fixture');
+				floatingButtons = fixture('d2l-floating-buttons-fixture');
 			});
 
 			it('does not float buttons above fold', function() {
@@ -92,7 +92,7 @@
 
 		</script>
 		<script>
-			a11ySuite('vui-floating-buttons-fixture');
+			a11ySuite('d2l-floating-buttons-fixture');
 		</script>
 	</body>
 </html>
