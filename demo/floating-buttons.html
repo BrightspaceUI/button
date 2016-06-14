@@ -1,13 +1,13 @@
 <html>
 <head>
-	<title>Polymer Floating Buttons</title>
+	<title>Floating Buttons</title>
 	<script src="https://s.brightspace.com/lib/webcomponentsjs/0.7.21/webcomponents.min.js"></script>
 	<script>
 		//window.Polymer = window.Polymer || {};
 		//window.Polymer.dom = 'shadow';
 	</script>
-	<link rel="import" href="../button.html">
-	<link rel="import" href="../floating-buttons.html">
+	<link rel="import" href="../d2l-button.html">
+	<link rel="import" href="../d2l-floating-buttons.html">
 	<style is="custom-style">
 		@import 'https://fonts.googleapis.com/css?family=Lato:400,300';
 		html {
@@ -32,22 +32,22 @@
 <body>
 	<div class="content">
 
-		<button is="vui-button" onclick="removeFloatingButtons();">Remove Floating Buttons</button>
-		<button is="vui-button" onclick="appendFloatingButtons();">Append Floating Buttons</button>
-		<button is="vui-button" onclick="toggleRTL();">Toggle RTL</button>
-		<button is="vui-button" onclick="appendButton();">Append New Button</button>
-		<button is="vui-button" onclick="removeButton();">Remove Last Button</button>
-		<button is="vui-button" onclick="changeButtonText();">Change Button Text</button>
-		<button is="vui-button" onclick="insertContentAbove();">Insert Content</button>
-		<button is="vui-button" onclick="removeContentAbove();">Remove Content</button>
+		<button is="d2l-button" onclick="removeFloatingButtons();">Remove Floating Buttons</button>
+		<button is="d2l-button" onclick="appendFloatingButtons();">Append Floating Buttons</button>
+		<button is="d2l-button" onclick="toggleRTL();">Toggle RTL</button>
+		<button is="d2l-button" onclick="appendButton();">Append New Button</button>
+		<button is="d2l-button" onclick="removeButton();">Remove Last Button</button>
+		<button is="d2l-button" onclick="changeButtonText();">Change Button Text</button>
+		<button is="d2l-button" onclick="insertContentAbove();">Insert Content</button>
+		<button is="d2l-button" onclick="removeContentAbove();">Remove Content</button>
 
 		<p>I love beer!</p>
 
 	</div>
 
-	<vui-floating-buttons id="wc_buttons">
-		<button is="vui-button" onclick="makeMoreBeer();">Make more Beer!</button>
-	</vui-floating-buttons>
+	<d2l-floating-buttons id="wc_buttons">
+		<button is="d2l-button" onclick="makeMoreBeer();">Make more Beer!</button>
+	</d2l-floating-buttons>
 
 	<script>
 
@@ -71,7 +71,7 @@
 			} else {
 				document.dir = 'rtl';
 			}
-			// necessary to reattach since vui-floating-buttons caches RTL state
+			// necessary to reattach since d2l-floating-buttons caches RTL state
 			removeFloatingButtons();
 			appendFloatingButtons();
 		}
@@ -88,7 +88,7 @@
 
 			page_buttonCount += 1;
 
-			var newButton = document.createElement('button','vui-button');
+			var newButton = document.createElement('button','d2l-button');
 			newButton.textContent = 'Beer ' + page_buttonCount;
 			newButton.addEventListener('click', function() {
 				console.log('you clicked ' + this.textContent);

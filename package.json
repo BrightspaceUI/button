@@ -1,11 +1,10 @@
 {
-  "name": "vui-button",
-  "version": "2.1.4",
-  "description": "Web component button element",
+  "name": "d2l-button",
+  "description": "Polymer-based web components for D2L buttons",
   "private": true,
   "scripts": {
     "prebuild": "cpy *.html ./bower_components/temp",
-    "build": "vulcanize ./bower_components/temp/button.html > ./screenshots/button.html.ignore",
+    "build": "vulcanize ./bower_components/temp/d2l-button.html > ./screenshots/button.html.ignore",
     "postbuild": "rimraf ./bower_components/temp",
     "postinstall": "bower install",
     "prescreenshot": "npm run build",
@@ -14,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Brightspace/valence-ui-button.git"
+    "url": "https://github.com/Brightspace/d2l-button-ui.git"
   },
   "author": "D2L Corporation",
   "license": "Apache-2.0",

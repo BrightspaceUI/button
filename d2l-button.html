@@ -1,8 +1,8 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../vui-colors/colors.html">
-<dom-module id="vui-button">
+<link rel="import" href="../d2l-colors/d2l-colors.html">
+<dom-module id="d2l-button">
 	<template>
-		<style include="vui-colors">
+		<style include="d2l-colors">
 			:host {
 				border-width: 1px;
 				border-style: solid;
@@ -28,37 +28,37 @@
 				vertical-align: middle;
 				white-space: nowrap;
 				width: auto;
-				@apply(--vui-button);
+				@apply(--d2l-button);
 			}
 			:host, :host([disabled]:hover), :host([disabled]:focus) {
-				background-color: var(--vui-color-woolonardo);
-				border-color: var(--vui-color-titanius);
-				color: var(--vui-color-ferrite);
+				background-color: var(--d2l-color-woolonardo);
+				border-color: var(--d2l-color-titanius);
+				color: var(--d2l-color-ferrite);
 			}
-			:host(:hover), :host(:focus), :host(.vui-button-focus) {
-				background-color: var(--vui-color-gypsum);
-				@apply(--vui-button-hover);
+			:host(:hover), :host(:focus), :host(.d2l-button-focus) {
+				background-color: var(--d2l-color-gypsum);
+				@apply(--d2l-button-hover);
 			}
 			:host([disabled]) {
 				opacity: 0.5;
 				cursor: default;
 			}
 			:host([primary]), :host([primary][disabled]:hover), :host([primary][disabled]:focus) {
-				background-color: var(--vui-color-celestine);
-				border-color: var(--vui-color-celestuba);
-				color: var(--vui-color-white);
-				@apply(--vui-button-primary);
+				background-color: var(--d2l-color-celestine);
+				border-color: var(--d2l-color-celestuba);
+				color: var(--d2l-color-white);
+				@apply(--d2l-button-primary);
 			}
-			:host([primary]:hover), :host([primary]:focus), :host([primary].vui-button-focus) {
-				background-color: var(--vui-color-celestuba);
-				@apply(--vui-button-primary-hover);
+			:host([primary]:hover), :host([primary]:focus), :host([primary].d2l-button-focus) {
+				background-color: var(--d2l-color-celestuba);
+				@apply(--d2l-button-primary-hover);
 			}
 		</style>
 		<content></content>
 	</template>
 	<script>
 		Polymer({
-			is: 'vui-button',
+			is: 'd2l-button',
 			extends: 'button',
 			properties: {
 				primary: {
