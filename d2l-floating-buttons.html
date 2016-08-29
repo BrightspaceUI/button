@@ -29,15 +29,22 @@
 				z-index: 999;
 			}
 			.d2l-floating-buttons-container > div {
-				padding: 0.75rem 0;
+				padding: 0.75rem 0 0 0;
 				position: relative;
 			}
 			.d2l-floating-buttons-container ::content button {
 				margin-right: var(--d2l-button-spacing);
+				margin-bottom: var(--d2l-button-spacing);
 			}
 			:host-context([dir="rtl"]) .d2l-floating-buttons-container ::content button {
 				margin-left: var(--d2l-button-spacing);
 				margin-right: 0;
+			}
+			.d2l-floating-buttons-container.d2l-floating-buttons-full-width ::content button {
+				display: block;
+				margin-left: 0;
+				margin-right: 0;
+				width: 100%;
 			}
 
 			@keyframes d2l-floating-buttons-animation {
@@ -83,6 +90,8 @@
 
 			attached: function() {
 				window.addEventListener('resize', this._reposition.bind(this));
+				window.addEventListener('resize', this._handleResize.bind(this));
+				window.addEventListener('orientationchange', this._handleOrientationChange.bind(this));
 				window.addEventListener('scroll', this._reposition.bind(this));
 				this._isRTL = (getComputedStyle(this._container).direction === 'rtl');
 				this._reposition();
@@ -90,6 +99,8 @@
 
 			detached: function() {
 				window.removeEventListener('resize', this._reposition);
+				window.removeEventListener('resize', this._handleResize);
+				window.removeEventListener('orientationchange', this._handleOrientationChange);
 				window.removeEventListener('scroll', this._reposition);
 			},
 
@@ -105,10 +116,39 @@
 					}
 					prevDocumentHeight = documentHeight;
 				}.bind(this), 100);
+
+				if (this._checkMobileWidth()) { // move to constant?
+					var numTries = 0;
+					var initSingleRowButtons = setInterval(function() {
+						if (this._tryAdjustSingleRowButtons() || numTries++ > 60) {
+							clearInterval(initSingleRowButtons);
+						}
+					}.bind(this), 100);
+				}
 			},
 
 			isFloating: function() {
 				return this._container.classList.contains('d2l-floating-buttons-floating');
+			},
+
+			_checkMobileWidth: function() {
+				return (
+					(window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth)
+					< 555
+				);
+			},
+
+			_handleOrientationChange: function() {
+				if (this._checkMobileWidth()) {
+					this._container.classList.remove('d2l-floating-buttons-full-width');
+					this._tryAdjustSingleRowButtons();
+				}
+			},
+
+			_handleResize: function() {
+				if (!this._checkMobileWidth()) {
+					this._container.classList.remove('d2l-floating-buttons-full-width');
+				}
 			},
 
 			_reposition: function() {
@@ -155,7 +195,40 @@
 					innerContainer.style.width = updateWithRect.width + 'px';
 
 				}
+			},
+
+			_tryAdjustSingleRowButtons: function() {
+				var buttons = this.queryAllEffectiveChildren('button');
+				buttons = buttons.filter(function(button) {
+					return (button.offsetHeight > 0);
+				});
+
+				if (buttons.length) {
+					var TOLERANCE = 5,
+						offsetTopValues = [],
+						buttonsShareRow = false,
+						currentOffsetTop,
+						currentOffsetHeight;
+
+					for (var x = 0; x < buttons.length; x++) {
+						currentOffsetTop = buttons[x].offsetTop;
+						for (var y = 0; y < offsetTopValues.length; y++) {
+							if (Math.abs(currentOffsetTop - offsetTopValues[y]) < TOLERANCE) {
+								buttonsShareRow = true;
+								break;
+							}
+						}
+						offsetTopValues.push(currentOffsetTop);
+					}
+
+					if(!buttonsShareRow) {
+						this._container.classList.add('d2l-floating-buttons-full-width');
+						return true;
+					}
+				}
+				return false;
 			}
+
 		});
 	</script>
 
