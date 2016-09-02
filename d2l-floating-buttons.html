@@ -29,15 +29,24 @@
 				z-index: 999;
 			}
 			.d2l-floating-buttons-container > div {
-				padding: 0.75rem 0;
+				padding: 0.75rem 0 0 0;
 				position: relative;
 			}
 			.d2l-floating-buttons-container ::content button {
 				margin-right: var(--d2l-button-spacing);
+				margin-bottom: var(--d2l-button-spacing);
 			}
 			:host-context([dir="rtl"]) .d2l-floating-buttons-container ::content button {
 				margin-left: var(--d2l-button-spacing);
 				margin-right: 0;
+			}
+			@media(max-width: 554px) {
+				.d2l-floating-buttons-container ::content button {
+					display: block;
+					margin-left: 0;
+					margin-right: 0;
+					width: 100%;
+				}
 			}
 
 			@keyframes d2l-floating-buttons-animation {
