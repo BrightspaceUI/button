@@ -40,14 +40,6 @@
 				margin-left: var(--d2l-button-spacing);
 				margin-right: 0;
 			}
-			@media(max-width: 554px) {
-				.d2l-floating-buttons-container ::content button {
-					display: block;
-					margin-left: 0;
-					margin-right: 0;
-					width: 100%;
-				}
-			}
 
 			@keyframes d2l-floating-buttons-animation {
 				0% {
@@ -120,6 +112,10 @@
 				return this._container.classList.contains('d2l-floating-buttons-floating');
 			},
 
+			_getViewportWidth() {
+				return Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+			},
+
 			_reposition: function() {
 
 				var containerRect = this._container.getBoundingClientRect();
@@ -139,7 +135,10 @@
 
 				var innerContainer = this._container.querySelector('div');
 
-				if ((containerTop + containerRect.height) <= viewBottom) {
+
+				if ((this._getViewportWidth() < 555) ||
+						((containerTop + containerRect.height) <= viewBottom)
+					) {
 
 					this._container.classList.remove('d2l-floating-buttons-floating');
 					if (!this._isRTL) {
@@ -149,6 +148,7 @@
 					}
 
 					this._spacer.style.display = 'none';
+					innerContainer.style.width = 'auto';
 
 				} else {
 
