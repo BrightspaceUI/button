@@ -12,12 +12,14 @@
 		<test-fixture id="d2l-floating-buttons-fixture">
 			<template>
 				<d2l-floating-buttons>
-					<button is="d2l-button">Make more Beer!</button>
+					<button is="d2l-button">Make more Beer ON A PHONE!</button>
 				</d2l-floating-buttons>
 			</template>
 		</test-fixture>
 
 		<script>
+
+		var atMost555px = Math.max(document.documentElement.clientWidth, window.innerWidth || 0) <= 555;
 
 		describe('<d2l-floating-buttons>', function() {
 
@@ -31,7 +33,7 @@
 				expect(floatingButtons.isFloating()).to.be.false;
 			});
 
-			it('floats when bottons move below the fold', function() {
+			it('floats when buttons move below the fold and not mobile', function() {
 
 				var content = document.createElement('div');
 				floatingButtons.parentNode.insertBefore(content, floatingButtons);
@@ -39,7 +41,7 @@
 				content.style.height = '10000px';
 				floatingButtons._reposition();
 
-				expect(floatingButtons.isFloating()).to.be.true;
+				expect(floatingButtons.isFloating()).to.equal(!atMost555px);
 
 			});
 
@@ -58,7 +60,7 @@
 
 			});
 
-			it('repositions as a result of resize event', function() {
+			it('repositions as a result of resize event and not mobile', function() {
 
 				var content = document.createElement('div');
 				floatingButtons.parentNode.insertBefore(content, floatingButtons);
@@ -66,11 +68,11 @@
 				content.style.height = '10000px';
 				window.dispatchEvent(new Event('resize'));
 
-				expect(floatingButtons.isFloating()).to.be.true;
+				expect(floatingButtons.isFloating()).to.equal(!atMost555px);
 
 			});
 
-			it('repositions as a result of scroll event', function() {
+			it('repositions as a result of scroll event and not mobile', function() {
 
 				var content = document.createElement('div');
 				floatingButtons.parentNode.insertBefore(content, floatingButtons);
@@ -78,7 +80,7 @@
 				content.style.height = '10000px';
 				window.dispatchEvent(new Event('scroll'));
 
-				expect(floatingButtons.isFloating()).to.be.true;
+				expect(floatingButtons.isFloating()).to.equal(!atMost555px);
 
 			});
 
