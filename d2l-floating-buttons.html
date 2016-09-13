@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../d2l-colors/d2l-colors.html">
+<link rel="import" href="../iron-media-query/iron-media-query.html">
 <link rel="import" href="d2l-button-shared-styles.html">
 
 <dom-module id="d2l-floating-buttons">
@@ -67,6 +68,8 @@
 			}
 		</style>
 
+		<iron-media-query query="(max-width: 555px)" query-matches="{{_isAtMost555px}}"></iron-media-query>
+
 		<div class="d2l-floating-buttons-container">
 			<div><content></content></div>
 		</div>
@@ -77,6 +80,10 @@
 	<script>
 		Polymer({
 			is: 'd2l-floating-buttons',
+
+			properties: {
+				_isAtMost555px: Boolean
+			},
 
 			_container: null,
 			_isRTL: false,
@@ -112,10 +119,6 @@
 				return this._container.classList.contains('d2l-floating-buttons-floating');
 			},
 
-			_getViewportWidth() {
-				return Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-			},
-
 			_reposition: function() {
 
 				var containerRect = this._container.getBoundingClientRect();
@@ -135,8 +138,7 @@
 
 				var innerContainer = this._container.querySelector('div');
 
-
-				if ((this._getViewportWidth() < 555) ||
+				if ((this._isAtMost555px) ||
 						((containerTop + containerRect.height) <= viewBottom)
 					) {
 
