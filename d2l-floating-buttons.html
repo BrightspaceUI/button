@@ -90,6 +90,8 @@
 			_spacer: null,
 
 			attached: function() {
+				window.addEventListener('resize', this._reposition);
+				window.addEventListener('scroll', this._reposition);
 				this._isRTL = (getComputedStyle(this._container).direction === 'rtl');
 				this._reposition();
 			},
@@ -101,9 +103,6 @@
 
 			ready: function() {
 				this._reposition = this._reposition.bind(this);
-				window.addEventListener('resize', this._reposition);
-				window.addEventListener('scroll', this._reposition);
-
 				this._container = this.$$('.d2l-floating-buttons-container');
 				this._spacer = this.$$('.d2l-floating-buttons-spacer');
 
