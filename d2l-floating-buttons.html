@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../d2l-colors/d2l-colors.html">
+<link rel="import" href="../iron-media-query/iron-media-query.html">
 <link rel="import" href="d2l-button-shared-styles.html">
 
 <dom-module id="d2l-floating-buttons">
@@ -40,14 +41,6 @@
 				margin-left: var(--d2l-button-spacing);
 				margin-right: 0;
 			}
-			@media(max-width: 554px) {
-				.d2l-floating-buttons-container ::content button {
-					display: block;
-					margin-left: 0;
-					margin-right: 0;
-					width: 100%;
-				}
-			}
 
 			@keyframes d2l-floating-buttons-animation {
 				0% {
@@ -75,6 +68,8 @@
 			}
 		</style>
 
+		<iron-media-query query="(max-width: 555px)" query-matches="{{_isAtMost555px}}"></iron-media-query>
+
 		<div class="d2l-floating-buttons-container">
 			<div><content></content></div>
 		</div>
@@ -86,13 +81,17 @@
 		Polymer({
 			is: 'd2l-floating-buttons',
 
+			properties: {
+				_isAtMost555px: Boolean
+			},
+
 			_container: null,
 			_isRTL: false,
 			_spacer: null,
 
 			attached: function() {
-				window.addEventListener('resize', this._reposition.bind(this));
-				window.addEventListener('scroll', this._reposition.bind(this));
+				window.addEventListener('resize', this._reposition);
+				window.addEventListener('scroll', this._reposition);
 				this._isRTL = (getComputedStyle(this._container).direction === 'rtl');
 				this._reposition();
 			},
@@ -103,6 +102,7 @@
 			},
 
 			ready: function() {
+				this._reposition = this._reposition.bind(this);
 				this._container = this.$$('.d2l-floating-buttons-container');
 				this._spacer = this.$$('.d2l-floating-buttons-spacer');
 
@@ -139,7 +139,9 @@
 
 				var innerContainer = this._container.querySelector('div');
 
-				if ((containerTop + containerRect.height) <= viewBottom) {
+				if ((this._isAtMost555px) ||
+						((containerTop + containerRect.height) <= viewBottom)
+					) {
 
 					this._container.classList.remove('d2l-floating-buttons-floating');
 					if (!this._isRTL) {
@@ -149,6 +151,7 @@
 					}
 
 					this._spacer.style.display = 'none';
+					innerContainer.style.width = 'auto';
 
 				} else {
 
