@@ -30,6 +30,10 @@
 				width: auto;
 				@apply(--d2l-button);
 			}
+			/* Firefox includes a hidden border which messes up button dimensions */
+			:host(::-moz-focus-inner) {
+				border: 0;
+			}
 			:host, :host([disabled]:hover), :host([disabled]:focus) {
 				background-color: var(--d2l-color-woolonardo);
 				border-color: var(--d2l-color-titanius);
