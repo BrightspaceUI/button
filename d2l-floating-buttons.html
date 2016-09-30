@@ -68,8 +68,7 @@
 			}
 		</style>
 
-		<iron-media-query query="(max-width: 555px)" query-matches="{{_widthAtMost555px}}"></iron-media-query>
-		<iron-media-query query="(max-height: 300px)" query-matches="{{_heightAtMost300px}}"></iron-media-query>
+		<iron-media-query query="(max-height: 500px)" query-matches="{{_heightAtMost500px}}"></iron-media-query>
 
 		<div class="d2l-floating-buttons-container">
 			<div><content></content></div>
@@ -83,8 +82,7 @@
 			is: 'd2l-floating-buttons',
 
 			properties: {
-				_heightAtMost300px: Boolean,
-				_widthAtMost555px: Boolean
+				_heightAtMost500px: Boolean
 			},
 
 			_container: null,
@@ -141,8 +139,7 @@
 
 				var innerContainer = this._container.querySelector('div');
 
-				if (this._widthAtMost555px ||
-						this._heightAtMost300px ||
+				if (	this._heightAtMost500px ||
 						((containerTop + containerRect.height) <= viewBottom)
 					) {
 
