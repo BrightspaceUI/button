@@ -1,4 +1,4 @@
-**Looking for SASS-based `d2l-button`?** It's [over here](https://github.com/Brightspace/d2l-button-ui/tree/sass).
+**Looking for SASS-based `d2l-button`?** It's [over here](https://github.com/BrightspaceUI/button/tree/sass).
 
 # d2l-button
 [![Bower version][bower-image]][bower-url]
@@ -82,5 +82,5 @@ See the [Best Practices & Style Guide](https://github.com/Brightspace/valence-ui
 
 [bower-url]: http://bower.io/search/?q=d2l-button
 [bower-image]: https://img.shields.io/bower/v/d2l-button.svg
-[ci-url]: https://travis-ci.org/Brightspace/d2l-button-ui
-[ci-image]: https://travis-ci.org/Brightspace/d2l-button-ui.svg?branch=master
+[ci-url]: https://travis-ci.org/BrightspaceUI/button
+[ci-image]: https://travis-ci.org/BrightspaceUI/button.svg?branch=master

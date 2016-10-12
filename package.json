@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Brightspace/d2l-button-ui.git"
+    "url": "https://github.com/BrightspaceUI/button.git"
   },
   "author": "D2L Corporation",
   "license": "Apache-2.0",
