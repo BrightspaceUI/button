@@ -10,6 +10,7 @@
     "prescreenshot": "npm run build",
     "screenshot": "phantomjs ./screenshots/build.js",
     "test": "polylint && wct --skip-plugin sauce"
+    "test:lint:html": "eslint *.html",
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,9 @@
   "devDependencies": {
     "bower": "^1.7.7",
     "cpy-cli": "^1.0.0",
+    "eslint": "^3.7.1",
+    "eslint-config-brightspace": "^0.2.4",
+    "eslint-plugin-html": "^1.5.3",
     "phantomjs-prebuilt": "^2.1.4",
     "polylint": "^2.10.0",
     "rimraf": "^2.5.2",
