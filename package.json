@@ -9,7 +9,10 @@
     "postinstall": "bower install",
     "prescreenshot": "npm run build",
     "screenshot": "phantomjs ./screenshots/build.js",
-    "test": "polylint && wct --skip-plugin sauce"
+    "test:lint": "npm run test:lint:wc && npm run test:lint:html",
+    "test:lint:html": "eslint *.html",
+    "test:lint:wc": "polymer lint -i d2l-button.html d2l-floating-buttons.html",
+    "test": "npm run test:lint && polymer test --skip-plugin sauce"
   },
   "repository": {
     "type": "git",
@@ -20,10 +23,12 @@
   "devDependencies": {
     "bower": "^1.7.7",
     "cpy-cli": "^1.0.0",
+    "eslint": "^3.7.1",
+    "eslint-config-brightspace": "^0.2.4",
+    "eslint-plugin-html": "^1.5.3",
     "phantomjs-prebuilt": "^2.1.4",
-    "polylint": "^2.10.0",
+    "polymer-cli": "^0.16.0",
     "rimraf": "^2.5.2",
-    "vulcanize": "^1.14.7",
-    "web-component-tester": "^4.2.2"
+    "vulcanize": "^1.14.7"
   }
 }
