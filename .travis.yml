@@ -2,10 +2,13 @@ language: node_js
 node_js: stable
 script:
 - polylint
-sudo: false
+- wct --skip-plugin local
 addons:
-  sauce_connect:
-    username:
-      secure: "UY9DQ7X3kuNXsmm/PqNvigMEqFdEIkIimJ9FP6y/4cE+eVfdxCB0Y3r8m2tw4++zU6p5xD1TK84haaOsGSb7Y0pEYISdUnRiZ8epiJq9fhu3E8WyvCOERMdp5fNaOxtBCYZdFdMPPMq9AD5yatmVgFP8i8zbB+7n+HxbsOPujrQ="
-    access_key:
-      secure: "YZrQF4IFxPiBLCvGywNoe+dgvjqozqsWVqNnqnE3ez99OWRk/7LH29Gj81/HASJlhMuLBBC0qG2OLekuKQuozn/tSy4nvVzrXjjbs3mlAKrOWPWC+cZVINusUBBoMu0L4zxixxVebh179dLT+/vzD/UXyqlDEPBlnZqVMP7eDTQ="
+  sauce_connect: true
+  jwt:
+    # SAUCE_ACCESS_KEY
+    secure: X7WmL5qs53zE9L83xMi/vstkmsbrRAzYAtPMpM1noy+++iGeiAqGdBSORB5pz/UGWUnktn/GwXH/GmUwJY3ErKZPpaF9G8N1olG+c9a50xhmjtfGSNLjjESfRpPXMB0W/FYgymdKLN94di71usKSdkJQ6ex2lJAcUBZfp2loFQY=
+env:
+  global:
+    # SAUCE_USERNAME
+    secure: Q9E/CWS1ADQHYPZ5MZzz2Damk/FhRaykISX7HCGywhcRYri79O2hGGb04MEvWxB5NTTUi9nqvNTDZ2+atyiCC/whTQ/uIt+rAEBaATUNDnVEUdcj0m7O5jsuHvIzaKsi7FaXvghD/hx82qm6HmxfSNfb456LBh3rKil/PqZSAUs=
