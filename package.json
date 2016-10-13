@@ -3,12 +3,7 @@
   "description": "Polymer-based web components for D2L buttons",
   "private": true,
   "scripts": {
-    "prebuild": "cpy *.html ./bower_components/temp",
-    "build": "vulcanize ./bower_components/temp/d2l-button.html > ./screenshots/button.html.ignore",
-    "postbuild": "rimraf ./bower_components/temp",
     "postinstall": "bower install",
-    "prescreenshot": "npm run build",
-    "screenshot": "phantomjs ./screenshots/build.js",
     "test:lint": "npm run test:lint:wc && npm run test:lint:html",
     "test:lint:html": "eslint *.html",
     "test:lint:wc": "polymer lint -i d2l-button.html d2l-floating-buttons.html",
@@ -22,13 +17,9 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "bower": "^1.7.7",
-    "cpy-cli": "^1.0.0",
     "eslint": "^3.7.1",
     "eslint-config-brightspace": "^0.2.4",
     "eslint-plugin-html": "^1.5.3",
-    "phantomjs-prebuilt": "^2.1.4",
-    "polymer-cli": "^0.16.0",
-    "rimraf": "^2.5.2",
-    "vulcanize": "^1.14.7"
+    "polymer-cli": "^0.16.0"
   }
 }
