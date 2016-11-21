@@ -13,8 +13,9 @@
     "wct.conf.json"
   ],
   "dependencies": {
-    "d2l-colors": "~2.0.0",
-    "polymer": "~1.5.0"
+    "d2l-colors": "^2.0.0",
+    "polymer": "^1.5.0",
+    "iron-media-query": "^1.0.8"
   },
   "devDependencies": {
     "iron-test-helpers": "PolymerElements/iron-test-helpers#^1.1.5",
