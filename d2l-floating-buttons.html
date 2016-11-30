@@ -134,20 +134,23 @@
 				var spacerRect = this._spacer.getBoundingClientRect();
 
 				var containerTop;
+				var bodyScrollTop = document.body.scrollTop;
 				var isFloating = this._container.classList.contains('d2l-floating-buttons-floating');
 				if (isFloating) {
-					containerTop = spacerRect.top + document.body.scrollTop;
+					containerTop = spacerRect.top + bodyScrollTop;
 				} else {
-					containerTop = containerRect.top + document.body.scrollTop;
+					containerTop = containerRect.top + bodyScrollTop;
 				}
 
-				var viewBottom = document.body.scrollTop + window.innerHeight;
+				var viewBottom = bodyScrollTop + window.innerHeight;
 
 				var innerContainer = this._container.querySelector('div');
 
-				if (	this._heightAtMost500px ||
-						((containerTop + containerRect.height) <= viewBottom)
-					) {
+				if (this._heightAtMost500px || ((containerTop + containerRect.height) <= viewBottom)) {
+
+					if (!isFloating) {
+						return;
+					}
 
 					this._container.classList.remove('d2l-floating-buttons-floating');
 					if (!this._isRTL) {
@@ -161,6 +164,10 @@
 
 				} else {
 
+					if (isFloating) {
+						return;
+					}
+
 					this._container.classList.add('d2l-floating-buttons-floating');
 					this._spacer.style.display = 'block';
 
@@ -173,6 +180,7 @@
 					innerContainer.style.width = updateWithRect.width + 'px';
 
 				}
+
 			}
 		});
 	</script>
