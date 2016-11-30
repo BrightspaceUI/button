@@ -164,20 +164,22 @@
 
 				} else {
 
-					if (isFloating) {
-						return;
-					}
-
 					this._container.classList.add('d2l-floating-buttons-floating');
 					this._spacer.style.display = 'block';
 
 					var updateWithRect = isFloating ? spacerRect : containerRect;
 					if (!this._isRTL) {
-						innerContainer.style.left = updateWithRect.left + 'px';
+						if (Math.abs(innerContainer.style.left.replace('px', '') - updateWithRect.left) > 1) {
+							innerContainer.style.left = updateWithRect.left + 'px';
+						}
 					} else {
-						innerContainer.style.right = updateWithRect.left + 'px';
+						if (Math.abs(innerContainer.style.right.replace('px', '') - updateWithRect.left) > 1) {
+							innerContainer.style.right = updateWithRect.left + 'px';
+						}
 					}
-					innerContainer.style.width = updateWithRect.width + 'px';
+					if (Math.abs(innerContainer.style.width.replace('px', '') - updateWithRect.width) > 1) {
+						innerContainer.style.width = updateWithRect.width + 'px';
+					}
 
 				}
 
