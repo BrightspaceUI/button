@@ -89,31 +89,37 @@
 			_isRTL: false,
 			_spacer: null,
 
+			ready: function() {
+				this._reposition = this._reposition.bind(this);
+			},
+
 			attached: function() {
+
+				this._container = this.$$('.d2l-floating-buttons-container');
+				this._spacer = this.$$('.d2l-floating-buttons-spacer');
+
 				window.addEventListener('resize', this._reposition);
 				window.addEventListener('scroll', this._reposition);
+
 				this._isRTL = (getComputedStyle(this._container).direction === 'rtl');
 				this._reposition();
+
+				Polymer.RenderStatus.afterNextRender(this, function() {
+					var prevDocumentHeight = document.body.offsetHeight;
+					setInterval(function() {
+						var documentHeight = document.body.offsetHeight;
+						if (prevDocumentHeight !== documentHeight) {
+							this._reposition();
+						}
+						prevDocumentHeight = documentHeight;
+					}.bind(this), 100);
+				}.bind(this));
+
 			},
 
 			detached: function() {
 				window.removeEventListener('resize', this._reposition);
 				window.removeEventListener('scroll', this._reposition);
-			},
-
-			ready: function() {
-				this._reposition = this._reposition.bind(this);
-				this._container = this.$$('.d2l-floating-buttons-container');
-				this._spacer = this.$$('.d2l-floating-buttons-spacer');
-
-				var prevDocumentHeight = document.body.offsetHeight;
-				setInterval(function() {
-					var documentHeight = document.body.offsetHeight;
-					if (prevDocumentHeight !== documentHeight) {
-						this._reposition();
-					}
-					prevDocumentHeight = documentHeight;
-				}.bind(this), 100);
 			},
 
 			isFloating: function() {
@@ -128,20 +134,23 @@
 				var spacerRect = this._spacer.getBoundingClientRect();
 
 				var containerTop;
+				var bodyScrollTop = document.body.scrollTop;
 				var isFloating = this._container.classList.contains('d2l-floating-buttons-floating');
 				if (isFloating) {
-					containerTop = spacerRect.top + document.body.scrollTop;
+					containerTop = spacerRect.top + bodyScrollTop;
 				} else {
-					containerTop = containerRect.top + document.body.scrollTop;
+					containerTop = containerRect.top + bodyScrollTop;
 				}
 
-				var viewBottom = document.body.scrollTop + window.innerHeight;
+				var viewBottom = bodyScrollTop + window.innerHeight;
 
 				var innerContainer = this._container.querySelector('div');
 
-				if (	this._heightAtMost500px ||
-						((containerTop + containerRect.height) <= viewBottom)
-					) {
+				if (this._heightAtMost500px || ((containerTop + containerRect.height) <= viewBottom)) {
+
+					if (!isFloating) {
+						return;
+					}
 
 					this._container.classList.remove('d2l-floating-buttons-floating');
 					if (!this._isRTL) {
@@ -160,13 +169,20 @@
 
 					var updateWithRect = isFloating ? spacerRect : containerRect;
 					if (!this._isRTL) {
-						innerContainer.style.left = updateWithRect.left + 'px';
+						if (Math.abs(innerContainer.style.left.replace('px', '') - updateWithRect.left) > 1) {
+							innerContainer.style.left = updateWithRect.left + 'px';
+						}
 					} else {
-						innerContainer.style.right = updateWithRect.left + 'px';
+						if (Math.abs(innerContainer.style.right.replace('px', '') - updateWithRect.left) > 1) {
+							innerContainer.style.right = updateWithRect.left + 'px';
+						}
 					}
-					innerContainer.style.width = updateWithRect.width + 'px';
+					if (Math.abs(innerContainer.style.width.replace('px', '') - updateWithRect.width) > 1) {
+						innerContainer.style.width = updateWithRect.width + 'px';
+					}
 
 				}
+
 			}
 		});
 	</script>
