@@ -13,7 +13,7 @@
     "wct.conf.json"
   ],
   "dependencies": {
-    "d2l-colors": "^2.2.2",
+    "d2l-colors": "^2.2.3",
     "polymer": "^1.7.0",
     "iron-media-query": "^1.0.8"
   },
