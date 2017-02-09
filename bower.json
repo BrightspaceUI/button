@@ -18,7 +18,7 @@
     "iron-media-query": "^1.0.8"
   },
   "devDependencies": {
-    "d2l-demo-template": "~0.0.8",
+    "d2l-demo-template": "~0.0.11",
     "iron-test-helpers": "PolymerElements/iron-test-helpers#^1.1.5",
     "web-component-tester": "^4.2.2"
   }
