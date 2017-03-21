@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../d2l-colors/d2l-colors.html">
+<link rel="import" href="d2l-button-shared-styles.html">
 
 <dom-module id="d2l-button">
 	<template>
@@ -22,6 +23,7 @@
 				outline: none;
 				padding: 0.5rem 1.5rem;
 				text-align: center;
+				transition: box-shadow 0.2s;
 				-webkit-user-select: none;
 				-moz-user-select: none;
 				-ms-user-select: none;
@@ -30,6 +32,7 @@
 				white-space: nowrap;
 				width: auto;
 				@apply(--d2l-button);
+				@apply(--d2l-button-clear-focus);
 			}
 			/* Firefox includes a hidden border which messes up button dimensions */
 			:host(::-moz-focus-inner) {
@@ -40,10 +43,15 @@
 				border-color: var(--d2l-color-titanius);
 				color: var(--d2l-color-ferrite);
 			}
-			:host(:hover), :host(:focus), :host(.d2l-button-focus) {
+
+			:host(:hover) {
 				background-color: var(--d2l-color-gypsum);
 				@apply(--d2l-button-hover);
 			}
+			:host(:focus), :host(.d2l-button-focus) {
+				@apply(--d2l-button-focus);
+			}
+
 			:host([disabled]) {
 				opacity: 0.5;
 				cursor: default;
@@ -54,9 +62,13 @@
 				color: var(--d2l-color-white);
 				@apply(--d2l-button-primary);
 			}
-			:host([primary]:hover), :host([primary]:focus), :host([primary].d2l-button-focus) {
+
+			:host([primary]:hover) {
 				background-color: var(--d2l-color-celestuba);
 				@apply(--d2l-button-primary-hover);
+			}
+			:host([primary]:focus), :host([primary].d2l-button-focus) {
+				@apply(--d2l-button-focus);
 			}
 		</style>
 		<content></content>
