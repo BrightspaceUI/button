@@ -90,6 +90,17 @@
 				expect(buttons[0]).to.equal(floatingButtons.querySelector('button'));
 			});
 
+			it('does not float when min height is smaller than viewport', function() {
+
+				var content = document.createElement('div');
+				floatingButtons.setAttribute('min-height', '10px');
+				floatingButtons.parentNode.insertBefore(content, floatingButtons);
+
+				expect(floatingButtons.isFloating()).to.be.false;
+				floatingButtons.setAttribute('min-height', '500px');
+
+			});
+
 		});
 
 		</script>
