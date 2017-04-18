@@ -68,7 +68,7 @@
 			}
 		</style>
 
-		<iron-media-query query="(max-height: [[minHeight]])" query-matches="{{_viewportIsAtleastMinHeight}}"></iron-media-query>
+		<iron-media-query query="(max-height: [[minHeight]])" query-matches="{{_viewportIsAtLeastMinHeight}}"></iron-media-query>
 
 		<div class="d2l-floating-buttons-container">
 			<div><content></content></div>
@@ -87,7 +87,7 @@
 					type: String,
 					value: '500px'
 				},
-				_viewportIsAtleastMinHeight: Boolean
+				_viewportIsAtLeastMinHeight: Boolean
 			},
 
 			_container: null,
@@ -151,7 +151,7 @@
 
 				var innerContainer = this._container.querySelector('div');
 
-				if (this._viewportIsAtleastMinHeight || ((containerTop + containerRect.height) <= viewBottom)) {
+				if (this._viewportIsAtLeastMinHeight || ((containerTop + containerRect.height) <= viewBottom)) {
 
 					if (!isFloating) {
 						return;
