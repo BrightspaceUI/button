@@ -44,7 +44,7 @@
 				color: var(--d2l-color-ferrite);
 			}
 
-			:host(:hover) {
+			:host(:hover), :host(.d2l-button-hover) {
 				background-color: var(--d2l-color-gypsum);
 				@apply(--d2l-button-hover);
 			}
@@ -63,7 +63,7 @@
 				@apply(--d2l-button-primary);
 			}
 
-			:host([primary]:hover) {
+			:host([primary]:hover), :host([primary].d2l-button-hover) {
 				background-color: var(--d2l-color-celestuba);
 				@apply(--d2l-button-primary-hover);
 			}

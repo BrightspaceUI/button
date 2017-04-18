@@ -38,10 +38,6 @@
 					MockInteractions.tap(button);
 				});
 
-				it('should default "primary" to false when unset', function() {
-					expect(button.primary).to.be.false;
-				});
-
 				it('should reflect primary attribute to property', function() {
 					button.setAttribute('primary', '');
 					expect(button.primary).to.be.true;

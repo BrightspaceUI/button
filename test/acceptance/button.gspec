@@ -1,0 +1,77 @@
+@objects
+	normal-*			.normal
+	normal-focus-*		.normal-focus
+	normal-hover-*		.normal-hover
+	primary-*			.primary
+	primary-focus-*		.primary-focus
+	primary-hover-*		.primary-hover
+	disabled-*			.disabled
+
+@groups
+	normals normal-1
+	normal-focuses normal-focus-1
+	normal-hovers normal-hover-1
+	primarys primary-1
+	primary-focuses primary-focus-1
+	primary-hovers primary-hover-1
+	disableds disabled-1, disabled-2
+
+@set
+	celestine "#006fbf|rgba\\(0, 111, 191, 1\\)|rgb\\(0, 111, 191\\)"
+	celestuba "#1c5295|rgba\\(28, 82, 149, 1\\)|rgb\\(28, 82, 149\\)"
+	ferrite "#565a5c|rgba\\(86, 90, 92, 1\\)|rgb\\(86, 90, 92\\)"
+	gypsum "#e6eaf0|rgba\\(230, 234, 240, 1\\)|rgb\\(230, 234, 240\\)"
+	titanius "#d3d9e3|rgba\\(211, 217, 227, 1\\)|rgb\\(211, 217, 227\\)"
+	white "#ffffff|rgba\\(255, 255, 255, 1\\)|rgb\\(255, 255, 255\\)"
+	woolonardo "#f2f3f5|rgba\\(242, 243, 245, 1\\)|rgb\\(242, 243, 245\\)"
+
+= Buttons =
+	&normals:
+		css background-color matches ${woolonardo}
+		css border-top-right-radius is "6px"
+		css border-top-style is "solid"
+		css border-top-color matches ${titanius}
+		css border-top-width is "1px"
+		css color matches ${ferrite}
+		css cursor is "pointer"
+		css font-size is "14px"
+		css font-weight matches "bold|700"
+		css letter-spacing matches "0\\.4[0-9]*px"
+		css line-height is "20px"
+		css margin matches "0px|"
+		css padding-top is "10px"
+		css padding-right is "30px"
+		css text-align is "center"
+		css vertical-align is "middle"
+		width 164 to 171 px
+		height 42px
+	&normal-focuses:
+		css background-color matches ${woolonardo}
+		css border-top-color matches "rgba\\(0, 111, 191, 0.4\\)"
+		css box-shadow contains "0px 0px 0px 4px"
+		width 222 to 231 px
+		height 42px
+	&normal-hovers:
+		css background-color matches ${gypsum}
+		width ~ 222px
+		height 42px
+	&primarys:
+		css background-color matches ${celestine}
+		css border-top-color matches ${celestuba}
+		css color matches ${white}
+		width 168 to 172 px
+		height 42px
+	&primary-focuses:
+		css background-color matches ${celestine}
+		css box-shadow contains "0px 0px 0px 4px"
+		width 226 to 234 px
+		height 42px
+	&primary-hovers:
+		css background-color matches ${celestuba}
+		width 224 to 234 px
+		height 42px
+	&disableds:
+		css cursor is "default"
+		css opacity is "0.5"
+		width ~ 125px
+		height 42px
