@@ -1,0 +1,8 @@
+*.css
+page.*
+galen-pagedump.js
+jquery-1.11.2.min.js
+screen.png
+viewport.png
+dumps/floating-buttons-desktop
+dumps/floating-buttons-mobile

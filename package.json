@@ -3,11 +3,18 @@
   "description": "Polymer-based web components for D2L buttons",
   "private": true,
   "scripts": {
+    "predump": "rimraf test/acceptance/dumps",
+    "dump": "concurrently -p name -n serve,galen -s first -k \"polymer serve\" \"npm run galen:local:dump\"",
     "postinstall": "bower install",
+    "galen:local:run": "d2l-galen test test/acceptance/button.test.js -g factory:local",
+    "galen:local:dump": "d2l-galen dump test/acceptance/button.test.js -d test/acceptance/dumps -g factory:local",
+    "galen:sauce:run": "sc-run -- d2l-galen test test/acceptance/button.test.js -g factory:sauce -i SAUCE_USERNAME SAUCE_ACCESS_KEY TRAVIS_REPO_SLUG TRAVIS_BUILD_NUMBER -- -p4",
+    "test:galen:local": "concurrently -p name -n serve,galen -s first -k \"polymer serve\" \"npm run galen:local:run\"",
+    "test:galen:sauce": "concurrently -p name -n serve,galen -s first -k \"polymer serve\" \"npm run galen:sauce:run\"",
     "test:lint": "npm run test:lint:wc && npm run test:lint:html",
     "test:lint:html": "eslint *.html",
     "test:lint:wc": "polymer lint -i d2l-button.html d2l-floating-buttons.html",
-    "test": "npm run test:lint && polymer test --skip-plugin sauce"
+    "test": "npm run test:lint && polymer test --skip-plugin sauce && npm run test:galen:local"
   },
   "repository": {
     "type": "git",
@@ -17,9 +24,15 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "bower": "^1.7.7",
-    "eslint": "^3.7.1",
+    "chromedriver": "^2.29.0",
+    "concurrently": "^3.4.0",
+    "d2l-galen-utils": "git+https://github.com/Brightspace/d2l-galen-utils.git#v0.2.4",
+    "eslint": "^3.19.0",
     "eslint-config-brightspace": "^0.2.4",
-    "eslint-plugin-html": "^1.5.3",
-    "polymer-cli": "^0.16.0"
+    "eslint-plugin-html": "^2.0.1",
+    "galenframework": "^2.3.3",
+    "polymer-cli": "^0.17.0",
+    "rimraf": "^2.6.1",
+    "sauceconnect-runner": "git+https://github.com/Brightspace/sauceconnect-runner.git#v0.3.0"
   }
 }

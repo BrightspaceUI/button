@@ -1,0 +1,12 @@
+@objects
+	above		#above
+	inside		#inside
+
+= Floating Buttons Desktop =
+	@on desktop
+		inside:
+			above above
+= Floating Buttons Mobile =
+	@on mobile
+		inside:
+			below above
