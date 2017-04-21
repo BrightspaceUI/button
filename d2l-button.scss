@@ -1,0 +1,60 @@
+@import 'bower_components/d2l-colors/d2l-colors.scss';
+
+@mixin d2l-button() {
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 0.3rem;
+	box-shadow: 0 0 0 4px rgba(0, 0, 0, 0);
+	box-sizing: border-box;
+	cursor: pointer;
+	display: inline-block;
+	font-family: inherit;
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.02rem;
+	line-height: 1rem;
+	margin: 0;
+	min-height: -webkit-calc(2rem + 2px);
+	min-height: calc(2rem + 2px);
+	outline: none;
+	padding: 0.5rem 1.5rem;
+	text-align: center;
+	transition: box-shadow 0.2s;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	vertical-align: middle;
+	white-space: nowrap;
+	width: auto;
+	&::-moz-focus-inner {
+		border: 0;
+	}
+	&, &[disabled]:hover, &[disabled]:focus {
+		background-color: $d2l-color-woolonardo;
+		border-color: $d2l-color-titanius;
+		color: $d2l-color-ferrite;
+	}
+	&:hover, &.d2l-button-hover {
+		background-color: $d2l-color-gypsum;
+	}
+	&:focus, &.d2l-button-focus {
+		border-color: rgba(0, 111, 191, 0.4);
+		box-shadow: 0 0 0 4px rgba(0, 111, 191, 0.3);
+	}
+	&[disabled] {
+		opacity: 0.5;
+		cursor: default;
+	}
+	&[primary], &[primary][disabled]:hover, &[primary][disabled]:focus {
+		background-color: $d2l-color-celestine;
+		border-color: $d2l-color-celestuba;
+		color: $d2l-color-white;
+	}
+	&[primary]:hover, &[primary].d2l-button-hover {
+		background-color: $d2l-color-celestuba;
+	}
+	&[primary]:focus, &[primary].d2l-button-focus {
+		box-shadow: 0 0 0 4px rgba(0, 111, 191, 0.3);
+	}
+}

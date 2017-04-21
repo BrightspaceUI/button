@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
 		<script src="https://s.brightspace.com/lib/webcomponentsjs/0.7.23-d2l.3/webcomponents-lite.min.js"></script>
 		<link rel="import" href="../../d2l-button.html">
+		<link rel="stylesheet" href="button.css">
 		<style>
 		html {
 			font-family: Arial, sans-serif;
@@ -14,21 +15,37 @@
 		</style>
 	</head>
 	<body unresolved>
-		<button is="d2l-button" primary class="primary">Primary Button</button>
+		<h2>Web Components: custom elements</h2>
+		<button is="d2l-button" id="custom-element-primary" primary>Primary Button</button>
 		<hr>
-		<button is="d2l-button" primary class="primary-focus d2l-button-focus">Primary Button (Focus)</button>
+		<button is="d2l-button" id="custom-element-primary-focus" primary class="d2l-button-focus">Primary Button (Focus)</button>
 		<hr>
-		<button is="d2l-button" primary class="primary-hover d2l-button-hover">Primary Button (Hover)</button>
+		<button is="d2l-button" id="custom-element-primary-hover" primary class="d2l-button-hover">Primary Button (Hover)</button>
 		<hr>
-		<button is="d2l-button" primary disabled class="disabled">Disabled</button>
+		<button is="d2l-button" id="custom-element-primary-disabled" primary disabled>Disabled</button>
 		<hr>
-		<button is="d2l-button" class="normal">Normal Button</button>
+		<button is="d2l-button" id="custom-element-normal">Normal Button</button>
 		<hr>
-		<button is="d2l-button" class="normal-focus d2l-button-focus">Normal Button (Focus)</button>
+		<button is="d2l-button" id="custom-element-normal-focus" class="d2l-button-focus">Normal Button (Focus)</button>
 		<hr>
-		<button is="d2l-button" class="normal-hover d2l-button-hover">Normal Button (Hover)</button>
+		<button is="d2l-button" id="custom-element-normal-hover" class="d2l-button-hover">Normal Button (Hover)</button>
 		<hr>
-		<button is="d2l-button" disabled class="disabled">Disabled</button>
+		<button is="d2l-button" id="custom-element-normal-disabled" disabled>Disabled</button>
+		<h2>SASS: Mixins</h2>
+		<button id="sass-mixin-primary" primary class="sass-mixin-button">Primary Button</button>
 		<hr>
+		<button id="sass-mixin-primary-focus" primary class="sass-mixin-button d2l-button-focus">Primary Button (Focus)</button>
+		<hr>
+		<button id="sass-mixin-primary-hover" primary class="sass-mixin-button d2l-button-hover">Primary Button (Hover)</button>
+		<hr>
+		<button id="sass-mixin-primary-disabled" primary disabled class="sass-mixin-button">Disabled</button>
+		<hr>
+		<button id="sass-mixin-normal" class="sass-mixin-button">Normal Button</button>
+		<hr>
+		<button id="sass-mixin-normal-focus" class="sass-mixin-button d2l-button-focus">Normal Button (Focus)</button>
+		<hr>
+		<button id="sass-mixin-normal-hover" class="sass-mixin-button d2l-button-hover">Normal Button (Hover)</button>
+		<hr>
+		<button id="sass-mixin-normal-disabled" disabled class="sass-mixin-button">Disabled</button>
 	</body>
 </html>

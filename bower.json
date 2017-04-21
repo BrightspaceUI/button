@@ -1,6 +1,6 @@
 {
   "name": "d2l-button",
-  "description": "Polymer-based web components for D2L buttons",
+  "description": "Polymer-based web components and Sass mixins for D2L buttons",
   "main": "d2l-button.html",
   "license": "Apache-2.0",
   "ignore": [
