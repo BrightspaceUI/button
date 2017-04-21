@@ -62,6 +62,8 @@ The `primary` and `disabled` attributes work the same way as they do with the we
 
 Floating workflow buttons behavior can be added by using the `<d2l-floating-buttons>` custom element.  When the normal position of the workflow buttons is below the bottom edge of the view-port, they'll dock at the bottom edge.  When the normal position becomes visible, they'll undock.
 
+![screenshot of floating buttons](/screenshots/floating-buttons.gif?raw=true)
+
 ```html
 <head>
 	<script src="https://s.brightspace.com/lib/webcomponentsjs/0.7.21/webcomponents-lite.min.js"></script>
