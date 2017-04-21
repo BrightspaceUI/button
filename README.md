@@ -1,10 +1,8 @@
-**Looking for SASS-based `d2l-button`?** It's [over here](https://github.com/BrightspaceUI/button/tree/sass).
-
 # d2l-button
 [![Bower version][bower-image]][bower-url]
 [![Build status][ci-image]][ci-url]
 
-A series of [Polymer](https://www.polymer-project.org/1.0/)-based web components for D2L buttons.
+A series of [Polymer](https://www.polymer-project.org/1.0/)-based web components and [Sass](http://sass-lang.com/) mixins for D2L buttons.
 
 ![screenshot of button component](/screenshots/screenshot.png?raw=true)
 
@@ -47,6 +45,18 @@ And can be **disabled**:
 ```html
 <button is="d2l-button" disabled>Disabled Button</button>
 ```
+
+As an alternative to the web component, a Sass mixin can be used to apply button styles to your button elements:
+
+```sass
+@import 'bower_components/d2l-button/d2l-button.scss';
+
+.my-button {
+	@include d2l-button();
+}
+```
+
+The `primary` and `disabled` attributes work the same way as they do with the web component.
 
 ### Floating Workflow Buttons
 

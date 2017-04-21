@@ -1,15 +1,18 @@
 {
   "name": "d2l-button",
-  "description": "Polymer-based web components for D2L buttons",
+  "description": "Polymer-based web components and Sass mixins for D2L buttons",
   "private": true,
   "scripts": {
+    "build:sass": "node-sass --output-style expanded ./test/acceptance/button.css.scss ./test/acceptance/button.css",
     "predump": "rimraf test/acceptance/dumps",
     "dump": "concurrently -p name -n serve,galen -s first -k \"polymer serve\" \"npm run galen:local:dump\"",
     "postinstall": "bower install",
     "galen:local:run": "d2l-galen test test/acceptance/button.test.js -g factory:local",
     "galen:local:dump": "d2l-galen dump test/acceptance/button.test.js -d test/acceptance/dumps -g factory:local",
     "galen:sauce:run": "sc-run -- d2l-galen test test/acceptance/button.test.js -g factory:sauce -i SAUCE_USERNAME SAUCE_ACCESS_KEY TRAVIS_REPO_SLUG TRAVIS_BUILD_NUMBER -- -p4",
+    "pretest:galen:local": "npm run build:sass",
     "test:galen:local": "concurrently -p name -n serve,galen -s first -k \"polymer serve\" \"npm run galen:local:run\"",
+    "pretest:galen:sauce": "npm run build:sass",
     "test:galen:sauce": "concurrently -p name -n serve,galen -s first -k \"polymer serve\" \"npm run galen:sauce:run\"",
     "test:lint": "npm run test:lint:wc && npm run test:lint:html",
     "test:lint:html": "eslint *.html",
@@ -31,6 +34,7 @@
     "eslint-config-brightspace": "^0.2.4",
     "eslint-plugin-html": "^2.0.1",
     "galenframework": "^2.3.3",
+    "node-sass": "^4.5.2",
     "polymer-cli": "^0.17.0",
     "rimraf": "^2.6.1",
     "sauceconnect-runner": "git+https://github.com/Brightspace/sauceconnect-runner.git#v0.3.0"
