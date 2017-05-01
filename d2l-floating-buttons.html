@@ -155,10 +155,8 @@
 
 				var innerContainer = this._container.querySelector('div');
 
-				if (
-					!this.alwaysFloat &&
-					(this._viewportIsAtLeastMinHeight || ((containerTop + containerRect.height) <= viewBottom))
-				) {
+				if (!this.alwaysFloat &&
+					(this._viewportIsAtLeastMinHeight || ((containerTop + containerRect.height) <= viewBottom))) {
 
 					if (!isFloating) {
 						return;
