@@ -101,6 +101,12 @@
 
 			});
 
+			it('floats if buttons are above fold when alwas-float is set to true', function() {
+			  floatingButtons.setAttribute('always-float', 'true');
+			  window.dispatchEvent(new Event('resize'));
+			  expect(floatingButtons.isFloating()).to.be.true;
+			});
+
 		});
 
 		</script>

@@ -82,6 +82,10 @@
 			is: 'd2l-floating-buttons',
 
 			properties: {
+				alwaysFloat: {
+					reflectToAttribute: true,
+					type: Boolean
+				},
 				minHeight: {
 					reflectToAttribute: true,
 					type: String,
@@ -151,7 +155,8 @@
 
 				var innerContainer = this._container.querySelector('div');
 
-				if (this._viewportIsAtLeastMinHeight || ((containerTop + containerRect.height) <= viewBottom)) {
+				if (!this.alwaysFloat &&
+					(this._viewportIsAtLeastMinHeight || ((containerTop + containerRect.height) <= viewBottom))) {
 
 					if (!isFloating) {
 						return;
