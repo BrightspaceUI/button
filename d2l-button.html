@@ -6,31 +6,7 @@
 	<template>
 		<style>
 			:host {
-				border-width: 1px;
-				border-style: solid;
-				border-radius: 0.3rem;
-				box-sizing: border-box;
-				cursor: pointer;
-				display: inline-block;
-				font-family: inherit;
-				font-size: 0.7rem;
-				font-weight: 700;
-				letter-spacing: 0.02rem;
-				line-height: 1rem;
-				margin: 0;
-				min-height: -webkit-calc(2rem + 2px);
-				min-height: calc(2rem + 2px);
-				outline: none;
-				padding: 0.5rem 1.5rem;
-				text-align: center;
-				transition: box-shadow 0.2s;
-				-webkit-user-select: none;
-				-moz-user-select: none;
-				-ms-user-select: none;
-				user-select: none;
-				vertical-align: middle;
-				white-space: nowrap;
-				width: auto;
+				@apply(--d2l-button-default);
 				@apply(--d2l-button);
 				@apply(--d2l-button-clear-focus);
 			}
@@ -39,32 +15,24 @@
 				border: 0;
 			}
 			:host, :host([disabled]:hover), :host([disabled]:focus) {
-				background-color: var(--d2l-color-woolonardo);
-				border-color: var(--d2l-color-titanius);
-				color: var(--d2l-color-ferrite);
+				@apply --d2l-button-disabled-hover-focus;
 			}
-
 			:host(:hover), :host(.d2l-button-hover) {
-				background-color: var(--d2l-color-gypsum);
+				@apply --d2l-button-hover-color;
 				@apply(--d2l-button-hover);
 			}
 			:host(:focus), :host(.d2l-button-focus) {
 				@apply(--d2l-secondary-button-focus);
 			}
-
 			:host([disabled]) {
-				opacity: 0.5;
-				cursor: default;
+				@apply --d2l-button-disabled;
 			}
 			:host([primary]), :host([primary][disabled]:hover), :host([primary][disabled]:focus) {
-				background-color: var(--d2l-color-celestine);
-				border-color: var(--d2l-color-celestuba);
-				color: var(--d2l-color-white);
+				@apply --d2l-button-primary-disabled-hover-focus;
 				@apply(--d2l-button-primary);
 			}
-
 			:host([primary]:hover), :host([primary].d2l-button-hover) {
-				background-color: var(--d2l-color-celestuba);
+				@apply --d2l-button-primary-hover-color;
 				@apply(--d2l-button-primary-hover);
 			}
 			:host([primary]:focus), :host([primary].d2l-button-focus) {

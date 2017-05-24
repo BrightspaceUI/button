@@ -1,6 +1,34 @@
 <link rel="import" href="../polymer/polymer.html">
 <style is="custom-style">
 	html {
+		--d2l-button-default: {
+			border-width: 1px;
+			border-style: solid;
+			border-radius: 0.3rem;
+			box-sizing: border-box;
+			cursor: pointer;
+			display: inline-block;
+			font-family: inherit;
+			font-size: 0.7rem;
+			font-weight: 700;
+			letter-spacing: 0.02rem;
+			line-height: 1rem;
+			margin: 0;
+			min-height: -webkit-calc(2rem + 2px);
+			min-height: calc(2rem + 2px);
+			outline: none;
+			padding: 0.5rem 1.5rem;
+			text-align: center;
+			transition: box-shadow 0.2s;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			vertical-align: middle;
+			white-space: nowrap;
+			width: auto;
+			text-decoration: none;
+		};
 		--d2l-button-clear-focus: {
 			box-shadow: 0 0 0 4px rgba(0, 0, 0, 0);
 		};
@@ -12,6 +40,26 @@
 			box-shadow: 0 0 0 4px rgba(0, 111, 191, 0.3);
 		};
 		--d2l-button-spacing: 0.75rem;
+		--d2l-button-disabled-hover-focus: {
+			background-color: var(--d2l-color-woolonardo);
+			border-color: var(--d2l-color-titanius);
+			color: var(--d2l-color-ferrite);
+		};
+		--d2l-button-hover-color: {
+			background-color: var(--d2l-color-gypsum);
+		};
+		--d2l-button-disabled: {
+			opacity: 0.5;
+			cursor: default;
+		};
+		--d2l-button-primary-disabled-hover-focus: {
+			background-color: var(--d2l-color-celestine);
+			border-color: var(--d2l-color-celestuba);
+			color: var(--d2l-color-white);
+		};
+		--d2l-button-primary-hover-color: {
+			background-color: var(--d2l-color-celestuba);
+		}
 	}
 	.d2l-button-spacing {
 		margin-right: var(--d2l-button-spacing);
@@ -20,4 +68,37 @@
 		margin-left: var(--d2l-button-spacing);
 		margin-right: 0;
 	}
+	.d2l-button {
+		@apply --d2l-button-default;
+		@apply --d2l-button;
+		@apply --d2l-button-clear-focus;
+	}
+	.d2l-button::-moz-focus-inner {
+		border: 0;
+	}
+	.d2l-button, .d2l-button[disabled]:hover, .d2l-button[disabled]:focus {
+		@apply --d2l-button-disabled-hover-focus;
+	}
+	.d2l-button:hover, .d2l-button.d2l-button-hover {
+		@apply --d2l-button-hover-color;
+		@apply(--d2l-button-hover);
+	}
+	.d2l-button:focus, .d2l-button.d2l-button-focus {
+		@apply(--d2l-secondary-button-focus);
+	}
+	.d2l-button[disabled] {
+		@apply --d2l-button-disabled;
+	}
+	.d2l-button[primary], .d2l-button[primary][disabled]:hover, .d2l-button[primary][disabled]:focus {
+		@apply --d2l-button-primary-disabled-hover-focus;
+		@apply(--d2l-button-primary);
+	}
+	.d2l-button[primary]:hover, .d2l-button[primary].d2l-button-hover {
+		@apply --d2l-button-primary-hover-color;
+		@apply(--d2l-button-primary-hover);
+	}
+	.d2l-button[primary]:focus, .d2l-button[primary].d2l-button-focus {
+		@apply(--d2l-primary-button-focus);
+	}
+
 </style>
