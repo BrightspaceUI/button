@@ -44,8 +44,8 @@
 		border: 0;
 	}
 	&, &[disabled]:hover, &[disabled]:focus {
-		background-color: $d2l-color-woolonardo;
-		border-color: $d2l-color-titanius;
+		background-color: $d2l-color-sylvite;
+		border-color: $d2l-color-mica;
 		color: $d2l-color-ferrite;
 	}
 	&:hover, &.d2l-button-hover {
@@ -60,11 +60,11 @@
 	}
 	&[primary], &[primary][disabled]:hover, &[primary][disabled]:focus {
 		background-color: $d2l-color-celestine;
-		border-color: $d2l-color-celestuba;
-		color: $d2l-color-white;
+		border-color: $d2l-color-celestine-minus-1;
+		color: #ffffff;
 	}
 	&[primary]:hover, &[primary].d2l-button-hover {
-		background-color: $d2l-color-celestuba;
+		background-color: $d2l-color-celestine-minus-1;
 	}
 	&[primary]:focus, &[primary].d2l-button-focus {
 		@include _d2l-button-primary-focus();

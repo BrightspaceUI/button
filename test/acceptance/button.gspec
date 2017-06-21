@@ -27,19 +27,19 @@
 
 @set
 	celestine "#006fbf|rgba\\(0, 111, 191, 1\\)|rgb\\(0, 111, 191\\)"
-	celestuba "#1c5295|rgba\\(28, 82, 149, 1\\)|rgb\\(28, 82, 149\\)"
+	celestineMinus1 "#005694|rgba\\(0, 86, 148, 1\\)|rgb\\(0, 86, 148\\)"
 	ferrite "#565a5c|rgba\\(86, 90, 92, 1\\)|rgb\\(86, 90, 92\\)"
 	gypsum "#e6eaf0|rgba\\(230, 234, 240, 1\\)|rgb\\(230, 234, 240\\)"
-	titanius "#d3d9e3|rgba\\(211, 217, 227, 1\\)|rgb\\(211, 217, 227\\)"
+	mica "#d3d9e3|rgba\\(211, 217, 227, 1\\)|rgb\\(211, 217, 227\\)"
 	white "#ffffff|rgba\\(255, 255, 255, 1\\)|rgb\\(255, 255, 255\\)"
-	woolonardo "#f2f3f5|rgba\\(242, 243, 245, 1\\)|rgb\\(242, 243, 245\\)"
+	sylvite "#f2f3f5|rgba\\(242, 243, 245, 1\\)|rgb\\(242, 243, 245\\)"
 
 = Buttons =
 	&normal:
-		css background-color matches ${woolonardo}
+		css background-color matches ${sylvite}
 		css border-top-right-radius is "6px"
 		css border-top-style is "solid"
-		css border-top-color matches ${titanius}
+		css border-top-color matches ${mica}
 		css border-top-width is "1px"
 		css color matches ${ferrite}
 		css cursor is "pointer"
@@ -55,7 +55,7 @@
 		width 164 to 171 px
 		height 42px
 	&normal-focus:
-		css background-color matches ${woolonardo}
+		css background-color matches ${sylvite}
 		css border-top-color matches "rgba\\(0, 111, 191, 0.4\\)"
 		css box-shadow contains "0px 0px 0px 4px"
 		width 222 to 231 px
@@ -66,7 +66,7 @@
 		height 42px
 	&primary:
 		css background-color matches ${celestine}
-		css border-top-color matches ${celestuba}
+		css border-top-color matches ${celestineMinus1}
 		css color matches ${white}
 		width 168 to 174 px
 		height 42px
@@ -76,7 +76,7 @@
 		width 226 to 234 px
 		height 42px
 	&primary-hover:
-		css background-color matches ${celestuba}
+		css background-color matches ${celestineMinus1}
 		width 224 to 234 px
 		height 42px
 	&disabled:
