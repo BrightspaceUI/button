@@ -45,12 +45,13 @@ var mainlineEndpoint = 'http://localhost:8081/components/d2l-button';
 var xEndpoint = 'http://localhost:8000/components/d2l-button';
 var buttonEndpoint = '/test/acceptance/button.html';
 var buttonSpec = 'test/acceptance/button.gspec';
+var buttonShadowSpec = 'test/acceptance/button.shadow.gspec';
 var floatingButtonsEndpoint = '/test/acceptance/floating-buttons.html';
 var floatingButtonsSpec = 'test/acceptance/floating-buttons.gspec';
 
 polymerTests(browsers, function(test) {
 
-	function runTests(name, baseEndpoint) {
+	function runTests(name, baseEndpoint, runShadow) {
 		test(name + '-button', {
 			endpoint: baseEndpoint + buttonEndpoint + '?wc-shadydom',
 			spec: buttonSpec,
@@ -58,9 +59,9 @@ polymerTests(browsers, function(test) {
 			tags: ['desktop']
 		});
 
-		test.shadow(name + '-button-shadow', {
+		runShadow && test.shadow(name + '-button-shadow', {
 			endpoint: baseEndpoint + buttonEndpoint + '?dom=shadow',
-			spec: buttonSpec,
+			spec: buttonShadowSpec,
 			size: '1024x768',
 			tags: ['desktop']
 		});
@@ -72,7 +73,7 @@ polymerTests(browsers, function(test) {
 			tags: ['desktop']
 		});
 
-		test.shadow(name + '-floating-buttons-desktop-shadow', {
+		runShadow && test.shadow(name + '-floating-buttons-desktop-shadow', {
 			endpoint: baseEndpoint + floatingButtonsEndpoint + '?dom=shadow',
 			spec: floatingButtonsSpec,
 			size: '1024x768',
@@ -87,6 +88,6 @@ polymerTests(browsers, function(test) {
 		});
 	}
 
-	runTests('mainline', mainlineEndpoint);
-	runTests('1.x', xEndpoint);
+	runTests('mainline', mainlineEndpoint, false);
+	runTests('1.x', xEndpoint, true);
 });

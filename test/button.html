@@ -12,26 +12,61 @@
 	<body>
 		<test-fixture id="NormalButton">
 			<template>
-				<d2l-button><button is="d2l-button">Button</button></d2l-button>
+				<d2l-button>Button</d2l-button>
+			</template>
+		</test-fixture>
+		<test-fixture id="PrimaryButton">
+			<template>
+				<d2l-button primary>Button</d2l-button>
 			</template>
 		</test-fixture>
 		<script>
 		describe('<d2l-button>', function() {
 
-			var d2lButton, button;
+			var button;
 
 			describe('normal', function() {
 
 				beforeEach(function() {
-					d2lButton = fixture('NormalButton');
-					button = d2lButton.querySelector('button');
+					button = fixture('NormalButton');
 				});
 
 				it('should execute onclick when clicked', function(done) {
-					d2lButton.addEventListener('click', function() {
+					button.addEventListener('click', function() {
 						done();
 					});
-					MockInteractions.tap(button);
+					MockInteractions.tap(button.$$('button'));
+				});
+
+				it('should reflect primary attribute to property', function() {
+					button.setAttribute('primary', '');
+					expect(button.primary).to.be.true;
+				});
+
+				it('should add primary attribute when property is true', function() {
+					button.primary = true;
+					expect(button.hasAttribute('primary')).to.be.true;
+				});
+			});
+
+			describe('primary', function() {
+
+				beforeEach(function() {
+					button = fixture('PrimaryButton');
+				});
+
+				it('should set primary property when attribute is present', function() {
+					expect(button.primary).to.be.true;
+				});
+
+				it('should reflect primary property when when attribute is removed', function() {
+					button.removeAttribute('primary');
+					expect(button.primary).to.be.false;
+				});
+
+				it('should remove primary attribute when property is false', function() {
+					button.primary = false;
+					expect(button.hasAttribute('primary')).to.be.false;
 				});
 			});
 

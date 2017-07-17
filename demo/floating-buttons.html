@@ -20,13 +20,13 @@
 	<d2l-demo-template title="d2l-floating-buttons">
 
 		<div id="config_buttons" slot="d2l-demo-actions" class="d2l-demo-actions">
-			<d2l-button><button is="d2l-button" onclick="removeFloatingButtons();">Remove Floating Buttons</button></d2l-button>
-			<d2l-button><button is="d2l-button" onclick="appendFloatingButtons();">Append Floating Buttons</button></d2l-button>
-			<d2l-button><button is="d2l-button" onclick="appendButton();">Append New Button</button></d2l-button>
-			<d2l-button><button is="d2l-button" onclick="removeButton();">Remove Last Button</button></d2l-button>
-			<d2l-button><button is="d2l-button" onclick="changeButtonText();">Change Button Text</button></d2l-button>
-			<d2l-button><button is="d2l-button" onclick="insertContentAbove();">Insert Content</button></d2l-button>
-			<d2l-button><button is="d2l-button" onclick="removeContentAbove();">Remove Content</button></d2l-button>
+			<d2l-button onclick="removeFloatingButtons();">Remove Floating Buttons</d2l-button>
+			<d2l-button onclick="appendFloatingButtons();">Append Floating Buttons</d2l-button>
+			<d2l-button onclick="appendButton();">Append New Button</d2l-button>
+			<d2l-button onclick="removeButton();">Remove Last Button</d2l-button>
+			<d2l-button onclick="changeButtonText();">Change Button Text</d2l-button>
+			<d2l-button onclick="insertContentAbove();">Insert Content</d2l-button>
+			<d2l-button onclick="removeContentAbove();">Remove Content</d2l-button>
 		</div>
 
 	</d2l-demo-template>
@@ -36,7 +36,7 @@
 	</div>
 
 	<d2l-floating-buttons id="wc_buttons">
-		<d2l-button><button is="d2l-button" onclick="makeMoreBeer();">Make more Beer!</button></d2l-button>
+		<d2l-button onclick="makeMoreBeer();">Make more Beer!</d2l-button>
 	</d2l-floating-buttons>
 
 	<script>
@@ -66,17 +66,14 @@
 
 			page_buttonCount += 1;
 
-			var button = document.createElement('d2l-button');
-			var newButton = document.createElement('button', 'd2l-button');
+			var newButton = document.createElement('d2l-button');
 			newButton.textContent = 'Beer ' + page_buttonCount;
 			newButton.addEventListener('click', function() {
 				console.log('you clicked ' + this.textContent);
 			});
 
-			button.appendChild(newButton);
-
 			//floatingButtons.appendChild(newButton);
-			Polymer.dom(floatingButtons).appendChild(button);
+			Polymer.dom(floatingButtons).appendChild(newButton);
 		}
 
 		function removeButton() {

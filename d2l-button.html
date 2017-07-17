@@ -1,6 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../d2l-colors/d2l-colors.html">
 <link rel="import" href="d2l-button-shared-styles.html">
+<link rel="import" href="d2l-button-behavior.html">
 
 <dom-module id="d2l-button">
 	<template strip-whitespace>
@@ -8,7 +9,7 @@
 			:host {
 				display: inline-block;
 			}
-			::slotted(*) {
+			button {
 				border-width: 1px;
 				border-style: solid;
 				border-radius: 0.3rem;
@@ -38,47 +39,60 @@
 				@apply --d2l-button-clear-focus;
 			}
 			/* Firefox includes a hidden border which messes up button dimensions */
-			::slotted(::-moz-focus-inner) {
+			button::-moz-focus-inner {
 				border: 0;
 			}
-			::slotted(*), ::slotted([disabled]:hover), ::slotted([disabled]:focus) {
+			button, button[disabled]:hover, button[disabled]:focus {
 				background-color: var(--d2l-color-sylvite);
 				border-color: var(--d2l-color-mica);
 				color: var(--d2l-color-ferrite);
 			}
 
-			::slotted(:hover), ::slotted(.d2l-button-hover) {
+			button:hover, :host(.d2l-button-hover) button {
 				background-color: var(--d2l-color-gypsum);
 				@apply --d2l-button-hover;
 			}
-			::slotted(:focus), ::slotted(.d2l-button-focus) {
+			button:focus, :host(.d2l-button-focus) button {
 				@apply --d2l-secondary-button-focus;
 			}
 
-			::slotted([disabled]) {
+			button[disabled] {
 				opacity: 0.5;
 				cursor: default;
 			}
-			::slotted([primary]), ::slotted([primary][disabled]:hover), ::slotted([primary][disabled]:focus) {
+			:host([primary]) button, :host([primary]) button[disabled]:hover, :host([primary]) button[disabled]:focus {
 				background-color: var(--d2l-color-celestine);
 				border-color: var(--d2l-color-celestine-minus-1);
 				color: #ffffff;
 				@apply --d2l-button-primary;
 			}
 
-			::slotted([primary]:hover), ::slotted([primary].d2l-button-hover) {
+			:host([primary]) button:hover, :host([primary].d2l-button-hover) button {
 				background-color: var(--d2l-color-celestine-minus-1);
 				@apply --d2l-button-primary-hover;
 			}
-			::slotted([primary]:focus), ::slotted([primary].d2l-button-focus) {
+			:host([primary]) button:focus, :host([primary].d2l-button-focus) button {
 				@apply --d2l-primary-button-focus;
 			}
 		</style>
-		<slot></slot>
+		<button
+			id="button"
+			disabled$=[[disabled]]
+			autofocus$=[[autofocus]]
+			form$=[[form]]
+			formaction$=[[formaction]]
+			formenctype$=[[formenctype]]
+			formmethod$=[[formmethod]]
+			formnovalidate$=[[formnovalidate]]
+			formtarget$=[[formtarget]]
+			name$=[[name]]
+			type$=[[type]]
+		><slot></slot></button>
 	</template>
 	<script>
 		Polymer({
-			is: 'd2l-button'
+			is: 'd2l-button',
+			behaviors: [window.D2L.PolymerBehaviors.Button.Behavior]
 		});
 	</script>
 </dom-module>
