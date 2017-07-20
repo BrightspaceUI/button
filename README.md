@@ -28,22 +28,22 @@ Include the [webcomponents.js](http://webcomponents.org/polyfills/) "lite" polyf
 </head>
 ```
 
-The native `<button>` element can now be extended to be a `d2l-button`:
+The `<d2l-button>` element can be used just like the native `button` element:
 
 ```html
-<button is="d2l-button">Button Element</button>
+<d2l-button>Button Element</d2l-button>
 ```
 
 Buttons can be made **primary**:
 
 ```html
-<button is="d2l-button" primary>Primary Button</button>
+<d2l-button primary>Primary Button</d2l-button>
 ```
 
 And can be **disabled**:
 
 ```html
-<button is="d2l-button" disabled>Disabled Button</button>
+<d2l-button disabled>Disabled Button</d2l-button>
 ```
 
 As an alternative to the web component, a Sass mixin can be used to apply button styles to your button elements:
@@ -78,8 +78,8 @@ Include the `<d2l-floating-buttons>` container at the bottom of the page, and ad
 <body>
 	...
 	<d2l-floating-buttons>
-		<button is="d2l-button" primary>Save</button>
-		<button is="d2l-button">Cancel</button>
+		<d2l-button primary>Save</d2l-button>
+		<d2l-button>Cancel</d2l-button>
 	</d2l-floating-buttons>
 </body>
 ```
