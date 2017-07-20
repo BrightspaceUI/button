@@ -1,12 +1,12 @@
 @objects
-	custom-element-primary			xpath //d2l-button[@id='custom-element-primary']/button
-	custom-element-primary-focus	xpath //d2l-button[@id='custom-element-primary-focus']/button
-	custom-element-primary-hover	xpath //d2l-button[@id='custom-element-primary-hover']/button
-	custom-element-primary-disabled	xpath //d2l-button[@id='custom-element-primary-disabled']/button
-	custom-element-normal			xpath //d2l-button[@id='custom-element-normal']/button
-	custom-element-normal-focus		xpath //d2l-button[@id='custom-element-normal-focus']/button
-	custom-element-normal-hover		xpath //d2l-button[@id='custom-element-normal-hover']/button
-	custom-element-normal-disabled	xpath //d2l-button[@id='custom-element-normal-disabled']/button
+	custom-element-primary			xpath //d2l-button[@id='custom-element-primary']//button
+	custom-element-primary-focus	xpath //d2l-button[@id='custom-element-primary-focus']//button
+	custom-element-primary-hover	xpath //d2l-button[@id='custom-element-primary-hover']//button
+	custom-element-primary-disabled	xpath //d2l-button[@id='custom-element-primary-disabled']//button
+	custom-element-normal			xpath //d2l-button[@id='custom-element-normal']//button
+	custom-element-normal-focus		xpath //d2l-button[@id='custom-element-normal-focus']//button
+	custom-element-normal-hover		xpath //d2l-button[@id='custom-element-normal-hover']//button
+	custom-element-normal-disabled	xpath //d2l-button[@id='custom-element-normal-disabled']//button
 	sass-mixin-primary				#sass-mixin-primary
 	sass-mixin-primary-focus		#sass-mixin-primary-focus
 	sass-mixin-primary-hover		#sass-mixin-primary-hover

@@ -9,10 +9,10 @@ var browsers = {
 		browser: 'Chrome',
 		platform: 'WIN10'
 	}),
-	firefoxWindows: new SauceBrowserFactory({
+	/*firefoxWindows: new SauceBrowserFactory({
 		browser: 'Firefox',
 		platform: 'WIN10'
-	}),
+	}),*/
 	ie11Windows: new SauceBrowserFactory({
 		browser: 'internet explorer',
 		version: '11',
