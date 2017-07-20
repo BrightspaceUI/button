@@ -1,13 +1,13 @@
 <html>
 <head>
 	<title>d2l-floating-buttons</title>
-	<script src="https://s.brightspace.com/lib/webcomponentsjs/0.7.21/webcomponents.min.js"></script>
+	<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 	<link rel="import" href="../../d2l-demo-template/d2l-demo-template.html">
 	<link rel="import" href="../d2l-button.html">
 	<link rel="import" href="../d2l-floating-buttons.html">
 
 	<style>
-		.d2l-demo-actions > button {
+		.d2l-demo-actions > d2l-button {
 			margin-bottom: 0.5rem;
 		}
 		.content {
@@ -19,14 +19,14 @@
 
 	<d2l-demo-template title="d2l-floating-buttons">
 
-		<div id="config_buttons" class="d2l-demo-actions">
-			<button is="d2l-button" onclick="removeFloatingButtons();">Remove Floating Buttons</button>
-			<button is="d2l-button" onclick="appendFloatingButtons();">Append Floating Buttons</button>
-			<button is="d2l-button" onclick="appendButton();">Append New Button</button>
-			<button is="d2l-button" onclick="removeButton();">Remove Last Button</button>
-			<button is="d2l-button" onclick="changeButtonText();">Change Button Text</button>
-			<button is="d2l-button" onclick="insertContentAbove();">Insert Content</button>
-			<button is="d2l-button" onclick="removeContentAbove();">Remove Content</button>
+		<div id="config_buttons" slot="d2l-demo-actions" class="d2l-demo-actions">
+			<d2l-button onclick="removeFloatingButtons();">Remove Floating Buttons</d2l-button>
+			<d2l-button onclick="appendFloatingButtons();">Append Floating Buttons</d2l-button>
+			<d2l-button onclick="appendButton();">Append New Button</d2l-button>
+			<d2l-button onclick="removeButton();">Remove Last Button</d2l-button>
+			<d2l-button onclick="changeButtonText();">Change Button Text</d2l-button>
+			<d2l-button onclick="insertContentAbove();">Insert Content</d2l-button>
+			<d2l-button onclick="removeContentAbove();">Remove Content</d2l-button>
 		</div>
 
 	</d2l-demo-template>
@@ -36,7 +36,7 @@
 	</div>
 
 	<d2l-floating-buttons id="wc_buttons">
-		<button is="d2l-button" onclick="makeMoreBeer();">Make more Beer!</button>
+		<d2l-button onclick="makeMoreBeer();">Make more Beer!</d2l-button>
 	</d2l-floating-buttons>
 
 	<script>
@@ -66,7 +66,7 @@
 
 			page_buttonCount += 1;
 
-			var newButton = document.createElement('button','d2l-button');
+			var newButton = document.createElement('d2l-button');
 			newButton.textContent = 'Beer ' + page_buttonCount;
 			newButton.addEventListener('click', function() {
 				console.log('you clicked ' + this.textContent);

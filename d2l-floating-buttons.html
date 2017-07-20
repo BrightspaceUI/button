@@ -33,11 +33,15 @@
 				padding: 0.75rem 0 0 0;
 				position: relative;
 			}
-			.d2l-floating-buttons-container ::content button {
+			.d2l-floating-buttons-container ::slotted(d2l-button) {
 				margin-right: var(--d2l-button-spacing);
 				margin-bottom: var(--d2l-button-spacing);
 			}
-			:host-context([dir="rtl"]) .d2l-floating-buttons-container ::content button {
+			:host-context([dir="rtl"]) .d2l-floating-buttons-container ::slotted(d2l-button) {
+				margin-left: var(--d2l-button-spacing);
+				margin-right: 0;
+			}
+			:host(:dir(rtl)) .d2l-floating-buttons-container ::slotted(d2l-button) {
 				margin-left: var(--d2l-button-spacing);
 				margin-right: 0;
 			}
@@ -71,7 +75,7 @@
 		<iron-media-query query="(max-height: [[minHeight]])" query-matches="{{_viewportIsAtLeastMinHeight}}"></iron-media-query>
 
 		<div class="d2l-floating-buttons-container">
-			<div><content></content></div>
+			<div><slot></slot></div>
 		</div>
 		<div class="d2l-floating-buttons-spacer"></div>
 
@@ -111,9 +115,9 @@
 				window.addEventListener('scroll', this._reposition);
 
 				this._isRTL = (getComputedStyle(this._container).direction === 'rtl');
-				this._reposition();
 
 				Polymer.RenderStatus.afterNextRender(this, function() {
+					this._reposition();
 					var prevDocumentHeight = document.body.offsetHeight;
 					setInterval(function() {
 						var documentHeight = document.body.offsetHeight;

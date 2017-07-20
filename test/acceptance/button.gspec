@@ -1,12 +1,12 @@
 @objects
-	custom-element-primary			#custom-element-primary
-	custom-element-primary-focus	#custom-element-primary-focus
-	custom-element-primary-hover	#custom-element-primary-hover
-	custom-element-primary-disabled	#custom-element-primary-disabled
-	custom-element-normal			#custom-element-normal
-	custom-element-normal-focus		#custom-element-normal-focus
-	custom-element-normal-hover		#custom-element-normal-hover
-	custom-element-normal-disabled	#custom-element-normal-disabled
+	custom-element-primary			xpath //d2l-button[@id='custom-element-primary']//button
+	custom-element-primary-focus	xpath //d2l-button[@id='custom-element-primary-focus']//button
+	custom-element-primary-hover	xpath //d2l-button[@id='custom-element-primary-hover']//button
+	custom-element-primary-disabled	xpath //d2l-button[@id='custom-element-primary-disabled']//button
+	custom-element-normal			xpath //d2l-button[@id='custom-element-normal']//button
+	custom-element-normal-focus		xpath //d2l-button[@id='custom-element-normal-focus']//button
+	custom-element-normal-hover		xpath //d2l-button[@id='custom-element-normal-hover']//button
+	custom-element-normal-disabled	xpath //d2l-button[@id='custom-element-normal-disabled']//button
 	sass-mixin-primary				#sass-mixin-primary
 	sass-mixin-primary-focus		#sass-mixin-primary-focus
 	sass-mixin-primary-hover		#sass-mixin-primary-hover
@@ -16,71 +16,4 @@
 	sass-mixin-normal-hover			#sass-mixin-normal-hover
 	sass-mixin-normal-disabled		#sass-mixin-normal-disabled
 
-@groups
-	normal custom-element-normal, sass-mixin-normal
-	normal-focus custom-element-normal-focus, sass-mixin-normal-focus
-	normal-hover custom-element-normal-hover, sass-mixin-normal-hover
-	primary custom-element-primary, sass-mixin-primary
-	primary-focus custom-element-primary-focus, sass-mixin-primary-focus
-	primary-hover custom-element-primary-hover, sass-mixin-primary-hover
-	disabled custom-element-primary-disabled, custom-element-normal-disabled, sass-mixin-primary-disabled, sass-mixin-normal-disabled
-
-@set
-	celestine "#006fbf|rgba\\(0, 111, 191, 1\\)|rgb\\(0, 111, 191\\)"
-	celestineMinus1 "#005694|rgba\\(0, 86, 148, 1\\)|rgb\\(0, 86, 148\\)"
-	ferrite "#565a5c|rgba\\(86, 90, 92, 1\\)|rgb\\(86, 90, 92\\)"
-	gypsum "#e6eaf0|rgba\\(230, 234, 240, 1\\)|rgb\\(230, 234, 240\\)"
-	mica "#d3d9e3|rgba\\(211, 217, 227, 1\\)|rgb\\(211, 217, 227\\)"
-	white "#ffffff|rgba\\(255, 255, 255, 1\\)|rgb\\(255, 255, 255\\)"
-	sylvite "#f2f3f5|rgba\\(242, 243, 245, 1\\)|rgb\\(242, 243, 245\\)"
-
-= Buttons =
-	&normal:
-		css background-color matches ${sylvite}
-		css border-top-right-radius is "6px"
-		css border-top-style is "solid"
-		css border-top-color matches ${mica}
-		css border-top-width is "1px"
-		css color matches ${ferrite}
-		css cursor is "pointer"
-		css font-size is "14px"
-		css font-weight matches "bold|700"
-		css letter-spacing matches "0\\.4[0-9]*px"
-		css line-height is "20px"
-		css margin matches "0px|"
-		css padding-top is "10px"
-		css padding-right is "30px"
-		css text-align is "center"
-		css vertical-align is "middle"
-		width 164 to 171 px
-		height 42px
-	&normal-focus:
-		css background-color matches ${sylvite}
-		css border-top-color matches "rgba\\(0, 111, 191, 0.4\\)"
-		css box-shadow contains "0px 0px 0px 4px"
-		width 222 to 231 px
-		height 42px
-	&normal-hover:
-		css background-color matches ${gypsum}
-		width 220 to 231 px
-		height 42px
-	&primary:
-		css background-color matches ${celestine}
-		css border-top-color matches ${celestineMinus1}
-		css color matches ${white}
-		width 168 to 174 px
-		height 42px
-	&primary-focus:
-		css background-color matches ${celestine}
-		css box-shadow contains "0px 0px 0px 4px"
-		width 226 to 234 px
-		height 42px
-	&primary-hover:
-		css background-color matches ${celestineMinus1}
-		width 224 to 234 px
-		height 42px
-	&disabled:
-		css cursor is "default"
-		css opacity is "0.5"
-		width 123 to 130 px
-		height 42px
+@import button.common.gspec

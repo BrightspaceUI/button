@@ -12,12 +12,12 @@
 	<body>
 		<test-fixture id="NormalButton">
 			<template>
-				<button is="d2l-button">Button</button>
+				<d2l-button>Button</d2l-button>
 			</template>
 		</test-fixture>
 		<test-fixture id="PrimaryButton">
 			<template>
-				<button is="d2l-button" primary>Button</button>
+				<d2l-button primary>Button</d2l-button>
 			</template>
 		</test-fixture>
 		<script>
@@ -35,7 +35,7 @@
 					button.addEventListener('click', function() {
 						done();
 					});
-					MockInteractions.tap(button);
+					MockInteractions.tap(button.$$('button'));
 				});
 
 				it('should reflect primary attribute to property', function() {
@@ -47,7 +47,6 @@
 					button.primary = true;
 					expect(button.hasAttribute('primary')).to.be.true;
 				});
-
 			});
 
 			describe('primary', function() {
@@ -69,7 +68,6 @@
 					button.primary = false;
 					expect(button.hasAttribute('primary')).to.be.false;
 				});
-
 			});
 
 		});

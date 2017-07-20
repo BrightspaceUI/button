@@ -1,11 +1,15 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../d2l-colors/d2l-colors.html">
 <link rel="import" href="d2l-button-shared-styles.html">
+<link rel="import" href="d2l-button-behavior.html">
 
 <dom-module id="d2l-button">
-	<template>
+	<template strip-whitespace>
 		<style>
 			:host {
+				display: inline-block;
+			}
+			button {
 				border-width: 1px;
 				border-style: solid;
 				border-radius: 0.3rem;
@@ -31,58 +35,63 @@
 				vertical-align: middle;
 				white-space: nowrap;
 				width: auto;
-				@apply(--d2l-button);
-				@apply(--d2l-button-clear-focus);
+				@apply --d2l-button;
+				@apply --d2l-button-clear-focus;
 			}
 			/* Firefox includes a hidden border which messes up button dimensions */
-			:host(::-moz-focus-inner) {
+			button::-moz-focus-inner {
 				border: 0;
 			}
-			:host, :host([disabled]:hover), :host([disabled]:focus) {
+			button, button[disabled]:hover, button[disabled]:focus {
 				background-color: var(--d2l-color-sylvite);
 				border-color: var(--d2l-color-mica);
 				color: var(--d2l-color-ferrite);
 			}
 
-			:host(:hover), :host(.d2l-button-hover) {
+			button:hover, :host(.d2l-button-hover) button {
 				background-color: var(--d2l-color-gypsum);
-				@apply(--d2l-button-hover);
+				@apply --d2l-button-hover;
 			}
-			:host(:focus), :host(.d2l-button-focus) {
-				@apply(--d2l-secondary-button-focus);
+			button:focus, :host(.d2l-button-focus) button {
+				@apply --d2l-secondary-button-focus;
 			}
 
-			:host([disabled]) {
+			button[disabled] {
 				opacity: 0.5;
 				cursor: default;
 			}
-			:host([primary]), :host([primary][disabled]:hover), :host([primary][disabled]:focus) {
+			:host([primary]) button, :host([primary]) button[disabled]:hover, :host([primary]) button[disabled]:focus {
 				background-color: var(--d2l-color-celestine);
 				border-color: var(--d2l-color-celestine-minus-1);
 				color: #ffffff;
-				@apply(--d2l-button-primary);
+				@apply --d2l-button-primary;
 			}
 
-			:host([primary]:hover), :host([primary].d2l-button-hover) {
+			:host([primary]) button:hover, :host([primary].d2l-button-hover) button {
 				background-color: var(--d2l-color-celestine-minus-1);
-				@apply(--d2l-button-primary-hover);
+				@apply --d2l-button-primary-hover;
 			}
-			:host([primary]:focus), :host([primary].d2l-button-focus) {
-				@apply(--d2l-primary-button-focus);
+			:host([primary]) button:focus, :host([primary].d2l-button-focus) button {
+				@apply --d2l-primary-button-focus;
 			}
 		</style>
-		<content></content>
+		<button
+			disabled$=[[disabled]]
+			autofocus$=[[autofocus]]
+			form$=[[form]]
+			formaction$=[[formaction]]
+			formenctype$=[[formenctype]]
+			formmethod$=[[formmethod]]
+			formnovalidate$=[[formnovalidate]]
+			formtarget$=[[formtarget]]
+			name$=[[name]]
+			type$=[[type]]
+		><slot></slot></button>
 	</template>
 	<script>
 		Polymer({
 			is: 'd2l-button',
-			extends: 'button',
-			properties: {
-				primary: {
-					type: Boolean,
-					reflectToAttribute: true
-				}
-			}
+			behaviors: [window.D2L.PolymerBehaviors.Button.Behavior]
 		});
 	</script>
 </dom-module>

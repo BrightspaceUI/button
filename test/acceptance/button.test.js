@@ -9,10 +9,10 @@ var browsers = {
 		browser: 'Chrome',
 		platform: 'WIN10'
 	}),
-	firefoxWindows: new SauceBrowserFactory({
+	/*firefoxWindows: new SauceBrowserFactory({
 		browser: 'Firefox',
 		platform: 'WIN10'
-	}),
+	}),*/
 	ie11Windows: new SauceBrowserFactory({
 		browser: 'internet explorer',
 		version: '11',
@@ -41,46 +41,53 @@ var browsers = {
 	})
 };
 
-var buttonEndpoint = 'http://localhost:8080/components/d2l-button/test/acceptance/button.html';
+var mainlineEndpoint = 'http://localhost:8081/components/d2l-button';
+var xEndpoint = 'http://localhost:8000/components/d2l-button';
+var buttonEndpoint = '/test/acceptance/button.html';
 var buttonSpec = 'test/acceptance/button.gspec';
-var floatingButtonsEndpoint = 'http://localhost:8080/components/d2l-button/test/acceptance/floating-buttons.html';
+var buttonShadowSpec = 'test/acceptance/button.shadow.gspec';
+var floatingButtonsEndpoint = '/test/acceptance/floating-buttons.html';
 var floatingButtonsSpec = 'test/acceptance/floating-buttons.gspec';
 
 polymerTests(browsers, function(test) {
 
-	test('button', {
-		endpoint: buttonEndpoint,
-		spec: buttonSpec,
-		size: '1024x768',
-		tags: ['desktop']
-	});
+	function runTests(name, baseEndpoint, runShadow) {
+		test(name + '-button', {
+			endpoint: baseEndpoint + buttonEndpoint + '?wc-shadydom',
+			spec: buttonSpec,
+			size: '1024x768',
+			tags: ['desktop']
+		});
 
-	test.shadow('button-shadow', {
-		endpoint: buttonEndpoint + '?dom=shadow',
-		spec: buttonSpec,
-		size: '1024x768',
-		tags: ['desktop']
-	});
+		runShadow && test.shadow(name + '-button-shadow', {
+			endpoint: baseEndpoint + buttonEndpoint + '?dom=shadow',
+			spec: buttonShadowSpec,
+			size: '1024x768',
+			tags: ['desktop']
+		});
 
-	test('floating-buttons-desktop', {
-		endpoint: floatingButtonsEndpoint,
-		spec: floatingButtonsSpec,
-		size: '1024x768',
-		tags: ['desktop']
-	});
+		test(name + '-floating-buttons-desktop', {
+			endpoint: baseEndpoint + floatingButtonsEndpoint + '?wc-shadydom',
+			spec: floatingButtonsSpec,
+			size: '1024x768',
+			tags: ['desktop']
+		});
 
-	test.shadow('floating-buttons-desktop-shadow', {
-		endpoint: floatingButtonsEndpoint + '?dom=shadow',
-		spec: floatingButtonsSpec,
-		size: '1024x768',
-		tags: ['desktop']
-	});
+		runShadow && test.shadow(name + '-floating-buttons-desktop-shadow', {
+			endpoint: baseEndpoint + floatingButtonsEndpoint + '?dom=shadow',
+			spec: floatingButtonsSpec,
+			size: '1024x768',
+			tags: ['desktop']
+		});
 
-	test('floating-buttons-mobile', {
-		endpoint: floatingButtonsEndpoint,
-		spec: floatingButtonsSpec,
-		size: '320x490',
-		tags: ['mobile']
-	});
+		test(name + '-floating-buttons-mobile', {
+			endpoint: baseEndpoint + floatingButtonsEndpoint,
+			spec: floatingButtonsSpec,
+			size: '320x490',
+			tags: ['mobile']
+		});
+	}
 
+	runTests('mainline', mainlineEndpoint, false);
+	runTests('1.x', xEndpoint, true);
 });

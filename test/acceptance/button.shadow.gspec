@@ -1,0 +1,19 @@
+@objects
+	custom-element-primary			#custom-element-primary /deep/ button
+	custom-element-primary-focus	#custom-element-primary-focus /deep/ button
+	custom-element-primary-hover	#custom-element-primary-hover /deep/ button
+	custom-element-primary-disabled	#custom-element-primary-disabled /deep/ button
+	custom-element-normal			#custom-element-normal /deep/ button
+	custom-element-normal-focus		#custom-element-normal-focus /deep/ button
+	custom-element-normal-hover		#custom-element-normal-hover /deep/ button
+	custom-element-normal-disabled	#custom-element-normal-disabled /deep/ button
+	sass-mixin-primary				#sass-mixin-primary
+	sass-mixin-primary-focus		#sass-mixin-primary-focus
+	sass-mixin-primary-hover		#sass-mixin-primary-hover
+	sass-mixin-primary-disabled		#sass-mixin-primary-disabled
+	sass-mixin-normal				#sass-mixin-normal
+	sass-mixin-normal-focus			#sass-mixin-normal-focus
+	sass-mixin-normal-hover			#sass-mixin-normal-hover
+	sass-mixin-normal-disabled		#sass-mixin-normal-disabled
+
+@import button.common.gspec
