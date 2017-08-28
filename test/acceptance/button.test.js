@@ -39,7 +39,8 @@ var browsers = {
 	}),
 	firefoxMac: new SauceBrowserFactory({
 		browser: 'Firefox',
-		platform: 'SIERRA'
+		platform: 'SIERRA',
+		tags: ['no-d2l-shadow']
 	})
 };
 
