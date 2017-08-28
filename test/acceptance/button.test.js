@@ -34,12 +34,12 @@ var browsers = {
 	}),
 	safariMac: new SauceBrowserFactory({
 		browser: 'Safari',
-		platform: 'SIERRA'
+		platform: 'SIERRA',
+		tags: ['no-d2l-shadow']
 	}),
 	firefoxMac: new SauceBrowserFactory({
 		browser: 'Firefox',
-		platform: 'SIERRA',
-		tags: ['no-d2l-shadow']
+		platform: 'SIERRA'
 	})
 };
 
