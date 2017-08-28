@@ -20,7 +20,8 @@ var browsers = {
 	}),
 	edgeWindows: new SauceBrowserFactory({
 		browser: 'microsoftedge',
-		platform: 'WIN10'
+		platform: 'WIN10',
+		tags: ['no-d2l-shadow']
 	}),
 	chromeMac: new SauceBrowserFactory({
 		browser: 'Chrome',
@@ -37,7 +38,8 @@ var browsers = {
 	}),
 	firefoxMac: new SauceBrowserFactory({
 		browser: 'Firefox',
-		platform: 'SIERRA'
+		platform: 'SIERRA',
+		tags: ['no-d2l-shadow']
 	})
 };
 

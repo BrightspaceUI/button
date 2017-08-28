@@ -24,6 +24,25 @@
 	sass-mixin-normal-hover			#sass-mixin-normal-hover
 	sass-mixin-normal-disabled		#sass-mixin-normal-disabled
 
+@on no-d2l-shadow
+	@objects
+		custom-element-primary			#custom-element-primary
+			button                      button
+		custom-element-primary-focus	#custom-element-primary-focus
+			button                      button
+		custom-element-primary-hover	#custom-element-primary-hover
+			button                      button
+		custom-element-primary-disabled	#custom-element-primary-disabled
+			button                      button
+		custom-element-normal			#custom-element-normal
+			button                      button
+		custom-element-normal-focus		#custom-element-normal-focus
+			button                      button
+		custom-element-normal-hover		#custom-element-normal-hover
+			button                      button
+		custom-element-normal-disabled	#custom-element-normal-disabled
+			button                      button
+
 @groups
 	normal custom-element-normal.button, sass-mixin-normal
 	normal-focus custom-element-normal-focus.button, sass-mixin-normal-focus
