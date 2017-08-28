@@ -20,7 +20,8 @@ var browsers = {
 	}),
 	edgeWindows: new SauceBrowserFactory({
 		browser: 'microsoftedge',
-		platform: 'WIN10'
+		platform: 'WIN10',
+		tags: ['no-d2l-shadow']
 	}),
 	chromeMac: new SauceBrowserFactory({
 		browser: 'Chrome',
@@ -33,11 +34,13 @@ var browsers = {
 	}),
 	safariMac: new SauceBrowserFactory({
 		browser: 'Safari',
-		platform: 'SIERRA'
+		platform: 'SIERRA',
+		tags: ['no-d2l-shadow']
 	}),
 	firefoxMac: new SauceBrowserFactory({
 		browser: 'Firefox',
-		platform: 'SIERRA'
+		platform: 'SIERRA',
+		tags: ['no-d2l-shadow']
 	})
 };
 
@@ -45,13 +48,12 @@ var mainlineEndpoint = 'http://localhost:8081/components/d2l-button';
 var xEndpoint = 'http://localhost:8000/components/d2l-button';
 var buttonEndpoint = '/test/acceptance/button.html';
 var buttonSpec = 'test/acceptance/button.gspec';
-var buttonShadowSpec = 'test/acceptance/button.shadow.gspec';
 var floatingButtonsEndpoint = '/test/acceptance/floating-buttons.html';
 var floatingButtonsSpec = 'test/acceptance/floating-buttons.gspec';
 
 polymerTests(browsers, function(test) {
 
-	function runTests(name, baseEndpoint, runShadow) {
+	function runTests(name, baseEndpoint) {
 		test(name + '-button', {
 			endpoint: baseEndpoint + buttonEndpoint + '?wc-shadydom',
 			spec: buttonSpec,
@@ -59,9 +61,9 @@ polymerTests(browsers, function(test) {
 			tags: ['desktop']
 		});
 
-		runShadow && test.shadow(name + '-button-shadow', {
+		test.shadow(name + '-button-shadow', {
 			endpoint: baseEndpoint + buttonEndpoint + '?dom=shadow',
-			spec: buttonShadowSpec,
+			spec: buttonSpec,
 			size: '1024x768',
 			tags: ['desktop']
 		});
@@ -73,7 +75,7 @@ polymerTests(browsers, function(test) {
 			tags: ['desktop']
 		});
 
-		runShadow && test.shadow(name + '-floating-buttons-desktop-shadow', {
+		test.shadow(name + '-floating-buttons-desktop-shadow', {
 			endpoint: baseEndpoint + floatingButtonsEndpoint + '?dom=shadow',
 			spec: floatingButtonsSpec,
 			size: '1024x768',
@@ -88,6 +90,6 @@ polymerTests(browsers, function(test) {
 		});
 	}
 
-	runTests('mainline', mainlineEndpoint, false);
-	runTests('1.x', xEndpoint, true);
+	runTests('mainline', mainlineEndpoint);
+	runTests('1.x', xEndpoint);
 });
