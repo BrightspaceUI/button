@@ -91,7 +91,10 @@
 	<script>
 		Polymer({
 			is: 'd2l-button',
-			behaviors: [window.D2L.PolymerBehaviors.Button.Behavior]
+			behaviors: [window.D2L.PolymerBehaviors.Button.Behavior],
+			focus: function() {
+				Polymer.dom(this.root).querySelector('button').focus();
+			}
 		});
 	</script>
 </dom-module>
