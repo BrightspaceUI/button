@@ -24,27 +24,28 @@ Include the [webcomponents.js](http://webcomponents.org/polyfills/) "lite" polyf
 
 ```html
 <head>
-	<script src="https://s.brightspace.com/lib/webcomponentsjs/0.7.21/webcomponents-lite.min.js"></script>
+	<script src="../webcomponentsjs/webcomponents-lite.js"></script>
 	<link rel="import" href="../d2l-button/d2l-button.html">
 </head>
 ```
 
-The `<d2l-button>` element can be used just like the native `button` element:
+The `<d2l-button>` element can be used just like the native `button` element, but also supports the `primary` attribute for denoting the primary button.
 
-```html
-<d2l-button>Button Element</d2l-button>
+<!---
 ```
-
-Buttons can be made **primary**:
-
-```html
-<d2l-button primary>Primary Button</d2l-button>
+<custom-element-demo>
+  <template>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="d2l-button.html">
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
 ```
-
-And can be **disabled**:
-
+-->
 ```html
-<d2l-button disabled>Disabled Button</d2l-button>
+<d2l-button primary>Primary</d2l-button>
+<d2l-button>Secondary</d2l-button>
+<d2l-button disabled>Disabled</d2l-button>
 ```
 
 As an alternative to the web component, a Sass mixin can be used to apply button styles to your button elements:
@@ -67,7 +68,7 @@ Floating workflow buttons behavior can be added by using the `<d2l-floating-butt
 
 ```html
 <head>
-	<script src="https://s.brightspace.com/lib/webcomponentsjs/0.7.21/webcomponents-lite.min.js"></script>
+	<script src="../webcomponentsjs/webcomponents-lite.js"></script>
 	<link rel="import" href="../d2l-button/d2l-button.html">
 	<link rel="import" href="../d2l-button/d2l-floating-buttons.html">
 </head>
@@ -75,23 +76,59 @@ Floating workflow buttons behavior can be added by using the `<d2l-floating-butt
 
 Include the `<d2l-floating-buttons>` container at the bottom of the page, and add your workflow `button` elements:
 
+<!---
+```
+<custom-element-demo height="300">
+  <template>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="d2l-button.html">
+    <link rel="import" href="d2l-floating-button.html">
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
 ```html
-<body>
-	...
-	<d2l-floating-buttons>
-		<d2l-button primary>Save</d2l-button>
-		<d2l-button>Cancel</d2l-button>
-	</d2l-floating-buttons>
-</body>
+Jelly donuts.
+<d2l-floating-buttons>
+	<d2l-button primary>Save</d2l-button>
+	<d2l-button>Cancel</d2l-button>
+</d2l-floating-buttons>
 ```
 
-### Usage in Production
+## Developing, Testing and Contributing
 
-In production, it's recommended to use a build tool like [Vulcanize](https://github.com/Polymer/vulcanize) to combine all your web components into a single import file. [More from the Polymer Docs: Optimize for Production](https://www.polymer-project.org/1.0/tools/optimize-for-production.html)...
+After cloning the repo, run `npm install` to install dependencies.
 
-## Coding styles
+If you don't have it already, install the [Polymer CLI](https://www.polymer-project.org/2.0/docs/tools/polymer-cli) globally:
 
-See the [Best Practices & Style Guide](https://github.com/Brightspace/valence-ui-docs/wiki/Best-Practices-&-Style-Guide) for information on naming conventions, plus information about the [EditorConfig](http://editorconfig.org) rules used in this repo.
+```shell
+npm install -g polymer-cli
+```
+
+To start a [local web server](https://www.polymer-project.org/2.0/docs/tools/polymer-cli-commands#serve) that hosts the demo page and tests:
+
+```shell
+polymer serve
+```
+
+To lint ([eslint](http://eslint.org/) and [Polymer lint](https://www.polymer-project.org/2.0/docs/tools/polymer-cli-commands#lint)):
+
+```shell
+npm run lint
+```
+
+To run unit tests locally using [Polymer test](https://www.polymer-project.org/2.0/docs/tools/polymer-cli-commands#tests):
+
+```shell
+polymer test --skip-plugin sauce
+```
+
+To lint AND run local unit tests:
+
+```shell
+npm test
+```
 
 [bower-url]: http://bower.io/search/?q=d2l-button
 [bower-image]: https://badge.fury.io/bo/d2l-button.svg
