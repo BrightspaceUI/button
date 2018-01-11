@@ -3,6 +3,13 @@
 <link rel="import" href="../iron-media-query/iron-media-query.html">
 <link rel="import" href="d2l-button-shared-styles.html">
 
+<!--
+`d2l-floating-buttons`
+Polymer-based web component for floating workflow buttons
+
+@demo demo/floating-buttons.html d2l-floating-buttons
+-->
+
 <dom-module id="d2l-floating-buttons">
 	<template>
 		<style>
@@ -86,16 +93,28 @@
 			is: 'd2l-floating-buttons',
 
 			properties: {
+
+				/**
+				 * Whether always enable floating buttons. Note: by default, buttons may not float depending on
+				 * space available since floating buttons may result in poor user experience when view-port is small
+				 * (ex. phones).
+				 */
 				alwaysFloat: {
 					reflectToAttribute: true,
 					type: Boolean
 				},
+
+				/**
+				 * Minimum height of view-port in order for buttons to float.
+				 */
 				minHeight: {
 					reflectToAttribute: true,
 					type: String,
 					value: '500px'
 				},
+
 				_viewportIsAtLeastMinHeight: Boolean
+
 			},
 
 			_container: null,
@@ -135,6 +154,9 @@
 				window.removeEventListener('scroll', this._reposition);
 			},
 
+			/**
+			 * Whether or not the buttons are floating.
+			 */
 			isFloating: function() {
 				return this._container.classList.contains('d2l-floating-buttons-floating');
 			},

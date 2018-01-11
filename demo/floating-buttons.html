@@ -1,105 +1,118 @@
-<html>
-<head>
-	<title>d2l-floating-buttons</title>
-	<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-	<link rel="import" href="../../d2l-demo-template/d2l-demo-template.html">
-	<link rel="import" href="../d2l-button.html">
-	<link rel="import" href="../d2l-floating-buttons.html">
-
-	<style>
-		.d2l-demo-actions > d2l-button {
-			margin-bottom: 0.5rem;
-		}
-		.content {
-			padding: 1rem;
-		}
-	</style>
-</head>
-<body unresolved>
-
-	<d2l-demo-template title="d2l-floating-buttons">
-
-		<div id="config_buttons" slot="d2l-demo-actions" class="d2l-demo-actions">
-			<d2l-button onclick="removeFloatingButtons();">Remove Floating Buttons</d2l-button>
-			<d2l-button onclick="appendFloatingButtons();">Append Floating Buttons</d2l-button>
-			<d2l-button onclick="appendButton();">Append New Button</d2l-button>
-			<d2l-button onclick="removeButton();">Remove Last Button</d2l-button>
-			<d2l-button onclick="changeButtonText();">Change Button Text</d2l-button>
-			<d2l-button onclick="insertContentAbove();">Insert Content</d2l-button>
-			<d2l-button onclick="removeContentAbove();">Remove Content</d2l-button>
-		</div>
-
-	</d2l-demo-template>
-
-	<div class="content">
-		<p>I love beer!</p>
-	</div>
-
-	<d2l-floating-buttons id="wc_buttons">
-		<d2l-button onclick="makeMoreBeer();">Make more Beer!</d2l-button>
-	</d2l-floating-buttons>
-
-	<script>
-
-		var page_buttonCount = 0;
-		var page_floatingButtons;
-
-		function appendFloatingButtons() {
-			document.body.appendChild(page_floatingButtons);
-		}
-
-		function removeFloatingButtons() {
-			var floatingButtons = document.getElementById('wc_buttons');
-			page_floatingButtons = floatingButtons;
-			floatingButtons.parentNode.removeChild(floatingButtons);
-		}
-
-		function changeButtonText() {
-			var buttons = document.querySelectorAll('#wc_buttons button');
-			for(var i=0; i<buttons.length; i++) {
-				buttons[i].textContent = 'Powdered Toastman';
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+		<title>d2l-floating-buttons demo</title>
+		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+		<link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+		<link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+		<link rel="import" href="../../d2l-typography/d2l-typography.html">
+		<link rel="import" href="../d2l-button.html">
+		<link rel="import" href="../d2l-floating-buttons.html">
+		<custom-style>
+			<style is="custom-style" include="demo-pages-shared-styles"></style>
+		</custom-style>
+		<custom-style include="d2l-typography">
+			<style is="custom-style" include="d2l-typography"></style>
+		</custom-style>
+		<style>
+			html {
+				font-size: 20px;
 			}
-		}
+			d2l-button {
+				margin-bottom: 0.5rem;
+				margin-right: 0.75rem;
+			}
+			.content {
+				padding: 1rem;
+			}
+			</style>
+	</head>
+	<body unresolved class="d2l-typography">
 
-		function appendButton() {
-			var floatingButtons = document.getElementById('wc_buttons');
+		<h3>Floating Buttons</h3>
 
-			page_buttonCount += 1;
+		<d2l-button onclick="removeFloatingButtons();">Remove Floating Buttons</d2l-button>
+		<d2l-button onclick="appendFloatingButtons();">Append Floating Buttons</d2l-button>
+		<d2l-button onclick="appendButton();">Append New Button</d2l-button>
+		<d2l-button onclick="removeButton();">Remove Last Button</d2l-button>
+		<d2l-button onclick="changeButtonText();">Change Button Text</d2l-button>
+		<d2l-button onclick="insertContentAbove();">Insert Content</d2l-button>
+		<d2l-button onclick="removeContentAbove();">Remove Content</d2l-button>
 
-			var newButton = document.createElement('d2l-button');
-			newButton.textContent = 'Beer ' + page_buttonCount;
-			newButton.addEventListener('click', function() {
-				console.log('you clicked ' + this.textContent);
-			});
+		<demo-snippet>
+			<template>
+				<div class="content">
+					<p>I love beer!</p>
+				</div>
+				<d2l-floating-buttons id="wc_buttons">
+					<d2l-button onclick="makeMoreBeer();">Make more Beer!</d2l-button>
+				</d2l-floating-buttons>
+			</template>
+		</demo-snippet>
 
-			//floatingButtons.appendChild(newButton);
-			Polymer.dom(floatingButtons).appendChild(newButton);
-		}
+		<script>
 
-		function removeButton() {
-			var floatingButtons = document.getElementById('wc_buttons');
+			var page_buttonCount = 0;
+			var page_floatingButtons;
 
-			Polymer.dom(floatingButtons).removeChild(
-				Polymer.dom(floatingButtons).lastChild
-			);
-		}
+			function appendFloatingButtons() {
+				document.body.appendChild(page_floatingButtons);
+			}
 
-		function insertContentAbove() {
-			var newContent = document.createElement('p');
-			newContent.textContent = 'I love beer!';
-			document.body.querySelector('.content').appendChild(newContent);
-		}
+			function removeFloatingButtons() {
+				var floatingButtons = document.getElementById('wc_buttons');
+				page_floatingButtons = floatingButtons;
+				floatingButtons.parentNode.removeChild(floatingButtons);
+			}
 
-		function removeContentAbove() {
-			document.body.querySelector('.content').removeChild(
-				document.body.querySelector('.content').lastChild
-			);
-		}
+			function changeButtonText() {
+				var buttons = document.querySelectorAll('#wc_buttons button');
+				for(var i=0; i<buttons.length; i++) {
+					buttons[i].textContent = 'Powdered Toastman';
+				}
+			}
 
-		function makeMoreBeer() {
-			appendButton();
-		}
+			function appendButton() {
+				var floatingButtons = document.getElementById('wc_buttons');
 
-	</script>
-</body>
+				page_buttonCount += 1;
+
+				var newButton = document.createElement('d2l-button');
+				newButton.textContent = 'Beer ' + page_buttonCount;
+				newButton.addEventListener('click', function() {
+					console.log('you clicked ' + this.textContent);
+				});
+
+				//floatingButtons.appendChild(newButton);
+				Polymer.dom(floatingButtons).appendChild(newButton);
+			}
+
+			function removeButton() {
+				var floatingButtons = document.getElementById('wc_buttons');
+
+				Polymer.dom(floatingButtons).removeChild(
+					Polymer.dom(floatingButtons).lastChild
+				);
+			}
+
+			function insertContentAbove() {
+				var newContent = document.createElement('p');
+				newContent.textContent = 'I love beer!';
+				document.body.querySelector('.content').appendChild(newContent);
+			}
+
+			function removeContentAbove() {
+				document.body.querySelector('.content').removeChild(
+					document.body.querySelector('.content').lastChild
+				);
+			}
+
+			function makeMoreBeer() {
+				appendButton();
+			}
+
+		</script>
+	</body>
 </html>

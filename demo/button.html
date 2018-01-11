@@ -1,22 +1,40 @@
 <!doctype html>
-<html>
-<head>
-	<title>d2l-button</title>
-	<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-	<link rel="import" href="../../d2l-demo-template/d2l-demo-template.html">
-	<link rel="import" href="../d2l-button.html">
-</head>
-<body unresolved>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+		<title>d2l-button demo</title>
+		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+		<link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+		<link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+		<link rel="import" href="../../d2l-typography/d2l-typography.html">
+		<link rel="import" href="../d2l-button.html">
+		<custom-style>
+			<style is="custom-style" include="demo-pages-shared-styles"></style>
+		</custom-style>
+		<custom-style include="d2l-typography">
+			<style is="custom-style" include="d2l-typography"></style>
+		</custom-style>
+		<style>
+			html {
+				font-size: 20px;
+			}
+			d2l-button {
+				margin-right: 0.75rem;
+			}
+			</style>
+	</head>
+	<body unresolved class="d2l-typography">
+		<div class="vertical-section-container centered">
 
-	<d2l-demo-template title="d2l-button">
-		<div slot="d2l-demo-fixture" class="d2l-demo-fixture">
-
-			<d2l-button>Normal Button</d2l-button>
-
-			<d2l-button primary>Primary Button</d2l-button>
+			<h3>Buttons</h3>
+			<demo-snippet>
+				<template>
+					<d2l-button primary>Primary Button</d2l-button>
+					<d2l-button>Normal Button</d2l-button>
+				</template>
+			</demo-snippet>
 
 		</div>
-	</d2l-demo-template>
-
-</body>
+	</body>
 </html>
