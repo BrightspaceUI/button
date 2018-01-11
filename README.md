@@ -76,20 +76,7 @@ Floating workflow buttons behavior can be added by using the `<d2l-floating-butt
 
 Include the `<d2l-floating-buttons>` container at the bottom of the page, and add your workflow `button` elements:
 
-<!---
-```
-<custom-element-demo height="300">
-  <template>
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="d2l-button.html">
-    <link rel="import" href="d2l-floating-button.html">
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
 ```html
-Jelly donuts.
 <d2l-floating-buttons>
 	<d2l-button primary>Save</d2l-button>
 	<d2l-button>Cancel</d2l-button>
