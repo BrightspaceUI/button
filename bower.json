@@ -20,8 +20,10 @@
     "iron-media-query": "1 - 2"
   },
   "devDependencies": {
-    "d2l-demo-template": "0.0.12 - 1",
-    "iron-test-helpers": "PolymerElements/iron-test-helpers#1 - 2",
+    "d2l-typography": "^6.0.0",
+    "iron-component-page": "1 - 2",
+    "iron-demo-helpers": "1 - 2",
+    "iron-test-helpers": "1 - 2",
     "web-component-tester": "6.0.1"
   },
   "variants": {
@@ -31,9 +33,16 @@
         "iron-media-query": "^1.0.8"
       },
       "devDependencies": {
-        "d2l-demo-template": "^0.0.12",
-        "iron-test-helpers": "PolymerElements/iron-test-helpers#^1.1.5"
+        "iron-component-page": "^1.1.9",
+        "iron-demo-helpers": "^1.2.6",
+        "iron-test-helpers": "^1.1.5"
+      },
+      "resolutions": {
+        "webcomponentsjs": "^0.7"
       }
     }
+  },
+  "resolutions": {
+    "webcomponentsjs": "^v1.0.0"
   }
 }
