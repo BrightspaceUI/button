@@ -45,7 +45,7 @@ var browsers = {
 };
 
 var mainlineEndpoint = 'http://localhost:8081/components/d2l-button';
-var xEndpoint = 'http://localhost:8000/components/d2l-button';
+var xEndpoint = 'http://localhost:8001/components/d2l-button';
 var buttonEndpoint = '/test/acceptance/button.html';
 var buttonSpec = 'test/acceptance/button.gspec';
 var floatingButtonsEndpoint = '/test/acceptance/floating-buttons.html';
