@@ -93,16 +93,28 @@ Polymer-based web component for floating workflow buttons
 			is: 'd2l-floating-buttons',
 
 			properties: {
+
+				/**
+				 * Whether always enable floating buttons. Note: by default, buttons may not float depending on
+				 * space available since floating buttons may result in poor user experience when view-port is small
+				 * (ex. phones).
+				 */
 				alwaysFloat: {
 					reflectToAttribute: true,
 					type: Boolean
 				},
+
+				/**
+				 * Minimum height of view-port in order for buttons to float.
+				 */
 				minHeight: {
 					reflectToAttribute: true,
 					type: String,
 					value: '500px'
 				},
+
 				_viewportIsAtLeastMinHeight: Boolean
+
 			},
 
 			_container: null,
@@ -142,6 +154,9 @@ Polymer-based web component for floating workflow buttons
 				window.removeEventListener('scroll', this._reposition);
 			},
 
+			/**
+			 * Whether or not the buttons are floating.
+			 */
 			isFloating: function() {
 				return this._container.classList.contains('d2l-floating-buttons-floating');
 			},

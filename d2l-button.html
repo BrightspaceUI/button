@@ -98,7 +98,12 @@ Polymer-based web component for buttons
 	<script>
 		Polymer({
 			is: 'd2l-button',
-			behaviors: [window.D2L.PolymerBehaviors.Button.Behavior],
+
+			behaviors: [D2L.PolymerBehaviors.Button.Behavior],
+
+			/**
+			 * Applies focus to underlying button element.
+			 */
 			focus: function() {
 				Polymer.dom(this.root).querySelector('button').focus();
 			}
