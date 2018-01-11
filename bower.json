@@ -15,7 +15,7 @@
     "wct.conf.json"
   ],
   "dependencies": {
-    "d2l-colors": "2.4.0 - 3",
+    "d2l-colors": "^3.1.2",
     "polymer": "1 - 2",
     "iron-media-query": "1 - 2"
   },
@@ -27,7 +27,6 @@
   "variants": {
     "1.x": {
       "dependencies": {
-        "d2l-colors": "^2.4.0",
         "polymer": "^1.9.0",
         "iron-media-query": "^1.0.8"
       },
