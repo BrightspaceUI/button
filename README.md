@@ -36,7 +36,17 @@ The `<d2l-button>` element can be used just like the native `button` element, bu
 <custom-element-demo>
   <template>
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../d2l-typography/d2l-typography.html">
     <link rel="import" href="d2l-button.html">
+    <custom-style include="d2l-typography">
+      <style is="custom-style" include="d2l-typography"></style>
+    </custom-style>
+    <style>
+      html {
+        font-size: 20px;
+        font-family: 'Lato', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+      }
+    </style>
     <next-code-block></next-code-block>
   </template>
 </custom-element-demo>
