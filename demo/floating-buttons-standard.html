@@ -34,7 +34,6 @@
 		<d2l-button onclick="appendFloatingButtons();">Append Floating Buttons</d2l-button>
 		<d2l-button onclick="appendButton();">Append New Button</d2l-button>
 		<d2l-button onclick="removeButton();">Remove Last Button</d2l-button>
-		<d2l-button onclick="changeButtonText();">Change Button Text</d2l-button>
 		<d2l-button onclick="insertContentAbove();">Insert Content</d2l-button>
 		<d2l-button onclick="removeContentAbove();">Remove Content</d2l-button>
 
@@ -63,13 +62,6 @@
 				var floatingButtons = document.getElementById('wc_buttons');
 				page_floatingButtons = floatingButtons;
 				floatingButtons.parentNode.removeChild(floatingButtons);
-			}
-
-			function changeButtonText() {
-				var buttons = document.querySelectorAll('#wc_buttons button');
-				for(var i=0; i<buttons.length; i++) {
-					buttons[i].textContent = 'Powdered Toastman';
-				}
 			}
 
 			function appendButton() {
