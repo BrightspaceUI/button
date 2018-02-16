@@ -3,13 +3,14 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
-		<title>d2l-floating-buttons - d2l-buttons demo</title>
+		<title>d2l-floating-buttons - standard buttons demo</title>
 		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 		<link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
 		<link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
 		<link rel="import" href="../../d2l-typography/d2l-typography.html">
 		<link rel="import" href="../d2l-button.html">
 		<link rel="import" href="../d2l-floating-buttons.html">
+		<link rel="stylesheet" type="text/css" href="../test/acceptance/button.css">
 		<custom-style>
 			<style is="custom-style" include="demo-pages-shared-styles"></style>
 		</custom-style>
@@ -42,8 +43,8 @@
 					<p>I love beer!</p>
 				</div>
 				<d2l-floating-buttons id="wc_buttons">
-					<d2l-button onclick="makeMoreBeer();">Make more Beer!</d2l-button>
-					<d2l-button onclick="makeMoreBeer();">Make more Beer!</d2l-button>
+					<button class="sass-mixin-button d2l-button" onclick="makeMoreBeer();">Make more Beer! (standard button)</button>
+					<button class="sass-mixin-button d2l-button" onclick="makeMoreBeer();">Make more Beer! (standard button)</button>
 				</d2l-floating-buttons>
 			</template>
 		</demo-snippet>
@@ -68,7 +69,7 @@
 
 				page_buttonCount += 1;
 
-				var newButton = document.createElement('d2l-button');
+				var newButton = document.createElement('button');
 				newButton.textContent = 'Beer ' + page_buttonCount;
 				newButton.addEventListener('click', function() {
 					console.log('you clicked ' + this.textContent);
