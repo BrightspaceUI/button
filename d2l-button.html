@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../d2l-colors/d2l-colors.html">
+<link rel="import" href="../d2l-polymer-behaviors/d2l-focusable-behavior.html">
 <link rel="import" href="d2l-button-shared-styles.html">
 <link rel="import" href="d2l-button-behavior.html">
 
@@ -83,6 +84,7 @@ Polymer-based web component for buttons
 			}
 		</style>
 		<button
+			class="d2l-focusable"
 			disabled$=[[disabled]]
 			autofocus$=[[autofocus]]
 			form$=[[form]]
@@ -99,14 +101,11 @@ Polymer-based web component for buttons
 		Polymer({
 			is: 'd2l-button',
 
-			behaviors: [D2L.PolymerBehaviors.Button.Behavior],
+			behaviors: [
+				D2L.PolymerBehaviors.Button.Behavior,
+				D2L.PolymerBehaviors.FocusableBehavior
+			]
 
-			/**
-			 * Applies focus to underlying button element.
-			 */
-			focus: function() {
-				Polymer.dom(this.root).querySelector('button').focus();
-			}
 		});
 	</script>
 </dom-module>
