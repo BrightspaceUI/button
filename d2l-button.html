@@ -16,6 +16,9 @@ Polymer-based web component for buttons
 		<style>
 			:host {
 				display: inline-block;
+				--d2l-button-base-background-color: var(--d2l-color-sylvite);
+				--d2l-button-base-border-color: var(--d2l-color-mica);
+				--d2l-button-base-color: var(--d2l-color-ferrite);
 			}
 			button {
 				border-width: 1px;
@@ -51,9 +54,9 @@ Polymer-based web component for buttons
 				border: 0;
 			}
 			button, button[disabled]:hover, button[disabled]:focus {
-				background-color: var(--d2l-color-sylvite);
-				border-color: var(--d2l-color-mica);
-				color: var(--d2l-color-ferrite);
+				background-color: var(--d2l-button-base-background-color);
+				border-color: var(--d2l-button-base-border-color);
+				color: var(--d2l-button-base-color);
 			}
 
 			button:hover, :host(.d2l-button-hover) button {
