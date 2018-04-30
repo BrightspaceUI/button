@@ -1,0 +1,132 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../d2l-colors/d2l-colors.html">
+<link rel="import" href="../d2l-icons/d2l-icons.html">
+<link rel="import" href="../d2l-polymer-behaviors/d2l-focusable-behavior.html">
+<link rel="import" href="d2l-button-shared-styles.html">
+<link rel="import" href="d2l-button-behavior.html">
+
+<!--
+`d2l-button-subtle`
+Polymer-based web component for buttons
+
+@demo demo/button-subtle.html d2l-button-subtle
+-->
+
+<dom-module id="d2l-button-subtle">
+	<template strip-whitespace>
+		<style>
+			:host {
+				display: inline-block;
+			}
+			button {
+				background-color: transparent;
+				border: none;
+				box-sizing: border-box;
+				cursor: pointer;
+				display: inline-block;
+				font-family: inherit;
+				font-size: inherit;
+				letter-spacing: 0.02rem;
+				line-height: 1rem;
+				margin: 0;
+				min-height: -webkit-calc(2rem + 2px);
+				min-height: calc(2rem + 2px);
+				padding-left: 0.6rem;
+				padding-right: 0.6rem;
+				text-align: center;
+				transition: box-shadow 0.2s;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				vertical-align: middle;
+				white-space: nowrap;
+				width: auto;
+			}
+
+			/* Firefox includes a hidden border which messes up button dimensions */
+			button::-moz-focus-inner {
+				border: 0;
+			}
+
+			button:hover,
+			button:focus,
+			:host(.d2l-button-hover) button,
+			:host(.d2l-button-focus) button {
+				background-color: var(--d2l-color-sylvite);
+				border-radius: 0.3rem;
+				margin: 0;
+			}
+			.d2l-button-subtle-content {
+				color: var(--d2l-color-celestine);
+				text-transform: uppercase;
+				transition: color 0.3s ease;
+				vertical-align: middle;
+					@apply --d2l-label-text;
+			}
+			.d2l-button-subtle-icon {
+				color: var(--d2l-color-celestine);
+				height: 18px;
+				padding-right: 0.3rem;
+				transition: color 0.3s ease;
+				width: 18px;
+			}
+			.d2l-button-subtle-icon[hidden] {
+				display: none;
+			}
+			/* Polymer 2: shady DOM */
+			.d2l-button-subtle-icon:dir(rtl) {
+				padding-right: 0;
+				padding-left: 0.3rem;
+			}
+			/* Polymer 1: shady/shadow DOM, Polymer 2: shadow DOM */
+			:host-context([dir="rtl"]) .d2l-button-subtle-icon {
+				padding-right: 0;
+				padding-left: 0.5rem;
+			}
+			button[disabled] {
+				cursor: default;
+				opacity: 0.4;
+			}
+		</style>
+		<button
+			class="d2l-focusable"
+			disabled$=[[disabled]]
+			autofocus$=[[autofocus]]
+			form$=[[form]]
+			formaction$=[[formaction]]
+			formenctype$=[[formenctype]]
+			formmethod$=[[formmethod]]
+			formnovalidate$=[[formnovalidate]]
+			formtarget$=[[formtarget]]
+			name$=[[name]]
+			type$=[[type]]>
+			<d2l-icon hidden="[[!icon]]" icon="[[icon]]" class="d2l-button-subtle-icon"></d2l-icon>
+			<span class="d2l-button-subtle-content"><slot></slot></span>
+		</button>
+	</template>
+	<script>
+		Polymer({
+			is: 'd2l-button-subtle',
+
+			properties: {
+
+				/**
+				 * Name of icon (ex. [iconset-name:icon-id]) for underlying [Polymer iron-iconset-svg](https://github.com/PolymerElements/iron-iconset-svg).
+				 */
+				icon: {
+					reflectToAttribute: true,
+					type: String,
+					value: ''
+				}
+
+			},
+
+			behaviors: [
+				D2L.PolymerBehaviors.Button.Behavior,
+				D2L.PolymerBehaviors.FocusableBehavior
+			]
+
+		});
+	</script>
+</dom-module>
