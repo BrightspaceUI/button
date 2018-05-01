@@ -21,27 +21,11 @@ Polymer-based web component for buttons
 			button {
 				background-color: transparent;
 				border: none;
-				box-sizing: border-box;
-				cursor: pointer;
-				display: inline-block;
 				font-family: inherit;
-				font-size: inherit;
-				letter-spacing: 0.02rem;
-				line-height: 1rem;
-				margin: 0;
-				min-height: -webkit-calc(2rem + 2px);
-				min-height: calc(2rem + 2px);
 				padding-left: 0.6rem;
 				padding-right: 0.6rem;
-				text-align: center;
-				transition: box-shadow 0.2s;
-				-webkit-user-select: none;
-				-moz-user-select: none;
-				-ms-user-select: none;
-				user-select: none;
-				vertical-align: middle;
-				white-space: nowrap;
-				width: auto;
+				@apply --d2l-button-clear-focus;
+				@apply --d2l-button-shared;
 			}
 
 			/* Firefox includes a hidden border which messes up button dimensions */
@@ -53,16 +37,23 @@ Polymer-based web component for buttons
 			button:focus,
 			:host(.d2l-button-hover) button,
 			:host(.d2l-button-focus) button {
-				background-color: var(--d2l-color-sylvite);
-				border-radius: 0.3rem;
-				margin: 0;
+				background-color: var(--d2l-color-gypsum);
+			}
+			button:focus, :host(.d2l-button-focus) button {
+				@apply --d2l-standard-button-focus;
+			}
+			button[disabled]:hover,
+			button[disabled]:focus,
+			:host(.d2l-button-hover) button[disabled],
+			:host(.d2l-button-focus) button[disabled] {
+				background-color: transparent;
 			}
 			.d2l-button-subtle-content {
 				color: var(--d2l-color-celestine);
 				text-transform: uppercase;
 				transition: color 0.3s ease;
 				vertical-align: middle;
-					@apply --d2l-label-text;
+				@apply --d2l-label-text;
 			}
 			.d2l-button-subtle-icon {
 				color: var(--d2l-color-celestine);
@@ -102,7 +93,7 @@ Polymer-based web component for buttons
 			name$=[[name]]
 			type$=[[type]]>
 			<d2l-icon hidden="[[!icon]]" icon="[[icon]]" class="d2l-button-subtle-icon"></d2l-icon>
-			<span class="d2l-button-subtle-content"><slot></slot></span>
+			<span class="d2l-button-subtle-content">[[text]]</span>
 		</button>
 	</template>
 	<script>
@@ -118,6 +109,11 @@ Polymer-based web component for buttons
 					reflectToAttribute: true,
 					type: String,
 					value: ''
+				},
+
+				text: {
+					reflectToAttribute: true,
+					type: String
 				}
 
 			},
