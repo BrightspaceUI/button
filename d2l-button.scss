@@ -1,4 +1,5 @@
 @import 'bower_components/d2l-colors/d2l-colors.scss';
+@import 'bower_components/d2l-typography/d2l-typography.scss';
 
 @mixin _d2l-button-clear-focus() {
 	box-shadow: 0 0 0 4px rgba(0, 0, 0, 0);
@@ -13,24 +14,19 @@
 	box-shadow: 0 0 0 4px rgba(0, 111, 191, 0.3);
 }
 
-@mixin d2l-button() {
-	border-width: 1px;
-	border-style: solid;
+@mixin __d2l-standard-button-focus() {
+	box-shadow: 0 0 0 4px rgba(0,111,191,.4);
+}
+
+@mixin _d2l-button-shared() {
 	border-radius: 0.3rem;
-	@include _d2l-button-clear-focus();
 	box-sizing: border-box;
 	cursor: pointer;
 	display: inline-block;
-	font-family: inherit;
-	font-size: 0.7rem;
-	font-weight: 700;
-	letter-spacing: 0.02rem;
-	line-height: 1rem;
 	margin: 0;
 	min-height: -webkit-calc(2rem + 2px);
 	min-height: calc(2rem + 2px);
 	outline: none;
-	padding: 0.5rem 1.5rem;
 	text-align: center;
 	transition: box-shadow 0.2s;
 	-webkit-user-select: none;
@@ -40,6 +36,65 @@
 	vertical-align: middle;
 	white-space: nowrap;
 	width: auto;
+}
+
+@mixin d2l-button-subtle() {
+	@include _d2l-button-shared();
+	background-color: transparent;
+	border: none;
+	@include _d2l-button-clear-focus();
+	font-family: inherit;
+	padding: 0 0.6rem;
+	&::-moz-focus-inner {
+		border: 0;
+	}
+	&[disabled]:hover, &[disabled]:focus {
+		background-color: transparent;
+	}
+	&:hover, &:focus {
+		background-color: $d2l-color-gypsum;
+	}
+	&:focus {
+		@include _d2l-standard-button-focus();
+	}
+	& .d2l-button-subtle-content {
+		color: $d2l-color-celestine;
+		text-transform: uppercase;
+		transition: color 0.3s ease;
+		vertical-align: middle;
+		@include d2l-label-text();
+	}
+	& .d2l-button-subtle-icon {
+		color: $d2l-color-celestine;
+		height: 0.9rem;
+		padding-right: 0.3rem;
+		transition: color 0.3s ease;
+		width: 0.9rem;
+	}
+	& .d2l-button-subtle-icon[hidden] {
+		display: none;
+	}
+	[dir="rtl"] & .d2l-button-subtle-icon {
+		padding-left: 0.3rem;
+		padding-right: 0;
+	}
+	&[disabled] {
+		cursor: default;
+		opacity: 0.4;
+	}
+}
+
+@mixin d2l-button() {
+	@include _d2l-button-shared();
+	border-width: 1px;
+	border-style: solid;
+	@include _d2l-button-clear-focus();
+	font-family: inherit;
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.02rem;
+	line-height: 1rem;
+	padding: 0.5rem 1.5rem;
 	&::-moz-focus-inner {
 		border: 0;
 	}
