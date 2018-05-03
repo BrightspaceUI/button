@@ -148,6 +148,6 @@
 		height 42px
 	&button-disabled:
 		css cursor is "default"
-		css opacity is "0.4"
+		css opacity is "0.5"
 		width 232 to 336 px
 		height 42px
