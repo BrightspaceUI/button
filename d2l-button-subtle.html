@@ -105,13 +105,17 @@ Polymer-based web component for buttons
 				 */
 				icon: {
 					type: String,
-					value: null
+					value: null,
+					reflectToAttribute: true
 				},
 
 				/**
 				 * Text to display in the button (required)
 				 */
-				text: String
+				text: {
+					type: String,
+					reflectToAttribute: true
+				}
 
 			},
 
