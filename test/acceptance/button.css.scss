@@ -3,3 +3,7 @@
 .sass-mixin-button {
 	@include d2l-button();
 }
+
+.sass-mixin-button-subtle {
+	@include d2l-button-subtle();
+}

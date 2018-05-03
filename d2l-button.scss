@@ -14,7 +14,7 @@
 	box-shadow: 0 0 0 4px rgba(0, 111, 191, 0.3);
 }
 
-@mixin __d2l-standard-button-focus() {
+@mixin _d2l-standard-button-focus() {
 	box-shadow: 0 0 0 4px rgba(0,111,191,.4);
 }
 
@@ -42,39 +42,31 @@
 	@include _d2l-button-shared();
 	background-color: transparent;
 	border: none;
+	color: $d2l-color-celestine;
 	@include _d2l-button-clear-focus();
 	font-family: inherit;
 	padding: 0 0.6rem;
+	text-transform: uppercase;
+	@include d2l-label-text();
 	&::-moz-focus-inner {
 		border: 0;
 	}
 	&[disabled]:hover, &[disabled]:focus {
 		background-color: transparent;
 	}
-	&:hover, &:focus {
+	&:hover, &:focus, &.d2l-button-subtle-hover, &.d2l-button-subtle-focus {
 		background-color: $d2l-color-gypsum;
 	}
-	&:focus {
+	&:focus, &.d2l-button-subtle-focus {
 		@include _d2l-standard-button-focus();
 	}
-	& .d2l-button-subtle-content {
-		color: $d2l-color-celestine;
-		text-transform: uppercase;
-		transition: color 0.3s ease;
-		vertical-align: middle;
-		@include d2l-label-text();
-	}
-	& .d2l-button-subtle-icon {
+	& d2l-icon {
 		color: $d2l-color-celestine;
 		height: 0.9rem;
 		padding-right: 0.3rem;
-		transition: color 0.3s ease;
 		width: 0.9rem;
 	}
-	& .d2l-button-subtle-icon[hidden] {
-		display: none;
-	}
-	[dir="rtl"] & .d2l-button-subtle-icon {
+	[dir="rtl"] & d2l-icon {
 		padding-left: 0.3rem;
 		padding-right: 0;
 	}

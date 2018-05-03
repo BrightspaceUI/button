@@ -1,7 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../d2l-colors/d2l-colors.html">
-<link rel="import" href="../d2l-icons/d2l-icon.html">
-<link rel="import" href="../d2l-icons/tier1-icons.html">
+<link rel="import" href="../d2l-icons/d2l-icons.html">
 <link rel="import" href="../d2l-polymer-behaviors/d2l-focusable-behavior.html">
 <link rel="import" href="../d2l-typography/d2l-typography.html">
 <link rel="import" href="d2l-button-shared-styles.html">
@@ -33,13 +32,20 @@ Polymer-based web component for buttons
 			button::-moz-focus-inner {
 				border: 0;
 			}
-			button[disabled]:hover, button[disabled]:focus {
+			button[disabled]:hover,
+			button[disabled]:focus,
+			:host(.d2l-button-subtle-hover) button,
+			:host(.d2l-button-subtle-focus) button {
 				background-color: transparent;
 			}
-			button:hover, button:focus {
+			button:hover,
+			button:focus,
+			:host(.d2l-button-subtle-hover) button,
+			:host(.d2l-button-subtle-focus) button {
 				background-color: var(--d2l-color-gypsum);
 			}
-			button:focus {
+			button:focus,
+			:host(.d2l-button-subtle-focus) button {
 				@apply --d2l-standard-button-focus;
 			}
 			.d2l-button-subtle-content {
@@ -84,7 +90,7 @@ Polymer-based web component for buttons
 			formtarget$=[[formtarget]]
 			name$=[[name]]
 			type$=[[type]]>
-			<d2l-icon hidden="[[!icon]]" icon="[[icon]]" class="d2l-button-subtle-icon"></d2l-icon>
+			<d2l-icon hidden=[[!icon]] icon=[[icon]] class="d2l-button-subtle-icon"></d2l-icon>
 			<span class="d2l-button-subtle-content">[[text]]</span>
 		</button>
 	</template>
@@ -95,21 +101,17 @@ Polymer-based web component for buttons
 			properties: {
 
 				/**
-				 * Name of icon (ex. [iconset-name:icon-id]) for underlying [Polymer iron-iconset-svg](https://github.com/PolymerElements/iron-iconset-svg).
+				 * Name of icon (ex. [iconset-name:icon-id]) for underlying [Polymer iron-iconset-svg](https://github.com/PolymerElements/iron-iconset-svg) (optional).
 				 */
 				icon: {
-					reflectToAttribute: true,
 					type: String,
-					value: ''
+					value: null
 				},
 
 				/**
-				 * Text to display in the button
+				 * Text to display in the button (required)
 				 */
-				text: {
-					reflectToAttribute: true,
-					type: String
-				}
+				text: String
 
 			},
 

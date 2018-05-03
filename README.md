@@ -70,6 +70,47 @@ As an alternative to the web component, a Sass mixin can be used to apply button
 
 The `primary` and `disabled` attributes work the same way as they do with the web component.
 
+### Subtle Button
+
+The subtle button includes text with an optional icon, and can be added by using the `<d2l-button-subtle>` custom element. It should be used with advanced or de-emphasized actions.
+
+<!---
+```
+<custom-element-demo>
+  <template>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../d2l-typography/d2l-typography.html">
+    <link rel="import" href="d2l-button-subtle.html">
+    <custom-style include="d2l-typography">
+      <style is="custom-style" include="d2l-typography"></style>
+    </custom-style>
+    <style>
+      html {
+        font-size: 20px;
+        font-family: 'Lato', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+      }
+    </style>
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
+```html
+<d2l-button-subtle text="Subtle Button"></d2l-button-subtle>
+<d2l-button-subtle icon="d2l-tier1:bookmark-hollow" text="Subtle Button with Icon"></d2l-button-subtle>
+<d2l-button-subtle icon="d2l-tier1:gear" text="Disabled Button" disabled></d2l-button-subtle>
+```
+
+As an alternative to the web component, a Sass mixin can be used to apply button styles to your button elements:
+
+```sass
+@import 'bower_components/d2l-button/d2l-button.scss';
+
+.my-button {
+	@include d2l-button-subtle();
+}
+```
+
 ### Floating Workflow Buttons
 
 Floating workflow buttons behavior can be added by using the `<d2l-floating-buttons>` custom element.  When the normal position of the workflow buttons is below the bottom edge of the view-port, they'll dock at the bottom edge.  When the normal position becomes visible, they'll undock.
