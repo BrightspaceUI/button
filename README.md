@@ -72,7 +72,14 @@ The `primary` and `disabled` attributes work the same way as they do with the we
 
 ### Subtle Button
 
-The subtle button includes text with an optional icon, and can be added by using the `<d2l-button-subtle>` custom element. It should be used with advanced or de-emphasized actions.
+```html
+<head>
+	<script src="../webcomponentsjs/webcomponents-lite.js"></script>
+	<link rel="import" href="../d2l-button/d2l-button-subtle.html">
+</head>
+```
+
+The subtle button shows text with an optional icon, and can be added by using the `<d2l-button-subtle>` custom element. It should be used for advanced or de-emphasized actions.
 
 <!---
 ```
@@ -109,6 +116,14 @@ As an alternative to the web component, a Sass mixin can be used to apply button
 .my-button {
 	@include d2l-button-subtle();
 }
+```
+
+Usage is slightly different in that the text and icon attributes are not used, and instead their content is added within the button. For example:
+```html
+<button class="my-button">
+	<d2l-icon icon="d2l-tier1:gear"></d2l-icon>
+	Subtle Button with icon
+</button>
 ```
 
 ### Floating Workflow Buttons

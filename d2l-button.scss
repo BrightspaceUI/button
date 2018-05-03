@@ -15,7 +15,7 @@
 }
 
 @mixin _d2l-standard-button-focus() {
-	box-shadow: 0 0 0 4px rgba(0,111,191,.4);
+	box-shadow: 0 0 0 4px rgba(0, 111, 191, 0.4);
 }
 
 @mixin _d2l-button-shared() {
@@ -72,7 +72,7 @@
 	}
 	&[disabled] {
 		cursor: default;
-		opacity: 0.4;
+		opacity: 0.5;
 	}
 }
 
