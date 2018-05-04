@@ -102,7 +102,7 @@
 		width 24px
 	&button:
 		css background-color matches ${transparent}
-		css border-radius is "6px"
+		css border-radius matches "6px|0.3rem"
 		css border-top-style is "none"
 		css border-top-width is "0px"
 		css cursor is "pointer"
@@ -122,7 +122,7 @@
 		css border-radius is "6px"
 		css border-top-style is "none"
 		css border-top-width is "0px"
-		css box-shadow contains "rgba(0, 0, 0, 0)"
+		css box-shadow matches ".*rgba\\(0, 0, 0, 0\\).*|.*rgba\\(0,0,0,0\\).*"
 		css cursor is "pointer"
 		css font-size is "14px"
 		css font-weight matches "bold|700"
@@ -140,7 +140,7 @@
 		css border-radius is "6px"
 		css border-top-style is "none"
 		css border-top-width is "0px"
-		css box-shadow contains "rgba(0, 111, 191, 0.4)"
+		css box-shadow matches ".*rgba\\(0, 111, 191, 0.4\\).*|.*rgba\\(0,111,191,0.4\\).*"
 		css box-shadow contains "0px 0px 0px 4px"
 		css cursor is "pointer"
 		css font-size is "14px"
