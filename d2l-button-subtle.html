@@ -21,7 +21,7 @@ Polymer-based web component for subtle buttons
 			}
 			button {
 				background-color: transparent;
-				border: none;
+				border-style: none;
 				font-family: inherit;
 				padding: 0 0.6rem;
 				@apply --d2l-label-text;
@@ -51,10 +51,10 @@ Polymer-based web component for subtle buttons
 				transition: color 0.3s ease;
 				vertical-align: middle;
 			}
-			d2l-icon.d2l-button-subtle-icon {
+			.d2l-button-subtle-icon {
 				color: var(--d2l-color-celestine);
 				height: 0.9rem;
-				padding-right: 0.3rem;
+				margin-right: 0.3rem;
 				transition: color 0.3s ease;
 				width: 0.9rem;
 			}
@@ -62,12 +62,12 @@ Polymer-based web component for subtle buttons
 				display: none;
 			}
 			:host-context([dir="rtl"]) .d2l-button-subtle-icon {
-				padding-left: 0.3rem;
-				padding-right: 0;
+				margin-left: 0.3rem;
+				margin-right: 0;
 			}
 			:host(:dir(rtl)) .d2l-button-subtle-icon {
-				padding-left: 0.3rem;
-				padding-right: 0;
+				margin-left: 0.3rem;
+				margin-right: 0;
 			}
 			button[disabled] {
 				cursor: default;

@@ -63,12 +63,12 @@
 	& d2l-icon {
 		color: $d2l-color-celestine;
 		height: 0.9rem;
-		padding-right: 0.3rem;
+		margin-right: 0.3rem;
 		width: 0.9rem;
 	}
 	[dir="rtl"] & d2l-icon {
-		padding-left: 0.3rem;
-		padding-right: 0;
+		margin-left: 0.3rem;
+		margin-right: 0;
 	}
 	&[disabled] {
 		cursor: default;

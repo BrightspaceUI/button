@@ -85,7 +85,7 @@
 @set
 	celestine "#006fbf|rgba\\(0, 111, 191, 1\\)|rgb\\(0, 111, 191\\)"
 	gypsum "#e6eaf0|rgba\\(230, 234, 240, 1\\)|rgb\\(230, 234, 240\\)"
-	transparent "rgba\\(0, 0, 0, 0\\)"
+	transparent "transparent|rgba\\(0, 0, 0, 0\\)"
 
 = Subtle Buttons =
 	&text:
@@ -96,12 +96,11 @@
 		absent
 	&icon:
 		css color matches ${celestine}
-		css padding-right is "6px"
+		css margin-right matches "6px|0.3rem"
 		css vertical-align is "middle"
 		height 18px
-		width 24px
-	&button:
-		css background-color matches ${transparent}
+		width 18px
+	&button, &button-hover, &button-focus:
 		css border-radius matches "6px|0.3rem"
 		css border-top-style is "none"
 		css border-top-width is "0px"
@@ -110,50 +109,26 @@
 		css font-weight matches "bold|700"
 		css letter-spacing matches "0\\.2[0-9]*px"
 		css line-height is "20px"
-		css margin is "0px"
 		css padding-top is "0px"
 		css padding-right is "12px"
 		css text-align is "center"
 		css vertical-align is "middle"
-		width 145px
 		height 42px
+	&button:
+		css background-color matches ${transparent}
+		width 145px
+	&button-hover, &button-focus:
+		css background-color matches ${gypsum}
+	&button-hover:
+		css box-shadow matches ".*rgba\\(0, 0, 0, 0\\).*|.*rgba\\(0,0,0,0\\).*"
+		width 209 to 314 px
 	&button-hover:
 		css background-color matches ${gypsum}
-		css border-radius is "6px"
-		css border-top-style is "none"
-		css border-top-width is "0px"
-		css box-shadow matches ".*rgba\\(0, 0, 0, 0\\).*|.*rgba\\(0,0,0,0\\).*"
-		css cursor is "pointer"
-		css font-size is "14px"
-		css font-weight matches "bold|700"
-		css letter-spacing matches "0\\.2[0-9]*px"
-		css line-height is "20px"
-		css margin is "0px"
-		css padding-top is "0px"
-		css padding-right is "12px"
-		css text-align is "center"
-		css vertical-align is "middle"
-		width 209 to 314 px
 		height 42px
 	&button-focus:
-		css background-color matches ${gypsum}
-		css border-radius is "6px"
-		css border-top-style is "none"
-		css border-top-width is "0px"
 		css box-shadow matches ".*rgba\\(0, 111, 191, 0.4\\).*|.*rgba\\(0,111,191,0.4\\).*"
 		css box-shadow contains "0px 0px 0px 4px"
-		css cursor is "pointer"
-		css font-size is "14px"
-		css font-weight matches "bold|700"
-		css letter-spacing matches "0\\.2[0-9]*px"
-		css line-height is "20px"
-		css margin is "0px"
-		css padding-top is "0px"
-		css padding-right is "12px"
-		css text-align is "center"
-		css vertical-align is "middle"
 		width 208 to 313 px
-		height 42px
 	&button-disabled:
 		css cursor is "default"
 		css opacity is "0.5"
