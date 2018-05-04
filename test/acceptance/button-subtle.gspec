@@ -90,10 +90,6 @@
 = Subtle Buttons =
 	&text:
 		css color matches ${celestine}
-		css line-height is "20px"
-		css font-size is "14px"
-		css font-weight matches "bold|700"
-		css letter-spacing matches "0\\.2[0-9]*px"
 		css text-transform matches "uppercase"
 		css vertical-align is "middle"
 	&icon-hidden:
@@ -110,6 +106,10 @@
 		css border-top-style is "none"
 		css border-top-width is "0px"
 		css cursor is "pointer"
+		css font-size is "14px"
+		css font-weight matches "bold|700"
+		css letter-spacing matches "0\\.2[0-9]*px"
+		css line-height is "20px"
 		css margin is "0px"
 		css padding-top is "0px"
 		css padding-right is "12px"
@@ -124,6 +124,10 @@
 		css border-top-width is "0px"
 		css box-shadow contains "rgba(0, 0, 0, 0)"
 		css cursor is "pointer"
+		css font-size is "14px"
+		css font-weight matches "bold|700"
+		css letter-spacing matches "0\\.2[0-9]*px"
+		css line-height is "20px"
 		css margin is "0px"
 		css padding-top is "0px"
 		css padding-right is "12px"
@@ -139,6 +143,10 @@
 		css box-shadow contains "rgba(0, 111, 191, 0.4)"
 		css box-shadow contains "0px 0px 0px 4px"
 		css cursor is "pointer"
+		css font-size is "14px"
+		css font-weight matches "bold|700"
+		css letter-spacing matches "0\\.2[0-9]*px"
+		css line-height is "20px"
 		css margin is "0px"
 		css padding-top is "0px"
 		css padding-right is "12px"
