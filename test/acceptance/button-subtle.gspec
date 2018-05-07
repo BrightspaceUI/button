@@ -101,7 +101,7 @@
 		height 18px
 		width 18px
 	&button, &button-hover, &button-focus:
-		css border-radius matches "6px|0.3rem"
+		css border-top-right-radius is "6px"
 		css border-top-style is "none"
 		css border-top-width is "0px"
 		css cursor is "pointer"
