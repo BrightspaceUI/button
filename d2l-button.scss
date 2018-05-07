@@ -41,7 +41,7 @@
 @mixin d2l-button-subtle() {
 	@include _d2l-button-shared();
 	background-color: transparent;
-	border: none;
+	border-style: none;
 	color: $d2l-color-celestine;
 	@include _d2l-button-clear-focus();
 	font-family: inherit;
