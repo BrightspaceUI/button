@@ -56,7 +56,7 @@
 	ferrite "#565a5c|rgba\\(86, 90, 92, 1\\)|rgb\\(86, 90, 92\\)"
 	transparent "transparent|rgba\\(0, 0, 0, 0\\)"
 
-= Subtle Buttons =
+= Icon Buttons =
 	&icon:
 		css color matches ${ferrite}
 		css padding is "0px"
