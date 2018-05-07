@@ -1,0 +1,105 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../d2l-colors/d2l-colors.html">
+<link rel="import" href="../d2l-icons/d2l-icons.html">
+<link rel="import" href="../d2l-offscreen/d2l-offscreen.html">
+<link rel="import" href="../d2l-polymer-behaviors/d2l-focusable-behavior.html">
+<link rel="import" href="d2l-button-shared-styles.html">
+<link rel="import" href="d2l-button-behavior.html">
+
+<!--
+`d2l-button-icon`
+Polymer-based web component for icon buttons
+
+@demo demo/button-icon.html d2l-button-icon
+-->
+
+<dom-module id="d2l-button-icon">
+	<template strip-whitespace>
+		<style>
+			:host {
+				display: inline-block;
+			}
+			button {
+				background-color: transparent;
+				border-style: none;
+				font-family: inherit;
+				min-width: -webkit-calc(2rem + 2px);
+				min-width: calc(2rem + 2px);
+				@apply --d2l-button-clear-focus;
+				@apply --d2l-button-shared;
+			}
+
+			/* Firefox includes a hidden border which messes up button dimensions */
+			button::-moz-focus-inner {
+				border: 0;
+			}
+			button[disabled]:hover, button[disabled]:focus {
+				background-color: transparent;
+			}
+			button:hover,
+			button:focus,
+			:host(.d2l-button-icon-hover) button,
+			:host(.d2l-button-icon-focus) button {
+				background-color: var(--d2l-color-gypsum);
+			}
+			button:focus, :host(.d2l-button-icon-focus) button {
+				@apply --d2l-standard-button-focus;
+			}
+			.d2l-button-icon {
+				height: 0.9rem;
+				width: 0.9rem;
+			}
+			button[disabled] {
+				cursor: default;
+				opacity: 0.5;
+			}
+		</style>
+		<button
+			class="d2l-focusable"
+			title=[[text]]
+			disabled$=[[disabled]]
+			autofocus$=[[autofocus]]
+			form$=[[form]]
+			formaction$=[[formaction]]
+			formenctype$=[[formenctype]]
+			formmethod$=[[formmethod]]
+			formnovalidate$=[[formnovalidate]]
+			formtarget$=[[formtarget]]
+			name$=[[name]]
+			type$=[[type]]>
+			<d2l-icon icon=[[icon]] class="d2l-button-icon"></d2l-icon>
+			<d2l-offscreen>[[text]]</d2l-offscreen>
+		</button>
+	</template>
+	<script>
+		Polymer({
+			is: 'd2l-button-icon',
+
+			properties: {
+
+				/**
+				 * Name of icon (ex. [iconset-name:icon-id]) for underlying [Polymer iron-iconset-svg](https://github.com/PolymerElements/iron-iconset-svg) (required).
+				 */
+				icon: {
+					type: String,
+					reflectToAttribute: true
+				},
+
+				/**
+				 * Text to display offscreen (required)
+				 */
+				text: {
+					type: String,
+					reflectToAttribute: true
+				}
+
+			},
+
+			behaviors: [
+				D2L.PolymerBehaviors.Button.Behavior,
+				D2L.PolymerBehaviors.FocusableBehavior
+			]
+
+		});
+	</script>
+</dom-module>

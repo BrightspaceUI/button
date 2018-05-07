@@ -126,6 +126,61 @@ Usage is slightly different in that the text and icon attributes are not used, a
 </button>
 ```
 
+### Icon Button
+
+```html
+<head>
+	<script src="../webcomponentsjs/webcomponents-lite.js"></script>
+	<link rel="import" href="../d2l-button/d2l-button-icon.html">
+</head>
+```
+
+The icon button shows an icon with offscreen text, and can be added by using the `<d2l-button-icon>` custom element. It should be used when icons perform a clickable action.
+
+<!---
+```
+<custom-element-demo>
+  <template>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../d2l-typography/d2l-typography.html">
+    <link rel="import" href="d2l-button-icon.html">
+    <custom-style include="d2l-typography">
+      <style is="custom-style" include="d2l-typography"></style>
+    </custom-style>
+    <style>
+      html {
+        font-size: 20px;
+        font-family: 'Lato', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+      }
+    </style>
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
+```html
+<d2l-button-icon icon="d2l-tier1:bookmark-hollow" text="Subtle Button with Icon"></d2l-button-icon>
+<d2l-button-icon icon="d2l-tier1:gear" text="Disabled Button" disabled></d2l-button-icon>
+```
+
+As an alternative to the web component, a Sass mixin can be used to apply button styles to your button elements:
+
+```sass
+@import 'bower_components/d2l-button/d2l-button.scss';
+
+.my-button-icon {
+	@include d2l-button-icon();
+}
+```
+
+Usage is slightly different in that the text and icon attributes are not used, and instead the icon is added within the button, and the offscreen text is added using a span element. For example:
+```html
+<button class="my-button-icon">
+	<d2l-icon icon="d2l-tier1:gear"></d2l-icon>
+	<span>Icon button</span>
+</button>
+```
+
 ### Floating Workflow Buttons
 
 Floating workflow buttons behavior can be added by using the `<d2l-floating-buttons>` custom element.  When the normal position of the workflow buttons is below the bottom edge of the view-port, they'll dock at the bottom edge.  When the normal position becomes visible, they'll undock.

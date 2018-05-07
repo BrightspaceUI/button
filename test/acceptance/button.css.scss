@@ -7,3 +7,7 @@
 .sass-mixin-button-subtle {
 	@include d2l-button-subtle();
 }
+
+.sass-mixin-button-icon {
+	@include d2l-button-icon();
+}

@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>d2l-button-icon basic tests</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+		<script src="../../web-component-tester/browser.js"></script>
+		<script src="../../iron-test-helpers/mock-interactions.js"></script>
+		<link rel="import" href="../d2l-button-icon.html">
+	</head>
+	<body>
+		<test-fixture id="IconButton">
+			<template>
+				<d2l-button-icon text="Icon Button" icon="test-icon"></d2l-button-icon>
+			</template>
+		</test-fixture>
+		<script>
+		describe('<d2l-button-icon>', function() {
+
+			var button;
+
+			describe('icon button', function() {
+
+				beforeEach(function() {
+					button = fixture('IconButton');
+				});
+
+				it('should execute onclick when clicked', function(done) {
+					button.addEventListener('click', function() {
+						done();
+					});
+					MockInteractions.tap(button.$$('button'));
+				});
+
+				it('should have text and icon', function() {
+					expect(button.text).to.equal('Icon Button');
+					expect(button.icon).to.equal('test-icon');
+				});
+
+				it('should reflect text attribute to property', function() {
+					button.setAttribute('text', 'new button text');
+					expect(button.text).to.equal('new button text');
+				});
+
+				it('should reflect icon attribute to property', function() {
+					button.setAttribute('icon', 'test-icon');
+					expect(button.icon).to.equal('test-icon');
+				});
+
+				it('should reflect icon property when attribute is removed', function() {
+					button.removeAttribute('icon');
+					expect(button.icon).to.be.null;
+				});
+
+				it('should remove icon attribute when property is null', function() {
+					button.icon = null;
+					expect(button.hasAttribute('icon')).to.be.false;
+				});
+
+				it('should modify icon attribute when property is given a value', function() {
+					button.icon = 'test-icon2';
+					expect(button.hasAttribute('icon')).to.be.true;
+					expect(button.icon).to.equal('test-icon2');
+				});
+
+				it('should reflect text property when attribute is removed', function() {
+					button.removeAttribute('text');
+					expect(button.text).to.be.null;
+				});
+
+				it('should remove text attribute when property is null', function() {
+					button.text = null;
+					expect(button.hasAttribute('text')).to.be.false;
+				});
+			});
+		});
+		</script>
+	</body>
+</html>

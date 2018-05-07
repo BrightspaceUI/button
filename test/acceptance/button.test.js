@@ -50,6 +50,8 @@ var buttonEndpoint = '/test/acceptance/button.html';
 var buttonSpec = 'test/acceptance/button.gspec';
 var buttonSubtleEndpoint = '/test/acceptance/button-subtle.html';
 var buttonSubtleSpec = 'test/acceptance/button-subtle.gspec';
+var buttonIconEndpoint = '/test/acceptance/button-icon.html';
+var buttonIconSpec = 'test/acceptance/button-icon.gspec';
 var floatingButtonsEndpoint = '/test/acceptance/floating-buttons.html';
 var floatingButtonsSpec = 'test/acceptance/floating-buttons.gspec';
 
@@ -84,6 +86,20 @@ polymerTests(browsers, function(test) {
 			tags: ['desktop']
 		});
 
+		test(name + '-button-icon', {
+			endpoint: baseEndpoint + buttonIconEndpoint + '?wc-shadydom',
+			spec: buttonIconSpec,
+			size: '1024x768',
+			tags: ['desktop']
+		});
+
+		test.shadow(name + '-button-icon-shadow', {
+			endpoint: baseEndpoint + buttonIconEndpoint + '?dom=shadow',
+			spec: buttonIconSpec,
+			size: '1024x768',
+			tags: ['desktop']
+		});
+		
 		test(name + '-floating-buttons-desktop', {
 			endpoint: baseEndpoint + floatingButtonsEndpoint + '?wc-shadydom',
 			spec: floatingButtonsSpec,

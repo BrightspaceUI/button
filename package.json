@@ -16,7 +16,7 @@
     "test:galen:sauce": "concurrently -p name -n serve,galen -s first -k \"polymer serve\" \"npm run galen:sauce:run\"",
     "test:lint": "npm run test:lint:wc && npm run test:lint:html",
     "test:lint:html": "eslint *.html",
-    "test:lint:wc": "polymer lint -i d2l-button.html d2l-floating-buttons.html d2l-button-subtle.html",
+    "test:lint:wc": "polymer lint -i d2l-button.html d2l-floating-buttons.html d2l-button-subtle.html d2l-button-icon.html",
     "test": "npm run test:lint && polymer test --skip-plugin sauce && npm run test:galen:local"
   },
   "repository": {
