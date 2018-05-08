@@ -80,34 +80,34 @@
 		css text-align is "center"
 		css vertical-align is "middle"
 		width 164 to 171 px
-		height 42px
+		height 42 to 43 px
 	&normal-focus:
 		css background-color matches ${sylvite}
 		css border-top-color matches "rgba\\(0, 111, 191, 0.4\\)"
 		css box-shadow contains "0px 0px 0px 4px"
 		width 222 to 231 px
-		height 42px
+		height 42 to 43 px
 	&normal-hover:
 		css background-color matches ${gypsum}
 		width 220 to 231 px
-		height 42px
+		height 42 to 43 px
 	&primary:
 		css background-color matches ${celestine}
 		css border-top-color matches ${celestineMinus1}
 		css color matches ${white}
 		width 168 to 174 px
-		height 42px
+		height 42 to 43 px
 	&primary-focus:
 		css background-color matches ${celestine}
 		css box-shadow contains "0px 0px 0px 4px"
 		width 226 to 234 px
-		height 42px
+		height 42 to 43 px
 	&primary-hover:
 		css background-color matches ${celestineMinus1}
 		width 224 to 234 px
-		height 42px
+		height 42 to 43 px
 	&disabled:
 		css cursor is "default"
 		css opacity is "0.5"
 		width 123 to 130 px
-		height 42px
+		height 42 to 43 px

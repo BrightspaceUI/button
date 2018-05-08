@@ -33,13 +33,13 @@
 	sass-mixin-hover				#sass-mixin-hover
 	sass-mixin-disabled				#sass-mixin-disabled
 	sass-mixin-icon					#sass-mixin-icon
-		icon						::d2l-shadow d2l-icon
+		icon						d2l-icon
 	sass-mixin-icon-focus			#sass-mixin-icon-focus
-		icon						::d2l-shadow d2l-icon
+		icon						d2l-icon
 	sass-mixin-icon-hover			#sass-mixin-icon-hover
-		icon						::d2l-shadow d2l-icon
+		icon						d2l-icon
 	sass-mixin-icon-disabled		#sass-mixin-icon-disabled
-		icon						::d2l-shadow d2l-icon
+		icon						d2l-icon
 
 @on no-d2l-shadow
 	@objects
@@ -112,7 +112,7 @@
 		css padding-right is "12px"
 		css text-align is "center"
 		css vertical-align is "middle"
-		height 42px
+		height 42 to 43px
 	&button:
 		css background-color matches ${transparent}
 		width 118px
@@ -132,4 +132,4 @@
 		css cursor is "default"
 		css opacity is "0.5"
 		width 190 to 282 px
-		height 42px
+		height 42 to 43 px
