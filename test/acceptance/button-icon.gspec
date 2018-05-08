@@ -2,19 +2,15 @@
 	button-icon						#custom-element
 		button                      ::d2l-shadow button
 		icon						::d2l-shadow d2l-icon
-		offscreen					::d2l-shadow d2l-offscreen
 	button-icon-focus				#custom-element-focus
 		button                      ::d2l-shadow button
 		icon						::d2l-shadow d2l-icon
-		offscreen					::d2l-shadow d2l-offscreen
 	button-icon-hover				#custom-element-hover
 		button                      ::d2l-shadow button
 		icon						::d2l-shadow d2l-icon
-		offscreen					::d2l-shadow d2l-offscreen
 	button-icon-disabled			#custom-element-disabled
 		button                      ::d2l-shadow button
 		icon						::d2l-shadow d2l-icon
-		offscreen					::d2l-shadow d2l-offscreen
 	icon-sass-mixin					#sass-mixin
 		icon						::d2l-shadow d2l-icon
 	icon-sass-mixin-focus			#sass-mixin-focus
@@ -45,7 +41,6 @@
 
 @groups
 	icon button-icon.icon, button-icon-focus.icon, button-icon-hover.icon, button-icon-disabled.icon, icon-sass-mixin.icon, icon-sass-mixin-hover.icon, icon-sass-mixin-focus.icon, icon-sass-mixin-disabled.icon
-	offscreen button-icon.offscreen, button-icon-focus.offscreen, button-icon-hover.offscreen, button-icon-disabled.offscreen
 	button button-icon.button, icon-sass-mixin
 	button-hover button-icon-hover.button, icon-sass-mixin-hover
 	button-focus button-icon-focus.button, icon-sass-mixin-focus
@@ -63,8 +58,6 @@
 		css vertical-align is "middle"
 		height 18px
 		width 18px
-	&offscreen:
-		css left is "-10000px"
 	&button, &button-hover, &button-focus:
 		css border-top-right-radius is "6px"
 		css border-top-style is "none"

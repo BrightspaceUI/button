@@ -135,7 +135,7 @@ Usage is slightly different in that the text and icon attributes are not used, a
 </head>
 ```
 
-The icon button shows an icon with offscreen text, and can be added by using the `<d2l-button-icon>` custom element. It should be used when icons perform a clickable action.
+The icon button shows an icon with an aria-label, and can be added by using the `<d2l-button-icon>` custom element. It should be used when icons perform a clickable action.
 
 <!---
 ```
@@ -159,8 +159,8 @@ The icon button shows an icon with offscreen text, and can be added by using the
 ```
 -->
 ```html
-<d2l-button-icon icon="d2l-tier1:bookmark-hollow" text="Icon Button"></d2l-button-icon>
-<d2l-button-icon icon="d2l-tier1:gear" text="Disabled Button" disabled></d2l-button-icon>
+<d2l-button-icon icon="d2l-tier1:bookmark-hollow" text="Bookmark"></d2l-button-icon>
+<d2l-button-icon icon="d2l-tier1:gear" text="Settings (disabled)" disabled></d2l-button-icon>
 ```
 
 As an alternative to the web component, a Sass mixin can be used to apply button styles to your button elements:
@@ -173,11 +173,10 @@ As an alternative to the web component, a Sass mixin can be used to apply button
 }
 ```
 
-Usage is slightly different in that the text and icon attributes are not used. Instead, the icon is added within the button and the offscreen text is added using a span element. For example:
+Usage is slightly different in that the text and icon attributes are not used. Instead, the icon is added within the button and the aria-label is added as a button attribute. For example:
 ```html
-<button class="my-button-icon">
+<button class="my-button-icon" aria-label="Settings">
 	<d2l-icon icon="d2l-tier1:gear"></d2l-icon>
-	<span>Icon button</span>
 </button>
 ```
 

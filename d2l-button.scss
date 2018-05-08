@@ -1,5 +1,4 @@
 @import 'bower_components/d2l-colors/d2l-colors.scss';
-@import 'bower_components/d2l-offscreen/offscreen.scss';
 @import 'bower_components/d2l-typography/d2l-typography.scss';
 
 @mixin _d2l-button-clear-focus() {
@@ -62,9 +61,6 @@
 	& d2l-icon {
 		height: 0.9rem;
 		width: 0.9rem;
-	}
-	& span {
-		@include d2l-offscreen();
 	}
 	&[disabled] {
 		cursor: default;
