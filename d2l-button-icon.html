@@ -17,15 +17,20 @@ Polymer-based web component for icon buttons
 		<style>
 			:host {
 				display: inline-block;
+
+				--d2l-button-icon-border-radius: 0.3rem;
+				--d2l-button-icon-min-height: calc(2rem + 2px);
+				--d2l-button-icon-min-width: calc(2rem + 2px);
 			}
 			button {
 				background-color: transparent;
 				border-style: none;
 				font-family: inherit;
-				min-width: -webkit-calc(2rem + 2px);
-				min-width: calc(2rem + 2px);
 				@apply --d2l-button-clear-focus;
 				@apply --d2l-button-shared;
+				border-radius: var(--d2l-button-icon-border-radius);
+				min-height: var(--d2l-button-icon-min-height);
+				min-width: var(--d2l-button-icon-min-width);
 			}
 
 			/* Firefox includes a hidden border which messes up button dimensions */
