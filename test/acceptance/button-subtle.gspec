@@ -115,21 +115,21 @@
 		height 42 to 43px
 	&button:
 		css background-color matches ${transparent}
-		width 118px
+		width 118 to 119 px
 	&button-hover, &button-focus:
 		css background-color matches ${gypsum}
 	&button-hover:
 		css box-shadow matches ".*rgba\\(0, 0, 0, 0\\).*|.*rgba\\(0,0,0,0\\).*"
-		width 170 to 263 px
+		width 170 to 268 px
 	&button-hover:
 		css background-color matches ${gypsum}
-		height 42px
+		height 42 to 43 px
 	&button-focus:
 		css box-shadow matches ".*rgba\\(0, 111, 191, 0.4\\).*|.*rgba\\(0,111,191,0.4\\).*"
 		css box-shadow contains "0px 0px 0px 4px"
-		width 170 to 262 px
+		width 170 to 267 px
 	&button-disabled:
 		css cursor is "default"
 		css opacity is "0.5"
-		width 190 to 282 px
+		width 190 to 287 px
 		height 42 to 43 px
