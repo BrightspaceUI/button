@@ -46,7 +46,6 @@
 	@include _d2l-button-clear-focus();
 	font-family: inherit;
 	padding: 0 0.6rem;
-	text-transform: uppercase;
 	@include d2l-label-text();
 	&::-moz-focus-inner {
 		border: 0;

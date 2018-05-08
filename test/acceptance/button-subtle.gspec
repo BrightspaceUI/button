@@ -90,7 +90,6 @@
 = Subtle Buttons =
 	&text:
 		css color matches ${celestine}
-		css text-transform matches "uppercase"
 		css vertical-align is "middle"
 	&icon-hidden:
 		absent
@@ -116,21 +115,21 @@
 		height 42px
 	&button:
 		css background-color matches ${transparent}
-		width 145px
+		width 118px
 	&button-hover, &button-focus:
 		css background-color matches ${gypsum}
 	&button-hover:
 		css box-shadow matches ".*rgba\\(0, 0, 0, 0\\).*|.*rgba\\(0,0,0,0\\).*"
-		width 209 to 314 px
+		width 170 to 263 px
 	&button-hover:
 		css background-color matches ${gypsum}
 		height 42px
 	&button-focus:
 		css box-shadow matches ".*rgba\\(0, 111, 191, 0.4\\).*|.*rgba\\(0,111,191,0.4\\).*"
 		css box-shadow contains "0px 0px 0px 4px"
-		width 208 to 313 px
+		width 170 to 262 px
 	&button-disabled:
 		css cursor is "default"
 		css opacity is "0.5"
-		width 232 to 336 px
+		width 190 to 282 px
 		height 42px
