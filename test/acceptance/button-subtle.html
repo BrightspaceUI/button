@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>button subtle</title>
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+		<script src="../../../webcomponentsjs/webcomponents-lite.js"></script>
+		<link rel="import" href="../../d2l-button-subtle.html">
+		<link rel="stylesheet" href="button.css">
+		<style>
+		html {
+			font-family: Arial, sans-serif;
+			font-size: 20px;
+		}
+		</style>
+	</head>
+	<body unresolved>
+		<h2>Web Components: custom elements</h2>
+		<d2l-button-subtle id="custom-element" text="Subtle Button"></d2l-button-subtle>
+
+		<hr>
+		<d2l-button-subtle id="custom-element-focus" class="d2l-button-subtle-focus" text="Subtle Button (focus)"></d2l-button-subtle>
+
+		<hr>
+		<d2l-button-subtle id="custom-element-hover" class="d2l-button-subtle-hover" text="Subtle Button (hover)"></d2l-button-subtle>
+
+		<hr>
+		<d2l-button-subtle id="custom-element-disabled" text="Subtle Button (disabled)" disabled></d2l-button-subtle>
+
+		<hr>
+		<d2l-button-subtle id="custom-element-icon" text="Subtle Button with Icon" icon="d2l-tier1:gear"></d2l-button-subtle>
+
+		<hr>
+		<d2l-button-subtle id="custom-element-icon-focus" class="d2l-button-subtle-focus" text="Subtle Button with Icon (focus)" icon="d2l-tier1:gear"></d2l-button-subtle>
+
+		<hr>
+		<d2l-button-subtle id="custom-element-icon-hover" class="d2l-button-subtle-hover" text="Subtle Button with Icon (hover)" icon="d2l-tier1:gear"></d2l-button-subtle>
+
+		<hr>
+		<d2l-button-subtle id="custom-element-icon-disabled" text="Subtle Button with Icon (disabled)" icon="d2l-tier1:gear" disabled></d2l-button-subtle>
+		<h2>SASS: Mixins</h2>
+		<button id="sass-mixin" class="sass-mixin-button-subtle">Subtle Button</button>
+		<hr>
+		<button id="sass-mixin-focus" class="sass-mixin-button-subtle d2l-button-subtle-focus">Subtle Button (focus)</button>
+		<hr>
+		<button id="sass-mixin-hover" class="sass-mixin-button-subtle d2l-button-subtle-hover">Subtle Button (hover)</button>
+		<hr>
+		<button id="sass-mixin-disabled" disabled class="sass-mixin-button-subtle">Subtle Button (disabled)</button>
+		<hr>
+		<button id="sass-mixin-icon" class="sass-mixin-button-subtle"><d2l-icon icon="d2l-tier1:gear"></d2l-icon>Subtle Button with icon</button>
+		<hr>
+		<button id="sass-mixin-icon-focus" class="sass-mixin-button-subtle d2l-button-subtle-focus"><d2l-icon icon="d2l-tier1:gear"></d2l-icon>Subtle Button with icon (focus)</button>
+		<hr>
+		<button id="sass-mixin-icon-hover" class="sass-mixin-button-subtle d2l-button-subtle-hover"><d2l-icon icon="d2l-tier1:gear"></d2l-icon>Subtle Button with icon (hover)</button>
+		<hr>
+		<button id="sass-mixin-icon-disabled" disabled class="sass-mixin-button-subtle"><d2l-icon icon="d2l-tier1:gear"></d2l-icon>Subtle Button with icon (disabled)</button>
+	</body>
+</html>

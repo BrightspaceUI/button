@@ -26,10 +26,10 @@ var browsers = {
 	chromeMac: new SauceBrowserFactory({
 		browser: 'Chrome',
 		platform: 'SIERRA',
-		/* crashes during screenshot command on > 2.24
-			https://bugs.chromium.org/p/chromedriver/issues/detail?id=1770# */
+		/* fixing chrome and chromeDriver versions to avoid failure when resizing */
 		desiredCapabilities: {
-			chromedriverVersion: '2.24'
+			version: '59.0',
+			chromedriverVersion: '2.29'
 		}
 	}),
 	safariMac: new SauceBrowserFactory({
@@ -48,6 +48,8 @@ var mainlineEndpoint = 'http://localhost:8081/components/d2l-button';
 var xEndpoint = 'http://localhost:8000/components/d2l-button';
 var buttonEndpoint = '/test/acceptance/button.html';
 var buttonSpec = 'test/acceptance/button.gspec';
+var buttonSubtleEndpoint = '/test/acceptance/button-subtle.html';
+var buttonSubtleSpec = 'test/acceptance/button-subtle.gspec';
 var floatingButtonsEndpoint = '/test/acceptance/floating-buttons.html';
 var floatingButtonsSpec = 'test/acceptance/floating-buttons.gspec';
 
@@ -64,6 +66,20 @@ polymerTests(browsers, function(test) {
 		test.shadow(name + '-button-shadow', {
 			endpoint: baseEndpoint + buttonEndpoint + '?dom=shadow',
 			spec: buttonSpec,
+			size: '1024x768',
+			tags: ['desktop']
+		});
+
+		test(name + '-button-subtle', {
+			endpoint: baseEndpoint + buttonSubtleEndpoint + '?wc-shadydom',
+			spec: buttonSubtleSpec,
+			size: '1024x768',
+			tags: ['desktop']
+		});
+
+		test.shadow(name + '-button-subtle-shadow', {
+			endpoint: baseEndpoint + buttonSubtleEndpoint + '?dom=shadow',
+			spec: buttonSubtleSpec,
 			size: '1024x768',
 			tags: ['desktop']
 		});

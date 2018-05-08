@@ -20,29 +20,13 @@ Polymer-based web component for buttons
 			button {
 				border-width: 1px;
 				border-style: solid;
-				border-radius: 0.3rem;
-				box-sizing: border-box;
-				cursor: pointer;
-				display: inline-block;
 				font-family: inherit;
 				font-size: 0.7rem;
 				font-weight: 700;
 				letter-spacing: 0.02rem;
 				line-height: 1rem;
-				margin: 0;
-				min-height: -webkit-calc(2rem + 2px);
-				min-height: calc(2rem + 2px);
-				outline: none;
 				padding: 0.5rem 1.5rem;
-				text-align: center;
-				transition: box-shadow 0.2s;
-				-webkit-user-select: none;
-				-moz-user-select: none;
-				-ms-user-select: none;
-				user-select: none;
-				vertical-align: middle;
-				white-space: nowrap;
-				width: auto;
+				@apply --d2l-button-shared;
 				@apply --d2l-button;
 				@apply --d2l-button-clear-focus;
 			}

@@ -2,6 +2,25 @@
 <custom-style>
 	<style is="custom-style">
 		html {
+			--d2l-button-shared: {
+				border-radius: 0.3rem;
+				box-sizing: border-box;
+				cursor: pointer;
+				display: inline-block;
+				margin: 0;
+				min-height: -webkit-calc(2rem + 2px);
+				min-height: calc(2rem + 2px);
+				outline: none;
+				text-align: center;
+				transition: box-shadow 0.2s;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				vertical-align: middle;
+				white-space: nowrap;
+				width: auto;
+			};
 			--d2l-button-clear-focus: {
 				box-shadow: 0 0 0 4px rgba(0, 0, 0, 0);
 			};
@@ -11,6 +30,9 @@
 			--d2l-secondary-button-focus: {
 				border-color: rgba(0, 111, 191, 0.4);
 				box-shadow: 0 0 0 4px rgba(0, 111, 191, 0.3);
+			};
+			--d2l-standard-button-focus: {
+				box-shadow: 0 0 0 4px rgba(0, 111, 191, 0.4);
 			};
 			--d2l-button-spacing: 0.75rem;
 		}

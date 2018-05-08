@@ -1,0 +1,135 @@
+@objects
+	custom-element					#custom-element
+		button                      ::d2l-shadow button
+		span                      	::d2l-shadow span
+		icon						::d2l-shadow d2l-icon
+	custom-element-focus			#custom-element-focus
+		button                      ::d2l-shadow button
+		span                      	::d2l-shadow span
+	custom-element-hover			#custom-element-hover
+		button                      ::d2l-shadow button
+		span                      	::d2l-shadow span
+	custom-element-disabled			#custom-element-disabled
+		button                      ::d2l-shadow button
+		span                      	::d2l-shadow span
+	custom-element-icon				#custom-element-icon
+		button                      ::d2l-shadow button
+		span                      	::d2l-shadow span
+		icon						::d2l-shadow d2l-icon
+	custom-element-icon-focus		#custom-element-icon-focus
+		button                      ::d2l-shadow button
+		span                      	::d2l-shadow span
+		icon						::d2l-shadow d2l-icon
+	custom-element-icon-hover		#custom-element-icon-hover
+		button                      ::d2l-shadow button
+		span                      	::d2l-shadow span
+		icon						::d2l-shadow d2l-icon
+	custom-element-icon-disabled	#custom-element-icon-disabled
+		button                      ::d2l-shadow button
+		span                      	::d2l-shadow span
+		icon						::d2l-shadow d2l-icon
+	sass-mixin						#sass-mixin
+	sass-mixin-focus				#sass-mixin-focus
+	sass-mixin-hover				#sass-mixin-hover
+	sass-mixin-disabled				#sass-mixin-disabled
+	sass-mixin-icon					#sass-mixin-icon
+		icon						::d2l-shadow d2l-icon
+	sass-mixin-icon-focus			#sass-mixin-icon-focus
+		icon						::d2l-shadow d2l-icon
+	sass-mixin-icon-hover			#sass-mixin-icon-hover
+		icon						::d2l-shadow d2l-icon
+	sass-mixin-icon-disabled		#sass-mixin-icon-disabled
+		icon						::d2l-shadow d2l-icon
+
+@on no-d2l-shadow
+	@objects
+		custom-element					#custom-element
+			button                      button
+			span                      	span
+			icon						d2l-icon
+		custom-element-focus			#custom-element-focus
+			button                      button
+			span                      	span
+		custom-element-hover			#custom-element-hover
+			button                      button
+			span                      	span
+		custom-element-disabled			#custom-element-disabled
+			button                      button
+			span                      	span
+		custom-element-icon				#custom-element-icon
+			button                      button
+			span                      	span
+			icon						d2l-icon
+		custom-element-icon-focus		#custom-element-icon-focus
+			button                      button
+			span                      	span
+			icon						d2l-icon
+		custom-element-icon-hover		#custom-element-icon-hover
+			button                      button
+			span                      	span
+			icon						d2l-icon
+		custom-element-icon-disabled	#custom-element-icon-disabled
+			button                      button
+			span                      	span
+			icon						d2l-icon
+
+@groups
+	text custom-element.span, custom-element-icon.span, custom-element-hover.span, custom-element-icon-hover.span, custom-element-focus.span, custom-element-icon-focus.span, custom-element-disabled.span, custom-element-icon-disabled.span, sass-mixin, sass-mixin-icon, sass-mixin-focus, sass-mixin-icon-focus, sass-mixin-hover, sass-mixin-icon-hover, sass-mixin-disabled, sass-mixin-icon-disabled
+	icon-hidden custom-element.icon
+	icon custom-element-icon.icon, custom-element-icon-focus.icon, custom-element-icon-hover.icon, custom-element-icon-disabled.icon, sass-mixin-icon.icon, sass-mixin-icon-hover.icon, sass-mixin-icon-focus.icon, sass-mixin-icon-disabled.icon
+	button custom-element.button, sass-mixin
+	button-hover custom-element-hover.button, custom-element-icon-hover.button, sass-mixin-hover, sass-mixin-icon-hover
+	button-focus custom-element-focus.button, custom-element-icon-focus.button, sass-mixin-focus, sass-mixin-icon-focus
+	button-disabled custom-element-disabled.button, custom-element-icon-disabled.button, sass-mixin-disabled, sass-mixin-icon-disabled
+
+@set
+	celestine "#006fbf|rgba\\(0, 111, 191, 1\\)|rgb\\(0, 111, 191\\)"
+	gypsum "#e6eaf0|rgba\\(230, 234, 240, 1\\)|rgb\\(230, 234, 240\\)"
+	transparent "transparent|rgba\\(0, 0, 0, 0\\)"
+
+= Subtle Buttons =
+	&text:
+		css color matches ${celestine}
+		css vertical-align is "middle"
+	&icon-hidden:
+		absent
+	&icon:
+		css color matches ${celestine}
+		css margin-right matches "6px|0.3rem"
+		css vertical-align is "middle"
+		height 18px
+		width 18px
+	&button, &button-hover, &button-focus:
+		css border-top-right-radius is "6px"
+		css border-top-style is "none"
+		css border-top-width is "0px"
+		css cursor is "pointer"
+		css font-size is "14px"
+		css font-weight matches "bold|700"
+		css letter-spacing matches "0\\.2[0-9]*px"
+		css line-height is "20px"
+		css padding-top is "0px"
+		css padding-right is "12px"
+		css text-align is "center"
+		css vertical-align is "middle"
+		height 42px
+	&button:
+		css background-color matches ${transparent}
+		width 118px
+	&button-hover, &button-focus:
+		css background-color matches ${gypsum}
+	&button-hover:
+		css box-shadow matches ".*rgba\\(0, 0, 0, 0\\).*|.*rgba\\(0,0,0,0\\).*"
+		width 170 to 263 px
+	&button-hover:
+		css background-color matches ${gypsum}
+		height 42px
+	&button-focus:
+		css box-shadow matches ".*rgba\\(0, 111, 191, 0.4\\).*|.*rgba\\(0,111,191,0.4\\).*"
+		css box-shadow contains "0px 0px 0px 4px"
+		width 170 to 262 px
+	&button-disabled:
+		css cursor is "default"
+		css opacity is "0.5"
+		width 190 to 282 px
+		height 42px
