@@ -38,6 +38,36 @@
 	width: auto;
 }
 
+@mixin d2l-button-icon() {
+	@include _d2l-button-shared();
+	background-color: transparent;
+	border-style: none;
+	@include _d2l-button-clear-focus();
+	font-family: inherit;
+	min-width: -webkit-calc(2rem + 2px);
+	min-width: calc(2rem + 2px);
+	&::-moz-focus-inner {
+		border: 0;
+	}
+	&[disabled]:hover, &[disabled]:focus {
+		background-color: transparent;
+	}
+	&:hover, &:focus, &.d2l-button-icon-hover, &.d2l-button-icon-focus {
+		background-color: $d2l-color-gypsum;
+	}
+	&:focus, &.d2l-button-icon-focus {
+		@include _d2l-standard-button-focus();
+	}
+	& d2l-icon {
+		height: 0.9rem;
+		width: 0.9rem;
+	}
+	&[disabled] {
+		cursor: default;
+		opacity: 0.5;
+	}
+}
+
 @mixin d2l-button-subtle() {
 	@include _d2l-button-shared();
 	background-color: transparent;

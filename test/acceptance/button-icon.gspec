@@ -1,0 +1,83 @@
+@objects
+	button-icon						#custom-element
+		button                      ::d2l-shadow button
+		icon						::d2l-shadow d2l-icon
+	button-icon-focus				#custom-element-focus
+		button                      ::d2l-shadow button
+		icon						::d2l-shadow d2l-icon
+	button-icon-hover				#custom-element-hover
+		button                      ::d2l-shadow button
+		icon						::d2l-shadow d2l-icon
+	button-icon-disabled			#custom-element-disabled
+		button                      ::d2l-shadow button
+		icon						::d2l-shadow d2l-icon
+	icon-sass-mixin					#sass-mixin
+		icon						::d2l-shadow d2l-icon
+	icon-sass-mixin-focus			#sass-mixin-focus
+		icon						::d2l-shadow d2l-icon
+	icon-sass-mixin-hover			#sass-mixin-hover
+		icon						::d2l-shadow d2l-icon
+	icon-sass-mixin-disabled		#sass-mixin-disabled
+		icon						::d2l-shadow d2l-icon
+
+@on no-d2l-shadow
+	@objects
+		button-icon						#custom-element
+			button                      button
+			icon						d2l-icon
+			offscreen					d2l-offscreen
+		button-icon-focus			#custom-element-focus
+			button                      button
+			icon						d2l-icon
+			offscreen					d2l-offscreen
+		button-icon-hover			#custom-element-hover
+			button                      button
+			icon						d2l-icon
+			offscreen					d2l-offscreen
+		button-icon-disabled			#custom-element-disabled
+			button                      button
+			icon						d2l-icon
+			offscreen					d2l-offscreen
+
+@groups
+	icon button-icon.icon, button-icon-focus.icon, button-icon-hover.icon, button-icon-disabled.icon, icon-sass-mixin.icon, icon-sass-mixin-hover.icon, icon-sass-mixin-focus.icon, icon-sass-mixin-disabled.icon
+	button button-icon.button, icon-sass-mixin
+	button-hover button-icon-hover.button, icon-sass-mixin-hover
+	button-focus button-icon-focus.button, icon-sass-mixin-focus
+	button-disabled button-icon-disabled.button, button-icon-disabled.button, icon-sass-mixin-disabled, icon-sass-mixin-disabled
+
+@set
+	gypsum "#e6eaf0|rgba\\(230, 234, 240, 1\\)|rgb\\(230, 234, 240\\)"
+	ferrite "#565a5c|rgba\\(86, 90, 92, 1\\)|rgb\\(86, 90, 92\\)"
+	transparent "transparent|rgba\\(0, 0, 0, 0\\)"
+
+= Icon Buttons =
+	&icon:
+		css color matches ${ferrite}
+		css padding is "0px"
+		css vertical-align is "middle"
+		height 18px
+		width 18px
+	&button, &button-hover, &button-focus:
+		css border-top-right-radius is "6px"
+		css border-top-style is "none"
+		css border-top-width is "0px"
+		css cursor is "pointer"
+		css margin is "0px"
+		css vertical-align is "middle"
+		width 42px
+		height 42px
+	&button:
+		css background-color matches ${transparent}
+	&button-hover, &button-focus:
+		css background-color matches ${gypsum}
+	&button-hover:
+	  	css box-shadow matches ".*rgba\\(0, 0, 0, 0\\).*|.*rgba\\(0,0,0,0\\).*"
+	&button-focus:
+		css box-shadow matches ".*rgba\\(0, 111, 191, 0.4\\).*|.*rgba\\(0,111,191,0.4\\).*"
+		css box-shadow contains "0px 0px 0px 4px"
+	&button-disabled:
+		css cursor is "default"
+		css opacity is "0.5"
+		width 42px
+		height 42px
