@@ -60,8 +60,6 @@
 		width 18px
 	&button, &button-hover, &button-focus:
 		css border-top-right-radius is "6px"
-		css border-top-style is "none"
-		css border-top-width is "0px"
 		css cursor is "pointer"
 		css margin is "0px"
 		css vertical-align is "middle"
@@ -69,12 +67,15 @@
 		height 42px
 	&button:
 		css background-color matches ${transparent}
+		css border-top-color matches ${transparent}
 	&button-hover, &button-focus:
 		css background-color matches ${gypsum}
 	&button-hover:
-	  	css box-shadow matches ".*rgba\\(0, 0, 0, 0\\).*|.*rgba\\(0,0,0,0\\).*"
+		css border-top-color matches ${transparent}
+		css box-shadow matches ".*rgba\\(0, 0, 0, 0\\).*|.*rgba\\(0,0,0,0\\).*"
 	&button-focus:
-		css box-shadow matches ".*rgba\\(0, 111, 191, 0.4\\).*|.*rgba\\(0,111,191,0.4\\).*"
+		css border-top-color matches "rgba\\(0, 111, 191, 0.4\\)"
+		css box-shadow matches ".*rgba\\(0, 111, 191, 0.3\\).*|.*rgba\\(0,111,191,0.3\\).*"
 		css box-shadow contains "0px 0px 0px 4px"
 	&button-disabled:
 		css cursor is "default"

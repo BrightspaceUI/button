@@ -21,9 +21,9 @@ Polymer-based web component for subtle buttons
 			}
 			button {
 				background-color: transparent;
-				border-style: none;
+				border-color: transparent;
 				font-family: inherit;
-				padding: 0 0.6rem;
+				padding: 0.5rem 0.6rem;
 				@apply --d2l-label-text;
 				@apply --d2l-button-clear-focus;
 				@apply --d2l-button-shared;
@@ -43,18 +43,16 @@ Polymer-based web component for subtle buttons
 				background-color: var(--d2l-color-gypsum);
 			}
 			button:focus, :host(.d2l-button-subtle-focus) button {
-				@apply --d2l-standard-button-focus;
+				@apply --d2l-button-focus-plus-border;
 			}
 			.d2l-button-subtle-content {
 				color: var(--d2l-color-celestine);
-				transition: color 0.3s ease;
 				vertical-align: middle;
 			}
 			d2l-icon.d2l-button-subtle-icon {
 				color: var(--d2l-color-celestine);
 				height: 0.9rem;
 				margin-right: 0.3rem;
-				transition: color 0.3s ease;
 				width: 0.9rem;
 			}
 			.d2l-button-subtle-icon[hidden] {

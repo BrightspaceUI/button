@@ -6,20 +6,18 @@
 }
 
 @mixin _d2l-button-focus() {
+	box-shadow: 0 0 0 4px rgba(0, 111, 191, 0.3);
+}
+
+@mixin _d2l-button-focus-plus-border() {
 	border-color: rgba(0, 111, 191, 0.4);
-	box-shadow: 0 0 0 4px rgba(0, 111, 191, 0.3);
-}
-
-@mixin _d2l-button-primary-focus() {
-	box-shadow: 0 0 0 4px rgba(0, 111, 191, 0.3);
-}
-
-@mixin _d2l-standard-button-focus() {
-	box-shadow: 0 0 0 4px rgba(0, 111, 191, 0.4);
+	@include _d2l-button-focus();
 }
 
 @mixin _d2l-button-shared() {
 	border-radius: 0.3rem;
+	border-style: solid;
+	border-width: 1px;
 	box-sizing: border-box;
 	cursor: pointer;
 	display: inline-block;
@@ -41,10 +39,9 @@
 @mixin d2l-button-icon() {
 	@include _d2l-button-shared();
 	background-color: transparent;
-	border-style: none;
+	border-color: transparent;
 	@include _d2l-button-clear-focus();
 	font-family: inherit;
-	min-width: -webkit-calc(2rem + 2px);
 	min-width: calc(2rem + 2px);
 	&::-moz-focus-inner {
 		border: 0;
@@ -56,7 +53,7 @@
 		background-color: $d2l-color-gypsum;
 	}
 	&:focus, &.d2l-button-icon-focus {
-		@include _d2l-standard-button-focus();
+		@include _d2l-button-focus-plus-border();
 	}
 	& d2l-icon {
 		height: 0.9rem;
@@ -71,11 +68,11 @@
 @mixin d2l-button-subtle() {
 	@include _d2l-button-shared();
 	background-color: transparent;
-	border-style: none;
+	border-color: transparent;
 	color: $d2l-color-celestine;
 	@include _d2l-button-clear-focus();
 	font-family: inherit;
-	padding: 0 0.6rem;
+	padding: 0.5rem 0.6rem;
 	@include d2l-label-text();
 	&::-moz-focus-inner {
 		border: 0;
@@ -87,7 +84,7 @@
 		background-color: $d2l-color-gypsum;
 	}
 	&:focus, &.d2l-button-subtle-focus {
-		@include _d2l-standard-button-focus();
+		@include _d2l-button-focus-plus-border();
 	}
 	& d2l-icon {
 		color: $d2l-color-celestine;
@@ -107,8 +104,6 @@
 
 @mixin d2l-button() {
 	@include _d2l-button-shared();
-	border-width: 1px;
-	border-style: solid;
 	@include _d2l-button-clear-focus();
 	font-family: inherit;
 	font-size: 0.7rem;
@@ -120,15 +115,15 @@
 		border: 0;
 	}
 	&, &[disabled]:hover, &[disabled]:focus {
-		background-color: $d2l-color-sylvite;
+		background-color: $d2l-color-regolith;
 		border-color: $d2l-color-mica;
 		color: $d2l-color-ferrite;
 	}
-	&:hover, &.d2l-button-hover {
+	&:hover, &:focus, &.d2l-button-hover, &.d2l-button-focus {
 		background-color: $d2l-color-gypsum;
 	}
 	&:focus, &.d2l-button-focus {
-		@include _d2l-button-focus();
+		@include _d2l-button-focus-plus-border();
 	}
 	&[disabled] {
 		opacity: 0.5;
@@ -143,6 +138,6 @@
 		background-color: $d2l-color-celestine-minus-1;
 	}
 	&[primary]:focus, &[primary].d2l-button-focus {
-		@include _d2l-button-primary-focus();
+		@include _d2l-button-focus();
 	}
 }
