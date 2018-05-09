@@ -110,7 +110,7 @@
 		css padding-top is "10px"
 		css text-align is "center"
 		css vertical-align is "middle"
-		height 42 to 43px
+		height 42 to 44 px
 	&button:
 		css background-color matches ${transparent}
 		css border-top-color matches ${transparent}

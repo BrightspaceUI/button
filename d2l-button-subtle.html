@@ -2,7 +2,7 @@
 <link rel="import" href="../d2l-colors/d2l-colors.html">
 <link rel="import" href="../d2l-icons/d2l-icons.html">
 <link rel="import" href="../d2l-polymer-behaviors/d2l-focusable-behavior.html">
-<link rel="import" href="../d2l-typography/d2l-typography.html">
+<link rel="import" href="../d2l-typography/d2l-typography-shared-styles.html">
 <link rel="import" href="d2l-button-shared-styles.html">
 <link rel="import" href="d2l-button-behavior.html">
 
@@ -24,9 +24,9 @@ Polymer-based web component for subtle buttons
 				border-color: transparent;
 				font-family: inherit;
 				padding: 0.5rem 0.6rem;
-				@apply --d2l-label-text;
 				@apply --d2l-button-clear-focus;
 				@apply --d2l-button-shared;
+				@apply --d2l-label-text;
 			}
 
 			/* Firefox includes a hidden border which messes up button dimensions */
