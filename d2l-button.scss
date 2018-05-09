@@ -134,7 +134,7 @@
 		border-color: $d2l-color-celestine-minus-1;
 		color: #ffffff;
 	}
-	&[primary]:hover, &[primary].d2l-button-hover {
+	&[primary]:hover, &[primary].d2l-button-hover, &[primary]:focus, &[primary].d2l-button-focus {
 		background-color: $d2l-color-celestine-minus-1;
 	}
 	&[primary]:focus, &[primary].d2l-button-focus {

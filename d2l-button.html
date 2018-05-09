@@ -65,8 +65,14 @@ Polymer-based web component for buttons
 				@apply --d2l-button-primary;
 			}
 
-			:host([primary]) button:hover, :host([primary].d2l-button-hover) button {
+			:host([primary]) button:hover,
+			:host([primary]) button:focus,
+			:host([primary].d2l-button-hover) button,
+			:host([primary].d2l-button-focus) button {
 				background-color: var(--d2l-color-celestine-minus-1);
+			}
+
+			:host([primary]) button:hover, :host([primary].d2l-button-hover) button {
 				@apply --d2l-button-primary-hover;
 			}
 			:host([primary]) button:focus, :host([primary].d2l-button-focus) button {

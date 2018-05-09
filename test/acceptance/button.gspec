@@ -98,7 +98,7 @@
 		width 168 to 174 px
 		height 42 to 43 px
 	&primary-focus:
-		css background-color matches ${celestine}
+		css background-color matches ${celestineMinus1}
 		css box-shadow contains "0px 0px 0px 4px"
 		width 226 to 234 px
 		height 42 to 43 px
