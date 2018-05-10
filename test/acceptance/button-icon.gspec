@@ -12,32 +12,28 @@
 		button                      ::d2l-shadow button
 		icon						::d2l-shadow d2l-icon
 	icon-sass-mixin					#sass-mixin
-		icon						::d2l-shadow d2l-icon
+		icon						d2l-icon
 	icon-sass-mixin-focus			#sass-mixin-focus
-		icon						::d2l-shadow d2l-icon
+		icon						d2l-icon
 	icon-sass-mixin-hover			#sass-mixin-hover
-		icon						::d2l-shadow d2l-icon
+		icon						d2l-icon
 	icon-sass-mixin-disabled		#sass-mixin-disabled
-		icon						::d2l-shadow d2l-icon
+		icon						d2l-icon
 
 @on no-d2l-shadow
 	@objects
-		button-icon						#custom-element
-			button                      button
-			icon						d2l-icon
-			offscreen					d2l-offscreen
+		button-icon					#custom-element
+			button					button
+			icon					d2l-icon
 		button-icon-focus			#custom-element-focus
-			button                      button
-			icon						d2l-icon
-			offscreen					d2l-offscreen
+			button					button
+			icon					d2l-icon
 		button-icon-hover			#custom-element-hover
-			button                      button
-			icon						d2l-icon
-			offscreen					d2l-offscreen
-		button-icon-disabled			#custom-element-disabled
-			button                      button
-			icon						d2l-icon
-			offscreen					d2l-offscreen
+			button					button
+			icon					d2l-icon
+		button-icon-disabled		#custom-element-disabled
+			button					button
+			icon					d2l-icon
 
 @groups
 	icon button-icon.icon, button-icon-focus.icon, button-icon-hover.icon, button-icon-disabled.icon, icon-sass-mixin.icon, icon-sass-mixin-hover.icon, icon-sass-mixin-focus.icon, icon-sass-mixin-disabled.icon

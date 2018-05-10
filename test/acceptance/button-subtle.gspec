@@ -90,10 +90,6 @@
 = Subtle Buttons =
 	&text:
 		css color matches ${celestine}
-		css font-size is "14px"
-		css font-weight matches "bold|700"
-		css letter-spacing matches "0\\.2[0-9]*px"
-		css line-height is "20px"
 		css vertical-align is "middle"
 	&icon-hidden:
 		absent
@@ -106,6 +102,10 @@
 	&button, &button-hover, &button-focus:
 		css border-top-right-radius is "6px"
 		css cursor is "pointer"
+		css font-size is "14px"
+		css font-weight matches "bold|700"
+		css letter-spacing matches "0\\.2[0-9]*px"
+		css line-height is "20px"
 		css padding-right is "12px"
 		css padding-top is "10px"
 		css text-align is "center"
@@ -114,7 +114,7 @@
 	&button:
 		css background-color matches ${transparent}
 		css border-top-color matches ${transparent}
-		width 118 to 215 px
+		width 118 to 220 px
 	&button-hover, &button-focus:
 		css background-color matches ${gypsum}
 	&button-hover:
