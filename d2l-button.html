@@ -1,6 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../d2l-colors/d2l-colors.html">
 <link rel="import" href="../d2l-polymer-behaviors/d2l-focusable-behavior.html">
+<link rel="import" href="../d2l-typography/d2l-typography-shared-styles.html">
 <link rel="import" href="d2l-button-shared-styles.html">
 <link rel="import" href="d2l-button-behavior.html">
 
@@ -19,12 +20,9 @@ Polymer-based web component for buttons
 			}
 			button {
 				font-family: inherit;
-				font-size: 0.7rem;
-				font-weight: 700;
-				letter-spacing: 0.02rem;
-				line-height: 1rem;
 				padding: 0.5rem 1.5rem;
 				@apply --d2l-button-shared;
+				@apply --d2l-label-text;
 				@apply --d2l-button;
 				@apply --d2l-button-clear-focus;
 			}
