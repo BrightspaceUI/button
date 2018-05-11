@@ -3,11 +3,13 @@
 
 var browsers = {
 	phantomjs: new LocalBrowserFactory({
-		browser: 'chrome'
+		browser: 'chrome',
+		tags: ['not-edge']
 	}),
 	chromeWindows: new SauceBrowserFactory({
 		browser: 'Chrome',
-		platform: 'WIN10'
+		platform: 'WIN10',
+		tags: ['not-edge']
 	}),
 	/*firefoxWindows: new SauceBrowserFactory({
 		browser: 'Firefox',
@@ -16,7 +18,8 @@ var browsers = {
 	ie11Windows: new SauceBrowserFactory({
 		browser: 'internet explorer',
 		version: '11',
-		platform: 'WIN10'
+		platform: 'WIN10',
+		tags: ['not-edge']
 	}),
 	edgeWindows: new SauceBrowserFactory({
 		browser: 'microsoftedge',
@@ -30,17 +33,18 @@ var browsers = {
 		desiredCapabilities: {
 			version: '59.0',
 			chromedriverVersion: '2.29'
-		}
+		},
+		tags: ['not-edge']
 	}),
 	safariMac: new SauceBrowserFactory({
 		browser: 'Safari',
 		platform: 'SIERRA',
-		tags: ['no-d2l-shadow']
+		tags: ['no-d2l-shadow', 'not-edge']
 	}),
 	firefoxMac: new SauceBrowserFactory({
 		browser: 'Firefox',
 		platform: 'SIERRA',
-		tags: ['no-d2l-shadow']
+		tags: ['no-d2l-shadow', 'not-edge']
 	})
 };
 
@@ -99,7 +103,7 @@ polymerTests(browsers, function(test) {
 			size: '1024x768',
 			tags: ['desktop']
 		});
-		
+
 		test(name + '-floating-buttons-desktop', {
 			endpoint: baseEndpoint + floatingButtonsEndpoint + '?wc-shadydom',
 			spec: floatingButtonsSpec,

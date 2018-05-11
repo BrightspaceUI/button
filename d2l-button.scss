@@ -106,11 +106,8 @@
 	@include _d2l-button-shared();
 	@include _d2l-button-clear-focus();
 	font-family: inherit;
-	font-size: 0.7rem;
-	font-weight: 700;
-	letter-spacing: 0.02rem;
-	line-height: 1rem;
 	padding: 0.5rem 1.5rem;
+	@include d2l-label-text();
 	&::-moz-focus-inner {
 		border: 0;
 	}
