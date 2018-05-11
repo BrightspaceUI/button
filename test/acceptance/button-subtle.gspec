@@ -77,7 +77,7 @@
 	text custom-element.span, custom-element-icon.span, custom-element-hover.span, custom-element-icon-hover.span, custom-element-focus.span, custom-element-icon-focus.span, custom-element-disabled.span, custom-element-icon-disabled.span, sass-mixin, sass-mixin-icon, sass-mixin-focus, sass-mixin-icon-focus, sass-mixin-hover, sass-mixin-icon-hover, sass-mixin-disabled, sass-mixin-icon-disabled
 	icon-hidden custom-element.icon
 	icon custom-element-icon.icon, custom-element-icon-focus.icon, custom-element-icon-hover.icon, custom-element-icon-disabled.icon, sass-mixin-icon.icon, sass-mixin-icon-hover.icon, sass-mixin-icon-focus.icon, sass-mixin-icon-disabled.icon
-	button custom-element.button, sass-mixin
+	button custom-element.button, custom-element-icon.button, sass-mixin
 	button-hover custom-element-hover.button, custom-element-icon-hover.button, sass-mixin-hover, sass-mixin-icon-hover
 	button-focus custom-element-focus.button, custom-element-icon-focus.button, sass-mixin-focus, sass-mixin-icon-focus
 	button-disabled custom-element-disabled.button, custom-element-icon-disabled.button, sass-mixin-disabled, sass-mixin-icon-disabled
@@ -99,37 +99,40 @@
 		css vertical-align is "middle"
 		height 18px
 		width 18px
+	@on not-edge
+		&button, &button-hover, &button-focus:
+			css font-size is "14px"
 	&button, &button-hover, &button-focus:
 		css border-top-right-radius is "6px"
-		css border-top-style is "none"
-		css border-top-width is "0px"
 		css cursor is "pointer"
-		css font-size is "14px"
 		css font-weight matches "bold|700"
 		css letter-spacing matches "0\\.2[0-9]*px"
 		css line-height is "20px"
-		css padding-top is "0px"
 		css padding-right is "12px"
+		css padding-top is "10px"
 		css text-align is "center"
 		css vertical-align is "middle"
-		height 42 to 43px
+		height 42 to 44 px
 	&button:
 		css background-color matches ${transparent}
-		width 118 to 119 px
+		css border-top-color matches ${transparent}
+		width 118 to 220 px
 	&button-hover, &button-focus:
 		css background-color matches ${gypsum}
 	&button-hover:
+		css border-top-color matches ${transparent}
 		css box-shadow matches ".*rgba\\(0, 0, 0, 0\\).*|.*rgba\\(0,0,0,0\\).*"
-		width 170 to 268 px
+		width 170 to 272 px
 	&button-hover:
 		css background-color matches ${gypsum}
 		height 42 to 43 px
 	&button-focus:
-		css box-shadow matches ".*rgba\\(0, 111, 191, 0.4\\).*|.*rgba\\(0,111,191,0.4\\).*"
+		css border-top-color matches "rgba\\(0, 111, 191, 0.4\\)"
+		css box-shadow matches ".*rgba\\(0, 111, 191, 0.3\\).*|.*rgba\\(0,111,191,0.3\\).*"
 		css box-shadow contains "0px 0px 0px 4px"
-		width 170 to 267 px
+		width 170 to 272 px
 	&button-disabled:
 		css cursor is "default"
 		css opacity is "0.5"
-		width 190 to 287 px
+		width 190 to 292 px
 		height 42 to 43 px

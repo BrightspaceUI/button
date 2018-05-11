@@ -2,7 +2,7 @@
 <link rel="import" href="../d2l-colors/d2l-colors.html">
 <link rel="import" href="../d2l-icons/d2l-icons.html">
 <link rel="import" href="../d2l-polymer-behaviors/d2l-focusable-behavior.html">
-<link rel="import" href="../d2l-typography/d2l-typography.html">
+<link rel="import" href="../d2l-typography/d2l-typography-shared-styles.html">
 <link rel="import" href="d2l-button-shared-styles.html">
 <link rel="import" href="d2l-button-behavior.html">
 
@@ -21,12 +21,12 @@ Polymer-based web component for subtle buttons
 			}
 			button {
 				background-color: transparent;
-				border-style: none;
+				border-color: transparent;
 				font-family: inherit;
-				padding: 0 0.6rem;
-				@apply --d2l-label-text;
+				padding: 0.5rem 0.6rem;
 				@apply --d2l-button-clear-focus;
 				@apply --d2l-button-shared;
+				@apply --d2l-label-text;
 			}
 
 			/* Firefox includes a hidden border which messes up button dimensions */
@@ -43,18 +43,16 @@ Polymer-based web component for subtle buttons
 				background-color: var(--d2l-color-gypsum);
 			}
 			button:focus, :host(.d2l-button-subtle-focus) button {
-				@apply --d2l-standard-button-focus;
+				@apply --d2l-button-focus-plus-border;
 			}
 			.d2l-button-subtle-content {
 				color: var(--d2l-color-celestine);
-				transition: color 0.3s ease;
 				vertical-align: middle;
 			}
 			d2l-icon.d2l-button-subtle-icon {
 				color: var(--d2l-color-celestine);
 				height: 0.9rem;
 				margin-right: 0.3rem;
-				transition: color 0.3s ease;
 				width: 0.9rem;
 			}
 			.d2l-button-subtle-icon[hidden] {

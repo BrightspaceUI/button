@@ -5,7 +5,11 @@
 
 A series of [Polymer](https://www.polymer-project.org/1.0/)-based web components and [Sass](http://sass-lang.com/) mixins for D2L buttons.
 
-![screenshot of button component](/screenshots/screenshot.png?raw=true)
+![screenshot of button component](/screenshots/regular-buttons.png?raw=true)
+
+![screenshot of subtle button component](/screenshots/subtle-buttons.png?raw=true)
+
+![screenshot of icon button component](/screenshots/icon-buttons.png?raw=true)
 
 For further information on this and other Brightspace UI components, see the docs at [ui.developers.brightspace.com](http://ui.developers.brightspace.com/).
 
@@ -30,6 +34,14 @@ Include the [webcomponents.js](http://webcomponents.org/polyfills/) "lite" polyf
 ```
 
 The `<d2l-button>` element can be used just like the native `button` element, but also supports the `primary` attribute for denoting the primary button.
+
+Normal button:
+
+![screenshot of normal buttons](/screenshots/button.png?raw=true)
+
+Primary button:
+
+![screenshot of primary buttons](/screenshots/button-primary.png?raw=true)
 
 <!---
 ```
@@ -80,6 +92,14 @@ The `primary` and `disabled` attributes work the same way as they do with the we
 ```
 
 The subtle button shows text with an optional icon, and can be added by using the `<d2l-button-subtle>` custom element. It should be used for advanced or de-emphasized actions.
+
+Without icon:
+
+![screenshot of subtle buttons without icons](/screenshots/button-subtle.png?raw=true)
+
+With icon:
+
+![screenshot of subtle buttons with icons](/screenshots/button-subtle-icons.png?raw=true)
 
 <!---
 ```
@@ -136,6 +156,8 @@ Usage is slightly different in that the text and icon attributes are not used, a
 ```
 
 The icon button shows an icon with an aria-label, and can be added by using the `<d2l-button-icon>` custom element. It should be used when icons perform a clickable action.
+
+![screenshot of icon buttons](/screenshots/button-icon.png?raw=true)
 
 <!---
 ```

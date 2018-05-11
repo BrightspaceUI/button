@@ -1,6 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../d2l-colors/d2l-colors.html">
 <link rel="import" href="../d2l-polymer-behaviors/d2l-focusable-behavior.html">
+<link rel="import" href="../d2l-typography/d2l-typography-shared-styles.html">
 <link rel="import" href="d2l-button-shared-styles.html">
 <link rel="import" href="d2l-button-behavior.html">
 
@@ -18,15 +19,10 @@ Polymer-based web component for buttons
 				display: inline-block;
 			}
 			button {
-				border-width: 1px;
-				border-style: solid;
 				font-family: inherit;
-				font-size: 0.7rem;
-				font-weight: 700;
-				letter-spacing: 0.02rem;
-				line-height: 1rem;
 				padding: 0.5rem 1.5rem;
 				@apply --d2l-button-shared;
+				@apply --d2l-label-text;
 				@apply --d2l-button;
 				@apply --d2l-button-clear-focus;
 			}
@@ -35,36 +31,50 @@ Polymer-based web component for buttons
 				border: 0;
 			}
 			button, button[disabled]:hover, button[disabled]:focus {
-				background-color: var(--d2l-color-sylvite);
+				background-color: var(--d2l-color-regolith);
 				border-color: var(--d2l-color-mica);
 				color: var(--d2l-color-ferrite);
 			}
 
-			button:hover, :host(.d2l-button-hover) button {
+			button:hover,
+			button:focus,
+			:host(.d2l-button-hover) button,
+			:host(.d2l-button-focus) button {
 				background-color: var(--d2l-color-gypsum);
+			}
+
+			button:hover, :host(.d2l-button-hover) button {
 				@apply --d2l-button-hover;
 			}
 			button:focus, :host(.d2l-button-focus) button {
-				@apply --d2l-secondary-button-focus;
+				@apply --d2l-button-focus-plus-border;
 			}
 
 			button[disabled] {
 				opacity: 0.5;
 				cursor: default;
 			}
-			:host([primary]) button, :host([primary]) button[disabled]:hover, :host([primary]) button[disabled]:focus {
+			:host([primary]) button,
+			:host([primary]) button[disabled]:hover,
+			:host([primary]) button[disabled]:focus {
 				background-color: var(--d2l-color-celestine);
 				border-color: var(--d2l-color-celestine-minus-1);
 				color: #ffffff;
 				@apply --d2l-button-primary;
 			}
 
-			:host([primary]) button:hover, :host([primary].d2l-button-hover) button {
+			:host([primary]) button:hover,
+			:host([primary]) button:focus,
+			:host([primary].d2l-button-hover) button,
+			:host([primary].d2l-button-focus) button {
 				background-color: var(--d2l-color-celestine-minus-1);
+			}
+
+			:host([primary]) button:hover, :host([primary].d2l-button-hover) button {
 				@apply --d2l-button-primary-hover;
 			}
 			:host([primary]) button:focus, :host([primary].d2l-button-focus) button {
-				@apply --d2l-primary-button-focus;
+				@apply --d2l-button-focus;
 			}
 		</style>
 		<button
