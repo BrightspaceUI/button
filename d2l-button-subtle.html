@@ -24,6 +24,7 @@ Polymer-based web component for subtle buttons
 				border-color: transparent;
 				font-family: inherit;
 				padding: 0.5rem 0.6rem;
+				position: relative;
 				@apply --d2l-button-clear-focus;
 				@apply --d2l-button-shared;
 				@apply --d2l-label-text;
@@ -45,25 +46,38 @@ Polymer-based web component for subtle buttons
 			button:focus, :host(.d2l-button-subtle-focus) button {
 				@apply --d2l-button-focus-plus-border;
 			}
+			:host([icon][icon-right]) button {
+				padding-right: 1.8rem;
+			}
 			.d2l-button-subtle-content {
 				color: var(--d2l-color-celestine);
 				vertical-align: middle;
 			}
+			:host([icon]) .d2l-button-subtle-content {
+				padding-left: 1.2rem;
+			}
+
+			:host([icon][icon-right]) .d2l-button-subtle-content {
+				padding-left: 0;
+			}
 			d2l-icon.d2l-button-subtle-icon {
 				color: var(--d2l-color-celestine);
+				display: none;
 				height: 0.9rem;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
 				width: 0.9rem;
 			}
-			d2l-icon.d2l-button-subtle-icon-left {
-				margin-right: 0.3rem;
+			:host([icon]) d2l-icon.d2l-button-subtle-icon {
+				display: inline-block;
 			}
-			d2l-icon.d2l-button-subtle-icon-right {
-				margin-left: 0.3rem;
+
+			:host([icon][icon-right]) d2l-icon.d2l-button-subtle-icon {
+				padding-right: 0.6rem;
+				right: 0;
 			}
-			.d2l-button-subtle-icon[hidden] {
-				display: none;
-			}
-			:host-context([dir="rtl"]) .d2l-button-subtle-icon-left {
+			/* :host-context([dir="rtl"]) .d2l-button-subtle-icon-left {
 				margin-left: 0.3rem;
 				margin-right: 0;
 			}
@@ -78,7 +92,7 @@ Polymer-based web component for subtle buttons
 			:host(:dir(rtl)) .d2l-button-subtle-icon-right {
 				margin-left: 0rem;
 				margin-right: 0.3rem;
-			}
+			} */
 			button[disabled] {
 				cursor: default;
 				opacity: 0.5;
@@ -96,9 +110,8 @@ Polymer-based web component for subtle buttons
 			formtarget$=[[formtarget]]
 			name$=[[name]]
 			type$=[[type]]>
-			<d2l-icon hidden$="[[!_iconLeft(iconRight, icon)]]" icon=[[icon]] class="d2l-button-subtle-icon d2l-button-subtle-icon-left"></d2l-icon>
+			<d2l-icon icon=[[icon]] class="d2l-button-subtle-icon"></d2l-icon>
 			<span class="d2l-button-subtle-content">[[text]]</span>
-			<d2l-icon hidden$="[[!_iconRight(iconRight, icon)]]"  icon=[[icon]] class="d2l-button-subtle-icon d2l-button-subtle-icon-right"></d2l-icon>
 		</button>
 	</template>
 	<script>
