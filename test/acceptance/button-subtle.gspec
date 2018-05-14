@@ -17,8 +17,7 @@
 		span                      	::d2l-shadow span
 		icon						::d2l-shadow d2l-icon
 	custom-element-icon-right		#custom-element-icon-right
-		icon-left					::d2l-shadow d2l-icon.d2l-button-subtle-icon-left
-		icon						::d2l-shadow d2l-icon.d2l-button-subtle-icon-right
+		span						::d2l-shadow span
 	custom-element-icon-focus		#custom-element-icon-focus
 		button                      ::d2l-shadow button
 		span                      	::d2l-shadow span
@@ -76,14 +75,14 @@
 			span                      	span
 			icon						d2l-icon
 		custom-element-icon-right		#custom-element-icon-right
-			icon-left					d2l-icon.d2l-button-subtle-icon-left
-			icon						d2l-icon.d2l-button-subtle-icon-right
+			span						span
 
 @groups
 	text custom-element.span, custom-element-icon.span, custom-element-hover.span, custom-element-icon-hover.span, custom-element-focus.span, custom-element-icon-focus.span, custom-element-disabled.span, custom-element-icon-disabled.span, sass-mixin, sass-mixin-icon, sass-mixin-focus, sass-mixin-icon-focus, sass-mixin-hover, sass-mixin-icon-hover, sass-mixin-disabled, sass-mixin-icon-disabled
-	icon-hidden custom-element.icon, custom-element-icon-right.icon-left
+	text-icon-left custom-element-icon.span, custom-element-icon-hover.span, custom-element-icon-focus.span, custom-element-icon-disabled.span
+	text-icon-right custom-element-icon-right.span
+	icon-hidden custom-element.icon
 	icon custom-element-icon.icon, custom-element-icon-focus.icon, custom-element-icon-hover.icon, custom-element-icon-disabled.icon, sass-mixin-icon.icon, sass-mixin-icon-hover.icon, sass-mixin-icon-focus.icon, sass-mixin-icon-disabled.icon
-	icon-right custom-element-icon-right.icon
 	button custom-element.button, custom-element-icon.button, sass-mixin
 	button-hover custom-element-hover.button, custom-element-icon-hover.button, sass-mixin-hover, sass-mixin-icon-hover
 	button-focus custom-element-focus.button, custom-element-icon-focus.button, sass-mixin-focus, sass-mixin-icon-focus
@@ -98,17 +97,17 @@
 	&text:
 		css color matches ${celestine}
 		css vertical-align is "middle"
+	&text-icon-left:
+		css padding-left matches "1.2rem|24px"
+	&text-icon-right:
+		css padding-right matches "1.2rem|24px"
 	&icon-hidden:
 		absent
-	&icon, &icon-right:
+	&icon:
 		css color matches ${celestine}
 		css vertical-align is "middle"
 		height 18px
 		width 18px
-	&icon:
-		css margin-right matches "6px|0.3rem"
-	&icon-right:
-		css margin-left matches "6px|0.3rem"
 	@on not-edge
 		&button, &button-hover, &button-focus:
 			css font-size is "14px"

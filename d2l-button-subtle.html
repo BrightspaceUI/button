@@ -46,21 +46,7 @@ Polymer-based web component for subtle buttons
 			button:focus, :host(.d2l-button-subtle-focus) button {
 				@apply --d2l-button-focus-plus-border;
 			}
-			:host([icon][icon-right]) button {
-				padding-right: 1.8rem;
-			}
-			:host-context([dir="rtl"][icon]) button {
-				padding-right: 1.8rem;
-			}
-			:host(:dir(rtl)[icon]) button {
-				padding-right: 1.8rem;
-			}
-			:host-context([dir="rtl"][icon][icon-right]) button {
-				padding-right: 0.6rem;
-			}
-			:host(:dir(rtl)[icon][icon-right]) button {
-				padding-right: 0.6rem;
-			}
+
 			.d2l-button-subtle-content {
 				color: var(--d2l-color-celestine);
 				vertical-align: middle;
@@ -68,21 +54,25 @@ Polymer-based web component for subtle buttons
 			:host([icon]) .d2l-button-subtle-content {
 				padding-left: 1.2rem;
 			}
-			:host-context([dir="rtl"][icon]) .d2l-button-subtle-content {
-				padding-left: 0;
-			}
-			:host(:dir(rtl)[icon]) .d2l-button-subtle-content{
-				padding-left: 0;
-			}
-
 			:host([icon][icon-right]) .d2l-button-subtle-content {
 				padding-left: 0;
+				padding-right: 1.2rem;
+			}
+			:host-context([dir="rtl"][icon]) .d2l-button-subtle-content {
+				padding-left: 0;
+				padding-right: 1.2rem;
+			}
+			:host(:dir(rtl)[icon]) .d2l-button-subtle-content {
+				padding-left: 0;
+				padding-right: 1.2rem;
 			}
 			:host-context([dir="rtl"][icon][icon-right]) .d2l-button-subtle-content {
 				padding-left: 1.2rem;
+				padding-right: 0;
 			}
-			:host(:dir(rtl)[icon][icon-right]) .d2l-button-subtle-content{
+			:host(:dir(rtl)[icon][icon-right]) .d2l-button-subtle-content {
 				padding-left: 1.2rem;
+				padding-right: 0;
 			}
 
 			d2l-icon.d2l-button-subtle-icon {
@@ -97,27 +87,21 @@ Polymer-based web component for subtle buttons
 			:host([icon]) d2l-icon.d2l-button-subtle-icon {
 				display: inline-block;
 			}
-
 			:host([icon][icon-right]) d2l-icon.d2l-button-subtle-icon {
-				padding-right: 0.6rem;
-				right: 0;
+				right: 0.6rem;
 			}
 			:host-context([dir="rtl"][icon]) d2l-icon.d2l-button-subtle-icon {
-				padding-right: 0.6rem;
-				right: 0;
+				right: 0.6rem;
 			}
 			:host(:dir(rtl)[icon]) d2l-icon.d2l-button-subtle-icon {
-				padding-right: 0.6rem;
-				right: 0;
+				right: 0.6rem;
 			}
 			:host-context([dir="rtl"][icon][icon-right]) d2l-icon.d2l-button-subtle-icon {
 				left: 0.6rem;
-				padding-right: 0;
 				right: initial;
 			}
 			:host(:dir(rtl)[icon][icon-right]) d2l-icon.d2l-button-subtle-icon {
 				left: 0.6rem;
-				padding-right: 0;
 				right: initial;
 			}
 			button[disabled] {
