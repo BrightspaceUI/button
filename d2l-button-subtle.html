@@ -24,6 +24,7 @@ Polymer-based web component for subtle buttons
 				border-color: transparent;
 				font-family: inherit;
 				padding: 0.5rem 0.6rem;
+				position: relative;
 				@apply --d2l-button-clear-focus;
 				@apply --d2l-button-shared;
 				@apply --d2l-label-text;
@@ -45,26 +46,63 @@ Polymer-based web component for subtle buttons
 			button:focus, :host(.d2l-button-subtle-focus) button {
 				@apply --d2l-button-focus-plus-border;
 			}
+
 			.d2l-button-subtle-content {
 				color: var(--d2l-color-celestine);
 				vertical-align: middle;
 			}
+			:host([icon]) .d2l-button-subtle-content {
+				padding-left: 1.2rem;
+			}
+			:host([icon][icon-right]) .d2l-button-subtle-content {
+				padding-left: 0;
+				padding-right: 1.2rem;
+			}
+			:host-context([dir="rtl"][icon]) .d2l-button-subtle-content {
+				padding-left: 0;
+				padding-right: 1.2rem;
+			}
+			:host(:dir(rtl)[icon]) .d2l-button-subtle-content {
+				padding-left: 0;
+				padding-right: 1.2rem;
+			}
+			:host-context([dir="rtl"][icon][icon-right]) .d2l-button-subtle-content {
+				padding-left: 1.2rem;
+				padding-right: 0;
+			}
+			:host(:dir(rtl)[icon][icon-right]) .d2l-button-subtle-content {
+				padding-left: 1.2rem;
+				padding-right: 0;
+			}
+
 			d2l-icon.d2l-button-subtle-icon {
 				color: var(--d2l-color-celestine);
+				display: none;
 				height: 0.9rem;
-				margin-right: 0.3rem;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
 				width: 0.9rem;
 			}
-			.d2l-button-subtle-icon[hidden] {
-				display: none;
+			:host([icon]) d2l-icon.d2l-button-subtle-icon {
+				display: inline-block;
 			}
-			:host-context([dir="rtl"]) .d2l-button-subtle-icon {
-				margin-left: 0.3rem;
-				margin-right: 0;
+			:host([icon][icon-right]) d2l-icon.d2l-button-subtle-icon {
+				right: 0.6rem;
 			}
-			:host(:dir(rtl)) .d2l-button-subtle-icon {
-				margin-left: 0.3rem;
-				margin-right: 0;
+			:host-context([dir="rtl"][icon]) d2l-icon.d2l-button-subtle-icon {
+				right: 0.6rem;
+			}
+			:host(:dir(rtl)[icon]) d2l-icon.d2l-button-subtle-icon {
+				right: 0.6rem;
+			}
+			:host-context([dir="rtl"][icon][icon-right]) d2l-icon.d2l-button-subtle-icon {
+				left: 0.6rem;
+				right: initial;
+			}
+			:host(:dir(rtl)[icon][icon-right]) d2l-icon.d2l-button-subtle-icon {
+				left: 0.6rem;
+				right: initial;
 			}
 			button[disabled] {
 				cursor: default;
@@ -83,7 +121,7 @@ Polymer-based web component for subtle buttons
 			formtarget$=[[formtarget]]
 			name$=[[name]]
 			type$=[[type]]>
-			<d2l-icon hidden=[[!icon]] icon=[[icon]] class="d2l-button-subtle-icon"></d2l-icon>
+			<d2l-icon icon=[[icon]] class="d2l-button-subtle-icon"></d2l-icon>
 			<span class="d2l-button-subtle-content">[[text]]</span>
 		</button>
 	</template>
@@ -99,6 +137,15 @@ Polymer-based web component for subtle buttons
 				icon: {
 					type: String,
 					value: null,
+					reflectToAttribute: true
+				},
+
+				/**
+				 * Display the icon to the right of text when true
+				 */
+				iconRight: {
+					type: Boolean,
+					value: false,
 					reflectToAttribute: true
 				},
 

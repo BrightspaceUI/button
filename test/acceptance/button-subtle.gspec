@@ -16,6 +16,8 @@
 		button                      ::d2l-shadow button
 		span                      	::d2l-shadow span
 		icon						::d2l-shadow d2l-icon
+	custom-element-icon-right		#custom-element-icon-right
+		span						::d2l-shadow span
 	custom-element-icon-focus		#custom-element-icon-focus
 		button                      ::d2l-shadow button
 		span                      	::d2l-shadow span
@@ -72,9 +74,13 @@
 			button                      button
 			span                      	span
 			icon						d2l-icon
+		custom-element-icon-right		#custom-element-icon-right
+			span						span
 
 @groups
 	text custom-element.span, custom-element-icon.span, custom-element-hover.span, custom-element-icon-hover.span, custom-element-focus.span, custom-element-icon-focus.span, custom-element-disabled.span, custom-element-icon-disabled.span, sass-mixin, sass-mixin-icon, sass-mixin-focus, sass-mixin-icon-focus, sass-mixin-hover, sass-mixin-icon-hover, sass-mixin-disabled, sass-mixin-icon-disabled
+	text-icon-left custom-element-icon.span, custom-element-icon-hover.span, custom-element-icon-focus.span, custom-element-icon-disabled.span
+	text-icon-right custom-element-icon-right.span
 	icon-hidden custom-element.icon
 	icon custom-element-icon.icon, custom-element-icon-focus.icon, custom-element-icon-hover.icon, custom-element-icon-disabled.icon, sass-mixin-icon.icon, sass-mixin-icon-hover.icon, sass-mixin-icon-focus.icon, sass-mixin-icon-disabled.icon
 	button custom-element.button, custom-element-icon.button, sass-mixin
@@ -91,11 +97,14 @@
 	&text:
 		css color matches ${celestine}
 		css vertical-align is "middle"
+	&text-icon-left:
+		css padding-left matches "1.2rem|24px"
+	&text-icon-right:
+		css padding-right matches "1.2rem|24px"
 	&icon-hidden:
 		absent
 	&icon:
 		css color matches ${celestine}
-		css margin-right matches "6px|0.3rem"
 		css vertical-align is "middle"
 		height 18px
 		width 18px
