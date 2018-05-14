@@ -101,6 +101,10 @@ With icon:
 
 ![screenshot of subtle buttons with icons](/screenshots/button-subtle-icons.png?raw=true)
 
+With icon on right:
+
+![screenshot of subtle buttons with icon on the right](/screenshots/button-subtle-icons-right.png?raw=true)
+
 <!---
 ```
 <custom-element-demo>
@@ -125,6 +129,7 @@ With icon:
 ```html
 <d2l-button-subtle text="Subtle Button"></d2l-button-subtle>
 <d2l-button-subtle icon="d2l-tier1:bookmark-hollow" text="Subtle Button with Icon"></d2l-button-subtle>
+<d2l-button-subtle icon="d2l-tier1:bookmark-hollow" text="Subtle Button with Right Icon" icon-right></d2l-button-subtle>
 <d2l-button-subtle icon="d2l-tier1:gear" text="Disabled Button" disabled></d2l-button-subtle>
 ```
 

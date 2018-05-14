@@ -52,19 +52,32 @@ Polymer-based web component for subtle buttons
 			d2l-icon.d2l-button-subtle-icon {
 				color: var(--d2l-color-celestine);
 				height: 0.9rem;
-				margin-right: 0.3rem;
 				width: 0.9rem;
+			}
+			d2l-icon.d2l-button-subtle-icon-left {
+				margin-right: 0.3rem;
+			}
+			d2l-icon.d2l-button-subtle-icon-right {
+				margin-left: 0.3rem;
 			}
 			.d2l-button-subtle-icon[hidden] {
 				display: none;
 			}
-			:host-context([dir="rtl"]) .d2l-button-subtle-icon {
+			:host-context([dir="rtl"]) .d2l-button-subtle-icon-left {
 				margin-left: 0.3rem;
 				margin-right: 0;
 			}
-			:host(:dir(rtl)) .d2l-button-subtle-icon {
+			:host(:dir(rtl)) .d2l-button-subtle-icon-left {
 				margin-left: 0.3rem;
 				margin-right: 0;
+			}
+			:host-context([dir="rtl"]) .d2l-button-subtle-icon-right {
+				margin-left: 0rem;
+				margin-right: 0.3rem;
+			}
+			:host(:dir(rtl)) .d2l-button-subtle-icon-right {
+				margin-left: 0rem;
+				margin-right: 0.3rem;
 			}
 			button[disabled] {
 				cursor: default;
@@ -83,8 +96,9 @@ Polymer-based web component for subtle buttons
 			formtarget$=[[formtarget]]
 			name$=[[name]]
 			type$=[[type]]>
-			<d2l-icon hidden=[[!icon]] icon=[[icon]] class="d2l-button-subtle-icon"></d2l-icon>
+			<d2l-icon hidden$="[[!_iconLeft(iconRight, icon)]]" icon=[[icon]] class="d2l-button-subtle-icon d2l-button-subtle-icon-left"></d2l-icon>
 			<span class="d2l-button-subtle-content">[[text]]</span>
+			<d2l-icon hidden$="[[!_iconRight(iconRight, icon)]]"  icon=[[icon]] class="d2l-button-subtle-icon d2l-button-subtle-icon-right"></d2l-icon>
 		</button>
 	</template>
 	<script>
@@ -103,6 +117,15 @@ Polymer-based web component for subtle buttons
 				},
 
 				/**
+				 * Display the icon to the right of text when true
+				 */
+				iconRight: {
+					type: Boolean,
+					value: false,
+					reflectToAttribute: true
+				},
+
+				/**
 				 * Text to display in the button (required)
 				 */
 				text: {
@@ -115,7 +138,15 @@ Polymer-based web component for subtle buttons
 			behaviors: [
 				D2L.PolymerBehaviors.Button.Behavior,
 				D2L.PolymerBehaviors.FocusableBehavior
-			]
+			],
+
+			_iconRight: function(iconRight, icon) {
+				return iconRight && icon;
+			},
+
+			_iconLeft: function(iconRight, icon) {
+				return !iconRight && icon;
+			}
 
 		});
 	</script>
