@@ -58,19 +58,11 @@ Polymer-based web component for subtle buttons
 				padding-left: 0;
 				padding-right: 1.2rem;
 			}
-			:host-context([dir="rtl"][icon]) .d2l-button-subtle-content {
+			:host([is-rtl][icon]) .d2l-button-subtle-content {
 				padding-left: 0;
 				padding-right: 1.2rem;
 			}
-			:host(:dir(rtl)[icon]) .d2l-button-subtle-content {
-				padding-left: 0;
-				padding-right: 1.2rem;
-			}
-			:host-context([dir="rtl"][icon][icon-right]) .d2l-button-subtle-content {
-				padding-left: 1.2rem;
-				padding-right: 0;
-			}
-			:host(:dir(rtl)[icon][icon-right]) .d2l-button-subtle-content {
+			:host([is-rtl][icon][icon-right]) .d2l-button-subtle-content {
 				padding-left: 1.2rem;
 				padding-right: 0;
 			}
@@ -90,17 +82,11 @@ Polymer-based web component for subtle buttons
 			:host([icon][icon-right]) d2l-icon.d2l-button-subtle-icon {
 				right: 0.6rem;
 			}
-			:host-context([dir="rtl"][icon]) d2l-icon.d2l-button-subtle-icon {
+
+			:host([is-rtl][icon]) d2l-icon.d2l-button-subtle-icon {
 				right: 0.6rem;
 			}
-			:host(:dir(rtl)[icon]) d2l-icon.d2l-button-subtle-icon {
-				right: 0.6rem;
-			}
-			:host-context([dir="rtl"][icon][icon-right]) d2l-icon.d2l-button-subtle-icon {
-				left: 0.6rem;
-				right: initial;
-			}
-			:host(:dir(rtl)[icon][icon-right]) d2l-icon.d2l-button-subtle-icon {
+			:host([is-rtl][icon][icon-right]) d2l-icon.d2l-button-subtle-icon {
 				left: 0.6rem;
 				right: initial;
 			}
@@ -155,6 +141,13 @@ Polymer-based web component for subtle buttons
 				text: {
 					type: String,
 					reflectToAttribute: true
+				},
+
+				isRtl: {
+					type: Boolean,
+					value: false,
+					computed: '_calculateRTL(isAttached)',
+					reflectToAttribute: true
 				}
 
 			},
@@ -162,8 +155,23 @@ Polymer-based web component for subtle buttons
 			behaviors: [
 				D2L.PolymerBehaviors.Button.Behavior,
 				D2L.PolymerBehaviors.FocusableBehavior
-			]
+			],
 
+			_calculateRTL: function(isAttached) {
+				var isRTL = false;
+				if (isAttached) {
+					if (this.$$('[dir="rtl"] *')) {
+						isRTL = true;
+					} else {
+						try {
+							isRTL = !!this.$$(':host-context([dir="rtl"]) *');
+						} catch (e) {
+							isRTL = false;
+						}
+					}
+				}
+				return isRTL;
+			}
 		});
 	</script>
 </dom-module>
