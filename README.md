@@ -105,6 +105,10 @@ With icon on right:
 
 ![screenshot of subtle buttons with icon on the right](/screenshots/button-subtle-icons-right.png?raw=true)
 
+Alignment (bottom uses h-align="text")
+
+![screenshot of subtle buttons with different alignments](/screenshots/button-subtle-align.png?raw=true)
+
 <!---
 ```
 <custom-element-demo>
@@ -131,6 +135,7 @@ With icon on right:
 <d2l-button-subtle icon="d2l-tier1:bookmark-hollow" text="Subtle Button with Icon"></d2l-button-subtle>
 <d2l-button-subtle icon="d2l-tier1:bookmark-hollow" text="Subtle Button with Right Icon" icon-right></d2l-button-subtle>
 <d2l-button-subtle icon="d2l-tier1:gear" text="Disabled Button" disabled></d2l-button-subtle>
+<d2l-button-subtle icon="d2l-tier1:gear" text="Text Aligned" h-align="text"></d2l-button-subtle>
 ```
 
 As an alternative to the web component, a Sass mixin can be used to apply button styles to your button elements:
@@ -164,6 +169,10 @@ The icon button shows an icon with an aria-label, and can be added by using the 
 
 ![screenshot of icon buttons](/screenshots/button-icon.png?raw=true)
 
+Alignment (bottom uses h-align="text")
+
+![screenshot of icon buttons with different alignments](/screenshots/button-icon-align.png?raw=true)
+
 <!---
 ```
 <custom-element-demo>
@@ -188,6 +197,7 @@ The icon button shows an icon with an aria-label, and can be added by using the 
 ```html
 <d2l-button-icon icon="d2l-tier1:bookmark-hollow" text="Bookmark"></d2l-button-icon>
 <d2l-button-icon icon="d2l-tier1:gear" text="Settings (disabled)" disabled></d2l-button-icon>
+<d2l-button-icon icon="d2l-tier1:gear" text="Text Aligned" h-align="text"></d2l-button-icon>
 ```
 
 As an alternative to the web component, a Sass mixin can be used to apply button styles to your button elements:

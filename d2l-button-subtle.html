@@ -30,6 +30,14 @@ Polymer-based web component for subtle buttons
 				@apply --d2l-label-text;
 			}
 
+			:host([h-align="text"]) button {
+				left: -0.6rem;
+			}
+			:host([is-rtl][h-align="text"]) button {
+				left: 0;
+				right: -0.6rem;
+			}
+
 			/* Firefox includes a hidden border which messes up button dimensions */
 			button::-moz-focus-inner {
 				border: 0;
@@ -143,12 +151,22 @@ Polymer-based web component for subtle buttons
 					reflectToAttribute: true
 				},
 
+				/**
+				 * Horizontal alignment of button. Options:
+				 * 	"text" -  The button icon or text will left align with the page content
+				 *	default - The button's edge (including padding) will left align with the page content
+				*/
+				hAlign: {
+					type: String,
+					reflectToAttribute: true
+				},
+
 				isRtl: {
 					type: Boolean,
 					value: false,
 					computed: '_calculateRTL(isAttached)',
 					reflectToAttribute: true
-				}
+				}				
 
 			},
 

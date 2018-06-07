@@ -11,6 +11,8 @@
 	button-icon-disabled			#custom-element-disabled
 		button                      ::d2l-shadow button
 		icon						::d2l-shadow d2l-icon
+	custom-element-h-align-text		#custom-element-h-align-text
+		button                      ::d2l-shadow button
 	icon-sass-mixin					#sass-mixin
 		icon						d2l-icon
 	icon-sass-mixin-focus			#sass-mixin-focus
@@ -34,6 +36,8 @@
 		button-icon-disabled		#custom-element-disabled
 			button					button
 			icon					d2l-icon
+		custom-element-h-align-text	#custom-element-h-align-text
+			button                  button
 
 @groups
 	icon button-icon.icon, button-icon-focus.icon, button-icon-hover.icon, button-icon-disabled.icon, icon-sass-mixin.icon, icon-sass-mixin-hover.icon, icon-sass-mixin-focus.icon, icon-sass-mixin-disabled.icon
@@ -76,3 +80,5 @@
 		css opacity is "0.5"
 		width 42px
 		height 42px
+	custom-element-h-align-text.button:
+		left -12 px
