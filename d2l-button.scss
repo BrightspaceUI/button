@@ -43,8 +43,16 @@
 	@include _d2l-button-clear-focus();
 	font-family: inherit;
 	min-width: calc(2rem + 2px);
+	position: relative;
 	&::-moz-focus-inner {
 		border: 0;
+	}
+	&[h-align="text"] {
+		left: calc(((2rem + 2px - 0.9rem) / 2) * -1);
+	}
+	[dir="rtl"] &[h-align="text"] {
+		left: 0;
+		right: calc(((2rem + 2px - 0.9rem) / 2) * -1);
 	}
 	&[disabled]:hover, &[disabled]:focus {
 		background-color: transparent;
@@ -73,9 +81,17 @@
 	@include _d2l-button-clear-focus();
 	font-family: inherit;
 	padding: 0.5rem 0.6rem;
+	position: relative;
 	@include d2l-label-text();
 	&::-moz-focus-inner {
 		border: 0;
+	}
+	&[h-align="text"] {
+		left: -0.6rem;
+	}
+	[dir="rtl"] &[h-align="text"] {
+		left: 0;
+		right: -0.6rem;
 	}
 	&[disabled]:hover, &[disabled]:focus {
 		background-color: transparent;

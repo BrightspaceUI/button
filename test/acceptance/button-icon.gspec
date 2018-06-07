@@ -11,7 +11,7 @@
 	button-icon-disabled			#custom-element-disabled
 		button                      ::d2l-shadow button
 		icon						::d2l-shadow d2l-icon
-	custom-element-h-align-text		#custom-element-h-align-text
+	button-icon-h-align-text		#custom-element-h-align-text
 		button                      ::d2l-shadow button
 	icon-sass-mixin					#sass-mixin
 		icon						d2l-icon
@@ -21,6 +21,7 @@
 		icon						d2l-icon
 	icon-sass-mixin-disabled		#sass-mixin-disabled
 		icon						d2l-icon
+	icon-sass-mixin-h-align-text	#sass-mixin-h-align-text
 
 @on no-d2l-shadow
 	@objects
@@ -45,6 +46,7 @@
 	button-hover button-icon-hover.button, icon-sass-mixin-hover
 	button-focus button-icon-focus.button, icon-sass-mixin-focus
 	button-disabled button-icon-disabled.button, button-icon-disabled.button, icon-sass-mixin-disabled, icon-sass-mixin-disabled
+	button-align-text button-icon-h-align-text.button, icon-sass-mixin-h-align-text
 
 @set
 	gypsum "#e6eaf0|rgba\\(230, 234, 240, 1\\)|rgb\\(230, 234, 240\\)"
@@ -80,5 +82,5 @@
 		css opacity is "0.5"
 		width 42px
 		height 42px
-	custom-element-h-align-text.button:
-		left -12 px
+	&button-align-text:
+		css left is "-12px"
