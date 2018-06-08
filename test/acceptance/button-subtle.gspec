@@ -30,6 +30,8 @@
 		button                      ::d2l-shadow button
 		span                      	::d2l-shadow span
 		icon						::d2l-shadow d2l-icon
+	custom-element-h-align-text		#custom-element-h-align-text
+		button                      ::d2l-shadow button
 	sass-mixin						#sass-mixin
 	sass-mixin-focus				#sass-mixin-focus
 	sass-mixin-hover				#sass-mixin-hover
@@ -42,6 +44,7 @@
 		icon						d2l-icon
 	sass-mixin-icon-disabled		#sass-mixin-icon-disabled
 		icon						d2l-icon
+	sass-mixin-h-align-text			#sass-mixin-h-align-text
 
 @on no-d2l-shadow
 	@objects
@@ -76,6 +79,8 @@
 			icon						d2l-icon
 		custom-element-icon-right		#custom-element-icon-right
 			span						span
+		custom-element-h-align-text		#custom-element-h-align-text
+			button                      button
 
 @groups
 	text custom-element.span, custom-element-icon.span, custom-element-hover.span, custom-element-icon-hover.span, custom-element-focus.span, custom-element-icon-focus.span, custom-element-disabled.span, custom-element-icon-disabled.span, sass-mixin, sass-mixin-icon, sass-mixin-focus, sass-mixin-icon-focus, sass-mixin-hover, sass-mixin-icon-hover, sass-mixin-disabled, sass-mixin-icon-disabled
@@ -87,6 +92,7 @@
 	button-hover custom-element-hover.button, custom-element-icon-hover.button, sass-mixin-hover, sass-mixin-icon-hover
 	button-focus custom-element-focus.button, custom-element-icon-focus.button, sass-mixin-focus, sass-mixin-icon-focus
 	button-disabled custom-element-disabled.button, custom-element-icon-disabled.button, sass-mixin-disabled, sass-mixin-icon-disabled
+	button-align-text custom-element-h-align-text.button, sass-mixin-h-align-text
 
 @set
 	celestine "#006fbf|rgba\\(0, 111, 191, 1\\)|rgb\\(0, 111, 191\\)"
@@ -145,3 +151,5 @@
 		css opacity is "0.5"
 		width 190 to 292 px
 		height 42 to 43 px
+	&button-align-text:
+		css left is "-12px"

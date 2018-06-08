@@ -31,6 +31,19 @@ Polymer-based web component for icon buttons
 				border-radius: var(--d2l-button-icon-border-radius);
 				min-height: var(--d2l-button-icon-min-height);
 				min-width: var(--d2l-button-icon-min-width);
+				position: relative;
+			}
+
+			:host([h-align="text"]) button {
+				left: calc(((var(--d2l-button-icon-min-width) - 0.9rem) / 2) * -1);
+			}
+			:host-context([dir="rtl"])[h-align="text"] button {
+				left: 0;
+				right: calc(((var(--d2l-button-icon-min-width) - 0.9rem) / 2) * -1);
+			}
+			:host(:dir(rtl)[h-align="text"]) button {
+				left: 0;
+				right: calc(((var(--d2l-button-icon-min-width) - 0.9rem) / 2) * -1);
 			}
 
 			/* Firefox includes a hidden border which messes up button dimensions */
@@ -93,6 +106,16 @@ Polymer-based web component for icon buttons
 				 * Text to display in aria-label (required)
 				 */
 				text: {
+					type: String,
+					reflectToAttribute: true
+				},
+
+				/**
+				 * Horizontal alignment of button. Options:
+				 * 	"text" -  The button icon will left align with the page content
+				 *	default - The button's edge (including padding) will left align with the page content
+				*/
+				hAlign: {
 					type: String,
 					reflectToAttribute: true
 				}
