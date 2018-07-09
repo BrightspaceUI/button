@@ -10,14 +10,16 @@
     "galen:local:run": "d2l-galen test test/acceptance/button.test.js -g factory:local -s",
     "galen:local:dump": "d2l-galen dump test/acceptance/button.test.js -d test/acceptance/dumps -g factory:local -s",
     "galen:sauce:run": "sc-run -- d2l-galen test test/acceptance/button.test.js -g factory:sauce -s -i SAUCE_USERNAME SAUCE_ACCESS_KEY TRAVIS_REPO_SLUG TRAVIS_BUILD_NUMBER -- -p4",
+    "lint": "npm run lint:wc && npm run lint:html",
+    "lint:html": "eslint *.html demo/*.html test/*.html test/acceptance/*.html test/acceptance/*.js",
+    "lint:wc": "polymer lint -i d2l-button.html d2l-floating-buttons.html d2l-button-subtle.html d2l-button-icon.html",
     "pretest:galen:local": "npm run build:sass",
     "test:galen:local": "concurrently -p name -n serve,galen -s first -k \"polymer serve\" \"npm run galen:local:run\"",
     "pretest:galen:sauce": "npm run build:sass",
     "test:galen:sauce": "concurrently -p name -n serve,galen -s first -k \"polymer serve\" \"npm run galen:sauce:run\"",
-    "test:lint": "npm run test:lint:wc && npm run test:lint:html",
-    "test:lint:html": "eslint *.html",
-    "test:lint:wc": "polymer lint -i d2l-button.html d2l-floating-buttons.html d2l-button-subtle.html d2l-button-icon.html",
-    "test": "npm run test:lint && polymer test --skip-plugin sauce && npm run test:galen:local"
+    "test:polymer:local": "polymer test --skip-plugin sauce",
+    "test:polymer:sauce": "polymer test --skip-plugin local",
+    "test": "npm run lint && npm run test:polymer:local && npm run test:galen:local"
   },
   "repository": {
     "type": "git",
