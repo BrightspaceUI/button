@@ -1,19 +1,23 @@
 language: node_js
-node_js:
-- 9
-script:
-- npm run test:lint
-- polymer test --skip-plugin local
-- npm run test:galen:sauce
+node_js: node
 addons:
   apt:
     packages:
-      - oracle-java8-installer
-  jwt:
-    secure: ZQBYlWsBEcVRaELtWWaUi9ouZaRdc+GqyBDHmv+H/IlnGinMJLcUD0tRfFD3n5pVvDVuRXGaHMw7kaF0CM0bd4BJGqV2aWL+erBkMGjEDdIcqxFgqDMzdgGgdDyl+dYhPIAPPUe3L2sPffXcIrAwYmW66iOgkInJiExggqViTaY=
+    - oracle-java8-installer
+script:
+- npm run lint
+- |
+  if [ $TRAVIS_PULL_REQUEST != false ] && [ $TRAVIS_SECURE_ENV_VARS == true ]; then
+    echo "Pull request with secure environment variables, running Sauce tests...";
+    npm run test:polymer:sauce && npm run test:galen:sauce || travis_terminate 1;
+  else
+    echo "Not a pull request and/or no secure environment variables, running headless tests...";
+    npm run test:polymer:local || travis_terminate 1;
+  fi
 before_install:
 - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 - export PATH=$JAVA_HOME/bin:$PATH
 env:
   global:
-    SAUCE_USERNAME: Desire2Learn
+  - SAUCE_USERNAME: Desire2Learn
+  - secure: RR181MFqjjoMOr9mlReP3GXZpjOrkX4LA/Ul1TvtMTUXKfqQYG791N0nUJW2094bCR9W+TtYVH70aEfEhRPysjeuUKDuiOzXAPdU9N0eQxgFzeIU7bSiPwCS2qgwdi7ZXS69g/LS1RGcnok/y57Ad0CEQt1uxAbwOCIFg9rmY8s=
