@@ -74,11 +74,8 @@
 					expect(button.hasAttribute('text')).to.be.false;
 				});
 
-				it('should add the aria-label and title to the button', function() {
-					var innerButton = button.$$('button');
-					var ariaLabel = innerButton.getAttribute('aria-label');
-					var title = innerButton.getAttribute('title');
-					expect(ariaLabel).to.equal('Icon Button');
+				it('should reflect the text attribute to the title', function() {
+					var title = button.$$('button').getAttribute('title');
 					expect(title).to.equal('Icon Button');
 				});
 			});

@@ -72,10 +72,12 @@ Polymer-based web component for icon buttons
 			}
 		</style>
 		<button
+			aria-expanded$="[[ariaExpanded]]"
+			aria-haspopup$="[[ariaHaspopup]]"
+			aria-label$="[[ariaLabel]]"
 			class="d2l-focusable"
 			disabled$=[[disabled]]
 			autofocus$=[[autofocus]]
-			aria-label$=[[text]]
 			form$=[[form]]
 			formaction$=[[formaction]]
 			formenctype$=[[formenctype]]
