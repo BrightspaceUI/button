@@ -11,10 +11,6 @@ var browsers = {
 		platform: 'WIN10',
 		tags: ['not-edge']
 	}),
-	/*firefoxWindows: new SauceBrowserFactory({
-		browser: 'Firefox',
-		platform: 'WIN10'
-	}),*/
 	ie11Windows: new SauceBrowserFactory({
 		browser: 'internet explorer',
 		version: '11',
@@ -25,16 +21,6 @@ var browsers = {
 		browser: 'microsoftedge',
 		platform: 'WIN10',
 		tags: ['no-d2l-shadow']
-	}),
-	chromeMac: new SauceBrowserFactory({
-		browser: 'Chrome',
-		platform: 'SIERRA',
-		/* fixing chrome and chromeDriver versions to avoid failure when resizing */
-		desiredCapabilities: {
-			version: '59.0',
-			chromedriverVersion: '2.29'
-		},
-		tags: ['not-edge']
 	}),
 	safariMac: new SauceBrowserFactory({
 		browser: 'Safari',
