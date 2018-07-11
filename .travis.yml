@@ -4,6 +4,7 @@ addons:
   apt:
     packages:
     - oracle-java8-installer
+  chrome: stable
 script:
 - npm run lint
 - |
