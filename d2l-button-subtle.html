@@ -33,6 +33,10 @@ Polymer-based web component for subtle buttons
 			:host([h-align="text"]) button {
 				left: -0.6rem;
 			}
+			:host-context([dir="rtl"])[h-align="text"] button {
+				left: 0;
+				right: -0.6rem;
+			}
 			:host(:dir(rtl))[h-align="text"] button {
 				left: 0;
 				right: -0.6rem;
@@ -70,6 +74,10 @@ Polymer-based web component for subtle buttons
 				padding-left: 0;
 				padding-right: 1.2rem;
 			}
+			:host-context([dir="rtl"])[icon] .d2l-button-subtle-content {
+				padding-left: 0;
+				padding-right: 1.2rem;
+			}
 			:host(:dir(rtl))[icon] .d2l-button-subtle-content {
 				padding-left: 0;
 				padding-right: 1.2rem;
@@ -77,6 +85,10 @@ Polymer-based web component for subtle buttons
 			:host(:host-context([dir="rtl"])[icon]) .d2l-button-subtle-content {
 				padding-left: 0;
 				padding-right: 1.2rem;
+			}
+			:host-context([dir="rtl"])[icon][icon-right] .d2l-button-subtle-content {
+				padding-left: 1.2rem;
+				padding-right: 0;
 			}
 			:host(:dir(rtl))[icon][icon-right] .d2l-button-subtle-content {
 				padding-left: 1.2rem;
@@ -101,6 +113,10 @@ Polymer-based web component for subtle buttons
 			}
 			:host([icon][icon-right]) d2l-icon.d2l-button-subtle-icon {
 				right: 0.6rem;
+			}
+			:host-context([dir="rtl"])[icon][icon-right] d2l-icon.d2l-button-subtle-icon {
+				left: 0.6rem;
+				right: initial;
 			}
 			:host(:dir(rtl))[icon][icon-right] d2l-icon.d2l-button-subtle-icon {
 				left: 0.6rem;

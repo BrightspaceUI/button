@@ -37,6 +37,10 @@ Polymer-based web component for icon buttons
 			:host([h-align="text"]) button {
 				left: calc(((var(--d2l-button-icon-min-width) - 0.9rem) / 2) * -1);
 			}
+			:host-context([dir="rtl"])[h-align="text"] button {
+				left: 0;
+				right: calc(((var(--d2l-button-icon-min-width) - 0.9rem) / 2) * -1);
+			}
 			:host(:dir(rtl))[h-align="text"] button {
 				left: 0;
 				right: calc(((var(--d2l-button-icon-min-width) - 0.9rem) / 2) * -1);
