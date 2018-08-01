@@ -5,6 +5,8 @@
 		button                      ::d2l-shadow button
 	custom-element-primary-hover	#custom-element-primary-hover
 		button                      ::d2l-shadow button
+	custom-element-primary-active	#custom-element-primary-active
+		button                      ::d2l-shadow button
 	custom-element-primary-disabled	#custom-element-primary-disabled
 		button                      ::d2l-shadow button
 	custom-element-normal			#custom-element-normal
@@ -13,15 +15,19 @@
 		button                      ::d2l-shadow button
 	custom-element-normal-hover		#custom-element-normal-hover
 		button                      ::d2l-shadow button
+	custom-element-normal-active		#custom-element-normal-active
+		button                      ::d2l-shadow button
 	custom-element-normal-disabled	#custom-element-normal-disabled
 		button                      ::d2l-shadow button
 	sass-mixin-primary				#sass-mixin-primary
 	sass-mixin-primary-focus		#sass-mixin-primary-focus
 	sass-mixin-primary-hover		#sass-mixin-primary-hover
+	sass-mixin-primary-active		#sass-mixin-primary-active
 	sass-mixin-primary-disabled		#sass-mixin-primary-disabled
 	sass-mixin-normal				#sass-mixin-normal
 	sass-mixin-normal-focus			#sass-mixin-normal-focus
 	sass-mixin-normal-hover			#sass-mixin-normal-hover
+	sass-mixin-normal-active			#sass-mixin-normal-active
 	sass-mixin-normal-disabled		#sass-mixin-normal-disabled
 
 @on no-d2l-shadow
@@ -32,6 +38,8 @@
 			button                      button
 		custom-element-primary-hover	#custom-element-primary-hover
 			button                      button
+		custom-element-primary-active	#custom-element-primary-active
+			button                      button
 		custom-element-primary-disabled	#custom-element-primary-disabled
 			button                      button
 		custom-element-normal			#custom-element-normal
@@ -40,16 +48,18 @@
 			button                      button
 		custom-element-normal-hover		#custom-element-normal-hover
 			button                      button
+		custom-element-normal-active		#custom-element-normal-active
+			button                      button
 		custom-element-normal-disabled	#custom-element-normal-disabled
 			button                      button
 
 @groups
 	normal custom-element-normal.button, sass-mixin-normal
 	normal-focus custom-element-normal-focus.button, sass-mixin-normal-focus
-	normal-hover custom-element-normal-hover.button, sass-mixin-normal-hover
+	normal-hover-active custom-element-normal-hover.button, sass-mixin-normal-hover, custom-element-normal-active.button, sass-mixin-normal-active
 	primary custom-element-primary.button, sass-mixin-primary
 	primary-focus custom-element-primary-focus.button, sass-mixin-primary-focus
-	primary-hover custom-element-primary-hover.button, sass-mixin-primary-hover
+	primary-hover-active custom-element-primary-hover.button, sass-mixin-primary-hover, custom-element-primary-active.button, sass-mixin-primary-active
 	disabled custom-element-primary-disabled.button, custom-element-normal-disabled.button, sass-mixin-primary-disabled, sass-mixin-normal-disabled
 
 @set
@@ -89,7 +99,7 @@
 		css box-shadow contains "0px 0px 0px 4px"
 		width 215 to 231 px
 		height 42 to 43 px
-	&normal-hover:
+	&normal-hover-active:
 		css background-color matches ${gypsum}
 		width 210 to 231 px
 		height 42 to 43 px
@@ -104,7 +114,7 @@
 		css box-shadow contains "0px 0px 0px 4px"
 		width 220 to 234 px
 		height 42 to 43 px
-	&primary-hover:
+	&primary-hover-active:
 		css background-color matches ${celestineMinus1}
 		width 215 to 234 px
 		height 42 to 43 px
