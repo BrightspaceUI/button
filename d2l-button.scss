@@ -54,10 +54,10 @@
 		left: 0;
 		right: calc(((2rem + 2px - 0.9rem) / 2) * -1);
 	}
-	&[disabled]:hover, &[disabled]:focus {
+	&[disabled]:hover, &[disabled]:focus, &[active][disabled] {
 		background-color: transparent;
 	}
-	&:hover, &:focus, &.d2l-button-icon-hover, &.d2l-button-icon-focus {
+	&:hover, &:focus, &[active], &.d2l-button-icon-hover, &.d2l-button-icon-focus {
 		background-color: $d2l-color-gypsum;
 	}
 	&:focus, &.d2l-button-icon-focus {
@@ -93,10 +93,10 @@
 		left: 0;
 		right: -0.6rem;
 	}
-	&[disabled]:hover, &[disabled]:focus {
+	&[disabled]:hover, &[disabled]:focus, &[active][disabled] {
 		background-color: transparent;
 	}
-	&:hover, &:focus, &.d2l-button-subtle-hover, &.d2l-button-subtle-focus {
+	&:hover, &:focus, &[active], &.d2l-button-subtle-hover, &.d2l-button-subtle-focus {
 		background-color: $d2l-color-gypsum;
 	}
 	&:focus, &.d2l-button-subtle-focus {
@@ -127,12 +127,12 @@
 	&::-moz-focus-inner {
 		border: 0;
 	}
-	&, &[disabled]:hover, &[disabled]:focus {
+	&, &[disabled]:hover, &[disabled]:focus, &[active][disabled] {
 		background-color: $d2l-color-regolith;
 		border-color: $d2l-color-mica;
 		color: $d2l-color-ferrite;
 	}
-	&:hover, &:focus, &.d2l-button-hover, &.d2l-button-focus {
+	&:hover, &:focus, &[active], &.d2l-button-hover, &.d2l-button-focus {
 		background-color: $d2l-color-gypsum;
 	}
 	&:focus, &.d2l-button-focus {
@@ -142,12 +142,12 @@
 		opacity: 0.5;
 		cursor: default;
 	}
-	&[primary], &[primary][disabled]:hover, &[primary][disabled]:focus {
+	&[primary], &[primary][disabled]:hover, &[primary][disabled]:focus,  &[primary][active][disabled] {
 		background-color: $d2l-color-celestine;
 		border-color: $d2l-color-celestine-minus-1;
 		color: #ffffff;
 	}
-	&[primary]:hover, &[primary].d2l-button-hover, &[primary]:focus, &[primary].d2l-button-focus {
+	&[primary]:hover, &[primary].d2l-button-hover, &[primary]:focus, &[primary].d2l-button-focus, &[primary][active] {
 		background-color: $d2l-color-celestine-minus-1;
 	}
 	&[primary]:focus, &[primary].d2l-button-focus {

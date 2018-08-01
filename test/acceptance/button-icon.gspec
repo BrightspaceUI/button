@@ -8,6 +8,9 @@
 	button-icon-hover				#custom-element-hover
 		button                      ::d2l-shadow button
 		icon						::d2l-shadow d2l-icon
+	button-icon-active				#custom-element-active
+		button                      ::d2l-shadow button
+		icon						::d2l-shadow d2l-icon
 	button-icon-disabled			#custom-element-disabled
 		button                      ::d2l-shadow button
 		icon						::d2l-shadow d2l-icon
@@ -18,6 +21,8 @@
 	icon-sass-mixin-focus			#sass-mixin-focus
 		icon						d2l-icon
 	icon-sass-mixin-hover			#sass-mixin-hover
+		icon						d2l-icon
+	icon-sass-mixin-active			#sass-mixin-active
 		icon						d2l-icon
 	icon-sass-mixin-disabled		#sass-mixin-disabled
 		icon						d2l-icon
@@ -34,6 +39,9 @@
 		button-icon-hover			#custom-element-hover
 			button					button
 			icon					d2l-icon
+		button-icon-active			#custom-element-active
+			button					button
+			icon					d2l-icon
 		button-icon-disabled		#custom-element-disabled
 			button					button
 			icon					d2l-icon
@@ -43,7 +51,7 @@
 @groups
 	icon button-icon.icon, button-icon-focus.icon, button-icon-hover.icon, button-icon-disabled.icon, icon-sass-mixin.icon, icon-sass-mixin-hover.icon, icon-sass-mixin-focus.icon, icon-sass-mixin-disabled.icon
 	button button-icon.button, icon-sass-mixin
-	button-hover button-icon-hover.button, icon-sass-mixin-hover
+	button-hover-active button-icon-hover.button, icon-sass-mixin-hover, button-icon-active.button, icon-sass-mixin-active
 	button-focus button-icon-focus.button, icon-sass-mixin-focus
 	button-disabled button-icon-disabled.button, button-icon-disabled.button, icon-sass-mixin-disabled, icon-sass-mixin-disabled
 	button-align-text button-icon-h-align-text.button, icon-sass-mixin-h-align-text
@@ -59,7 +67,7 @@
 		css vertical-align is "middle"
 		height 18px
 		width 18px
-	&button, &button-hover, &button-focus:
+	&button, &button-hover-active, &button-focus:
 		css border-top-right-radius is "6px"
 		css cursor is "pointer"
 		css vertical-align is "middle"
@@ -68,9 +76,9 @@
 	&button:
 		css background-color matches ${transparent}
 		css border-top-color matches ${transparent}
-	&button-hover, &button-focus:
+	&button-hover-active, &button-focus:
 		css background-color matches ${gypsum}
-	&button-hover:
+	&button-hover-active:
 		css border-top-color matches ${transparent}
 		css box-shadow matches ".*rgba\\(0, 0, 0, 0\\).*|.*rgba\\(0,0,0,0\\).*"
 	&button-focus:
