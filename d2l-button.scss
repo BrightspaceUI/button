@@ -54,10 +54,10 @@
 		left: 0;
 		right: calc(((2rem + 2px - 0.9rem) / 2) * -1);
 	}
-	&[disabled]:hover, &[disabled]:focus {
+	&[disabled]:hover, &[disabled]:focus, &[active][disabled] {
 		background-color: transparent;
 	}
-	&:hover, &:focus, &.d2l-button-icon-hover, &.d2l-button-icon-focus {
+	&:hover, &:focus, &[active], &.d2l-button-icon-hover, &.d2l-button-icon-focus {
 		background-color: $d2l-color-gypsum;
 	}
 	&:focus, &.d2l-button-icon-focus {
