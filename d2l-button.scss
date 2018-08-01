@@ -93,10 +93,10 @@
 		left: 0;
 		right: -0.6rem;
 	}
-	&[disabled]:hover, &[disabled]:focus {
+	&[disabled]:hover, &[disabled]:focus, &[active][disabled] {
 		background-color: transparent;
 	}
-	&:hover, &:focus, &.d2l-button-subtle-hover, &.d2l-button-subtle-focus {
+	&:hover, &:focus, &[active], &.d2l-button-subtle-hover, &.d2l-button-subtle-focus {
 		background-color: $d2l-color-gypsum;
 	}
 	&:focus, &.d2l-button-subtle-focus {

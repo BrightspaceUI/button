@@ -9,6 +9,9 @@
 	custom-element-hover			#custom-element-hover
 		button                      ::d2l-shadow button
 		span                      	::d2l-shadow span
+	custom-element-active			#custom-element-active
+		button                      ::d2l-shadow button
+		span                      	::d2l-shadow span
 	custom-element-disabled			#custom-element-disabled
 		button                      ::d2l-shadow button
 		span                      	::d2l-shadow span
@@ -26,6 +29,10 @@
 		button                      ::d2l-shadow button
 		span                      	::d2l-shadow span
 		icon						::d2l-shadow d2l-icon
+	custom-element-icon-active		#custom-element-icon-active
+		button                      ::d2l-shadow button
+		span                      	::d2l-shadow span
+		icon						::d2l-shadow d2l-icon
 	custom-element-icon-disabled	#custom-element-icon-disabled
 		button                      ::d2l-shadow button
 		span                      	::d2l-shadow span
@@ -35,12 +42,15 @@
 	sass-mixin						#sass-mixin
 	sass-mixin-focus				#sass-mixin-focus
 	sass-mixin-hover				#sass-mixin-hover
+	sass-mixin-active				#sass-mixin-active
 	sass-mixin-disabled				#sass-mixin-disabled
 	sass-mixin-icon					#sass-mixin-icon
 		icon						d2l-icon
 	sass-mixin-icon-focus			#sass-mixin-icon-focus
 		icon						d2l-icon
 	sass-mixin-icon-hover			#sass-mixin-icon-hover
+		icon						d2l-icon
+	sass-mixin-icon-active			#sass-mixin-icon-active
 		icon						d2l-icon
 	sass-mixin-icon-disabled		#sass-mixin-icon-disabled
 		icon						d2l-icon
@@ -58,6 +68,9 @@
 		custom-element-hover			#custom-element-hover
 			button                      button
 			span                      	span
+		custom-element-active			#custom-element-active
+			button                      button
+			span                      	span
 		custom-element-disabled			#custom-element-disabled
 			button                      button
 			span                      	span
@@ -73,6 +86,10 @@
 			button                      button
 			span                      	span
 			icon						d2l-icon
+		custom-element-icon-active		#custom-element-icon-active
+			button                      button
+			span                      	span
+			icon						d2l-icon
 		custom-element-icon-disabled	#custom-element-icon-disabled
 			button                      button
 			span                      	span
@@ -83,13 +100,13 @@
 			button                      button
 
 @groups
-	text custom-element.span, custom-element-icon.span, custom-element-hover.span, custom-element-icon-hover.span, custom-element-focus.span, custom-element-icon-focus.span, custom-element-disabled.span, custom-element-icon-disabled.span, sass-mixin, sass-mixin-icon, sass-mixin-focus, sass-mixin-icon-focus, sass-mixin-hover, sass-mixin-icon-hover, sass-mixin-disabled, sass-mixin-icon-disabled
-	text-icon-left custom-element-icon.span, custom-element-icon-hover.span, custom-element-icon-focus.span, custom-element-icon-disabled.span
+	text custom-element.span, custom-element-icon.span, custom-element-hover.span, custom-element-icon-hover.span, custom-element-active.span, custom-element-icon-active.span, custom-element-focus.span, custom-element-icon-focus.span, custom-element-disabled.span, custom-element-icon-disabled.span, sass-mixin, sass-mixin-icon, sass-mixin-focus, sass-mixin-icon-focus, sass-mixin-hover, sass-mixin-icon-hover, sass-mixin-active, sass-mixin-icon-active, sass-mixin-disabled, sass-mixin-icon-disabled
+	text-icon-left custom-element-icon.span, custom-element-icon-hover.span, custom-element-icon-active.span, custom-element-icon-focus.span, custom-element-icon-disabled.span
 	text-icon-right custom-element-icon-right.span
 	icon-hidden custom-element.icon
-	icon custom-element-icon.icon, custom-element-icon-focus.icon, custom-element-icon-hover.icon, custom-element-icon-disabled.icon, sass-mixin-icon.icon, sass-mixin-icon-hover.icon, sass-mixin-icon-focus.icon, sass-mixin-icon-disabled.icon
+	icon custom-element-icon.icon, custom-element-icon-focus.icon, custom-element-icon-hover.icon, custom-element-icon-active.icon, custom-element-icon-disabled.icon, sass-mixin-icon.icon, sass-mixin-icon-hover.icon, sass-mixin-icon-active.icon, sass-mixin-icon-focus.icon, sass-mixin-icon-disabled.icon
 	button custom-element.button, custom-element-icon.button, sass-mixin
-	button-hover custom-element-hover.button, custom-element-icon-hover.button, sass-mixin-hover, sass-mixin-icon-hover
+	button-hover-active custom-element-hover.button, custom-element-icon-hover.button, sass-mixin-hover, sass-mixin-icon-hover, custom-element-active.button, custom-element-icon-active.button, sass-mixin-active, sass-mixin-icon-active
 	button-focus custom-element-focus.button, custom-element-icon-focus.button, sass-mixin-focus, sass-mixin-icon-focus
 	button-disabled custom-element-disabled.button, custom-element-icon-disabled.button, sass-mixin-disabled, sass-mixin-icon-disabled
 	button-align-text custom-element-h-align-text.button, sass-mixin-h-align-text
@@ -115,9 +132,9 @@
 		height 18px
 		width 18px
 	@on not-edge
-		&button, &button-hover, &button-focus:
+		&button, &button-hover-active, &button-focus:
 			css font-size is "14px"
-	&button, &button-hover, &button-focus:
+	&button, &button-hover-active, &button-focus:
 		css border-top-right-radius is "6px"
 		css cursor is "pointer"
 		css font-weight matches "bold|700"
@@ -132,13 +149,13 @@
 		css background-color matches ${transparent}
 		css border-top-color matches ${transparent}
 		width 118 to 220 px
-	&button-hover, &button-focus:
+	&button-hover-active, &button-focus:
 		css background-color matches ${gypsum}
-	&button-hover:
+	&button-hover-active:
 		css border-top-color matches ${transparent}
 		css box-shadow matches ".*rgba\\(0, 0, 0, 0\\).*|.*rgba\\(0,0,0,0\\).*"
 		width 170 to 272 px
-	&button-hover:
+	&button-hover-active:
 		css background-color matches ${gypsum}
 		height 42 to 43 px
 	&button-focus:
