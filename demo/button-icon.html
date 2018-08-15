@@ -23,6 +23,23 @@
 			d2l-button-icon {
 				padding-right: 1.2rem;
 			}
+			.d2l-visible-on-ancestor-target {
+				padding: 0.5rem;
+				position: relative;
+			}
+			.d2l-visible-on-ancestor-target::before {
+				background-color: rgba(0,0,0,0.03);
+				box-sizing: border-box;
+				content: 'visible-on-ancestor-target';
+				font-size: 0.7rem;
+				height: 100%;
+				left:0;
+				padding: 0.5rem;
+				position: absolute;;
+				text-align: right;
+				top: 0;
+				width: 100%;
+			}
 			</style>
 	</head>
 	<body unresolved class="d2l-typography">
@@ -42,12 +59,23 @@
 				</template>
 			</demo-snippet>
 
-			<h3>Icon with Horizontal Align</h3>
+			<h3>Icon (Horizontal Align)</h3>
 			<demo-snippet>
 				<template>
 					<d2l-button-icon icon="d2l-tier1:gear" text="Button Edge Aligned (default)"></d2l-button-icon>
 					<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
 					<d2l-button-icon icon="d2l-tier1:gear" text="Button Content Aligned" h-align="text"></d2l-button-icon>
+				</template>
+			</demo-snippet>
+
+			<h3>Icon (Visible on Ancestor)</h3>
+			<demo-snippet>
+				<template>
+					<div class="d2l-visible-on-ancestor-target">
+						<d2l-button-icon icon="d2l-tier1:home" text="Home"></d2l-button-icon>
+						<d2l-button-icon icon="d2l-tier1:bookmark-hollow" text="Bookmark"></d2l-button-icon>
+						<d2l-button-icon icon="d2l-tier1:gear" text="Gear" visible-on-ancestor></d2l-button-icon>
+					</div>
 				</template>
 			</demo-snippet>
 
