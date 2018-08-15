@@ -42,12 +42,23 @@
 				</template>
 			</demo-snippet>
 
-			<h3>Icon with Horizontal Align</h3>
+			<h3>Icon (Horizontal Align)</h3>
 			<demo-snippet>
 				<template>
 					<d2l-button-icon icon="d2l-tier1:gear" text="Button Edge Aligned (default)"></d2l-button-icon>
 					<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
 					<d2l-button-icon icon="d2l-tier1:gear" text="Button Content Aligned" h-align="text"></d2l-button-icon>
+				</template>
+			</demo-snippet>
+
+			<h3>Icon (Visible on Ancestor)</h3>
+			<demo-snippet>
+				<template>
+					<div class="d2l-visible-on-ancestor-target">
+						<d2l-button-icon icon="d2l-tier1:home" text="Home"></d2l-button-icon>
+						<d2l-button-icon icon="d2l-tier1:bookmark-hollow" text="Bookmark"></d2l-button-icon>
+						<d2l-button-icon icon="d2l-tier1:gear" text="Gear" visible-on-ancestor></d2l-button-icon>
+					</div>
 				</template>
 			</demo-snippet>
 
