@@ -23,6 +23,23 @@
 			d2l-button-icon {
 				padding-right: 1.2rem;
 			}
+			.d2l-visible-on-ancestor-target {
+				padding: 0.5rem;
+				position: relative;
+			}
+			.d2l-visible-on-ancestor-target::before {
+				background-color: rgba(0,0,0,0.03);
+				box-sizing: border-box;
+				content: 'visible-on-ancentor-target';
+				font-size: 0.7rem;
+				height: 100%;
+				left:0;
+				padding: 0.5rem;
+				position: absolute;;
+				text-align: right;
+				top: 0;
+				width: 100%;
+			}
 			</style>
 	</head>
 	<body unresolved class="d2l-typography">
