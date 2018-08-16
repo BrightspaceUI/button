@@ -173,6 +173,10 @@ Alignment (bottom uses h-align="text")
 
 ![screenshot of icon buttons with different alignments](/screenshots/button-icon-align.png?raw=true)
 
+Translucent (for use on rich/busy backgrounds, specify the `translucent` attribute)
+
+![screenshot of icon buttons with different alignments](/screenshots/button-icon-translucent.png?raw=true)
+
 <!---
 ```
 <custom-element-demo>
@@ -196,6 +200,7 @@ Alignment (bottom uses h-align="text")
 -->
 ```html
 <d2l-button-icon icon="d2l-tier1:bookmark-hollow" text="Bookmark"></d2l-button-icon>
+<d2l-button-icon icon="d2l-tier1:gear" text="Translucent" translucent></d2l-button-icon>
 <d2l-button-icon icon="d2l-tier1:gear" text="Settings (disabled)" disabled></d2l-button-icon>
 <d2l-button-icon icon="d2l-tier1:gear" text="Text Aligned" h-align="text"></d2l-button-icon>
 ```
