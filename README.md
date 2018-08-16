@@ -196,6 +196,7 @@ Alignment (bottom uses h-align="text")
 -->
 ```html
 <d2l-button-icon icon="d2l-tier1:bookmark-hollow" text="Bookmark"></d2l-button-icon>
+<d2l-button-icon icon="d2l-tier1:gear" text="Translucent" translucent></d2l-button-icon>
 <d2l-button-icon icon="d2l-tier1:gear" text="Settings (disabled)" disabled></d2l-button-icon>
 <d2l-button-icon icon="d2l-tier1:gear" text="Text Aligned" h-align="text"></d2l-button-icon>
 ```
