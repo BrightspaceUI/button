@@ -71,18 +71,18 @@
 		cursor: default;
 		opacity: 0.5;
 	}
-	&[translucent] button {
+	&[translucent] {
 		background-color: rgba(0,0,0,0.5);
 		transition: background-color 0.5s;
 	}
-	&[translucent] .d2l-button-icon {
+	&[translucent] d2l-icon {
 		color: white;
 	}
-	&[active][translucent] button,
-	&[translucent].d2l-button-icon-hover button,
-	&[translucent].d2l-button-icon-focus button,
-	&[translucent] button:hover,
-	&[translucent] button:focus {
+	&[active][translucent],
+	&[translucent].d2l-button-icon-hover,
+	&[translucent].d2l-button-icon-focus,
+	&[translucent]:hover,
+	&[translucent]:focus {
 		border: none;
 		background-color: $d2l-color-celestine;
 		box-shadow: none;
