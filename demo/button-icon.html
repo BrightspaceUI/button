@@ -23,11 +23,11 @@
 			d2l-button-icon {
 				padding-right: 1.2rem;
 			}
-			.d2l-visible-on-ancestor-target {
+			.ancestor-container {
 				padding: 0.5rem;
 				position: relative;
 			}
-			.d2l-visible-on-ancestor-target::before {
+			.ancestor-container::before {
 				background-color: rgba(0,0,0,0.03);
 				box-sizing: border-box;
 				content: 'visible-on-ancestor-target';
@@ -39,6 +39,21 @@
 				text-align: right;
 				top: 0;
 				width: 100%;
+			}
+			.translucent-container {
+				position: relative;
+				height: 150px;
+			}
+			.translucent-container > img {
+				border-radius: 6px;
+				height: 100%;
+				position: absolute;
+				width: 100%;
+			}
+			.translucent-container > d2l-button-icon {
+				padding-right: 0;
+				margin-top: 12px;
+				margin-left: 12px;
 			}
 			</style>
 	</head>
@@ -59,6 +74,16 @@
 				</template>
 			</demo-snippet>
 
+			<h3>Icon (Translucent)</h3>
+			<demo-snippet>
+				<template>
+					<div class="translucent-container">
+						<img alt="" src="https://s.brightspace.com/course-images/images/e4fbb461-4cd9-4512-8304-44f2c2b741f1/tile-low-density-max-size.jpg"/>
+						<d2l-button-icon icon="d2l-tier1:gear" text="Settings" translucent></d2l-button-icon>
+					</div>
+				</template>
+			</demo-snippet>
+
 			<h3>Icon (Horizontal Align)</h3>
 			<demo-snippet>
 				<template>
@@ -71,10 +96,20 @@
 			<h3>Icon (Visible on Ancestor)</h3>
 			<demo-snippet>
 				<template>
-					<div class="d2l-visible-on-ancestor-target">
+					<div class="ancestor-container d2l-visible-on-ancestor-target">
 						<d2l-button-icon icon="d2l-tier1:home" text="Home"></d2l-button-icon>
 						<d2l-button-icon icon="d2l-tier1:bookmark-hollow" text="Bookmark"></d2l-button-icon>
 						<d2l-button-icon icon="d2l-tier1:gear" text="Gear" visible-on-ancestor></d2l-button-icon>
+					</div>
+				</template>
+			</demo-snippet>
+
+			<h3>Icon (Translucent + Visible on Ancestor)</h3>
+			<demo-snippet>
+				<template>
+					<div class="translucent-container d2l-visible-on-ancestor-target">
+						<img alt="" src="https://s.brightspace.com/course-images/images/e4fbb461-4cd9-4512-8304-44f2c2b741f1/tile-low-density-max-size.jpg"/>
+						<d2l-button-icon icon="d2l-tier1:gear" text="Settings" translucent visible-on-ancestor></d2l-button-icon>
 					</div>
 				</template>
 			</demo-snippet>

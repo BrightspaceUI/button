@@ -74,10 +74,29 @@ Polymer-based web component for icon buttons
 			button:focus, :host(.d2l-button-icon-focus) button {
 				@apply --d2l-button-focus-plus-border;
 			}
+
 			.d2l-button-icon {
 				height: 0.9rem;
 				width: 0.9rem;
 			}
+
+			:host([translucent]) button {
+				background-color: rgba(0,0,0,0.5);
+				transition: background-color 0.5s;
+			}
+			:host([translucent]) .d2l-button-icon {
+				color: white;
+			}
+			:host([active][translucent]) button,
+			:host([translucent].d2l-button-icon-hover) button,
+			:host([translucent].d2l-button-icon-focus) button,
+			:host([translucent]) button:hover,
+			:host([translucent]) button:focus {
+				border: none;
+				background-color: var(--d2l-color-celestine);
+				box-shadow: none;
+			}
+
 			button[disabled] {
 				cursor: default;
 				opacity: 0.5;
@@ -132,7 +151,16 @@ Polymer-based web component for icon buttons
 				hAlign: {
 					type: String,
 					reflectToAttribute: true
+				},
+
+				/**
+				 * Whether the button is translucent.
+				 */
+				translucent: {
+					type: Boolean,
+					reflectToAttribute: true
 				}
+
 			},
 
 			behaviors: [
