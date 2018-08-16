@@ -173,6 +173,10 @@ Alignment (bottom uses h-align="text")
 
 ![screenshot of icon buttons with different alignments](/screenshots/button-icon-align.png?raw=true)
 
+Translucent (for use on rich/busy backgrounds, specify the `translucent` attribute)
+
+![screenshot of icon buttons with different alignments](/screenshots/button-icon-translucent.png?raw=true)
+
 <!---
 ```
 <custom-element-demo>
