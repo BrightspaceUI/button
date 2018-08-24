@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>d2l-floating-buttons a11y tests</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+		<script src="../../web-component-tester/browser.js"></script>
+		<link rel="import" href="../d2l-floating-buttons.html">
+	</head>
+	<body>
+		<test-fixture id="d2l-floating-buttons-fixture">
+			<template>
+				<d2l-floating-buttons>
+					<button is="d2l-button">Make more Beer ON A PHONE!</button>
+				</d2l-floating-buttons>
+			</template>
+		</test-fixture>
+
+		<script>
+			suite('d2l-floating-buttons-a11y', function() {
+				a11ySuite('d2l-floating-buttons-fixture');
+			});
+		</script>
+	</body>
+</html>
