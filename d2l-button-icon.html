@@ -27,6 +27,10 @@ Polymer-based web component for icon buttons
 					right: calc(((var(--d2l-button-icon-min-width) - 0.9rem) / 2) * -1);
 				}
 			}
+			:host([hidden]) {
+				display: none;
+			}
+
 			button {
 				background-color: transparent;
 				border-color: transparent;

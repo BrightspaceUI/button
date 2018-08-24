@@ -18,6 +18,9 @@ Polymer-based web component for buttons
 			:host {
 				display: inline-block;
 			}
+			:host([hidden]) {
+				display: none;
+			}
 			button {
 				font-family: inherit;
 				padding: 0.5rem 1.5rem;
