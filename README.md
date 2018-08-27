@@ -226,7 +226,7 @@ Usage is slightly different in that the text and icon attributes are not used. I
 
 Floating workflow buttons behavior can be added by using the `<d2l-floating-buttons>` custom element.  When the normal position of the workflow buttons is below the bottom edge of the view-port, they'll dock at the bottom edge.  When the normal position becomes visible, they'll undock.
 
-![screenshot of floating buttons](/screenshots/floating-buttons.gif?raw=true)
+![screenshot of floating buttons](/screenshots/floating-buttons.png?raw=true)
 
 ```html
 <head>
