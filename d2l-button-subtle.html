@@ -170,7 +170,7 @@ Polymer-based web component for subtle buttons
 			name$=[[name]]
 			type$=[[type]]>
 			<d2l-icon icon=[[icon]] class="d2l-button-subtle-icon"></d2l-icon>
-			<span class="d2l-button-subtle-content">[[text]]</span>
+			<slot><span class="d2l-button-subtle-content">[[text]]</span></slot>
 		</button>
 	</template>
 	<script>
