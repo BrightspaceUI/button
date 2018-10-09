@@ -42,7 +42,9 @@ Polymer-based web component for icon buttons
 				min-width: var(--d2l-button-icon-min-width);
 				position: relative;
 			}
-
+			:host([slim]) button {
+				padding: 0;
+			}
 			:host([h-align="text"]) button {
 				left: calc(((var(--d2l-button-icon-min-width) - 0.9rem) / 2) * -1);
 			}
