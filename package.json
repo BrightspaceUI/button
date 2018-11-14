@@ -10,6 +10,7 @@
     "galen:local:run": "d2l-galen test test/acceptance/button.test.js -g factory:local -s",
     "galen:local:dump": "d2l-galen dump test/acceptance/button.test.js -d test/acceptance/dumps -g factory:local -s",
     "galen:sauce:run": "sc-run -- d2l-galen test test/acceptance/button.test.js -g factory:sauce -s -i SAUCE_USERNAME SAUCE_ACCESS_KEY TRAVIS_REPO_SLUG TRAVIS_BUILD_NUMBER -- -p4",
+    "prelint": "npm run build:sass",
     "lint": "npm run lint:wc && npm run lint:html",
     "lint:html": "eslint *.html demo/*.html test/*.html test/acceptance/*.html test/acceptance/*.js",
     "lint:wc": "polymer lint -i d2l-button.html d2l-floating-buttons.html d2l-button-subtle.html d2l-button-icon.html",
