@@ -1,5 +1,4 @@
-<link rel="import" href="../polymer/polymer.html">
-<script>
+import '../@polymer/polymer/polymer-legacy.js';
 
 window.D2L = window.D2L || {};
 window.D2L.PolymerBehaviors = window.D2L.PolymerBehaviors || {};
@@ -111,5 +110,3 @@ D2L.PolymerBehaviors.Button.Behavior = {
 		}, true);
 	}
 };
-
-</script>

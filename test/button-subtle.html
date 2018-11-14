@@ -4,10 +4,11 @@
 		<meta charset="UTF-8">
 		<title>d2l-button-subtle basic tests</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-		<script src="../../web-component-tester/browser.js"></script>
-		<script src="../../iron-test-helpers/mock-interactions.js"></script>
-		<link rel="import" href="../d2l-button-subtle.html">
+		<script src="../../@babel/polyfill/browser.js"></script>
+		<script src="../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+		<script src="../../wct-browser-legacy/browser.js"></script>
+		<script src="../../@polymer/iron-test-helpers/mock-interactions.js" type="module"></script>
+		<script type="module" src="../d2l-button-subtle.js"></script>
 	</head>
 	<body>
 		<test-fixture id="SubtleButton">
@@ -20,79 +21,80 @@
 				<d2l-button-subtle text="Subtle Button with Icon" icon="d2l-tier1:gear"></d2l-button-subtle>
 			</template>
 		</test-fixture>
-		<script>
-		describe('<d2l-button-subtle>', function() {
+		<script type="module">
+import '../d2l-button-subtle.js';
+describe('<d2l-button-subtle>', function() {
 
-			var button;
+	var button;
 
-			describe('subtle button', function() {
+	describe('subtle button', function() {
 
-				beforeEach(function() {
-					button = fixture('SubtleButton');
-				});
-
-				it('should execute onclick when clicked', function(done) {
-					button.addEventListener('click', function() {
-						done();
-					});
-					MockInteractions.tap(button.$$('button'));
-				});
-
-				it('should have text but no icon', function() {
-					expect(button.text).to.equal('Subtle Button');
-					expect(button.icon).to.be.null;
-				});
-
-				it('should reflect text attribute to property', function() {
-					button.setAttribute('text', 'new button text');
-					expect(button.text).to.equal('new button text');
-				});
-
-				it('should reflect icon attribute to property', function() {
-					button.setAttribute('icon', 'test-icon');
-					expect(button.icon).to.equal('test-icon');
-				});
-
-				it('should add icon attribute when property is given a value', function() {
-					button.icon = 'test-icon2';
-					expect(button.hasAttribute('icon')).to.be.true;
-					expect(button.icon).to.equal('test-icon2');
-				});
-
-				it('should reflect text property when attribute is removed', function() {
-					button.removeAttribute('text');
-					expect(button.text).to.be.null;
-				});
-
-				it('should remove text attribute when property is null', function() {
-					button.text = null;
-					expect(button.hasAttribute('text')).to.be.false;
-				});
-			});
-
-			describe('subtle button with icon', function() {
-
-				beforeEach(function() {
-					button = fixture('SubtleButtonIcon');
-				});
-
-				it('should have text and icon', function() {
-					expect(button.text).to.equal('Subtle Button with Icon');
-					expect(button.icon).to.equal('d2l-tier1:gear');
-				});
-
-				it('should reflect icon property when attribute is removed', function() {
-					button.removeAttribute('icon');
-					expect(button.icon).to.be.null;
-				});
-
-				it('should remove icon attribute when property is null', function() {
-					button.icon = null;
-					expect(button.hasAttribute('icon')).to.be.false;
-				});
-			});
-
+		beforeEach(function() {
+			button = fixture('SubtleButton');
 		});
-		</script>
+
+		it('should execute onclick when clicked', function(done) {
+			button.addEventListener('click', function() {
+				done();
+			});
+			MockInteractions.tap(button.$$('button'));
+		});
+
+		it('should have text but no icon', function() {
+			expect(button.text).to.equal('Subtle Button');
+			expect(button.icon).to.be.null;
+		});
+
+		it('should reflect text attribute to property', function() {
+			button.setAttribute('text', 'new button text');
+			expect(button.text).to.equal('new button text');
+		});
+
+		it('should reflect icon attribute to property', function() {
+			button.setAttribute('icon', 'test-icon');
+			expect(button.icon).to.equal('test-icon');
+		});
+
+		it('should add icon attribute when property is given a value', function() {
+			button.icon = 'test-icon2';
+			expect(button.hasAttribute('icon')).to.be.true;
+			expect(button.icon).to.equal('test-icon2');
+		});
+
+		it('should reflect text property when attribute is removed', function() {
+			button.removeAttribute('text');
+			expect(button.text).to.be.null;
+		});
+
+		it('should remove text attribute when property is null', function() {
+			button.text = null;
+			expect(button.hasAttribute('text')).to.be.false;
+		});
+	});
+
+	describe('subtle button with icon', function() {
+
+		beforeEach(function() {
+			button = fixture('SubtleButtonIcon');
+		});
+
+		it('should have text and icon', function() {
+			expect(button.text).to.equal('Subtle Button with Icon');
+			expect(button.icon).to.equal('d2l-tier1:gear');
+		});
+
+		it('should reflect icon property when attribute is removed', function() {
+			button.removeAttribute('icon');
+			expect(button.icon).to.be.null;
+		});
+
+		it('should remove icon attribute when property is null', function() {
+			button.icon = null;
+			expect(button.hasAttribute('icon')).to.be.false;
+		});
+	});
+
+});
+</script>
 	</body>
 </html>

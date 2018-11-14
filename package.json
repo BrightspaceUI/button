@@ -1,19 +1,21 @@
 {
-  "name": "d2l-button",
   "description": "Polymer-based web components and Sass mixins for D2L buttons",
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BrightspaceUI/button.git"
+  },
+  "name": "d2l-button",
   "scripts": {
     "build:sass": "node-sass --output-style expanded ./test/acceptance/button.css.scss ./test/acceptance/button.css",
     "predump": "rimraf test/acceptance/dumps",
     "dump": "concurrently -p name -n serve,galen -s first -k \"polymer serve\" \"npm run galen:local:dump\"",
-    "postinstall": "polymer install --variants",
     "galen:local:run": "d2l-galen test test/acceptance/button.test.js -g factory:local -s",
     "galen:local:dump": "d2l-galen dump test/acceptance/button.test.js -d test/acceptance/dumps -g factory:local -s",
     "galen:sauce:run": "sc-run -- d2l-galen test test/acceptance/button.test.js -g factory:sauce -s -i SAUCE_USERNAME SAUCE_ACCESS_KEY TRAVIS_REPO_SLUG TRAVIS_BUILD_NUMBER -- -p4",
     "prelint": "npm run build:sass",
-    "lint": "npm run lint:wc && npm run lint:html",
-    "lint:html": "eslint *.html demo/*.html test/*.html test/acceptance/*.html test/acceptance/*.js",
-    "lint:wc": "polymer lint -i d2l-button.html d2l-floating-buttons.html d2l-button-subtle.html d2l-button-icon.html",
+    "lint": "npm run lint:wc && npm run lint:js",
+    "lint:js": "eslint . --ext .js,.html test/**/*.js test/**/*.html demo/**/*.js demo/**/*.html",
+    "lint:wc": "polymer lint",
     "pretest:galen:local": "npm run build:sass",
     "test:galen:local": "concurrently -p name -n serve,galen -s first -k \"polymer serve\" \"npm run galen:local:run\"",
     "pretest:galen:sauce": "npm run build:sass",
@@ -22,13 +24,15 @@
     "test:polymer:sauce": "polymer test --skip-plugin local",
     "test": "npm run lint && npm run test:polymer:local && npm run test:galen:local"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/BrightspaceUI/button.git"
-  },
   "author": "D2L Corporation",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "@polymer/iron-component-page": "^3.0.0-pre.18",
+    "@polymer/iron-demo-helpers": "^3.0.0-pre.18",
+    "@polymer/iron-test-helpers": "^3.0.0-pre.18",
+    "@webcomponents/webcomponentsjs": "^2.1.3",
+    "babel-eslint": "^10.0.1",
     "concurrently": "^3.5.0",
     "d2l-galen-utils": "git+https://github.com/Brightspace/d2l-galen-utils.git#v0.3.0",
     "eslint": "^4.15.0",
@@ -36,9 +40,26 @@
     "eslint-plugin-html": "^4.0.1",
     "galenframework": "^2.3.4",
     "node-sass": "^4.5.2",
-    "polymer-cli": "^1.5.7",
+    "polymer-cli": "^1.9.0",
     "rimraf": "^2.6.1",
     "sauce-connect-launcher": "^1.2.4",
-    "sauceconnect-runner": "git+https://github.com/Brightspace/sauceconnect-runner.git#v0.3.0"
+    "sauceconnect-runner": "git+https://github.com/Brightspace/sauceconnect-runner.git#v0.3.0",
+    "wct-browser-legacy": "^1.0.1"
+  },
+  "version": "",
+  "resolutions": {
+    "inherits": "2.0.3",
+    "samsam": "1.1.3",
+    "supports-color": "3.1.2",
+    "type-detect": "1.0.0"
+  },
+  "main": "d2l-button.js",
+  "dependencies": {
+    "d2l-colors": "BrightspaceUI/colors#semver:^4.0.0",
+    "d2l-icons": "BrightspaceUI/icons#semver:^6.0.0",
+    "d2l-polymer-behaviors": "Brightspace/d2l-polymer-behaviors-ui#semver:^2.0.0",
+    "d2l-typography": "BrightspaceUI/typography#semver:^7.0.0",
+    "@polymer/iron-media-query": "^3.0.0-pre.18",
+    "@polymer/polymer": "^3.0.0"
   }
 }
