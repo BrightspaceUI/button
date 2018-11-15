@@ -4,11 +4,6 @@ Polymer-based web component for icon buttons
 
 @demo demo/button-icon.html d2l-button-icon
 */
-/*
-  FIXME(polymer-modulizer): the above comments were extracted
-  from HTML and may be out of place here. Review them and
-  then delete this comment!
-*/
 import '../@polymer/polymer/polymer-legacy.js';
 
 import '../d2l-colors/d2l-colors.js';
