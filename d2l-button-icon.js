@@ -112,11 +112,26 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-button-icon">
 				opacity: 0.5;
 			}
 		</style>
-		<button aria-expanded$="[[ariaExpanded]]" aria-haspopup$="[[ariaHaspopup]]" aria-label$="[[ariaLabel]]" class="d2l-focusable" disabled$="[[disabled]]" autofocus$="[[autofocus]]" form$="[[form]]" formaction$="[[formaction]]" formenctype$="[[formenctype]]" formmethod$="[[formmethod]]" formnovalidate$="[[formnovalidate]]" formtarget$="[[formtarget]]" name$="[[name]]" title$="[[text]]" type$="[[type]]">
+		<button
+			aria-expanded$="[[ariaExpanded]]"
+			aria-haspopup$="[[ariaHaspopup]]"
+			aria-label$="[[ariaLabel]]"
+			class="d2l-focusable"
+			disabled$="[[disabled]]"
+			autofocus$="[[autofocus]]"
+			form$="[[form]]"
+			formaction$="[[formaction]]"
+			formenctype$="[[formenctype]]"
+			formmethod$="[[formmethod]]"
+			formnovalidate$="[[formnovalidate]]"
+			formtarget$="[[formtarget]]"
+			name$="[[name]]"
+			title$="[[text]]"
+			type$="[[type]]">
 			<d2l-icon icon="[[icon]]" class="d2l-button-icon"></d2l-icon>
 		</button>
 	</template>
-	
+
 </dom-module>`;
 
 document.head.appendChild($_documentContainer.content);
