@@ -157,7 +157,7 @@
 		width 170 to 272 px
 	&button-hover-active:
 		css background-color matches ${gypsum}
-		height 42 to 43 px
+		height 42 to 44 px
 	&button-focus:
 		css border-top-color matches "rgba\\(0, 111, 191, 0.4\\)"
 		css box-shadow matches ".*rgba\\(0, 111, 191, 0.3\\).*|.*rgba\\(0,111,191,0.3\\).*"
@@ -167,6 +167,6 @@
 		css cursor is "default"
 		css opacity is "0.5"
 		width 190 to 292 px
-		height 42 to 43 px
+		height 42 to 44 px
 	&button-align-text:
 		css left is "-12px"
