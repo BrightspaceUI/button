@@ -21,10 +21,11 @@ Polymer-based web component for icon buttons
 				--d2l-button-icon-border-radius: 0.3rem;
 				--d2l-button-icon-min-height: calc(2rem + 2px);
 				--d2l-button-icon-min-width: calc(2rem + 2px);
+				--d2l-button-icon-h-align: calc(((2rem + 2px - 0.9rem) / 2) * -1);
 
 				--button-rtl: {
 					left: 0;
-					right: calc(((var(--d2l-button-icon-min-width) - 0.9rem) / 2) * -1);
+					right: var(--d2l-button-icon-h-align);
 				}
 			}
 			:host([hidden]) {
@@ -43,7 +44,7 @@ Polymer-based web component for icon buttons
 			}
 
 			:host([h-align="text"]) button {
-				left: calc(((var(--d2l-button-icon-min-width) - 0.9rem) / 2) * -1);
+				left: var(--d2l-button-icon-h-align);
 			}
 			:host-context([dir="rtl"])[h-align="text"] button {
 				@apply --button-rtl;
