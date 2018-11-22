@@ -45,7 +45,7 @@
 		button-icon-disabled		#custom-element-disabled
 			button					button
 			icon					d2l-icon
-		custom-element-h-align-text	#custom-element-h-align-text
+		button-icon-h-align-text	#custom-element-h-align-text
 			button                  button
 
 @groups
