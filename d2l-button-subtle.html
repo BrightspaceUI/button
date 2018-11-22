@@ -59,10 +59,10 @@ Polymer-based web component for subtle buttons
 			:host-context([dir="rtl"]):host([h-align="text"]) button {
 				@apply --button-rtl;
 			}
-			:host(:dir(rtl))[h-align="text"] button {
+			:host(:dir(rtl)):host([h-align="text"]) button {
 				@apply --button-rtl;
 			}
-			:host(:host-context([dir="rtl"])[h-align="text"]) button {
+			:host(:dir(rtl))[h-align="text"] button {
 				@apply --button-rtl;
 			}
 
@@ -97,28 +97,24 @@ Polymer-based web component for subtle buttons
 				padding-left: 0;
 				padding-right: 1.2rem;
 			}
-			:host-context([dir="rtl"])[icon] .d2l-button-subtle-content {
+
+			:host-context([dir="rtl"]):host([icon]) .d2l-button-subtle-content {
 				@apply --content-icon-rtl;
 			}
-			:host-context([dir="rtl"]):host([icon]) .d2l-button-subtle-content {
+			:host(:dir(rtl)):host([icon]) .d2l-button-subtle-content {
 				@apply --content-icon-rtl;
 			}
 			:host(:dir(rtl))[icon] .d2l-button-subtle-content {
 				@apply --content-icon-rtl;
 			}
-			:host(:host-context([dir="rtl"])[icon]) .d2l-button-subtle-content {
-				@apply --content-icon-rtl;
-			}
-			:host-context([dir="rtl"])[icon][icon-right] .d2l-button-subtle-content {
+
+			:host-context([dir="rtl"]):host([icon]):host([icon-right]) .d2l-button-subtle-content {
 				@apply --content-icon-right-rtl;
 			}
-			:host-context([dir="rtl"]):host([icon][icon-right]) .d2l-button-subtle-content {
+			:host(:dir(rtl)):host([icon]):host([icon-right]) .d2l-button-subtle-content {
 				@apply --content-icon-right-rtl;
 			}
 			:host(:dir(rtl))[icon][icon-right] .d2l-button-subtle-content {
-				@apply --content-icon-right-rtl;
-			}
-			:host(:host-context([dir="rtl"])[icon][icon-right]) .d2l-button-subtle-content {
 				@apply --content-icon-right-rtl;
 			}
 
@@ -137,16 +133,10 @@ Polymer-based web component for subtle buttons
 			:host([icon][icon-right]) d2l-icon.d2l-button-subtle-icon {
 				right: 0.6rem;
 			}
-			:host-context([dir="rtl"])[icon][icon-right] d2l-icon.d2l-button-subtle-icon {
-				@apply --icon-right-rtl;
-			}
-			:host-context([dir="rtl"]):host([icon][icon-right]) d2l-icon.d2l-button-subtle-icon {
+			:host([dir="rtl"][icon][icon-right]) d2l-icon.d2l-button-subtle-icon {
 				@apply --icon-right-rtl;
 			}
 			:host(:dir(rtl))[icon][icon-right] d2l-icon.d2l-button-subtle-icon {
-				@apply --icon-right-rtl;
-			}
-			:host(:host-context([dir="rtl"])[icon][icon-right]) d2l-icon.d2l-button-subtle-icon {
 				@apply --icon-right-rtl;
 			}
 			button[disabled] {
