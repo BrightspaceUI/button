@@ -93,6 +93,9 @@ The `primary` and `disabled` attributes work the same way as they do with the we
 
 The subtle button shows text with an optional icon, and can be added by using the `<d2l-button-subtle>` custom element. It should be used for advanced or de-emphasized actions.
 
+- It is strongly recommended to use `text` and `icon` as opposed to putting content in the `slot` to ensure that the recommended subtle button style is maintained.
+
+
 Without icon:
 
 ![screenshot of subtle buttons without icons](/screenshots/button-subtle.png?raw=true)
