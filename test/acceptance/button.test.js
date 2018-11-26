@@ -22,11 +22,6 @@ var browsers = {
 		platform: 'WIN10',
 		tags: ['no-d2l-shadow']
 	}),
-	safariMac: new SauceBrowserFactory({
-		browser: 'Safari',
-		platform: 'SIERRA',
-		tags: ['no-d2l-shadow', 'not-edge']
-	}),
 	firefoxMac: new SauceBrowserFactory({
 		browser: 'Firefox',
 		platform: 'SIERRA',
@@ -35,7 +30,6 @@ var browsers = {
 };
 
 var mainlineEndpoint = 'http://localhost:8081/components/d2l-button';
-var xEndpoint = 'http://localhost:8000/components/d2l-button';
 var buttonEndpoint = '/test/acceptance/button.html';
 var buttonSpec = 'test/acceptance/button.gspec';
 var buttonSubtleEndpoint = '/test/acceptance/button-subtle.html';
@@ -113,5 +107,4 @@ polymerTests(browsers, function(test) {
 	}
 
 	runTests('mainline', mainlineEndpoint);
-	runTests('1.x', xEndpoint);
 });

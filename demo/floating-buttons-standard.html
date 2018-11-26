@@ -4,40 +4,97 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 		<title>d2l-floating-buttons - standard buttons demo</title>
-		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-		<link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-		<link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-		<link rel="import" href="../../d2l-typography/d2l-typography.html">
-		<link rel="import" href="../d2l-button.html">
-		<link rel="import" href="../d2l-floating-buttons.html">
+		<script src="../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+		<script type="module" src="../../@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
+		<script type="module" src="../../@polymer/iron-demo-helpers/demo-snippet.js"></script>
+		<script type="module" src="../../d2l-typography/d2l-typography.js"></script>
+		<script type="module" src="../d2l-button.js"></script>
+		<script type="module" src="../d2l-floating-buttons.js"></script>
 		<link rel="stylesheet" type="text/css" href="../test/acceptance/button.css">
-		<custom-style>
+		<!-- FIXME(polymer-modulizer):
+		These imperative modules that innerHTML your HTML are
+		a hacky way to be sure that any mixins in included style
+		modules are ready before any elements that reference them are
+		instantiated, otherwise the CSS @apply mixin polyfill won't be
+		able to expand the underlying CSS custom properties.
+		See: https://github.com/Polymer/polymer-modulizer/issues/154
+		-->
+	<script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<custom-style>
 			<style is="custom-style" include="demo-pages-shared-styles"></style>
-		</custom-style>
-		<custom-style include="d2l-typography">
+		</custom-style>`;
+
+document.body.appendChild($_documentContainer.content);
+</script>
+		<script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<custom-style include="d2l-typography">
 			<style is="custom-style" include="d2l-typography"></style>
-		</custom-style>
-		<style>
+		</custom-style>`;
+
+document.body.appendChild($_documentContainer.content);
+</script>
+		<script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<style>
 			html {
 				font-size: 20px;
 			}
 			.content {
 				padding: 1rem;
 			}
-			</style>
+			</style>`;
+
+document.body.appendChild($_documentContainer.content);
+</script>
 	</head>
 	<body unresolved class="d2l-typography">
 
-		<h3>Floating Buttons</h3>
+		<script type="module">
+const $_documentContainer = document.createElement('template');
+$_documentContainer.innerHTML = '<h3>Floating Buttons</h3>';
+document.body.appendChild($_documentContainer.content);
+</script>
 
-		<d2l-button id="btn-remove-floating">Remove Floating Buttons</d2l-button>
-		<d2l-button id="btn-append-floating">Append Floating Buttons</d2l-button>
-		<d2l-button id="btn-append-new">Append New Button</d2l-button>
-		<d2l-button id="btn-remove-last">Remove Last Button</d2l-button>
-		<d2l-button id="btn-insert-content-above">Insert Content</d2l-button>
-		<d2l-button id="btn-remove-content-above">Remove Content</d2l-button>
+		<script type="module">
+const $_documentContainer = document.createElement('template');
+$_documentContainer.innerHTML = '<d2l-button id="btn-remove-floating">Remove Floating Buttons</d2l-button>';
+document.body.appendChild($_documentContainer.content);
+</script>
+		<script type="module">
+const $_documentContainer = document.createElement('template');
+$_documentContainer.innerHTML = '<d2l-button id="btn-append-floating">Append Floating Buttons</d2l-button>';
+document.body.appendChild($_documentContainer.content);
+</script>
+		<script type="module">
+const $_documentContainer = document.createElement('template');
+$_documentContainer.innerHTML = '<d2l-button id="btn-append-new">Append New Button</d2l-button>';
+document.body.appendChild($_documentContainer.content);
+</script>
+		<script type="module">
+const $_documentContainer = document.createElement('template');
+$_documentContainer.innerHTML = '<d2l-button id="btn-remove-last">Remove Last Button</d2l-button>';
+document.body.appendChild($_documentContainer.content);
+</script>
+		<script type="module">
+const $_documentContainer = document.createElement('template');
+$_documentContainer.innerHTML = '<d2l-button id="btn-insert-content-above">Insert Content</d2l-button>';
+document.body.appendChild($_documentContainer.content);
+</script>
+		<script type="module">
+const $_documentContainer = document.createElement('template');
+$_documentContainer.innerHTML = '<d2l-button id="btn-remove-content-above">Remove Content</d2l-button>';
+document.body.appendChild($_documentContainer.content);
+</script>
 
-		<demo-snippet>
+		<script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<demo-snippet>
 			<template>
 				<div class="content">
 					<p>I love beer!</p>
@@ -46,62 +103,64 @@
 					<button id="btn-make-more" class="sass-mixin-button d2l-button">Make more Beer! (standard button)</button>
 				</d2l-floating-buttons>
 			</template>
-		</demo-snippet>
-		<script>
-			var page_buttonCount = 0;
-			var page_floatingButtons;
+		</demo-snippet>`;
 
-			function appendButton() {
-				var floatingButtons = document.getElementById('wc_buttons');
+document.body.appendChild($_documentContainer.content);
+</script>
+		<script type="module">
+import { dom } from '../../@polymer/polymer/lib/legacy/polymer.dom.js';
+var page_buttonCount = 0;
+var page_floatingButtons;
 
-				if (floatingButtons) {
-					page_buttonCount += 1;
+function appendButton() {
+	var floatingButtons = document.getElementById('wc_buttons');
 
-					var newButton = document.createElement('button');
-					newButton.textContent = 'Beer ' + page_buttonCount;
+	if (floatingButtons) {
+		page_buttonCount += 1;
 
-					Polymer.dom(floatingButtons).appendChild(newButton);
-				}
-			}
-			window.addEventListener('WebComponentsReady', function() {
-				window.requestAnimationFrame(function() {
-					document.getElementById('btn-append-floating').addEventListener('click', function() {
-						if (page_floatingButtons) {
-							document.body.appendChild(page_floatingButtons);
-						}
-					});
-					document.getElementById('btn-remove-floating').addEventListener('click', function() {
-						var floatingButtons = document.getElementById('wc_buttons');
-						if (floatingButtons) {
-							page_floatingButtons = floatingButtons;
-							floatingButtons.parentNode.removeChild(floatingButtons);
-						}
-					});
-					document.getElementById('btn-append-new').addEventListener('click', appendButton);
-					document.getElementById('btn-remove-last').addEventListener('click', function() {
-						var floatingButtons = document.getElementById('wc_buttons');
-						if (Polymer.dom(floatingButtons).lastChild) {
-							Polymer.dom(floatingButtons).removeChild(
-								Polymer.dom(floatingButtons).lastChild
-							);
-						}
-					});
-					document.getElementById('btn-insert-content-above').addEventListener('click', function() {
-						var newContent = document.createElement('p');
-						newContent.textContent = 'I love beer!';
-						document.body.querySelector('.content').appendChild(newContent);
-					});
-					document.getElementById('btn-remove-content-above').addEventListener('click', function() {
-						var content = document.body.querySelector('.content');
-						if (content.lastChild) {
-							content.removeChild(content.lastChild);
-						}
-					});
-					document.getElementById('btn-make-more').addEventListener('click', function() {
-						appendButton();
-					});
-				});
-			});
-		</script>
+		var newButton = document.createElement('button');
+		newButton.textContent = 'Beer ' + page_buttonCount;
+
+		dom(floatingButtons).appendChild(newButton);
+	}
+}
+window.requestAnimationFrame(function() {
+	document.getElementById('btn-append-floating').addEventListener('click', function() {
+		if (page_floatingButtons) {
+			document.body.appendChild(page_floatingButtons);
+		}
+	});
+	document.getElementById('btn-remove-floating').addEventListener('click', function() {
+		var floatingButtons = document.getElementById('wc_buttons');
+		if (floatingButtons) {
+			page_floatingButtons = floatingButtons;
+			floatingButtons.parentNode.removeChild(floatingButtons);
+		}
+	});
+	document.getElementById('btn-append-new').addEventListener('click', appendButton);
+	document.getElementById('btn-remove-last').addEventListener('click', function() {
+		var floatingButtons = document.getElementById('wc_buttons');
+		if (dom(floatingButtons).lastChild) {
+			dom(floatingButtons).removeChild(
+				dom(floatingButtons).lastChild
+			);
+		}
+	});
+	document.getElementById('btn-insert-content-above').addEventListener('click', function() {
+		var newContent = document.createElement('p');
+		newContent.textContent = 'I love beer!';
+		document.body.querySelector('.content').appendChild(newContent);
+	});
+	document.getElementById('btn-remove-content-above').addEventListener('click', function() {
+		var content = document.body.querySelector('.content');
+		if (content.lastChild) {
+			content.removeChild(content.lastChild);
+		}
+	});
+	document.getElementById('btn-make-more').addEventListener('click', function() {
+		appendButton();
+	});
+});
+</script>
 	</body>
 </html>

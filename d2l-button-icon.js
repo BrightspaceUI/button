@@ -1,20 +1,22 @@
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../d2l-colors/d2l-colors.html">
-<link rel="import" href="../d2l-icons/d2l-icons.html">
-<link rel="import" href="../d2l-polymer-behaviors/d2l-focusable-behavior.html">
-<link rel="import" href="../d2l-polymer-behaviors/d2l-visible-on-ancestor-behavior.html">
-<link rel="import" href="d2l-button-shared-styles.html">
-<link rel="import" href="d2l-button-behavior.html">
-
-<!--
+/**
 `d2l-button-icon`
 Polymer-based web component for icon buttons
 
 @demo demo/button-icon.html d2l-button-icon
--->
+*/
+import '../@polymer/polymer/polymer-legacy.js';
 
-<dom-module id="d2l-button-icon">
-	<template strip-whitespace>
+import '../d2l-colors/d2l-colors.js';
+import '../d2l-icons/d2l-icons.js';
+import '../d2l-polymer-behaviors/d2l-focusable-behavior.js';
+import '../d2l-polymer-behaviors/d2l-visible-on-ancestor-behavior.js';
+import './d2l-button-shared-styles.js';
+import './d2l-button-behavior.js';
+import { Polymer } from '../@polymer/polymer/lib/legacy/polymer-fn.js';
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<dom-module id="d2l-button-icon">
+	<template strip-whitespace="">
 		<style include="d2l-visible-on-ancestor-styles">
 			:host {
 				display: inline-block;
@@ -111,68 +113,69 @@ Polymer-based web component for icon buttons
 			aria-haspopup$="[[ariaHaspopup]]"
 			aria-label$="[[ariaLabel]]"
 			class="d2l-focusable"
-			disabled$=[[disabled]]
-			autofocus$=[[autofocus]]
-			form$=[[form]]
-			formaction$=[[formaction]]
-			formenctype$=[[formenctype]]
-			formmethod$=[[formmethod]]
-			formnovalidate$=[[formnovalidate]]
-			formtarget$=[[formtarget]]
-			name$=[[name]]
-			title$=[[text]]
-			type$=[[type]]>
-			<d2l-icon icon=[[icon]] class="d2l-button-icon"></d2l-icon>
+			disabled$="[[disabled]]"
+			autofocus$="[[autofocus]]"
+			form$="[[form]]"
+			formaction$="[[formaction]]"
+			formenctype$="[[formenctype]]"
+			formmethod$="[[formmethod]]"
+			formnovalidate$="[[formnovalidate]]"
+			formtarget$="[[formtarget]]"
+			name$="[[name]]"
+			title$="[[text]]"
+			type$="[[type]]">
+			<d2l-icon icon="[[icon]]" class="d2l-button-icon"></d2l-icon>
 		</button>
 	</template>
-	<script>
-		Polymer({
-			is: 'd2l-button-icon',
 
-			properties: {
+</dom-module>`;
 
-				/**
-				 * Name of icon (ex. [iconset-name:icon-id]) for underlying [Polymer iron-iconset-svg](https://github.com/PolymerElements/iron-iconset-svg) (required).
-				 */
-				icon: {
-					type: String,
-					reflectToAttribute: true
-				},
+document.head.appendChild($_documentContainer.content);
+Polymer({
+	is: 'd2l-button-icon',
 
-				/**
-				 * Text to display in aria-label (required)
-				 */
-				text: {
-					type: String,
-					reflectToAttribute: true
-				},
+	properties: {
 
-				/**
-				 * Horizontal alignment of button. Options:
-				 * 	"text" -  The button icon will left align with the page content
-				 *	default - The button's edge (including padding) will left align with the page content
-				*/
-				hAlign: {
-					type: String,
-					reflectToAttribute: true
-				},
+		/**
+		 * Name of icon (ex. [iconset-name:icon-id]) for underlying [Polymer iron-iconset-svg](https://github.com/PolymerElements/iron-iconset-svg) (required).
+		 */
+		icon: {
+			type: String,
+			reflectToAttribute: true
+		},
 
-				/**
-				 * Whether the button is translucent.
-				 */
-				translucent: {
-					type: Boolean,
-					reflectToAttribute: true
-				}
+		/**
+		 * Text to display in aria-label (required)
+		 */
+		text: {
+			type: String,
+			reflectToAttribute: true
+		},
 
-			},
+		/**
+		 * Horizontal alignment of button. Options:
+		 *	 "text" -  The button icon will left align with the page content
+		 *	default - The button's edge (including padding) will left align with the page content
+		*/
+		hAlign: {
+			type: String,
+			reflectToAttribute: true
+		},
 
-			behaviors: [
-				D2L.PolymerBehaviors.Button.Behavior,
-				D2L.PolymerBehaviors.FocusableBehavior,
-				D2L.PolymerBehaviors.VisibleOnAncestorBehavior
-			]
+		/**
+		 * Whether the button is translucent.
+		 */
+		translucent: {
+			type: Boolean,
+			reflectToAttribute: true
+		}
 
-		});
-	</script>
-</dom-module>
+	},
+
+	behaviors: [
+		D2L.PolymerBehaviors.Button.Behavior,
+		D2L.PolymerBehaviors.FocusableBehavior,
+		D2L.PolymerBehaviors.VisibleOnAncestorBehavior
+	]
+
+});
