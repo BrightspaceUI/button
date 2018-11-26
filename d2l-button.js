@@ -1,19 +1,26 @@
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../d2l-colors/d2l-colors.html">
-<link rel="import" href="../d2l-polymer-behaviors/d2l-focusable-behavior.html">
-<link rel="import" href="../d2l-typography/d2l-typography-shared-styles.html">
-<link rel="import" href="d2l-button-shared-styles.html">
-<link rel="import" href="d2l-button-behavior.html">
-
-<!--
+/**
 `d2l-button`
 Polymer-based web component for buttons
 
 @demo demo/button.html d2l-button
--->
+*/
+/*
+  FIXME(polymer-modulizer): the above comments were extracted
+  from HTML and may be out of place here. Review them and
+  then delete this comment!
+*/
+import '../@polymer/polymer/polymer-legacy.js';
 
-<dom-module id="d2l-button">
-	<template strip-whitespace>
+import '../d2l-colors/d2l-colors.js';
+import '../d2l-polymer-behaviors/d2l-focusable-behavior.js';
+import '../d2l-typography/d2l-typography-shared-styles.js';
+import './d2l-button-shared-styles.js';
+import './d2l-button-behavior.js';
+import { Polymer } from '../@polymer/polymer/lib/legacy/polymer-fn.js';
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<dom-module id="d2l-button">
+	<template strip-whitespace="">
 		<style>
 			:host {
 				display: inline-block;
@@ -88,32 +95,18 @@ Polymer-based web component for buttons
 				@apply --d2l-button-focus;
 			}
 		</style>
-		<button
-			aria-expanded$="[[ariaExpanded]]"
-			aria-haspopup$="[[ariaHaspopup]]"
-			aria-label$="[[ariaLabel]]"
-			class="d2l-focusable"
-			disabled$=[[disabled]]
-			autofocus$=[[autofocus]]
-			form$=[[form]]
-			formaction$=[[formaction]]
-			formenctype$=[[formenctype]]
-			formmethod$=[[formmethod]]
-			formnovalidate$=[[formnovalidate]]
-			formtarget$=[[formtarget]]
-			name$=[[name]]
-			type$=[[type]]
-		><slot></slot></button>
+		<button aria-expanded$="[[ariaExpanded]]" aria-haspopup$="[[ariaHaspopup]]" aria-label$="[[ariaLabel]]" class="d2l-focusable" disabled$="[[disabled]]" autofocus$="[[autofocus]]" form$="[[form]]" formaction$="[[formaction]]" formenctype$="[[formenctype]]" formmethod$="[[formmethod]]" formnovalidate$="[[formnovalidate]]" formtarget$="[[formtarget]]" name$="[[name]]" type$="[[type]]"><slot></slot></button>
 	</template>
-	<script>
-		Polymer({
-			is: 'd2l-button',
+	
+</dom-module>`;
 
-			behaviors: [
-				D2L.PolymerBehaviors.Button.Behavior,
-				D2L.PolymerBehaviors.FocusableBehavior
-			]
+document.head.appendChild($_documentContainer.content);
+Polymer({
+	is: 'd2l-button',
 
-		});
-	</script>
-</dom-module>
+	behaviors: [
+		D2L.PolymerBehaviors.Button.Behavior,
+		D2L.PolymerBehaviors.FocusableBehavior
+	]
+
+});

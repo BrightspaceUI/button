@@ -1,5 +1,5 @@
-@import 'bower_components/d2l-colors/d2l-colors.scss';
-@import 'bower_components/d2l-typography/d2l-typography.scss';
+@import 'node_modules/d2l-colors/d2l-colors.scss';
+@import 'node_modules/d2l-typography/d2l-typography.scss';
 
 @mixin _d2l-button-clear-focus() {
 	box-shadow: 0 0 0 4px rgba(0, 0, 0, 0);

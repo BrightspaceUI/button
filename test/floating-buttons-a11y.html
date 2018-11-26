@@ -4,9 +4,10 @@
 		<meta charset="UTF-8">
 		<title>d2l-floating-buttons a11y tests</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-		<script src="../../web-component-tester/browser.js"></script>
-		<link rel="import" href="../d2l-floating-buttons.html">
+		<script src="../../@babel/polyfill/browser.js"></script>
+		<script src="../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+		<script src="../../wct-browser-legacy/browser.js"></script>
+		<script type="module" src="../d2l-floating-buttons.js"></script>
 	</head>
 	<body>
 		<test-fixture id="d2l-floating-buttons-fixture">
@@ -17,10 +18,12 @@
 			</template>
 		</test-fixture>
 
-		<script>
-			suite('d2l-floating-buttons-a11y', function() {
-				a11ySuite('d2l-floating-buttons-fixture');
-			});
-		</script>
+		<script type="module">
+import '../d2l-floating-buttons.js';
+import { a11ySuite } from '../../wct-browser-legacy/a11ySuite.js';
+suite('d2l-floating-buttons-a11y', function() {
+	a11ySuite('d2l-floating-buttons-fixture');
+});
+</script>
 	</body>
 </html>

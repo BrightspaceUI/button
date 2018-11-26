@@ -4,18 +4,41 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 		<title>d2l-button-icon - d2l-buttons demo</title>
-		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-		<link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-		<link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-		<link rel="import" href="../../d2l-typography/d2l-typography.html">
-		<link rel="import" href="../d2l-button-icon.html">
-		<custom-style>
+		<script src="../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+		<script type="module" src="../../@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
+		<script type="module" src="../../@polymer/iron-demo-helpers/demo-snippet.js"></script>
+		<script type="module" src="../../d2l-typography/d2l-typography.js"></script>
+		<script type="module" src="../d2l-button-icon.js"></script>
+		<!-- FIXME(polymer-modulizer):
+		These imperative modules that innerHTML your HTML are
+		a hacky way to be sure that any mixins in included style
+		modules are ready before any elements that reference them are
+		instantiated, otherwise the CSS @apply mixin polyfill won't be
+		able to expand the underlying CSS custom properties.
+		See: https://github.com/Polymer/polymer-modulizer/issues/154
+		-->
+	<script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<custom-style>
 			<style is="custom-style" include="demo-pages-shared-styles"></style>
-		</custom-style>
-		<custom-style include="d2l-typography">
+		</custom-style>`;
+
+document.body.appendChild($_documentContainer.content);
+</script>
+		<script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<custom-style include="d2l-typography">
 			<style is="custom-style" include="d2l-typography"></style>
-		</custom-style>
-		<style>
+		</custom-style>`;
+
+document.body.appendChild($_documentContainer.content);
+</script>
+		<script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<style>
 			html {
 				font-size: 20px;
 			}
@@ -55,10 +78,16 @@
 				margin-top: 12px;
 				margin-left: 12px;
 			}
-			</style>
+			</style>`;
+
+document.body.appendChild($_documentContainer.content);
+</script>
 	</head>
 	<body unresolved class="d2l-typography">
-		<div class="vertical-section-container centered">
+		<script type="module">
+const $_documentContainer = document.createElement('template');
+
+$_documentContainer.innerHTML = `<div class="vertical-section-container centered">
 
 			<h3>Icon</h3>
 			<demo-snippet>
@@ -70,7 +99,7 @@
 			<h3>Icon (Disabled)</h3>
 			<demo-snippet>
 				<template>
-					<d2l-button-icon icon="d2l-tier1:gear" text="Settings" disabled></d2l-button-icon>
+					<d2l-button-icon icon="d2l-tier1:gear" text="Settings" disabled=""></d2l-button-icon>
 				</template>
 			</demo-snippet>
 
@@ -78,8 +107,8 @@
 			<demo-snippet>
 				<template>
 					<div class="translucent-container">
-						<img alt="" src="https://s.brightspace.com/course-images/images/e4fbb461-4cd9-4512-8304-44f2c2b741f1/tile-low-density-max-size.jpg"/>
-						<d2l-button-icon icon="d2l-tier1:gear" text="Settings" translucent></d2l-button-icon>
+						<img alt="" src="https://s.brightspace.com/course-images/images/e4fbb461-4cd9-4512-8304-44f2c2b741f1/tile-low-density-max-size.jpg">
+						<d2l-button-icon icon="d2l-tier1:gear" text="Settings" translucent=""></d2l-button-icon>
 					</div>
 				</template>
 			</demo-snippet>
@@ -99,7 +128,7 @@
 					<div class="ancestor-container d2l-visible-on-ancestor-target">
 						<d2l-button-icon icon="d2l-tier1:home" text="Home"></d2l-button-icon>
 						<d2l-button-icon icon="d2l-tier1:bookmark-hollow" text="Bookmark"></d2l-button-icon>
-						<d2l-button-icon icon="d2l-tier1:gear" text="Gear" visible-on-ancestor></d2l-button-icon>
+						<d2l-button-icon icon="d2l-tier1:gear" text="Gear" visible-on-ancestor=""></d2l-button-icon>
 					</div>
 				</template>
 			</demo-snippet>
@@ -108,12 +137,15 @@
 			<demo-snippet>
 				<template>
 					<div class="translucent-container d2l-visible-on-ancestor-target">
-						<img alt="" src="https://s.brightspace.com/course-images/images/e4fbb461-4cd9-4512-8304-44f2c2b741f1/tile-low-density-max-size.jpg"/>
-						<d2l-button-icon icon="d2l-tier1:gear" text="Settings" translucent visible-on-ancestor></d2l-button-icon>
+						<img alt="" src="https://s.brightspace.com/course-images/images/e4fbb461-4cd9-4512-8304-44f2c2b741f1/tile-low-density-max-size.jpg">
+						<d2l-button-icon icon="d2l-tier1:gear" text="Settings" translucent="" visible-on-ancestor=""></d2l-button-icon>
 					</div>
 				</template>
 			</demo-snippet>
 
-		</div>
+		</div>`;
+
+document.body.appendChild($_documentContainer.content);
+</script>
 	</body>
 </html>
