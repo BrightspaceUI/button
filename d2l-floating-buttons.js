@@ -4,13 +4,18 @@ Polymer-based web component for floating workflow buttons
 
 @demo demo/floating-buttons.html d2l-floating-buttons
 */
-import '../@polymer/polymer/polymer-legacy.js';
+/*
+  FIXME(polymer-modulizer): the above comments were extracted
+  from HTML and may be out of place here. Review them and
+  then delete this comment!
+*/
+import '@polymer/polymer/polymer-legacy.js';
 
-import '../d2l-colors/d2l-colors.js';
-import '../@polymer/iron-media-query/iron-media-query.js';
+import 'd2l-colors/d2l-colors.js';
+import '@polymer/iron-media-query/iron-media-query.js';
 import './d2l-button-shared-styles.js';
-import { Polymer } from '../@polymer/polymer/lib/legacy/polymer-fn.js';
-import { afterNextRender } from '../@polymer/polymer/lib/utils/render-status.js';
+import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
+import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
 const $_documentContainer = document.createElement('template');
 
 $_documentContainer.innerHTML = `<dom-module id="d2l-floating-buttons">
@@ -93,6 +98,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-floating-buttons">
 		<div class="d2l-floating-buttons-spacer"></div>
 
 	</template>
+
 </dom-module>`;
 
 document.head.appendChild($_documentContainer.content);
