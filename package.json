@@ -31,7 +31,7 @@
     "@polymer/iron-component-page": "^3.0.0-pre.18",
     "@polymer/iron-demo-helpers": "^3.0.0-pre.18",
     "@polymer/iron-test-helpers": "^3.0.0-pre.18",
-    "@webcomponents/webcomponentsjs": "^2.2.0",
+    "@webcomponents/webcomponentsjs": "^2.2.1",
     "babel-eslint": "^10.0.1",
     "concurrently": "^3.5.0",
     "d2l-galen-utils": "git+https://github.com/Brightspace/d2l-galen-utils.git#v0.3.0",
@@ -55,11 +55,11 @@
   },
   "main": "d2l-button.js",
   "dependencies": {
-    "@polymer/iron-media-query": "^3.0.0-pre.18",
-    "@polymer/polymer": "^3.0.0",
     "d2l-colors": "BrightspaceUI/colors#semver:^4.0.0",
     "d2l-icons": "BrightspaceUI/icons#semver:^6.0.0",
     "d2l-polymer-behaviors": "Brightspace/d2l-polymer-behaviors-ui#semver:^2.0.0",
-    "d2l-typography": "BrightspaceUI/typography#semver:^7.0.1"
+    "d2l-typography": "BrightspaceUI/typography#semver:^7.0.1",
+    "@polymer/iron-media-query": "^3.0.0-pre.18",
+    "@polymer/polymer": "^3.0.0"
   }
 }
