@@ -55,10 +55,10 @@
   },
   "main": "d2l-button.js",
   "dependencies": {
-    "d2l-colors": "BrightspaceUI/colors#semver:^4.0.1",
-    "d2l-icons": "BrightspaceUI/icons#semver:^6.0.1",
-    "d2l-polymer-behaviors": "Brightspace/d2l-polymer-behaviors-ui#semver:^2.0.1",
-    "d2l-typography": "BrightspaceUI/typography#semver:^7.0.2",
+    "d2l-colors": "BrightspaceUI/colors#semver:^4",
+    "d2l-icons": "BrightspaceUI/icons#semver:^6",
+    "d2l-polymer-behaviors": "Brightspace/d2l-polymer-behaviors-ui#semver:^2",
+    "d2l-typography": "BrightspaceUI/typography#semver:^7",
     "@polymer/iron-media-query": "^3.0.0-pre.18",
     "@polymer/polymer": "^3.0.0"
   }
