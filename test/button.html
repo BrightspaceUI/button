@@ -49,6 +49,23 @@ describe('<d2l-button>', function() {
 			button.primary = true;
 			expect(button.hasAttribute('primary')).to.be.true;
 		});
+
+		it('should have default type of button', function() {
+			expect(button.hasAttribute('type')).to.be.true;
+			expect(button.getAttribute('type')).to.equal('button');
+			expect(button.type).to.equal('button');
+		});
+
+		it('should reflect type attribute to property', function() {
+			button.setAttribute('type', 'submit');
+			expect(button.type).to.equal('submit');
+		});
+
+		it('should add type attribute when type has value', function() {
+			button.type = 'submit';
+			expect(button.hasAttribute('type')).to.be.true;
+			expect(button.getAttribute('type')).to.equal('submit');
+		});
 	});
 
 	describe('primary', function() {
