@@ -35,6 +35,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-button">
 				@apply --d2l-label-text;
 				@apply --d2l-button;
 				@apply --d2l-button-clear-focus;
+				width: 100%;
 			}
 			/* Firefox includes a hidden border which messes up button dimensions */
 			button::-moz-focus-inner {
