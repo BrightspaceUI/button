@@ -96,23 +96,9 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-button">
 				@apply --d2l-button-focus;
 			}
 		</style>
-		<button
-			aria-expanded$="[[ariaExpanded]]"
-			aria-haspopup$="[[ariaHaspopup]]"
-			aria-label$="[[ariaLabel]]"
-			class="d2l-focusable"
-			disabled$="[[disabled]]"
-			autofocus$="[[autofocus]]"
-			form$="[[form]]"
-			formaction$="[[formaction]]"
-			formenctype$="[[formenctype]]"
-			formmethod$="[[formmethod]]"
-			formnovalidate$="[[formnovalidate]]"
-			formtarget$="[[formtarget]]"
-			name$="[[name]]"
-			type$="[[type]]"><slot></slot></button>
+		<button aria-expanded$="[[ariaExpanded]]" aria-haspopup$="[[ariaHaspopup]]" aria-label$="[[ariaLabel]]" class="d2l-focusable" disabled$="[[disabled]]" autofocus$="[[autofocus]]" form$="[[form]]" formaction$="[[formaction]]" formenctype$="[[formenctype]]" formmethod$="[[formmethod]]" formnovalidate$="[[formnovalidate]]" formtarget$="[[formtarget]]" name$="[[name]]" type$="[[type]]"><slot></slot></button>
 	</template>
-
+	
 </dom-module>`;
 
 document.head.appendChild($_documentContainer.content);

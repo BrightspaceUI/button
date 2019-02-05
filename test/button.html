@@ -4,7 +4,6 @@
 		<meta charset="UTF-8">
 		<title>d2l-button basic tests</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-		<script src="../../@babel/polyfill/browser.js"></script>
 		<script src="../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
 		<script src="../../wct-browser-legacy/browser.js"></script>
 		<script src="../../@polymer/iron-test-helpers/mock-interactions.js" type="module"></script>
@@ -48,23 +47,6 @@ describe('<d2l-button>', function() {
 		it('should add primary attribute when property is true', function() {
 			button.primary = true;
 			expect(button.hasAttribute('primary')).to.be.true;
-		});
-
-		it('should have default type of button', function() {
-			expect(button.hasAttribute('type')).to.be.true;
-			expect(button.getAttribute('type')).to.equal('button');
-			expect(button.type).to.equal('button');
-		});
-
-		it('should reflect type attribute to property', function() {
-			button.setAttribute('type', 'submit');
-			expect(button.type).to.equal('submit');
-		});
-
-		it('should add type attribute when type has value', function() {
-			button.type = 'submit';
-			expect(button.hasAttribute('type')).to.be.true;
-			expect(button.getAttribute('type')).to.equal('submit');
 		});
 	});
 

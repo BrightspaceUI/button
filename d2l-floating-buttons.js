@@ -99,6 +99,8 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-floating-buttons">
 
 	</template>
 
+	
+
 </dom-module>`;
 
 document.head.appendChild($_documentContainer.content);

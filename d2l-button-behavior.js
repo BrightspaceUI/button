@@ -1,4 +1,5 @@
 import '@polymer/polymer/polymer-legacy.js';
+import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
 
 window.D2L = window.D2L || {};
 window.D2L.PolymerBehaviors = window.D2L.PolymerBehaviors || {};
@@ -97,17 +98,29 @@ D2L.PolymerBehaviors.Button.Behavior = {
 		 */
 		type: {
 			type: String,
-			reflectToAttribute: true,
-			value: 'button'
+			reflectToAttribute: true
 		}
 
 	},
+
 	ready: function() {
-		this.addEventListener('tap', function(e) {
-			var button = e.currentTarget;
-			if (button && button.disabled) {
-				e.stopPropagation();
-			}
-		}, true);
+		this._handleClick = this._handleClick.bind(this);
+	},
+
+	attached: function() {
+		afterNextRender(this, function() {
+			this.addEventListener('click', this._handleClick, true);
+		}.bind(this));
+	},
+
+	detached: function() {
+		this.removeEventListener('click', this._handleClick, true);
+	},
+
+	_handleClick: function(e) {
+		if (this.disabled) {
+			e.stopPropagation();
+		}
 	}
+
 };

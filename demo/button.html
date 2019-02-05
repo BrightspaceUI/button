@@ -87,5 +87,23 @@ $_documentContainer.innerHTML = `<div class="vertical-section-container centered
 
 document.body.appendChild($_documentContainer.content);
 </script>
+		<script type="module">
+import '@polymer/iron-demo-helpers/demo-pages-shared-styles.js';
+import '@polymer/iron-demo-helpers/demo-snippet.js';
+import 'd2l-typography/d2l-typography.js';
+import '../d2l-button.js';
+var id = setInterval(function() {
+	var buttons = document.querySelectorAll('d2l-button');
+	if (buttons.length === 4) {
+		clearInterval(id);
+		for (var i = 0; i < buttons.length; i++) {
+			buttons[i].addEventListener('click', function(e) {
+				// eslint-disable-next-line no-console
+				console.log('Button Clicked', e);
+			});
+		}
+	}
+}, 50);
+</script>
 	</body>
 </html>
