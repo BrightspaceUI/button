@@ -55,5 +55,19 @@
 				</template>
 			</demo-snippet>
 		</div>
+		<script>
+			var id = setInterval(function() {
+				var buttons = document.querySelectorAll('d2l-button');
+				if (buttons.length === 4) {
+					clearInterval(id);
+					for (var i = 0; i < buttons.length; i++) {
+						buttons[i].addEventListener('click', function(e) {
+							// eslint-disable-next-line no-console
+							console.log('Button Clicked', e);
+						});
+					}
+				}
+			}, 50);
+		</script>
 	</body>
 </html>
