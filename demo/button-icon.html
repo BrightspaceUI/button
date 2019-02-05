@@ -120,8 +120,9 @@
 				var buttons = document.querySelectorAll('d2l-button-icon');
 				if (buttons.length === 9) {
 					clearInterval(id);
-					for(var i=0; i<buttons.length; i++) {
+					for (var i = 0; i < buttons.length; i++) {
 						buttons[i].addEventListener('click', function(e) {
+							// eslint-disable-next-line no-console
 							console.log('Button Clicked', e);
 						});
 					}
