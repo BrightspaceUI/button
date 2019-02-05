@@ -102,14 +102,27 @@ D2L.PolymerBehaviors.Button.Behavior = {
 		}
 
 	},
+
 	ready: function() {
-		this.addEventListener('tap', function(e) {
-			var button = e.currentTarget;
-			if (button && button.disabled) {
-				e.stopPropagation();
-			}
-		}, true);
+		this._handleClick = this._handleClick.bind(this);
+	},
+
+	attached: function() {
+		Polymer.RenderStatus.afterNextRender(this, function() {
+			this.addEventListener('click', this._handleClick, true);
+		}.bind(this));
+	},
+
+	detached: function() {
+		this.removeEventListener('click', this._handleClick, true);
+	},
+
+	_handleClick: function(e) {
+		if (this.disabled) {
+			e.stopPropagation();
+		}
 	}
+
 };
 
 </script>

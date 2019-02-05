@@ -21,7 +21,7 @@
 			}
 
 			d2l-button-subtle {
-				padding-right: 1.2rem;
+				margin-right: 1.2rem;
 			}
 			</style>
 	</head>
@@ -66,5 +66,18 @@
 			</demo-snippet>
 
 		</div>
+		<script>
+			var id = setInterval(function() {
+				var buttons = document.querySelectorAll('d2l-button-subtle');
+				if (buttons.length === 6) {
+					clearInterval(id);
+					for(var i=0; i<buttons.length; i++) {
+						buttons[i].addEventListener('click', function(e) {
+							console.log('Button Clicked', e);
+						});
+					}
+				}
+			}, 50);
+		</script>
 	</body>
 </html>

@@ -21,7 +21,7 @@
 			}
 
 			d2l-button-icon {
-				padding-right: 1.2rem;
+				margin-right: 1.2rem;
 			}
 			.ancestor-container {
 				padding: 0.5rem;
@@ -115,5 +115,18 @@
 			</demo-snippet>
 
 		</div>
+		<script>
+			var id = setInterval(function() {
+				var buttons = document.querySelectorAll('d2l-button-icon');
+				if (buttons.length === 9) {
+					clearInterval(id);
+					for(var i=0; i<buttons.length; i++) {
+						buttons[i].addEventListener('click', function(e) {
+							console.log('Button Clicked', e);
+						});
+					}
+				}
+			}, 50);
+		</script>
 	</body>
 </html>
