@@ -98,7 +98,8 @@ D2L.PolymerBehaviors.Button.Behavior = {
 		 */
 		type: {
 			type: String,
-			reflectToAttribute: true
+			reflectToAttribute: true,
+			value: 'button'
 		}
 
 	},
