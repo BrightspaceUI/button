@@ -44,7 +44,7 @@ $_documentContainer.innerHTML = `<style>
 			}
 
 			d2l-button-icon {
-				padding-right: 1.2rem;
+				margin-right: 1.2rem;
 			}
 			.ancestor-container {
 				padding: 0.5rem;
@@ -146,6 +146,24 @@ $_documentContainer.innerHTML = `<div class="vertical-section-container centered
 		</div>`;
 
 document.body.appendChild($_documentContainer.content);
+</script>
+		<script type="module">
+import '@polymer/iron-demo-helpers/demo-pages-shared-styles.js';
+import '@polymer/iron-demo-helpers/demo-snippet.js';
+import 'd2l-typography/d2l-typography.js';
+import '../d2l-button-icon.js';
+var id = setInterval(function() {
+	var buttons = document.querySelectorAll('d2l-button-icon');
+	if (buttons.length === 9) {
+		clearInterval(id);
+		for (var i = 0; i < buttons.length; i++) {
+			buttons[i].addEventListener('click', function(e) {
+				// eslint-disable-next-line no-console
+				console.log('Button Clicked', e);
+			});
+		}
+	}
+}, 50);
 </script>
 	</body>
 </html>

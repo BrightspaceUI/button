@@ -22,6 +22,11 @@ var browsers = {
 		platform: 'WIN10',
 		tags: ['no-d2l-shadow']
 	}),
+	safariMac: new SauceBrowserFactory({
+		browser: 'Safari',
+		platform: 'SIERRA',
+		tags: ['no-d2l-shadow', 'not-edge']
+	}),
 	firefoxMac: new SauceBrowserFactory({
 		browser: 'Firefox',
 		platform: 'SIERRA',

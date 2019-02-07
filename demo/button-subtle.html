@@ -44,7 +44,7 @@ $_documentContainer.innerHTML = `<style>
 			}
 
 			d2l-button-subtle {
-				padding-right: 1.2rem;
+				margin-right: 1.2rem;
 			}
 			</style>`;
 
@@ -97,6 +97,24 @@ $_documentContainer.innerHTML = `<div class="vertical-section-container centered
 		</div>`;
 
 document.body.appendChild($_documentContainer.content);
+</script>
+		<script type="module">
+import '@polymer/iron-demo-helpers/demo-pages-shared-styles.js';
+import '@polymer/iron-demo-helpers/demo-snippet.js';
+import 'd2l-typography/d2l-typography.js';
+import '../d2l-button-subtle.js';
+var id = setInterval(function() {
+	var buttons = document.querySelectorAll('d2l-button-subtle');
+	if (buttons.length === 6) {
+		clearInterval(id);
+		for (var i = 0; i < buttons.length; i++) {
+			buttons[i].addEventListener('click', function(e) {
+				// eslint-disable-next-line no-console
+				console.log('Button Clicked', e);
+			});
+		}
+	}
+}, 50);
 </script>
 	</body>
 </html>
