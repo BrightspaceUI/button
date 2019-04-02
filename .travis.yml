@@ -20,7 +20,7 @@ script:
     echo "Not a Pull Request and on branch master so bumping version";
     frauci-update-version;
     export TRAVIS_TAG=$(frauci-get-version)
-  fi  
+  fi
 before_install:
 - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
 - export PATH=$JAVA_HOME/bin:$PATH
