@@ -31,6 +31,7 @@ deploy:
     tags: true
 env:
   global:
+  - OWNER_NAME=BrightspaceUI
   - REPO_NAME=button
   - SAUCE_USERNAME: Desire2Learn
   - secure: RR181MFqjjoMOr9mlReP3GXZpjOrkX4LA/Ul1TvtMTUXKfqQYG791N0nUJW2094bCR9W+TtYVH70aEfEhRPysjeuUKDuiOzXAPdU9N0eQxgFzeIU7bSiPwCS2qgwdi7ZXS69g/LS1RGcnok/y57Ad0CEQt1uxAbwOCIFg9rmY8s=
