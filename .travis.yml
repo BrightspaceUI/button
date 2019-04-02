@@ -15,15 +15,15 @@ script:
     echo "Not a pull request and/or no secure environment variables, running headless tests...";
     npm run test:polymer:local || travis_terminate 1;
   fi
-before_install:
-- export JAVA_HOME=/usr/lib/jvm/java-8-oracle
-- export PATH=$JAVA_HOME/bin:$PATH
 - |
   if [ "$TRAVIS_BRANCH" == "master" ] && [ $TRAVIS_PULL_REQUEST == false ]; then
     echo "Not a Pull Request and on branch master so bumping version";
     frauci-update-version;
     export TRAVIS_TAG=$(frauci-get-version)
-  fi
+  fi  
+before_install:
+- export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+- export PATH=$JAVA_HOME/bin:$PATH
 deploy:
   provider: releases
   api_key: "$GITHUB_RELEASE_TOKEN"
