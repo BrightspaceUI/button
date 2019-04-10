@@ -11,7 +11,7 @@ A series of [Polymer](https://www.polymer-project.org/1.0/)-based web components
 
 ![screenshot of icon button component](/screenshots/icon-buttons.png?raw=true)
 
-For further information on this and other Brightspace UI components, see the docs at [ui.developers.brightspace.com](http://ui.developers.brightspace.com/).
+For further information on this and other components, refer to [The Brightspace UI Guide](https://github.com/BrightspaceUI/guide/wiki).
 
 ## Installation
 
