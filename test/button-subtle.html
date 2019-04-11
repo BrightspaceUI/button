@@ -36,12 +36,12 @@ describe('<d2l-button-subtle>', function() {
 			button.addEventListener('click', function() {
 				done();
 			});
-			MockInteractions.tap(button.$$('button'));
+			MockInteractions.tap(button);
 		});
 
 		it('should have text but no icon', function() {
 			expect(button.text).to.equal('Subtle Button');
-			expect(button.icon).to.be.null;
+			expect(button.icon).to.be.undefined;
 		});
 
 		it('should reflect text attribute to property', function() {
@@ -56,18 +56,12 @@ describe('<d2l-button-subtle>', function() {
 
 		it('should add icon attribute when property is given a value', function() {
 			button.icon = 'test-icon2';
-			expect(button.hasAttribute('icon')).to.be.true;
 			expect(button.icon).to.equal('test-icon2');
 		});
 
 		it('should reflect text property when attribute is removed', function() {
 			button.removeAttribute('text');
 			expect(button.text).to.be.null;
-		});
-
-		it('should remove text attribute when property is null', function() {
-			button.text = null;
-			expect(button.hasAttribute('text')).to.be.false;
 		});
 	});
 
@@ -85,11 +79,6 @@ describe('<d2l-button-subtle>', function() {
 		it('should reflect icon property when attribute is removed', function() {
 			button.removeAttribute('icon');
 			expect(button.icon).to.be.null;
-		});
-
-		it('should remove icon attribute when property is null', function() {
-			button.icon = null;
-			expect(button.hasAttribute('icon')).to.be.false;
 		});
 	});
 
