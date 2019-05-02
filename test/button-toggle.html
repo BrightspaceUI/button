@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>d2l-button basic tests</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<script src="../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+		<script src="../../wct-browser-legacy/browser.js"></script>
+		<script src="../../@polymer/iron-test-helpers/mock-interactions.js" type="module"></script>
+		<script type="module" src="../d2l-button-toggle.js"></script>
+	</head>
+	<body>
+		<test-fixture id="basic">
+			<template>
+				<d2l-button-toggle title="the title"></d2l-button-toggle>
+			</template>
+		</test-fixture>
+		<test-fixture id="default">
+			<template>
+				<d2l-button-toggle title="the title" default-selected="key-2"></d2l-button-toggle>
+			</template>
+		</test-fixture>
+		<test-fixture id="disabled">
+			<template>
+				<d2l-button-toggle title="the title" disabled></d2l-button-toggle>
+			</template>
+		</test-fixture>
+		<script type="module">
+import '../d2l-button-toggle.js';
+describe('<d2l-button-toggle>', function() {
+	let toggle;
+	const definedButtons = [
+		{ key: 'key-1', text: 'text 1' },
+		{ key: 'key-2', text: 'text 2' },
+		{ key: 'key-3', text: 'text 3' }
+	];
+	describe('basic', function() {
+
+		beforeEach(function() {
+			toggle = fixture('basic');
+			toggle.buttons = definedButtons;
+		});
+
+		it('should reflect title attribute to property', function() {
+			expect(toggle.title).to.equal('the title');
+			toggle.setAttribute('title', 'new title');
+			expect(toggle.title).to.equal('new title');
+		});
+
+		it('should return the id prefix with the key', function() {
+			const key = 'key';
+			const id = toggle._getButtonId(key);
+			expect(id).to.equal(toggle._buttonIdPrefix + key);
+		});
+
+		it('should reflect the defined buttons in the ui, assigning the correct ID and button text', function(done) {
+			window.requestAnimationFrame(function() {
+				const buttons = toggle.shadowRoot.querySelectorAll('button');
+				expect(buttons.length).to.equal(definedButtons.length);
+				for (let i = 0; i < buttons.length; i++) {
+					expect(buttons[i].id).to.equal(toggle._buttonIdPrefix + definedButtons[i].key);
+					expect(buttons[i].innerHTML).to.equal(definedButtons[i].text);
+				}
+				done();
+			});
+		});
+
+		[
+			{ index: 0, defaultSelected: '', expected: true },
+			{ index: 1, defaultSelected: '', expected: false },
+			{ index: 0, defaultSelected: definedButtons[1].key, expected: false },
+			{ index: 1, defaultSelected: definedButtons[1].key, expected: true },
+			{ index: 2, defaultSelected: definedButtons[1].key, expected: false }
+		].forEach(testCase => {
+			it(`it should${testCase.expected ? '' : ' not'} be selected for index ${testCase.index} when defaultSelected is ${testCase.defaultSelected ? testCase.defaultSelected : 'not defined'}`, function() {
+				toggle.defaultSelected = testCase.defaultSelected;
+				const selected = toggle._shouldBeDefaultSelected(testCase.index);
+				expect(selected).to.equal(testCase.expected);
+			});
+		});
+
+		it('should apply aria-pressed to the default (and only the default) selected button', function(done) {
+			window.requestAnimationFrame(function() {
+				const buttons = toggle.shadowRoot.querySelectorAll('button');
+				for (let i = 0; i < buttons.length; i++)
+				{
+					expect(buttons[i].hasAttribute('aria-pressed')).to.equal(i === 0);
+				}
+				done();
+			});
+		});
+
+		it('should only have one button selected (aria-pressed) when switching selections', function(done) {
+			window.requestAnimationFrame(function() {
+				const key = 'key-2';
+				toggle._selectOnly(key);
+				const button = toggle.shadowRoot.querySelectorAll('button[aria-pressed]');
+				expect(button.length).to.equal(1);
+				expect(button[0].id).to.equal(toggle._buttonIdPrefix + key);
+				done();
+			});
+		});
+
+		it('should only have one button selected (aria-pressed) when clicking on a button', function(done) {
+			window.requestAnimationFrame(function() {
+				const button = toggle.shadowRoot.querySelector('button:not([aria-pressed])');
+				MockInteractions.tap(button);
+				expect(button.hasAttribute('aria-pressed')).to.be.true;
+				const pressedButtons = toggle.shadowRoot.querySelectorAll('button[aria-pressed]');
+				expect(pressedButtons.length).to.equal(1);
+				done();
+			});
+		});
+
+		it('should fire d2l-button-toggle-selection-changed event when clicking on a button', function(done) {
+			window.requestAnimationFrame(function() {
+				const button = toggle.shadowRoot.querySelector('button:not([aria-pressed])');
+				toggle.addEventListener('d2l-button-toggle-selection-changed', function(e) {
+					expect(toggle._buttonIdPrefix + e.detail.selected).to.equal(button.id);
+					done();
+				});
+				MockInteractions.tap(button);
+			});
+		});
+	});
+	describe('default', function() {
+
+		beforeEach(function() {
+			toggle = fixture('default');
+			toggle.buttons = definedButtons;
+		});
+
+		it('should reflect default-selected attribute to property', function() {
+			expect(toggle.defaultSelected).to.equal('key-2');
+			toggle.setAttribute('default-selected', 'new-default');
+			expect(toggle.defaultSelected).to.equal('new-default');
+		});
+
+		it('should apply aria-pressed to the default (and only the default) selected button', function(done) {
+			window.requestAnimationFrame(function() {
+				const buttons = toggle.shadowRoot.querySelectorAll('button');
+				for (let i = 0; i < buttons.length; i++)
+				{
+					expect(buttons[i].hasAttribute('aria-pressed')).to.equal(buttons[i].id === toggle._buttonIdPrefix + 'key-2');
+				}
+				done();
+			});
+		});
+
+	});
+	describe('disabled', function() {
+
+		beforeEach(function() {
+			toggle = fixture('disabled');
+			toggle.buttons = definedButtons;
+		});
+
+		it('should reflect disabled attribute to property', function() {
+			expect(toggle.disabled).to.be.true;
+			toggle.removeAttribute('disabled');
+			expect(toggle.disabled).to.be.false;
+		});
+
+		it('should disable all buttons when component is disabled', function(done) {
+			window.requestAnimationFrame(function() {
+				const buttons = toggle.shadowRoot.querySelectorAll('button[disabled]');
+				expect(buttons.length).to.equal(definedButtons.length);
+				done();
+			});
+		});
+	});
+});

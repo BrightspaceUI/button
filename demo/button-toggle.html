@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+		<title>d2l-button-toggle demo</title>
+		<script src="../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+
+		<script type="module">
+			import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
+			import '@polymer/iron-demo-helpers/demo-snippet';
+			import 'd2l-typography/d2l-typography.js';
+			import '../d2l-button-toggle.js';
+
+			const $_documentContainer = document.createElement('template');
+			$_documentContainer.innerHTML = `
+				<custom-style>
+					<style is="custom-style" include="demo-pages-shared-styles"></style>
+				</custom-style>
+				<custom-style include="d2l-typography">
+					<style is="custom-style" include="d2l-typography"></style>
+				</custom-style>
+				<style>
+					html {
+						font-size: 20px;
+					}
+				</style>
+			`;
+			document.body.appendChild($_documentContainer.content);
+		</script>
+	</head>
+	<body class="d2l-typography">
+		<div class="vertical-section-container fixedSize">
+			<h3>d2l-button-toggle demo</h3>
+			<demo-snippet>
+				<template strip-whitespace>
+					<h4>No default specified</h4>
+					<d2l-button-toggle title="No default specified"></d2l-button-toggle>
+					<h4>Default pressed button specified</h4>
+					<d2l-button-toggle default-selected="default-button-2" title="Default specified"></d2l-button-toggle>
+					<h4>"none" pressed button specified</h4>
+					<d2l-button-toggle default-selected="none" title="Default specified"></d2l-button-toggle>
+					<h4>Disabled</h4>
+					<d2l-button-toggle disabled title="Disabled"></d2l-button-toggle>
+				</template>
+			</demo-snippet>
+		</div>
+	</body>
+	<script type="module">
+		window.requestAnimationFrame(function() {
+			const button = document.querySelector('d2l-button-toggle');
+			button.buttons = [
+				{ key: 'button-1', text: 'First option' },
+				{ key: 'button-2', text: 'Second option' },
+				{ key: 'button-3', text: 'Third option' },
+				{ key: 'button-4', text: 'Fourth option' },
+				{ key: 'button-5', text: 'Fifth option' }
+			];
+			const defButton = document.querySelector('d2l-button-toggle[default-selected]');
+			defButton.buttons = [
+				{ key: 'default-button-1', text: 'First default' },
+				{ key: 'default-button-2', text: 'Second default' },
+				{ key: 'default-button-3', text: 'Third default' }
+			];
+			const noneButton = document.querySelector('d2l-button-toggle[default-selected="none"]');
+			noneButton.buttons = [
+				{ key: 'none-button-1', text: 'First none' },
+				{ key: 'none-button-2', text: 'Second none' },
+				{ key: 'none-button-3', text: 'Third none' },
+				{ key: 'none-button-4', text: 'Fourth none' }
+			];
+			const disabled = document.querySelector('d2l-button-toggle[disabled]');
+			disabled.buttons = [
+				{ key: 'disabled-button-1', text: 'First disabled' },
+				{ key: 'disabled-button-2', text: 'Second disabled' },
+				{ key: 'disabled-button-3', text: 'Third disabled' }
+			];
+		});
+	</script>
+</html>
