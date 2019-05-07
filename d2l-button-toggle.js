@@ -1,153 +1,128 @@
 import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
-import 'd2l-offscreen/d2l-offscreen.js';
 import './d2l-button-shared-styles.js';
 
 /**
  * @customElement
  * @polymer
  */
-class D2LButtonToggle extends PolymerElement {
+export class D2LButtonToggle extends PolymerElement {
 	static get is() { return 'd2l-button-toggle'; }
 	static get template() {
 		return html`
 		<style>
-			:host([disabled]) .d2l-button-toggle-button {
+			:host {
+				display: inline-block;
+				outline: none;
+				--d2l-button-toggle-border-radius: 0.3em;
+				--d2l-button-toggle-border-width: 1px;
+			}
+			:host([hidden]) {
+				display: none;
+			}
+			button {
+				font-family: inherit;
+				padding: 0.5rem 1.5rem;
+				@apply --d2l-button-shared;
+				@apply --d2l-label-text;
+				@apply --d2l-button;
+				@apply --d2l-button-clear-focus;
+				width: 100%;
+				border-radius: var(--d2l-button-toggle-border-radius);
+				border-width: var(--d2l-button-toggle-border-width);
+			}
+			/* Firefox includes a hidden border which messes up button dimensions */
+			button::-moz-focus-inner {
+				border: 0;
+			}
+			button,
+			button[disabled]:hover,
+			button[disabled]:focus,
+			:host([active]) button[disabled] {
+				background-color: var(--d2l-color-regolith);
+				border-color: var(--d2l-color-mica);
+				color: var(--d2l-color-ferrite);
+			}
+
+			button:hover,
+			button[aria-pressed="true"], 
+			:host([active]) button,
+			:host(.d2l-button-hover) button {
+				background-color: var(--d2l-color-gypsum);
+			}
+
+			button:hover,
+			button[aria-pressed="true"], 
+			:host(.d2l-button-hover) button, 
+			:host([active]) button {
+				@apply --d2l-button-hover;
+			}
+			button:focus, :host(.d2l-button-focus) button {
+				@apply --d2l-button-focus-plus-border;
+				position: relative;
+			}
+
+			button[disabled] {
 				opacity: 0.5;
 				cursor: default;
 			}
-			.d2l-button-toggle-container > li:first-of-type > button {
-				border-bottom-left-radius: 0.3rem;
-				border-top-left-radius: 0.3rem;
-				border-left-width: 1px;
-			}
-			:host(:dir(rtl)) .d2l-button-toggle-container > li:first-of-type > button {
-				border-bottom-right-radius: 0.3rem;
-				border-top-right-radius: 0.3rem;
-			}
-			.d2l-button-toggle-container > li:last-of-type > button {
-				border-bottom-right-radius: 0.3rem;
-				border-top-right-radius: 0.3rem;
-			}
-			:host(:dir(rtl)) .d2l-button-toggle-container > li:last-of-type > button {
-				border-bottom-left-radius: 0.3rem;
-				border-top-left-radius: 0.3rem;
-				border-left-width: 1px;
-			}
-			.d2l-button-toggle-button,
-			.d2l-button-toggle-button[aria-pressed] {
-				@apply --d2l-button;
-				@apply --d2l-button-shared;
-				@apply --d2l-label-text;
-				border-radius: 0;
-				border-width: 1px 1px 1px 0px;
-				font-family: inherit;
-				padding: 0.5rem 1.5rem;
-			}
-			.d2l-button-toggle-button {
-				background-color: var(--d2l-color-regolith);
-			}
-			:host(:not([disabled])) .d2l-button-toggle-button:hover,
-			:host(:not([disabled])) .d2l-button-toggle-button:focus,
-			.d2l-button-toggle-button[aria-pressed]
-			{
-				background-color: var(--d2l-color-gypsum);
-			}
-			.d2l-button-toggle-button:focus,
-			.d2l-button-toggle-button[aria-pressed]:focus {
-				box-shadow: 0 0 1px 0 var(--d2l-color-sylvite) inset, 0 0 3px 1px #99C5E5;
-				position: relative;
-			}
-			.d2l-button-toggle-container {
-				list-style: none;
-				white-space: no-wrap;
-				display: inline-block;
-			}
-			.d2l-button-toggle-container li {
-				display: inline-block;
-			}
 		</style>
-		<d2l-offscreen><h2 id="d2l-button-toggle-title">[[title]]</h2></d2l-offscreen>
-		<ul class="d2l-button-toggle-container" role="toolbar" aria-labelledby="d2l-button-toggle-title">
-			<dom-repeat items="[[buttons]]" as="b">
-				<template><li role="presentation">
-					<button 
-						class="d2l-button-toggle-button" 
-						id$="[[_getButtonId(b.key)]]" 
-						on-click="_selectionChanged"
-						aria-pressed$="[[_shouldBeDefaultSelected(index)]]"
-						disabled="[[disabled]]"
-					>[[b.text]]</button>
-				</li></template>
-			</dom-repeat>
-		</ul>
+		<button 
+			aria-expanded$="[[ariaExpanded]]"
+			aria-haspopup$="[[ariaHaspopup]]"
+			aria-label$="[[label]]"
+			aria-pressed$="[[_pressedString]]"
+			class="d2l-focusable"
+			disabled$="[[disabled]]"
+			autofocus$="[[autofocus]]"
+			form$="[[form]]"
+			formaction$="[[formaction]]"
+			formenctype$="[[formenctype]]"
+			formmethod$="[[formmethod]]"
+			formnovalidate$="[[formnovalidate]]"
+			formtarget$="[[formtarget]]"
+			name$="[[name]]"
+			type$="[[type]]"
+			tabindex$="[[tabindex]]"><slot></slot></button>
 		`;
 	}
 	static get properties() {
 		return {
-			buttons: {
-				type: Array,
-				value: [
-					// { key: 'd2l-key', text: 'value' },
-					// { key: 'd2l-key2', text: 'value 2' },
-					// { key: 'd2l-key3', text: 'value 3' }
-				]
-			},
-			defaultSelected: {
-				type: String,
-				value: ''
-			},
-			title: {
-				type: String,
-				value: ''
+			pressed: {
+				type: Boolean,
+				value: false
 			},
 			disabled: {
 				type: Boolean,
 				value: false
 			},
-			_buttonIdPrefix: {
+			label: {
 				type: String,
-				value: 'd2l-button-toggle-'
+				value: ''
+			},
+			_pressedString: {
+				type: String,
+				computed: '_getPressedString(pressed)'
 			}
 		};
 	}
 
-	_shouldBeDefaultSelected(index) {
-		if (this.defaultSelected) {
-			return this.buttons[index].key === this.defaultSelected;
-		}
-		return index === 0;
+	ready() {
+		super.ready();
+
+		this.addEventListener('click', this._togglePressed);
 	}
 
-	_getButtonId(key) {
-		return this._buttonIdPrefix + key;
+	focus() {
+		this.shadowRoot.querySelector('button').focus();
 	}
 
-	_selectOnly(key) {
-		const buttons = this.shadowRoot.querySelectorAll('button');
-		const id = this._getButtonId(key);
-		for (let i = 0; i < buttons.length; i++) {
-			if (buttons[i].id === id) {
-				buttons[i].setAttribute('aria-pressed', true);
-			} else {
-				buttons[i].removeAttribute('aria-pressed');
-			}
-		}
+	_togglePressed()
+	{
+		this.pressed = !this.pressed;
 	}
 
-	_selectionChanged(e) {
-		this._selectOnly(e.model.b.key);
-		this.dispatchEvent(
-			new CustomEvent(
-				'd2l-button-toggle-selection-changed',
-				{
-					detail: {
-						selected: e.model.b.key
-					},
-					composed: true,
-					bubbles: true
-				}
-			)
-		);
+	_getPressedString(pressed) {
+		return pressed.toString();
 	}
 }
 

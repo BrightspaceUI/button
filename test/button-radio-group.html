@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>d2l-button basic tests</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<script src="../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+		<script src="../../wct-browser-legacy/browser.js"></script>
+		<script src="../../@polymer/iron-test-helpers/mock-interactions.js" type="module"></script>
+		<script type="module" src="../d2l-button-toggle-radio-group-item.js"></script>
+		<script type="module" src="../d2l-button-radio-group.js"></script>
+	</head>
+	<body>
+		<test-fixture id="basic">
+			<template>
+				<d2l-button-radio-group label="the label">
+					<d2l-button-toggle-radio-group-item value="first">First</d2l-button-toggle-radio-group-item>
+					<d2l-button-toggle-radio-group-item value="second">Second</d2l-button-toggle-radio-group-item>
+				</d2l-button-radio-group>
+			</template>
+		</test-fixture>
+		<test-fixture id="starting-pressed">
+			<template>
+				<d2l-button-radio-group>
+					<d2l-button-toggle-radio-group-item value="first">First</d2l-button-toggle-radio-group-item>
+					<d2l-button-toggle-radio-group-item value="second" pressed>Second</d2l-button-toggle-radio-group-item>
+					<d2l-button-toggle-radio-group-item value="third">Third</d2l-button-toggle-radio-group-item>
+				</d2l-button-radio-group>
+			</template>
+		</test-fixture><test-fixture id="multiple-starting-pressed">
+			<template>
+				<d2l-button-radio-group>
+					<d2l-button-toggle-radio-group-item value="first">First</d2l-button-toggle-radio-group-item>
+					<d2l-button-toggle-radio-group-item value="second" pressed>Second</d2l-button-toggle-radio-group-item>
+					<d2l-button-toggle-radio-group-item value="third" pressed>Third</d2l-button-toggle-radio-group-item>
+				</d2l-button-radio-group>
+			</template>
+		</test-fixture>
+		<script type="module">
+import '../d2l-button-toggle.js';
+describe('<d2l-button-toggle>', function() {
+	let toggleGroup;
+
+	function _clickButton(index) {
+		MockInteractions.tap(toggleGroup._buttons[index]);
+	}
+
+	describe('basic', function() {
+
+		beforeEach(function() {
+			toggleGroup = fixture('basic');
+		});
+
+		it ('should have a default _lastSelectedValue of empty string', function() {
+			expect(toggleGroup._lastSelectedValue).to.equal('');
+		});
+
+		it('should change the _lastSelectedValue when a button is clicked', function() {
+			_clickButton(0);
+			expect(toggleGroup._lastSelectedValue).to.equal(toggleGroup._buttons[0].value);
+		});
+
+		it ('should change the pressed button to the one just clicked (only one at a time)', function() {
+			_clickButton(0);
+			_clickButton(1);
+			let pressed = 0;
+			let pressedButton = null;
+			toggleGroup._buttons.forEach(b => {
+				if (b.pressed) {
+					pressed++;
+					pressedButton = b;
+				}
+			});
+			expect(pressed).to.equal(1);
+			expect(pressedButton).to.equal(toggleGroup._buttons[1]);
+			expect(pressedButton.value).to.equal(toggleGroup._buttons[1].value);
+		});
+
+		it ('should emit an event when the selection is changed', function(done) {
+			toggleGroup.addEventListener('d2l-button-radio-group-selection-changed', function(e) {
+				expect(e.detail.selected).to.equal(toggleGroup._buttons[0].value);
+				done();
+			});
+			_clickButton(0);
+		});
+	});
+
+	describe('group defined with button already pressed', function() {
+
+		beforeEach(function() {
+			toggleGroup = fixture('starting-pressed');
+		});
+
+		it ('should default _lastFocused and _lastSelectedValue to the pressed button', function() {
+			const button = toggleGroup.querySelector('*[pressed]');
+			expect(toggleGroup._lastFocused).to.equal(button);
+			expect(toggleGroup._lastSelectedValue).to.equal(button.value);
+		});
+	});
+
+	describe('group defined with multiple buttons already pressed', function() {
+
+		beforeEach(function() {
+			toggleGroup = fixture('multiple-starting-pressed');
+		});
+
+		it('should default _lastFocused and _lastSelectedValue to the first pressed button', function() {
+			const button = toggleGroup.querySelector('*[pressed]');
+			expect(toggleGroup._lastFocused).to.equal(button);
+			expect(toggleGroup._lastSelectedValue).to.equal(button.value);
+		});
+		it('should set pressed to false for all but the first pressed button', function() {
+			const button = toggleGroup.querySelector('*[pressed]');
+			toggleGroup._buttons.forEach(b => {
+				expect(b.pressed).to.equal(b === button);
+			});
+		});
+	});
+});

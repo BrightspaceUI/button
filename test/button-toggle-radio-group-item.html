@@ -7,12 +7,12 @@
 		<script src="../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
 		<script src="../../wct-browser-legacy/browser.js"></script>
 		<script src="../../@polymer/iron-test-helpers/mock-interactions.js" type="module"></script>
-		<script type="module" src="../d2l-button-toggle.js"></script>
+		<script type="module" src="../d2l-button-toggle-radio-group-item.js"></script>
 	</head>
 	<body>
 		<test-fixture id="basic">
 			<template>
-				<d2l-button-toggle label="the label"></d2l-button-toggle>
+				<d2l-button-toggle-radio-group-item label="the label"></d2l-button-toggle-radio-group-item>
 			</template>
 		</test-fixture>
 		<script type="module">
@@ -30,32 +30,11 @@ describe('<d2l-button-toggle>', function() {
 		it('should reflect pressed attribute to property', function() {
 			expect(toggle.pressed).to.be.false;
 			expect(button.getAttribute('aria-pressed')).to.equal('false');
+			expect(button.hasAttribute('aria-checked')).to.be.false;
 			toggle.setAttribute('pressed', true);
 			expect(toggle.pressed).to.be.true;
 			expect(button.getAttribute('aria-pressed')).to.equal('true');
-		});
-
-		it ('should reflect disabled attribute to property', function() {
-			expect(toggle.disabled).to.be.false;
-			expect(button.hasAttribute('disabled')).to.be.false;
-			toggle.setAttribute('disabled', true);
-			expect(toggle.disabled).to.be.true;
-			expect(button.hasAttribute('disabled')).to.be.true;
-		});
-
-		it ('should reflect label attribute to property', function() {
-			expect(toggle.label).to.equal('the label');
-			expect(button.getAttribute('aria-label')).to.equal('the label');
-			toggle.setAttribute('label', 'new label');
-			expect(toggle.label).to.equal('new label');
-			expect(button.getAttribute('aria-label')).to.equal('new label');
-		});
-
-		it ('should toggle pressed when the button is clicked', function() {
-			MockInteractions.tap(button);
-			expect(toggle.pressed).to.be.true;
-			MockInteractions.tap(button);
-			expect(toggle.pressed).to.be.false;
+			expect(button.hasAttribute('aria-checked')).to.be.true;
 		});
 	});
 });
