@@ -113,7 +113,7 @@
 
 @set
 	celestine "#006fbf|rgba\\(0, 111, 191, 1\\)|rgb\\(0, 111, 191\\)"
-	gypsum "#e6eaf0|rgba\\(230, 234, 240, 1\\)|rgb\\(230, 234, 240\\)"
+	gypsum "#e3e9f1|rgba\\(227, 233, 241, 1\\)|rgb\\(227, 233, 241\\)"
 	transparent "transparent|rgba\\(0, 0, 0, 0\\)"
 
 = Subtle Buttons =
