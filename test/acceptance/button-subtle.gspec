@@ -103,8 +103,12 @@
 	text custom-element.span, custom-element-icon.span, custom-element-hover.span, custom-element-icon-hover.span, custom-element-active.span, custom-element-icon-active.span, custom-element-focus.span, custom-element-icon-focus.span, custom-element-disabled.span, custom-element-icon-disabled.span, sass-mixin, sass-mixin-icon, sass-mixin-focus, sass-mixin-icon-focus, sass-mixin-hover, sass-mixin-icon-hover, sass-mixin-active, sass-mixin-icon-active, sass-mixin-disabled, sass-mixin-icon-disabled
 	text-icon-left custom-element-icon.span, custom-element-icon-hover.span, custom-element-icon-active.span, custom-element-icon-focus.span, custom-element-icon-disabled.span
 	text-icon-right custom-element-icon-right.span
+	text-normal custom-element.span, custom-element-icon.span, custom-element-disabled.span, custom-element-icon-disabled.span, sass-mixin, sass-mixin-icon, sass-mixin-disabled, sass-mixin-icon-disabled
+	text-hover-active-focus custom-element-hover.span, custom-element-icon-hover.span, custom-element-active.span, custom-element-icon-active.span, custom-element-focus.span, custom-element-icon-focus.span, sass-mixin-focus, sass-mixin-icon-focus, sass-mixin-hover, sass-mixin-icon-hover, sass-mixin-active, sass-mixin-icon-active
 	icon-hidden custom-element.icon
 	icon custom-element-icon.icon, custom-element-icon-focus.icon, custom-element-icon-hover.icon, custom-element-icon-active.icon, custom-element-icon-disabled.icon, sass-mixin-icon.icon, sass-mixin-icon-hover.icon, sass-mixin-icon-active.icon, sass-mixin-icon-focus.icon, sass-mixin-icon-disabled.icon
+	icon-normal custom-element-icon.icon, custom-element-icon-disabled.icon, sass-mixin-icon.icon, sass-mixin-icon-disabled.icon
+	icon-hover-active-focus custom-element-icon-focus.icon, custom-element-icon-hover.icon, custom-element-icon-active.icon, sass-mixin-icon-hover.icon, sass-mixin-icon-active.icon, sass-mixin-icon-focus.icon
 	button custom-element.button, custom-element-icon.button, sass-mixin
 	button-hover-active custom-element-hover.button, custom-element-icon-hover.button, sass-mixin-hover, sass-mixin-icon-hover, custom-element-active.button, custom-element-icon-active.button, sass-mixin-active, sass-mixin-icon-active
 	button-focus custom-element-focus.button, custom-element-icon-focus.button, sass-mixin-focus, sass-mixin-icon-focus
@@ -113,24 +117,31 @@
 
 @set
 	celestine "#006fbf|rgba\\(0, 111, 191, 1\\)|rgb\\(0, 111, 191\\)"
+	celestine-minus-1 "#005694|rgba\\(0, 86, 148\\)|rgb\\(0, 86, 148\\)"
 	gypsum "#e3e9f1|rgba\\(227, 233, 241, 1\\)|rgb\\(227, 233, 241\\)"
 	transparent "transparent|rgba\\(0, 0, 0, 0\\)"
 
 = Subtle Buttons =
 	&text:
-		css color matches ${celestine}
 		css vertical-align is "middle"
+	&text-normal:
+		css color matches ${celestine}
 	&text-icon-left:
 		css padding-left matches "1.2rem|24px"
 	&text-icon-right:
 		css padding-right matches "1.2rem|24px"
+	&text-hover-active-focus:
+		css color matches ${ceslestine-minus-1}
 	&icon-hidden:
 		absent
 	&icon:
-		css color matches ${celestine}
 		css vertical-align is "middle"
 		height 18px
 		width 18px
+	&icon-normal:
+		css color matches ${celestine}
+	&icon-hover-active-focus:
+		css color matches ${ceslestine-minus-1}
 	@on not-edge
 		&button, &button-hover-active, &button-focus:
 			css font-size is "14px"

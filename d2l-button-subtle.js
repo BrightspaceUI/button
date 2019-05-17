@@ -97,6 +97,11 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-button-subtle">
 				color: var(--d2l-color-celestine);
 				vertical-align: middle;
 			}
+			button:hover:not([disabled]) .d2l-button-subtle-content,
+			button:focus:not([disabled]) .d2l-button-subtle-content,
+			:host([active]:not([disabled])) button .d2l-button-subtle-content {
+				color: var(--d2l-color-celestine-minus-1);
+			}
 			:host([icon]) .d2l-button-subtle-content {
 				padding-left: 1.2rem;
 			}
@@ -133,6 +138,11 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-button-subtle">
 				top: 50%;
 				transform: translateY(-50%);
 				width: 0.9rem;
+			}
+			button:hover:not([disabled]) d2l-icon.d2l-button-subtle-icon,
+			button:focus:not([disabled]) d2l-icon.d2l-button-subtle-icon,
+			:host([active]:not([disabled])) button d2l-icon.d2l-button-subtle-icon {
+				color: var(--d2l-color-celestine-minus-1);
 			}
 			:host([icon]) d2l-icon.d2l-button-subtle-icon {
 				display: inline-block;
