@@ -57,8 +57,8 @@
 	button-align-text button-icon-h-align-text.button, icon-sass-mixin-h-align-text
 
 @set
-	gypsum "#e6eaf0|rgba\\(230, 234, 240, 1\\)|rgb\\(230, 234, 240\\)"
-	ferrite "#565a5c|rgba\\(86, 90, 92, 1\\)|rgb\\(86, 90, 92\\)"
+	gypsum "#e3e9f1|rgba\\(227, 233, 241, 1\\)|rgb\\(227, 233, 241\\)"
+	ferrite "#494c4e|rgba\\(73, 76, 78, 1\\)|rgb\\(73, 76, 78\\)"
 	transparent "transparent|rgba\\(0, 0, 0, 0\\)"
 
 = Icon Buttons =
