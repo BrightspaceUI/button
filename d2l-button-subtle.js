@@ -90,7 +90,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-button-subtle">
 				background-color: var(--d2l-color-gypsum);
 			}
 			button:focus, :host(.d2l-button-subtle-focus) button {
-				@apply --d2l-button-focus-plus-border;
+				@apply --d2l-button-focus;
 			}
 
 			.d2l-button-subtle-content {
