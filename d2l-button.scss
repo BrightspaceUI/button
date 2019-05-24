@@ -6,7 +6,7 @@
 }
 
 @mixin _d2l-button-focus() {
-	box-shadow: 0 0 0 4px rgba(0, 111, 191, 0.3);
+	box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #006fbf;
 }
 
 @mixin _d2l-button-shared() {
