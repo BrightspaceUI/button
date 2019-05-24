@@ -83,7 +83,8 @@
 		css box-shadow matches ".*rgba\\(0, 0, 0, 0\\).*|.*rgba\\(0,0,0,0\\).*"
 	&button-focus:
 		css border-top-color matches "rgba\\(0, 111, 191, 0.4\\)"
-		css box-shadow matches ".*rgba\\(0, 111, 191, 0.3\\).*|.*rgba\\(0,111,191,0.3\\).*"
+		css box-shadow contains "#006fbf|rgba\\(0, 111, 191, 1\\)|rgb\\(0, 111, 191\\)"
+		css box-shadow contains "0px 0px 0px 2px"
 		css box-shadow contains "0px 0px 0px 4px"
 	&button-disabled:
 		css cursor is "default"
