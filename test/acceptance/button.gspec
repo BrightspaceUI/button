@@ -95,7 +95,8 @@
 		height 42 to 43 px
 	&normal-focus:
 		css background-color matches ${gypsum}
-		css border-top-color matches "rgba\\(0, 111, 191, 0.4\\)"
+		css border-top-color matches ${mica}
+		css box-shadow contains "0px 0px 0px 2px"
 		css box-shadow contains "0px 0px 0px 4px"
 		width 215 to 231 px
 		height 42 to 43 px
@@ -111,6 +112,7 @@
 		height 42 to 43 px
 	&primary-focus:
 		css background-color matches ${celestineMinus1}
+		css box-shadow contains "0px 0px 0px 2px"
 		css box-shadow contains "0px 0px 0px 4px"
 		width 220 to 234 px
 		height 42 to 43 px

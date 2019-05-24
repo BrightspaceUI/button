@@ -171,8 +171,9 @@
 		css background-color matches ${gypsum}
 		height 42 to 44 px
 	&button-focus:
-		css border-top-color matches "rgba\\(0, 111, 191, 0.4\\)"
-		css box-shadow matches ".*rgba\\(0, 111, 191, 0.3\\).*|.*rgba\\(0,111,191,0.3\\).*"
+		css border-top-color matches ${transparent}
+		css box-shadow contains ${celestine}
+		css box-shadow contains "0px 0px 0px 2px"
 		css box-shadow contains "0px 0px 0px 4px"
 		width 170 to 272 px
 	&button-disabled:
