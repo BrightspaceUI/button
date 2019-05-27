@@ -93,8 +93,15 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-button-icon">
 
 			:host([translucent]) button {
 				background-color: rgba(0,0,0,0.5);
-				transition: background-color 0.5s;
+				transition-property: background-color, box-shadow;
+				transition-duration: 0.2s, 0.2s;
+				box-shadow: inset 0px 0px 0px 2px transparent, inset 0px 0px 0px 3px transparent;
 			}
+
+			:host([translucent][visible-on-ancestor]) button {
+				transition-duration: 0.4s, 0.4s;
+			}
+
 			:host([translucent]) .d2l-button-icon {
 				color: white;
 			}
@@ -105,7 +112,10 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-button-icon">
 			:host([translucent]) button:focus {
 				border: none;
 				background-color: var(--d2l-color-celestine);
-				box-shadow: none;
+			}
+
+			:host([translucent]) button:focus {
+				box-shadow: inset 0px 0px 0px 2px var(--d2l-color-celestine), inset 0px 0px 0px 3px white;
 			}
 
 			button[disabled] {
