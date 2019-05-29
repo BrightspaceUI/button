@@ -126,7 +126,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-button-icon">
 		<button
 			aria-expanded$="[[ariaExpanded]]"
 			aria-haspopup$="[[ariaHaspopup]]"
-			aria-label$="[[ariaLabel]]"
+			aria-label$="[[_ariaLabel]]"
 			class="d2l-focusable"
 			disabled$="[[disabled]]"
 			autofocus$="[[autofocus]]"
@@ -183,6 +183,11 @@ Polymer({
 		translucent: {
 			type: Boolean,
 			reflectToAttribute: true
+		},
+
+		_ariaLabel: {
+			type: String,
+			computed: 'computeAriaLabel(ariaLabel, text)'
 		}
 
 	},
@@ -191,6 +196,13 @@ Polymer({
 		D2L.PolymerBehaviors.Button.Behavior,
 		D2L.PolymerBehaviors.FocusableBehavior,
 		D2L.PolymerBehaviors.VisibleOnAncestorBehavior
-	]
+	],
+
+	computeAriaLabel: function(ariaLabel, text) {
+		if (ariaLabel !== undefined && ariaLabel !== null && ariaLabel.length > 0) {
+			return ariaLabel;
+		}
+		return text;
+	}
 
 });
