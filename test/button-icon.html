@@ -79,6 +79,18 @@ describe('<d2l-button-icon>', function() {
 			var title = button.$$('button').getAttribute('title');
 			expect(title).to.equal('Icon Button');
 		});
+
+		it('should reflect the text attribute to aria-label if aria-label not set', function() {
+			var ariaLabel = button.$$('button').getAttribute('aria-label');
+			expect(ariaLabel).to.equal('Icon Button');
+		});
+
+		it('should reflect the aria-label attribute to aria-label if set', function() {
+			button.setAttribute('aria-label', 'aria label');
+			var ariaLabel = button.$$('button').getAttribute('aria-label');
+			expect(ariaLabel).to.equal('aria label');
+		});
+
 	});
 });
 </script>
