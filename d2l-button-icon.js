@@ -47,6 +47,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-button-icon">
 				border-radius: var(--d2l-button-icon-border-radius);
 				min-height: var(--d2l-button-icon-min-height);
 				min-width: var(--d2l-button-icon-min-width);
+				padding: 0;
 				position: relative;
 			}
 
