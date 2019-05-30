@@ -38,6 +38,7 @@
 	@include _d2l-button-clear-focus();
 	font-family: inherit;
 	min-width: calc(2rem + 2px);
+	padding: 0;
 	position: relative;
 	&::-moz-focus-inner {
 		border: 0;
