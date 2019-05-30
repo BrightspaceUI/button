@@ -91,6 +91,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-button-subtle">
 			}
 			button:focus, :host(.d2l-button-subtle-focus) button {
 				@apply --d2l-button-focus;
+				outline: none; /* needed for Edge, can't be in the mixin */
 			}
 
 			.d2l-button-subtle-content {
