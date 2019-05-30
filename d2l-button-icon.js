@@ -87,6 +87,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-button-icon">
 			button:focus, :host(.d2l-button-icon-focus) button {
 				@apply --d2l-button-focus;
 				box-shadow: var(--d2l-button-icon-focus-box-shadow);
+				outline: none; /* needed for Edge, can't be in the mixin */
 			}
 
 			.d2l-button-icon {
