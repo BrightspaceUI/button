@@ -25,6 +25,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-button-icon">
 		<style include="d2l-visible-on-ancestor-styles">
 			:host {
 				display: inline-block;
+				line-height: 1px;
 				--d2l-button-icon-border-radius: 0.3rem;
 				--d2l-button-icon-focus-box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #006fbf;
 				--d2l-button-icon-min-height: calc(2rem + 2px);
