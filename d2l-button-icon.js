@@ -46,6 +46,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-button-icon">
 				@apply --d2l-button-clear-focus;
 				@apply --d2l-button-shared;
 				border-radius: var(--d2l-button-icon-border-radius);
+				line-height: 1px;
 				min-height: var(--d2l-button-icon-min-height);
 				min-width: var(--d2l-button-icon-min-width);
 				padding: 0;
