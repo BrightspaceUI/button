@@ -65,11 +65,11 @@
 @set
 	celestine "#006fbf|rgba\\(0, 111, 191, 1\\)|rgb\\(0, 111, 191\\)"
 	celestineMinus1 "#005694|rgba\\(0, 86, 148, 1\\)|rgb\\(0, 86, 148\\)"
-	ferrite "#565a5c|rgba\\(86, 90, 92, 1\\)|rgb\\(86, 90, 92\\)"
-	gypsum "#e6eaf0|rgba\\(230, 234, 240, 1\\)|rgb\\(230, 234, 240\\)"
-	mica "#d3d9e3|rgba\\(211, 217, 227, 1\\)|rgb\\(211, 217, 227\\)"
+	ferrite "#494c4e|rgba\\(73, 76, 78, 1\\)|rgb\\(73, 76, 78\\)"
+	gypsum "#e3e9f1|rgba\\(227, 233, 241, 1\\)|rgb\\(227, 233, 241\\)"
+	mica "#cdd5dc|rgba\\(205, 213, 220, 1\\)|rgb\\(205, 213, 220\\)"
 	white "#ffffff|rgba\\(255, 255, 255, 1\\)|rgb\\(255, 255, 255\\)"
-	regolith "#f9fafb|rgba\\(249, 250, 251, 1\\)|rgb\\(249, 250, 251\\)"
+	regolith "#f9fbff|rgba\\(249, 251, 255, 1\\)|rgb\\(249, 251, 255\\)"
 
 = Buttons =
 	@on not-edge
@@ -95,7 +95,8 @@
 		height 42 to 43 px
 	&normal-focus:
 		css background-color matches ${gypsum}
-		css border-top-color matches "rgba\\(0, 111, 191, 0.4\\)"
+		css border-top-color matches ${mica}
+		css box-shadow contains "0px 0px 0px 2px"
 		css box-shadow contains "0px 0px 0px 4px"
 		width 215 to 231 px
 		height 42 to 43 px
@@ -111,6 +112,7 @@
 		height 42 to 43 px
 	&primary-focus:
 		css background-color matches ${celestineMinus1}
+		css box-shadow contains "0px 0px 0px 2px"
 		css box-shadow contains "0px 0px 0px 4px"
 		width 220 to 234 px
 		height 42 to 43 px

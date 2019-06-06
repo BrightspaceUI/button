@@ -6,12 +6,7 @@
 }
 
 @mixin _d2l-button-focus() {
-	box-shadow: 0 0 0 4px rgba(0, 111, 191, 0.3);
-}
-
-@mixin _d2l-button-focus-plus-border() {
-	border-color: rgba(0, 111, 191, 0.4);
-	@include _d2l-button-focus();
+	box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #006fbf;
 }
 
 @mixin _d2l-button-shared() {
@@ -43,6 +38,7 @@
 	@include _d2l-button-clear-focus();
 	font-family: inherit;
 	min-width: calc(2rem + 2px);
+	padding: 0;
 	position: relative;
 	&::-moz-focus-inner {
 		border: 0;
@@ -61,7 +57,7 @@
 		background-color: $d2l-color-gypsum;
 	}
 	&:focus, &.d2l-button-icon-focus {
-		@include _d2l-button-focus-plus-border();
+		@include _d2l-button-focus();
 	}
 	& d2l-icon {
 		height: 0.9rem;
@@ -116,7 +112,7 @@
 		background-color: $d2l-color-gypsum;
 	}
 	&:focus, &.d2l-button-subtle-focus {
-		@include _d2l-button-focus-plus-border();
+		@include _d2l-button-focus();
 	}
 	& d2l-icon {
 		color: $d2l-color-celestine;
@@ -152,7 +148,7 @@
 		background-color: $d2l-color-gypsum;
 	}
 	&:focus, &.d2l-button-focus {
-		@include _d2l-button-focus-plus-border();
+		@include _d2l-button-focus();
 	}
 	&[disabled] {
 		opacity: 0.5;

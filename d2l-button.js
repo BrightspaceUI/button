@@ -62,7 +62,8 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-button">
 				@apply --d2l-button-hover;
 			}
 			button:focus, :host(.d2l-button-focus) button {
-				@apply --d2l-button-focus-plus-border;
+				@apply --d2l-button-focus;
+				outline: none; /* needed for Edge, can't be in the mixin */
 			}
 
 			button[disabled] {
