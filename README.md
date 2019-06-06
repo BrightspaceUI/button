@@ -3,13 +3,7 @@
 [![Bower version][bower-image]][bower-url]
 [![Build status][ci-image]][ci-url]
 
-A series of [Polymer](https://www.polymer-project.org/1.0/)-based web components and [Sass](http://sass-lang.com/) mixins for D2L buttons.
-
-![screenshot of button component](/screenshots/regular-buttons.png?raw=true)
-
-![screenshot of subtle button component](/screenshots/subtle-buttons.png?raw=true)
-
-![screenshot of icon button component](/screenshots/icon-buttons.png?raw=true)
+A series of [Polymer](https://polymer-library.polymer-project.org/)-based web components and [Sass](http://sass-lang.com/) mixins for D2L buttons.
 
 For further information on this and other components, refer to [The Brightspace UI Guide](https://github.com/BrightspaceUI/guide/wiki).
 
@@ -26,49 +20,7 @@ Include the [webcomponents.js](http://webcomponents.org/polyfills/) "lite" polyf
 
 ### Button
 
-```html
-<head>
-	<script src="../webcomponentsjs/webcomponents-lite.js"></script>
-	<link rel="import" href="../d2l-button/d2l-button.html">
-</head>
-```
-
-The `<d2l-button>` element can be used just like the native `button` element, but also supports the `primary` attribute for denoting the primary button.
-
-Normal button:
-
-![screenshot of normal buttons](/screenshots/button.png?raw=true)
-
-Primary button:
-
-![screenshot of primary buttons](/screenshots/button-primary.png?raw=true)
-
-<!---
-```
-<custom-element-demo>
-  <template>
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../d2l-typography/d2l-typography.html">
-    <link rel="import" href="d2l-button.html">
-    <custom-style include="d2l-typography">
-      <style is="custom-style" include="d2l-typography"></style>
-    </custom-style>
-    <style>
-      html {
-        font-size: 20px;
-        font-family: 'Lato', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-      }
-    </style>
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
-```html
-<d2l-button primary>Primary</d2l-button>
-<d2l-button>Secondary</d2l-button>
-<d2l-button disabled>Disabled</d2l-button>
-```
+See the [BrightspaceUI/core](https://github.com/BrightspaceUI/core/tree/master/components/button) for the [Lit](https://lit-element.polymer-project.org/)-based `d2l-button` component.
 
 As an alternative to the web component, a Sass mixin can be used to apply button styles to your button elements:
 
@@ -84,62 +36,7 @@ The `primary` and `disabled` attributes work the same way as they do with the we
 
 ### Subtle Button
 
-```html
-<head>
-	<script src="../webcomponentsjs/webcomponents-lite.js"></script>
-	<link rel="import" href="../d2l-button/d2l-button-subtle.html">
-</head>
-```
-
-The subtle button shows text with an optional icon, and can be added by using the `<d2l-button-subtle>` custom element. It should be used for advanced or de-emphasized actions.
-
-- It is strongly recommended to use `text` and `icon` as opposed to putting content in the `slot` to ensure that the recommended subtle button style is maintained.
-
-
-Without icon:
-
-![screenshot of subtle buttons without icons](/screenshots/button-subtle.png?raw=true)
-
-With icon:
-
-![screenshot of subtle buttons with icons](/screenshots/button-subtle-icons.png?raw=true)
-
-With icon on right:
-
-![screenshot of subtle buttons with icon on the right](/screenshots/button-subtle-icons-right.png?raw=true)
-
-Alignment (bottom uses h-align="text")
-
-![screenshot of subtle buttons with different alignments](/screenshots/button-subtle-align.png?raw=true)
-
-<!---
-```
-<custom-element-demo>
-  <template>
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../d2l-typography/d2l-typography.html">
-    <link rel="import" href="d2l-button-subtle.html">
-    <custom-style include="d2l-typography">
-      <style is="custom-style" include="d2l-typography"></style>
-    </custom-style>
-    <style>
-      html {
-        font-size: 20px;
-        font-family: 'Lato', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-      }
-    </style>
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
-```html
-<d2l-button-subtle text="Subtle Button"></d2l-button-subtle>
-<d2l-button-subtle icon="d2l-tier1:bookmark-hollow" text="Subtle Button with Icon"></d2l-button-subtle>
-<d2l-button-subtle icon="d2l-tier1:bookmark-hollow" text="Subtle Button with Right Icon" icon-right></d2l-button-subtle>
-<d2l-button-subtle icon="d2l-tier1:gear" text="Disabled Button" disabled></d2l-button-subtle>
-<d2l-button-subtle icon="d2l-tier1:gear" text="Text Aligned" h-align="text"></d2l-button-subtle>
-```
+See the [BrightspaceUI/core](https://github.com/BrightspaceUI/core/tree/master/components/button) for the [Lit](https://lit-element.polymer-project.org/)-based `d2l-button-subtle` component.
 
 As an alternative to the web component, a Sass mixin can be used to apply button styles to your button elements:
 
@@ -161,52 +58,7 @@ Usage is slightly different in that the text and icon attributes are not used, a
 
 ### Icon Button
 
-```html
-<head>
-	<script src="../webcomponentsjs/webcomponents-lite.js"></script>
-	<link rel="import" href="../d2l-button/d2l-button-icon.html">
-</head>
-```
-
-The icon button shows an icon with an aria-label, and can be added by using the `<d2l-button-icon>` custom element. It should be used when icons perform a clickable action.
-
-![screenshot of icon buttons](/screenshots/button-icon.png?raw=true)
-
-Alignment (bottom uses h-align="text")
-
-![screenshot of icon buttons with different alignments](/screenshots/button-icon-align.png?raw=true)
-
-Translucent (for use on rich/busy backgrounds, specify the `translucent` attribute)
-
-![screenshot of icon buttons with different alignments](/screenshots/button-icon-translucent.png?raw=true)
-
-<!---
-```
-<custom-element-demo>
-  <template>
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../d2l-typography/d2l-typography.html">
-    <link rel="import" href="d2l-button-icon.html">
-    <custom-style include="d2l-typography">
-      <style is="custom-style" include="d2l-typography"></style>
-    </custom-style>
-    <style>
-      html {
-        font-size: 20px;
-        font-family: 'Lato', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-      }
-    </style>
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
-```html
-<d2l-button-icon icon="d2l-tier1:bookmark-hollow" text="Bookmark"></d2l-button-icon>
-<d2l-button-icon icon="d2l-tier1:gear" text="Translucent" translucent></d2l-button-icon>
-<d2l-button-icon icon="d2l-tier1:gear" text="Settings (disabled)" disabled></d2l-button-icon>
-<d2l-button-icon icon="d2l-tier1:gear" text="Text Aligned" h-align="text"></d2l-button-icon>
-```
+See the [BrightspaceUI/core](https://github.com/BrightspaceUI/core/tree/master/components/button) for the [Lit](https://lit-element.polymer-project.org/)-based `d2l-button-icon` component.
 
 As an alternative to the web component, a Sass mixin can be used to apply button styles to your button elements:
 

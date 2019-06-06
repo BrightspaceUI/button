@@ -1,1 +1,1 @@
-import 'd2l-core-ui/components/button/button-icon.js';
+import '@brightspace-ui/core/components/button/button-icon.js';

@@ -1,1 +1,1 @@
-import 'd2l-core-ui/components/button/button-subtle.js';
+import '@brightspace-ui/core/components/button/button-subtle.js';
