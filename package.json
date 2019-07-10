@@ -17,9 +17,6 @@
   "author": "D2L Corporation",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@polymer/iron-component-page": "^4.0.0",
-    "@polymer/iron-demo-helpers": "^3.0.0",
-    "@polymer/iron-test-helpers": "^3.0.0",
     "@webcomponents/webcomponentsjs": "^2.2.6",
     "babel-eslint": "^10.0.1",
     "eslint": "^4.15.0",
@@ -41,11 +38,9 @@
   },
   "main": "d2l-button.js",
   "dependencies": {
-    "@brightspace-ui/core": "git+https://github.com/BrightspaceUI/core.git",
+    "@brightspace-ui/core": "^0.2",
     "@polymer/iron-media-query": "^3.0.0",
     "@polymer/polymer": "^3.0.0",
-    "d2l-colors": "BrightspaceUI/colors#semver:^4",
-    "d2l-polymer-behaviors": "Brightspace/d2l-polymer-behaviors-ui#semver:^2",
-    "d2l-typography": "BrightspaceUI/typography#semver:^7"
+    "d2l-polymer-behaviors": "Brightspace/d2l-polymer-behaviors-ui#semver:^2"
   }
 }
