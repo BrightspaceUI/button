@@ -1,17 +1,5 @@
-/**
-`d2l-floating-buttons`
-Polymer-based web component for floating workflow buttons
-
-@demo demo/floating-buttons.html d2l-floating-buttons
-*/
-/*
-  FIXME(polymer-modulizer): the above comments were extracted
-  from HTML and may be out of place here. Review them and
-  then delete this comment!
-*/
+import '@brightspace-ui/core/components/colors/colors.js';
 import '@polymer/polymer/polymer-legacy.js';
-
-import 'd2l-colors/d2l-colors.js';
 import '@polymer/iron-media-query/iron-media-query.js';
 import './d2l-button-shared-styles.js';
 import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
