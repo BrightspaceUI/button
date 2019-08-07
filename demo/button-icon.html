@@ -1,51 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
-		<title>d2l-button-icon - d2l-buttons demo</title>
-		<script src="../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
-		<script type="module" src="../../@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
-		<script type="module" src="../../@polymer/iron-demo-helpers/demo-snippet.js"></script>
-		<script type="module" src="../../d2l-typography/d2l-typography.js"></script>
-		<script type="module" src="../d2l-button-icon.js"></script>
-		<!-- FIXME(polymer-modulizer):
-		These imperative modules that innerHTML your HTML are
-		a hacky way to be sure that any mixins in included style
-		modules are ready before any elements that reference them are
-		instantiated, otherwise the CSS @apply mixin polyfill won't be
-		able to expand the underlying CSS custom properties.
-		See: https://github.com/Polymer/polymer-modulizer/issues/154
-		-->
-	<script type="module">
-const $_documentContainer = document.createElement('template');
-
-$_documentContainer.innerHTML = `<custom-style>
-			<style is="custom-style" include="demo-pages-shared-styles"></style>
-		</custom-style>`;
-
-document.body.appendChild($_documentContainer.content);
-</script>
+		<link rel="stylesheet" href="/node_modules/@brightspace-ui/core/components/demo/styles.css" type="text/css">
+		<title>d2l-button-icon demo</title>
+		<script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 		<script type="module">
-const $_documentContainer = document.createElement('template');
-
-$_documentContainer.innerHTML = `<custom-style include="d2l-typography">
-			<style is="custom-style" include="d2l-typography"></style>
-		</custom-style>`;
-
-document.body.appendChild($_documentContainer.content);
-</script>
-		<script type="module">
-const $_documentContainer = document.createElement('template');
-
-$_documentContainer.innerHTML = `<style>
-			html {
-				font-size: 20px;
-			}
-
-			d2l-button-icon {
-				margin-right: 1.2rem;
-			}
+			import '/node_modules/@brightspace-ui/core/components/demo/demo-page.js';
+			import '../d2l-button-icon.js';
+		</script>
+		<style>
 			.ancestor-container {
 				padding: 0.5rem;
 				position: relative;
@@ -56,12 +21,15 @@ $_documentContainer.innerHTML = `<style>
 				content: 'visible-on-ancestor-target';
 				font-size: 0.7rem;
 				height: 100%;
-				left:0;
+				left: 0;
 				padding: 0.5rem;
 				position: absolute;;
 				text-align: right;
 				top: 0;
 				width: 100%;
+			}
+			[dir="rtl"].ancestor-container::before {
+				text-align: left;
 			}
 			.translucent-container {
 				position: relative;
@@ -71,99 +39,92 @@ $_documentContainer.innerHTML = `<style>
 				border-radius: 6px;
 				height: 100%;
 				position: absolute;
-				width: 100%;
+				width: 300px;
+			}
+			.translucent-container.d2l-visible-on-ancestor-target {
+				width: 300px;
 			}
 			.translucent-container > d2l-button-icon {
-				padding-right: 0;
 				margin-top: 12px;
 				margin-left: 12px;
 			}
-			</style>`;
-
-document.body.appendChild($_documentContainer.content);
-</script>
+			[dir="rtl"].translucent-container > d2l-button-icon {
+				margin-left: 0;
+				margin-right: 12px;
+			}
+			.custom {
+				--d2l-button-icon-min-height: 1.5rem;
+				--d2l-button-icon-min-width: 1.5rem;
+				--d2l-button-icon-border-radius: 4px;
+				--d2l-button-icon-focus-box-shadow: 0 0 0 1px #ffffff, 0 0 0 3px #006fbf;
+			}
+		</style>
 	</head>
-	<body unresolved class="d2l-typography">
-		<script type="module">
-const $_documentContainer = document.createElement('template');
+	<body unresolved>
 
-$_documentContainer.innerHTML = `<div class="vertical-section-container centered">
+		<d2l-demo-page title="d2l-button-icon (imported from core)">
 
-			<h3>Icon</h3>
-			<demo-snippet>
-				<template>
+			<h2>Icon Button</h2>
+
+			<d2l-demo-snippet>
+				<d2l-button-icon id="normal" icon="d2l-tier1:gear" text="Icon Button"></d2l-button-icon>
+			</d2l-demo-snippet>
+
+			<h2>Icon Button Disabled</h2>
+
+			<d2l-demo-snippet>
+				<d2l-button-icon id="disabled" icon="d2l-tier1:gear" text="Icon Button" disabled></d2l-button-icon>
+			</d2l-demo-snippet>
+
+			<h2>Icon Button Translucent</h2>
+
+			<d2l-demo-snippet>
+				<div class="translucent-container">
+					<img alt="" src="https://s.brightspace.com/course-images/images/e4fbb461-4cd9-4512-8304-44f2c2b741f1/tile-low-density-max-size.jpg">
+					<d2l-button-icon id="translucent" icon="d2l-tier1:gear" text="Icon Button" translucent></d2l-button-icon>
+				</div>
+			</d2l-demo-snippet>
+
+			<h2>Icon Button with Horizontal Align</h2>
+
+			<d2l-demo-snippet>
+				<d2l-button-icon icon="d2l-tier1:gear" text="Button Edge Aligned (default)"></d2l-button-icon>
+				<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+				<d2l-button-icon icon="d2l-tier1:gear" text="Button Content Aligned" h-align="text"></d2l-button-icon>
+			</d2l-demo-snippet>
+
+			<h2>Icon Button with Visible on Ancestor</h2>
+
+			<d2l-demo-snippet>
+				<div class="ancestor-container d2l-visible-on-ancestor-target">
+					<d2l-button-icon icon="d2l-tier1:home" text="Home"></d2l-button-icon>
 					<d2l-button-icon icon="d2l-tier1:bookmark-hollow" text="Bookmark"></d2l-button-icon>
-				</template>
-			</demo-snippet>
+					<d2l-button-icon icon="d2l-tier1:gear" text="Gear" visible-on-ancestor></d2l-button-icon>
+				</div>
+			</d2l-demo-snippet>
 
-			<h3>Icon (Disabled)</h3>
-			<demo-snippet>
-				<template>
-					<d2l-button-icon icon="d2l-tier1:gear" text="Settings" disabled=""></d2l-button-icon>
-				</template>
-			</demo-snippet>
+			<h2>Icon Button with Translucent + Visible on Ancestor</h2>
 
-			<h3>Icon (Translucent)</h3>
-			<demo-snippet>
-				<template>
-					<div class="translucent-container">
-						<img alt="" src="https://s.brightspace.com/course-images/images/e4fbb461-4cd9-4512-8304-44f2c2b741f1/tile-low-density-max-size.jpg">
-						<d2l-button-icon icon="d2l-tier1:gear" text="Settings" translucent=""></d2l-button-icon>
-					</div>
-				</template>
-			</demo-snippet>
+			<d2l-demo-snippet>
+				<div class="translucent-container d2l-visible-on-ancestor-target">
+					<img alt="" src="https://s.brightspace.com/course-images/images/e4fbb461-4cd9-4512-8304-44f2c2b741f1/tile-low-density-max-size.jpg">
+					<d2l-button-icon icon="d2l-tier1:gear" text="Settings" translucent visible-on-ancestor></d2l-button-icon>
+				</div>
+			</d2l-demo-snippet>
 
-			<h3>Icon (Horizontal Align)</h3>
-			<demo-snippet>
-				<template>
-					<d2l-button-icon icon="d2l-tier1:gear" text="Button Edge Aligned (default)"></d2l-button-icon>
-					<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
-					<d2l-button-icon icon="d2l-tier1:gear" text="Button Content Aligned" h-align="text"></d2l-button-icon>
-				</template>
-			</demo-snippet>
+			<h2>Icon Button with Customized Size and Focus Box-Shadow</h2>
 
-			<h3>Icon (Visible on Ancestor)</h3>
-			<demo-snippet>
-				<template>
-					<div class="ancestor-container d2l-visible-on-ancestor-target">
-						<d2l-button-icon icon="d2l-tier1:home" text="Home"></d2l-button-icon>
-						<d2l-button-icon icon="d2l-tier1:bookmark-hollow" text="Bookmark"></d2l-button-icon>
-						<d2l-button-icon icon="d2l-tier1:gear" text="Gear" visible-on-ancestor=""></d2l-button-icon>
-					</div>
-				</template>
-			</demo-snippet>
+			<d2l-demo-snippet>
+				<d2l-button-icon icon="d2l-tier1:search" text="Search" class="custom"></d2l-button-icon>
+			</d2l-demo-snippet>
 
-			<h3>Icon (Translucent + Visible on Ancestor)</h3>
-			<demo-snippet>
-				<template>
-					<div class="translucent-container d2l-visible-on-ancestor-target">
-						<img alt="" src="https://s.brightspace.com/course-images/images/e4fbb461-4cd9-4512-8304-44f2c2b741f1/tile-low-density-max-size.jpg">
-						<d2l-button-icon icon="d2l-tier1:gear" text="Settings" translucent="" visible-on-ancestor=""></d2l-button-icon>
-					</div>
-				</template>
-			</demo-snippet>
+		</d2l-demo-page>
 
-		</div>`;
-
-document.body.appendChild($_documentContainer.content);
-</script>
-		<script type="module">
-import '@polymer/iron-demo-helpers/demo-pages-shared-styles.js';
-import '@polymer/iron-demo-helpers/demo-snippet.js';
-import 'd2l-typography/d2l-typography.js';
-import '../d2l-button-icon.js';
-var id = setInterval(function() {
-	var buttons = document.querySelectorAll('d2l-button-icon');
-	if (buttons.length === 9) {
-		clearInterval(id);
-		for (var i = 0; i < buttons.length; i++) {
-			buttons[i].addEventListener('click', function(e) {
+		<script>
+			document.querySelector('d2l-button-icon').addEventListener('click', () => {
 				// eslint-disable-next-line no-console
-				console.log('Button Clicked', e);
+				console.log('You are a risk taker.');
 			});
-		}
-	}
-}, 50);
-</script>
+		</script>
 	</body>
 </html>

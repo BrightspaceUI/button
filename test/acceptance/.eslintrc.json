@@ -1,7 +1,0 @@
-{
-  "globals": {
-    "LocalBrowserFactory": true,
-    "SauceBrowserFactory": true,
-    "polymerTests": true
-  }
-}

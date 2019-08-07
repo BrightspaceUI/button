@@ -1,29 +1,13 @@
 language: node_js
 node_js: node
-addons:
-  apt:
-    packages:
-    - oracle-java8-installer
-  chrome: stable
 script:
-- npm run lint
-- |
-  if [ $TRAVIS_PULL_REQUEST != false ] && [ $TRAVIS_SECURE_ENV_VARS == true ]; then
-    echo "Pull request with secure environment variables, running Sauce tests...";
-    npm run test:polymer:sauce && npm run test:galen:sauce || travis_terminate 1;
-  else
-    echo "Not a pull request and/or no secure environment variables, running headless tests...";
-    npm run test:polymer:local || travis_terminate 1;
-  fi
+- npm run test
 - |
   if [ $TRAVIS_BRANCH == "master" ] && [ $TRAVIS_PULL_REQUEST == false ] && [ $TRAVIS_EVENT_TYPE != "cron" ]; then
     echo "Not a Pull Request and on branch master so bumping version";
     frauci-update-version;
     export TRAVIS_TAG=$(frauci-get-version)
   fi
-before_install:
-- export JAVA_HOME=/usr/lib/jvm/java-8-oracle
-- export PATH=$JAVA_HOME/bin:$PATH
 deploy:
   provider: releases
   api_key: "$GITHUB_RELEASE_TOKEN"
@@ -34,5 +18,4 @@ env:
   - OWNER_NAME=BrightspaceUI
   - REPO_NAME=button
   - SAUCE_USERNAME: Desire2Learn
-  - secure: RR181MFqjjoMOr9mlReP3GXZpjOrkX4LA/Ul1TvtMTUXKfqQYG791N0nUJW2094bCR9W+TtYVH70aEfEhRPysjeuUKDuiOzXAPdU9N0eQxgFzeIU7bSiPwCS2qgwdi7ZXS69g/LS1RGcnok/y57Ad0CEQt1uxAbwOCIFg9rmY8s=
   - secure: TCdj8Ye1Y9eSg2qAb+iIjWG39+w3BWNb5Ada4Pgp6Xyl0hW2n5dYexJQjxWnIR1u7L3Qq7JjIgOaBoNSViuGufhlzAHJZTKst9oeXaThBXY757AvkeM0/0CyGI73b3G/wsZwPQuYYfrmJgxdszus3wvz/Gurri3pUbeEcM9rqgc=

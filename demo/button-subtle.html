@@ -1,120 +1,59 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
-		<title>d2l-button-subtle - d2l-buttons demo</title>
-		<script src="../../@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
-		<script type="module" src="../../@polymer/iron-demo-helpers/demo-pages-shared-styles.js"></script>
-		<script type="module" src="../../@polymer/iron-demo-helpers/demo-snippet.js"></script>
-		<script type="module" src="../../d2l-typography/d2l-typography.js"></script>
-		<script type="module" src="../d2l-button-subtle.js"></script>
-		<!-- FIXME(polymer-modulizer):
-		These imperative modules that innerHTML your HTML are
-		a hacky way to be sure that any mixins in included style
-		modules are ready before any elements that reference them are
-		instantiated, otherwise the CSS @apply mixin polyfill won't be
-		able to expand the underlying CSS custom properties.
-		See: https://github.com/Polymer/polymer-modulizer/issues/154
-		-->
-	<script type="module">
-const $_documentContainer = document.createElement('template');
-
-$_documentContainer.innerHTML = `<custom-style>
-			<style is="custom-style" include="demo-pages-shared-styles"></style>
-		</custom-style>`;
-
-document.body.appendChild($_documentContainer.content);
-</script>
+		<link rel="stylesheet" href="/node_modules/@brightspace-ui/core/components/demo/styles.css" type="text/css">
+		<title>d2l-button-subtle demo</title>
+		<script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 		<script type="module">
-const $_documentContainer = document.createElement('template');
-
-$_documentContainer.innerHTML = `<custom-style include="d2l-typography">
-			<style is="custom-style" include="d2l-typography"></style>
-		</custom-style>`;
-
-document.body.appendChild($_documentContainer.content);
-</script>
-		<script type="module">
-const $_documentContainer = document.createElement('template');
-
-$_documentContainer.innerHTML = `<style>
-			html {
-				font-size: 20px;
-			}
-
-			d2l-button-subtle {
-				margin-right: 1.2rem;
-			}
-			</style>`;
-
-document.body.appendChild($_documentContainer.content);
-</script>
+			import '/node_modules/@brightspace-ui/core/components/demo/demo-page.js';
+			import '../d2l-button-subtle.js';
+		</script>
 	</head>
-	<body unresolved class="d2l-typography">
-		<script type="module">
-const $_documentContainer = document.createElement('template');
+	<body unresolved>
 
-$_documentContainer.innerHTML = `<div class="vertical-section-container centered">
+		<d2l-demo-page title="d2l-button-subtle (imported from core)">
 
-			<h3>Subtle button with Text Only</h3>
-			<demo-snippet>
-				<template>
-					<d2l-button-subtle text="Subtle Button"></d2l-button-subtle>
-				</template>
-			</demo-snippet>
+			<h2>Subtle Button with Text Only</h2>
 
-			<h3>Subtle button with Text and Icon</h3>
-			<demo-snippet>
-				<template>
-					<d2l-button-subtle icon="d2l-tier1:bookmark-hollow" text="Subtle Button with Icon"></d2l-button-subtle>
-				</template>
-			</demo-snippet>
+			<d2l-demo-snippet>
+				<d2l-button-subtle id="normal" text="Subtle Button"></d2l-button-subtle>
+			</d2l-demo-snippet>
 
-			<h3>Subtle button with Text and Icon on the Right</h3>
-			<demo-snippet>
-				<template>
-					<d2l-button-subtle icon="d2l-tier1:chevron-down" text="Subtle Button with Icon on Right" icon-right=""></d2l-button-subtle>
-				</template>
-			</demo-snippet>
+			<h2>Subtle Button Disabled</h2>
 
-			<h3>Subtle Button Disabled</h3>
-			<demo-snippet>
-				<template>
-					<d2l-button-subtle icon="d2l-tier1:gear" text="Disabled Button" disabled=""></d2l-button-subtle>
-				</template>
-			</demo-snippet>
+			<d2l-demo-snippet>
+				<d2l-button-subtle id="disabled" text="Subtle Button" disabled></d2l-button-subtle>
+			</d2l-demo-snippet>
 
-			<h3>Subtle Button with Horizontal Align</h3>
-			<demo-snippet>
-				<template>
-					<d2l-button-subtle icon="d2l-tier1:gear" text="Button Edge Aligned (default)"></d2l-button-subtle>
-					<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
-					<d2l-button-subtle icon="d2l-tier1:gear" text="Button Content Aligned" h-align="text"></d2l-button-subtle>
-				</template>
-			</demo-snippet>
+			<h2>Subtle Button with Text and Icon</h2>
 
-		</div>`;
+			<d2l-demo-snippet>
+				<d2l-button-subtle id="with-icon" icon="d2l-tier1:bookmark-hollow" text="Subtle Button"></d2l-button-subtle>
+			</d2l-demo-snippet>
 
-document.body.appendChild($_documentContainer.content);
-</script>
-		<script type="module">
-import '@polymer/iron-demo-helpers/demo-pages-shared-styles.js';
-import '@polymer/iron-demo-helpers/demo-snippet.js';
-import 'd2l-typography/d2l-typography.js';
-import '../d2l-button-subtle.js';
-var id = setInterval(function() {
-	var buttons = document.querySelectorAll('d2l-button-subtle');
-	if (buttons.length === 6) {
-		clearInterval(id);
-		for (var i = 0; i < buttons.length; i++) {
-			buttons[i].addEventListener('click', function(e) {
+			<h2>Subtle Button with Text and Icon on the Right</h2>
+
+			<d2l-demo-snippet>
+				<d2l-button-subtle id="icon-right" icon="d2l-tier1:chevron-down" text="Subtle Button" icon-right></d2l-button-subtle>
+			</d2l-demo-snippet>
+
+			<h2>Subtle Button with Horizontal Align</h2>
+
+			<d2l-demo-snippet>
+				<d2l-button-subtle icon="d2l-tier1:gear" text="Button Edge Aligned (default)"></d2l-button-subtle>
+				<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+				<d2l-button-subtle icon="d2l-tier1:gear" text="Button Content Aligned" h-align="text"></d2l-button-subtle>
+			</d2l-demo-snippet>
+
+		</d2l-demo-page>
+
+		<script>
+			document.querySelector('d2l-button-subtle').addEventListener('click', () => {
 				// eslint-disable-next-line no-console
-				console.log('Button Clicked', e);
+				console.log('You are a risk taker.');
 			});
-		}
-	}
-}, 50);
-</script>
+		</script>
 	</body>
 </html>
