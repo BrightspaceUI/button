@@ -1,3 +1,5 @@
+> Deprecated: use [BrightspaceUI/core](https://github.com/BrightspaceUI/core) instead.
+
 # d2l-button
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/BrightspaceUI/button)
 [![Bower version][bower-image]][bower-url]
@@ -79,26 +81,7 @@ Usage is slightly different in that the text and icon attributes are not used. I
 
 ### Floating Workflow Buttons
 
-Floating workflow buttons behavior can be added by using the `<d2l-floating-buttons>` custom element.  When the normal position of the workflow buttons is below the bottom edge of the view-port, they'll dock at the bottom edge.  When the normal position becomes visible, they'll undock.
-
-![screenshot of floating buttons](/screenshots/floating-buttons.png?raw=true)
-
-```html
-<head>
-	<script src="../webcomponentsjs/webcomponents-lite.js"></script>
-	<link rel="import" href="../d2l-button/d2l-button.html">
-	<link rel="import" href="../d2l-button/d2l-floating-buttons.html">
-</head>
-```
-
-Include the `<d2l-floating-buttons>` container at the bottom of the page, and add your workflow `button` elements:
-
-```html
-<d2l-floating-buttons>
-	<d2l-button primary>Save</d2l-button>
-	<d2l-button>Cancel</d2l-button>
-</d2l-floating-buttons>
-```
+See the [BrightspaceUI/core](https://github.com/BrightspaceUI/core/tree/master/components/button) for the [Lit](https://lit-element.polymer-project.org/)-based `d2l-floating-buttons` component.
 
 ## Developing, Testing and Contributing
 

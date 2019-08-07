@@ -109,6 +109,7 @@ D2L.PolymerBehaviors.Button.Behavior = {
 	},
 
 	attached: function() {
+		// eslint-disable-next-line prefer-arrow-callback
 		afterNextRender(this, function() {
 			this.addEventListener('click', this._handleClick, true);
 		}.bind(this));

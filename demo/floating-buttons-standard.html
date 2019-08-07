@@ -1,17 +1,17 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<meta charset="UTF-8">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 		<link rel="stylesheet" href="/node_modules/@brightspace-ui/core/components/demo/styles.css" type="text/css">
+		<title>d2l-floating-buttons-standard demo</title>
 		<script src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 		<script type="module">
 			import '/node_modules/@brightspace-ui/core/components/demo/demo-page.js';
 			import '../d2l-button.js';
 			import '../d2l-floating-buttons.js';
 		</script>
-		<link rel="stylesheet" type="text/css" href="../test/acceptance/button.css">
+		<link rel="stylesheet" type="text/css" href="../test/button.css">
 		<style>
 			html {
 				font-size: 20px;
@@ -46,56 +46,55 @@
 		</d2l-demo-page>
 
 		<script type="module">
-			import { dom } from '@polymer/polymer/lib/legacy/polymer.dom.js';
-			var page_buttonCount = 0;
-			var page_floatingButtons;
+			let page_buttonCount = 0;
+			let page_floatingButtons;
 
 			function appendButton() {
-				var floatingButtons = document.getElementById('wc_buttons');
+				const floatingButtons = document.getElementById('wc_buttons');
 
 				if (floatingButtons) {
 					page_buttonCount += 1;
 
-					var newButton = document.createElement('button');
-					newButton.textContent = 'Beer ' + page_buttonCount;
+					const newButton = document.createElement('button');
+					newButton.textContent = `Beer ${page_buttonCount}`;
 
-					dom(floatingButtons).appendChild(newButton);
+					floatingButtons.appendChild(newButton);
 				}
 			}
-			window.requestAnimationFrame(function() {
-				document.getElementById('btn-append-floating').addEventListener('click', function() {
+			window.requestAnimationFrame(() => {
+				document.getElementById('btn-append-floating').addEventListener('click', () => {
 					if (page_floatingButtons) {
 						document.body.appendChild(page_floatingButtons);
 					}
 				});
-				document.getElementById('btn-remove-floating').addEventListener('click', function() {
-					var floatingButtons = document.getElementById('wc_buttons');
+				document.getElementById('btn-remove-floating').addEventListener('click', () => {
+					const floatingButtons = document.getElementById('wc_buttons');
 					if (floatingButtons) {
 						page_floatingButtons = floatingButtons;
 						floatingButtons.parentNode.removeChild(floatingButtons);
 					}
 				});
 				document.getElementById('btn-append-new').addEventListener('click', appendButton);
-				document.getElementById('btn-remove-last').addEventListener('click', function() {
-					var floatingButtons = document.getElementById('wc_buttons');
-					if (dom(floatingButtons).lastChild) {
-						dom(floatingButtons).removeChild(
-							dom(floatingButtons).lastChild
+				document.getElementById('btn-remove-last').addEventListener('click', () => {
+					const floatingButtons = document.getElementById('wc_buttons');
+					if (floatingButtons.lastChild) {
+						floatingButtons.removeChild(
+							floatingButtons.lastChild
 						);
 					}
 				});
-				document.getElementById('btn-insert-content-above').addEventListener('click', function() {
-					var newContent = document.createElement('p');
+				document.getElementById('btn-insert-content-above').addEventListener('click', () => {
+					const newContent = document.createElement('p');
 					newContent.textContent = 'I love beer!';
 					document.body.querySelector('.content').appendChild(newContent);
 				});
-				document.getElementById('btn-remove-content-above').addEventListener('click', function() {
-					var content = document.body.querySelector('.content');
+				document.getElementById('btn-remove-content-above').addEventListener('click', () => {
+					const content = document.body.querySelector('.content');
 					if (content.lastChild) {
 						content.removeChild(content.lastChild);
 					}
 				});
-				document.getElementById('btn-make-more').addEventListener('click', function() {
+				document.getElementById('btn-make-more').addEventListener('click', () => {
 					appendButton();
 				});
 			});

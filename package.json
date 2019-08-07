@@ -6,41 +6,28 @@
   },
   "name": "d2l-button",
   "scripts": {
-    "build:sass": "node-sass --output-style expanded ./test/acceptance/button.css.scss ./test/acceptance/button.css",
-    "prelint": "npm run build:sass",
+    "build:sass": "node-sass --output-style expanded ./test/button.css.scss ./test/button.css",
     "lint": "npm run lint:js",
-    "lint:js": "eslint . --ext .js,.html test/**/*.js test/**/*.html demo/**/*.js demo/**/*.html",
-    "test:polymer:local": "polymer test --skip-plugin sauce",
-    "test:polymer:sauce": "polymer test --skip-plugin local",
-    "test": "npm run lint && npm run test:polymer:local"
+    "lint:js": "eslint . --ext .js,.html demo/**/*.html",
+    "test": "npm run lint && npm run build:sass"
   },
   "author": "D2L Corporation",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@webcomponents/webcomponentsjs": "^2.2.6",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^4.15.0",
-    "eslint-config-brightspace": "^0.4.1",
-    "eslint-plugin-html": "^4.0.1",
-    "frau-ci": "^1.33.2",
-    "node-sass": "^4.5.2",
-    "polymer-cli": "^1.9.5",
-    "sauce-connect-launcher": "^1.2.4",
-    "sauceconnect-runner": "git+https://github.com/Brightspace/sauceconnect-runner.git#v0.3.0",
-    "wct-browser-legacy": "^1.0.1"
+    "@webcomponents/webcomponentsjs": "^2",
+    "babel-eslint": "^10",
+    "eslint": "^6",
+    "eslint-config-brightspace": "^0.6",
+    "eslint-plugin-html": "^6",
+    "eslint-plugin-lit": "^1",
+    "eslint-plugin-sort-class-members": "^1",
+    "frau-ci": "^1",
+    "node-sass": "^4"
   },
   "version": "5.6.3",
-  "resolutions": {
-    "inherits": "2.0.3",
-    "samsam": "1.1.3",
-    "supports-color": "3.1.2",
-    "type-detect": "1.0.0"
-  },
   "main": "d2l-button.js",
   "dependencies": {
-    "@brightspace-ui/core": "^0.2",
-    "@polymer/iron-media-query": "^3.0.0",
-    "@polymer/polymer": "^3.0.0",
-    "d2l-polymer-behaviors": "Brightspace/d2l-polymer-behaviors-ui#semver:^2"
+    "@brightspace-ui/core": "^1",
+    "@polymer/polymer": "^3.0.0"
   }
 }
