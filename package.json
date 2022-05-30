@@ -4,28 +4,41 @@
     "type": "git",
     "url": "https://github.com/BrightspaceUI/button.git"
   },
-  "name": "d2l-button",
+  "name": "@brightspace-ui/button",
   "scripts": {
     "build:sass": "node-sass --output-style expanded ./test/button.css.scss ./test/button.css",
     "lint": "npm run lint:js",
     "lint:js": "eslint . --ext .js,.html demo/**/*.html",
+    "start": "web-dev-server --node-resolve --watch",
     "test": "npm run lint && npm run build:sass"
   },
   "author": "D2L Corporation",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@webcomponents/webcomponentsjs": "^2",
-    "babel-eslint": "^10",
-    "eslint": "^6",
-    "eslint-config-brightspace": "^0.6",
+    "@babel/eslint-parser": "^7",
+    "@web/dev-server": "^0.1",
+    "eslint": "^8",
+    "eslint-config-brightspace": "^0.16",
     "eslint-plugin-html": "^6",
+    "eslint-plugin-import": "^2",
     "eslint-plugin-lit": "^1",
     "eslint-plugin-sort-class-members": "^1",
-    "frau-ci": "^1",
-    "node-sass": "^4"
+    "node-sass": "^7"
   },
   "version": "6.0.0",
   "main": "d2l-button.js",
+  "files": [
+    "d2l-button-behavior.js",
+    "d2l-button-icon.js",
+    "d2l-button-shared-styles.js",
+    "d2l-button-subtle.js",
+    "d2l-button.js",
+    "d2l-button.scss",
+    "d2l-floating-buttons.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@brightspace-ui/core": "^2",
     "@polymer/polymer": "^3.0.0"
