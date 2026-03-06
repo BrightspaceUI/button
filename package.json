@@ -6,7 +6,7 @@
   },
   "name": "@brightspace-ui/button",
   "scripts": {
-    "build:sass": "node-sass --output-style expanded ./test/button.css.scss ./test/button.css",
+    "build:sass": "sass ./test/button.css.scss ./test/button.css --no-source-map",
     "lint": "npm run lint:js",
     "lint:js": "eslint . --ext .js,.html demo/**/*.html",
     "start": "web-dev-server --node-resolve --watch",
@@ -15,15 +15,10 @@
   "author": "D2L Corporation",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@babel/eslint-parser": "^7",
-    "@web/dev-server": "^0.1",
-    "eslint": "^8",
-    "eslint-config-brightspace": "^0.16",
-    "eslint-plugin-html": "^6",
-    "eslint-plugin-import": "^2",
-    "eslint-plugin-lit": "^1",
-    "eslint-plugin-sort-class-members": "^1",
-    "node-sass": "^7"
+    "@web/dev-server": "^0.4",
+    "eslint": "^9",
+    "eslint-config-brightspace": "^2",
+    "sass": "^1"
   },
   "version": "6.2.1",
   "main": "d2l-button.js",
