@@ -35,7 +35,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@brightspace-ui/core": "^2",
+    "@brightspace-ui/core": "^3",
     "@polymer/polymer": "^3.0.0"
   }
 }
