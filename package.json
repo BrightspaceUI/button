@@ -16,7 +16,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@web/dev-server": "^0.4",
-    "eslint": "^9",
+    "eslint": "^10",
     "eslint-config-brightspace": "^2",
     "sass": "^1"
   },
