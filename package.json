@@ -20,7 +20,7 @@
     "eslint-config-brightspace": "^2",
     "sass": "^1"
   },
-  "version": "6.2.1",
+  "version": "6.3.0",
   "main": "d2l-button.js",
   "files": [
     "d2l-button-behavior.js",
