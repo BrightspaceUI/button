@@ -1,0 +1,28 @@
+name: Update package-lock.json
+on:
+  schedule:
+    - cron: "30 12 * * 2" # Tue 8:30AM EDT. 7:30AM EST.
+  workflow_dispatch: # manual trigger
+jobs:
+  update:
+    name: Update
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Brightspace/third-party-actions@actions/checkout
+        with:
+          token: ${{ secrets.PR_GITHUB_TOKEN }}
+      - uses: Brightspace/setup-node@main
+        with:
+          node-version-file: .nvmrc
+          cache: 'npm'
+      - name: Update package-lock.json
+        uses: BrightspaceUI/actions/update-package-lock@main
+        with:
+          AUTO_MERGE_METHOD: squash
+          AUTO_MERGE_TOKEN: ${{ secrets.PR_GITHUB_TOKEN }}
+          APPROVAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PR_GITHUB_TOKEN }}
+          SLACK_CHANNEL_FAILURE: '#gaudi-dev-alerts'
+          SLACK_CHANNEL_STALE_PR: '#gaudi-dev-alerts'
+          SLACK_TOKEN: ${{ secrets.D2L_SLACK_TOKEN }}
