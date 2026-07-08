@@ -32,7 +32,8 @@
     "d2l-floating-buttons.js"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
     "@brightspace-ui/core": "^2",
