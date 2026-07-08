@@ -1,5 +1,4 @@
 @import 'node_modules/@brightspace-ui/core/components/colors/colors.scss';
-@import 'node_modules/@brightspace-ui/core/components/typography/typography.scss';
 
 @mixin _d2l-button-clear-focus() {
 	box-shadow: 0 0 0 4px rgba(0, 0, 0, 0);
@@ -94,7 +93,6 @@
 	font-family: inherit;
 	padding: 0.5rem 0.6rem;
 	position: relative;
-	@include d2l-label-text();
 	&::-moz-focus-inner {
 		border: 0;
 	}
@@ -135,7 +133,6 @@
 	@include _d2l-button-clear-focus();
 	font-family: inherit;
 	padding: 0.5rem 1.5rem;
-	@include d2l-label-text();
 	&::-moz-focus-inner {
 		border: 0;
 	}
