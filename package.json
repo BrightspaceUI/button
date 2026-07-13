@@ -18,7 +18,7 @@
     "eslint": "^9",
     "eslint-config-brightspace": "^4"
   },
-  "version": "6.4.0",
+  "version": "6.5.0",
   "main": "d2l-button.js",
   "files": [
     "d2l-button-behavior.js",
